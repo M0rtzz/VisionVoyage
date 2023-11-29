@@ -52,11 +52,11 @@ Left Menu */
 }
 #topLogo {
 	background-color: rgb(33, 37, 43);
-	background-image: url(:/images/images/images/PyDracula.png);
+	background-image: url(:/images/images/images/VisionVoyage.png);
 	background-position: centered;
 	background-repeat: no-repeat;
 }
-#titleLeftApp { font: 63 12pt "Segoe UI Semibold"; }
+#titleLeftApp { font: 11pt "Segoe UI Semibold"; }
 #titleLeftDescription { font: 8pt "Segoe UI"; color: rgb(189, 147, 249); }
 
 /* MENUS */

@@ -1,6 +1,6 @@
 <RCC>
   <qresource prefix="images">
-    <file>images/images/PyDracula.png</file>
+    <file>images/images/VisionVoyage.png</file>
     <file>images/images/VisionVoyage_vertical.png</file>
     <file>images/images/sensors.png</file>
     <file>images/images/fisheye_rgb.png</file>
