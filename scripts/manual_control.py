@@ -454,6 +454,7 @@ class KeyboardControl(object):
                     world.load_map_layer(unload=True)
                 elif event.key == K_b:
                     world.load_map_layer()
+                    # world.load_map_layer(carla.MapLayer.ALL)
                 elif event.key == K_h or (event.key == K_SLASH and pygame.key.get_mods() & KMOD_SHIFT):
                     world.hud.help.toggle()
                 elif event.key == K_TAB:

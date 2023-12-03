@@ -2500,6 +2500,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
                         </property>
+                        <property name="readOnly">
+                         <bool>true</bool>
+                        </property>
                        </widget>
                        <widget class="QTableWidget" name="tableWidget">
                         <property name="geometry">
