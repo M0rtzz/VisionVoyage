@@ -1,81 +1,27 @@
-# PyDracula - Modern GUI PySide6 / PyQt6
-# 
+# VisionVoyage repo
 
-> ## :gift: **//// DONATE ////**
-> ## 🔗 Donate (Gumroad): https://gum.co/mHsRC
-> This interface is free for any use, but if you are going to use it commercially, consider helping to maintain this project and others with a donation by Gumroado at the link above. This helps to keep this and other projects active.
+## created by IngenuityDrive
 
-> **Warning**: this project was created using PySide6 and Python 3.9, using previous versions can cause compatibility problems.
+### 公司职务
 
-# YouTube - Presentation And Tutorial
-Presentation and tutorial video with the main functions of the user interface.
-> 🔗 https://youtu.be/9DnaHg4M_AM
+| 姓名   | 专业 | 职位           | 主要职责                                                         |
+| ------ | ---- | -------------- | ---------------------------------------------------------------- |
+| 徐梓航 | 计科 | 经理兼技术开发 | 负责产品的研发工作，领导项目团队，人员分工，确保项目顺利完成     |
+| 郭顺   | 计科 | 秘书兼技术开发 | 配合产品研发工作，收集整理素材，起草报告，做好会议记录             |
+| 郑辰乐 | 软工 | 技术开发       | 配合产品研发工作，解决软件方面的难题，完成前端不同功能的实现     |
+| 李景尧 | 软工 | 技术开发       | 配合产品研发工作，负责前端设计工作，编写整理项目设计文档           |
+| 郭晓卿 | 软工 | 质量控制兼技术开发 | 配合产品研发工作，负责项目模块划分，制定进度计划和控制节点         |
+| 陈自豪 | 软工 | 质量控制兼技术开发 | 配合产品研发工作，负责项目模块划分，制定进度计划和控制节点         |
+| 华勇   | 计科 | 质量控制       | 负责项目模块划分，制定进度计划和控制节点以及产品的测试工作         |
+| 蔡从轩 | 软工 | 市场调研兼技术开发 | 配合产品研发工作，负责市场调研，分析和营销                         |
+| 赵柏茗 | 计科 | 市场调研       | 负责市场调研，分析和营销                                           |
+| 徐梦蝶 | 计科 | 财务           | 管理项目使用的经费和虚拟经费，监控财务使用情况并提供报告             |
+---
+<br>
+资源整合命令
 
-# Multiple Themes
-![PyDracula_Default_Dark](https://user-images.githubusercontent.com/60605512/112993874-0b647700-9140-11eb-8670-61322d70dbe3.png)
-![PyDracula_Light](https://user-images.githubusercontent.com/60605512/112993918-18816600-9140-11eb-837c-e7a7c3d2b05e.png)
-
-# High DPI
-> Qt Widgets is an old technology and does not have a good support for high DPI settings, making these images look distorted when your system has DPI applied above 100%.
-You can minimize this problem using a workaround by applying this code below in "main.py" just below the import of the Qt modules.
-```python
-# ADJUST QT FONT DPI FOR HIGHT SCALE
-# ///////////////////////////////////////////////////////////////
-from modules import *
-from widgets import *
-os.environ["QT_FONT_DPI"] = "96"
-```
-
-# Running
-> Inside your preferred terminal run the commands below depending on your system, remembering before installing Python 3.9> and PySide6 "pip install PySide6".
-> ## **Windows**:
-```console
-python main.py
-```
-> ## **MacOS and Linux**:
-```console
-python3 main.py
-```
-# Compiling
-> ## **Windows**:
-```console
-python setup.py build
-```
-
-# Project Files And Folders
-> **main.py**: application initialization file.
-
-> **main.ui**: Qt Designer project.
-
-> **resouces.qrc**: Qt Designer resoucers, add here your resources using Qt Designer. Use version 6 >
-
-> **setup.py**: cx-Freeze setup to compile your application (configured for Windows).
-
-> **themes/**: add here your themes (.qss).
-
-> **modules/**: module for running PyDracula GUI.
-
-> **modules/app_funtions.py**: add your application's functions here.
-Up
-> **modules/app_settings.py**: global variables to configure user interface.
-
-> **modules/resources_rc.py**: "resource.qrc" file compiled for python using the command: ```pyside6-rcc resources.qrc -o resources_rc.py```.
-
-> **modules/ui_functions.py**: add here only functions related to the user interface / GUI.
-
-> **modules/ui_main.py**: file related to the user interface exported by Qt Designer. You can compile it manually using the command: ```pyside6-uic main.ui> ui_main.py ```.
-After expoting in .py and change the line "import resources_rc" to "from. Resoucers_rc import *" to use as a module.
-
-> **images/**: put all your images and icons here before converting to Python (resources_re.py) ```pyside6-rcc resources.qrc -o resources_rc.py```.
-
-# Projects Created Using PyDracula
-**See the projects that were created using PyDracula.**
-> To participate create a "Issue" with the name beginning with "#pydracula_project", leaving the link of your project on Github, name of the creator and what is its functionality. Your project will be added and this list will be deleted from "Issue".
-**Malicious programs will not be added**!
-
-    Convert UI
-    pyside6-uic main.ui > ui_main.py
-    Convert QRC
-    pyside6-rcc resources.qrc -o resources_rc.py
-
-
+```bash
+Convert UI
+pyside6-uic main.ui > ui_main.py
+Convert QRC
+pyside6-rcc resources.qrc -o resources_rc.py
