@@ -278,7 +278,9 @@ class World(object):
 
 class KeyboardControl(object):
     def __init__(self, world):
-        world.hud.notification("Press 'H' or '?' for help.", seconds=4.0)
+        # TAG
+        # world.hud.notification("Press 'H' or '?' for help.", seconds=4.0)
+        world.hud.notification("Welcome to VisionVoyage.", seconds=4.0)
 
     def parse_events(self, world):
         for event in pygame.event.get():

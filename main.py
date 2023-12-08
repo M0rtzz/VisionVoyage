@@ -21,20 +21,15 @@ import platform
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from matplotlib.image import imread
-from PIL import Image
 import cv2
+
 # IMPORT / GUI AND MODULES AND WIDGETS
-# ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
-# envpath = '/home/m0rtzz/Program_Files/anaconda3/envs/py38/lib/python3.8/site-packages/cv2/qt/plugins/platforms/'
-# os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = envpath
-
 # SET AS GLOBAL WIDGETS
-# ///////////////////////////////////////////////////////////////
 widgets = None
 
 
@@ -45,43 +40,33 @@ class MainWindow(QMainWindow):
         self.filenames = set()
         self.fisheye_directory = 'images/my_images/fisheye_sensor'
         self.common_directory = 'images/my_images/other_sensors'
+
         # SET AS GLOBAL WIDGETS
-        # ///////////////////////////////////////////////////////////////
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
-        # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
         # Settings.ENABLE_CUSTOM_TITLE_BAR = False
 
         # APP NAME
-        # ///////////////////////////////////////////////////////////////
         title = "VisionVoyage - Modern GUI"
         # description = "VisionVoyage - 一款基于鱼眼相机与其他感知技术的自动驾驶仿真系统。"
+
         # # APPLY TEXTS
         self.setWindowTitle(title)
         # widgets.titleRightInfo.setText(description)
         self.ui.line_edit.textChanged.connect(self.handleLineEditChange)
 
         # TOGGLE MENU
-        # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
 
         # SET UI DEFINITIONS
-        # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
 
-        # Qtable_widget_get_image PARAMETERS
-        # ///////////////////////////////////////////////////////////////
-        # widgets.table_widget_get_image.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-
-        # BUTTONS CLICK
-        # ///////////////////////////////////////////////////////////////
-
-        # LEFT MENUS
+        # BUTTON
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.btn_image.clicked.connect(self.buttonClick)
@@ -96,6 +81,8 @@ class MainWindow(QMainWindow):
         widgets.btn_segmentation_video.clicked.connect(self.buttonClick)
         widgets.btn_get_fisheye.clicked.connect(self.buttonClick)
         widgets.btn_get_common.clicked.connect(self.buttonClick)
+        widgets.btn_raw_to_platte.clicked.connect(self.buttonClick)
+        widgets.btn_start_server.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -109,11 +96,9 @@ class MainWindow(QMainWindow):
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
         # SHOW APP
-        # ///////////////////////////////////////////////////////////////
         self.show()
 
         # SET CUSTOM THEME
-        # ///////////////////////////////////////////////////////////////
         use_custom_theme = True
         # theme_file = "./themes/py_dracula_light.qss"
         theme_file = "./themes/py_dracula_dark.qss"
@@ -127,14 +112,11 @@ class MainWindow(QMainWindow):
             AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
-        # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
-    # ///////////////////////////////////////////////////////////////
-
     def setTableFontColor(self, table_widget):
         row_count = table_widget.rowCount()
         column_count = table_widget.columnCount()
@@ -198,19 +180,16 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btn_name = btn.objectName()
 
-        # SHOW HOME PAGE
         if btn_name == "btn_home":
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW WIDGETS PAGE
         if btn_name == "btn_widgets":
             widgets.stackedWidget.setCurrentWidget(widgets.widgets)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW NEW PAGE
         if btn_name == "btn_image":
             widgets.stackedWidget.setCurrentWidget(widgets.image_page)  # SET PAGE
             UIFunctions.resetStyle(self, btn_name)  # RESET ANOTHERS BUTTONS SELECTED
@@ -254,6 +233,12 @@ class MainWindow(QMainWindow):
 
         if btn_name == "btn_segmentation_video":
             print("btn_segmentation_video clicked!")
+
+        if btn_name == "btn_raw_to_platte":
+            print("btn_raw_to_platte clicked!")
+
+        if btn_name == "btn_start_server":
+            print("btn_start_server clicked!")
 
         if btn_name == "btn_get_fisheye":
             print("btn_get_fisheye clicked!")
@@ -317,6 +302,7 @@ class MainWindow(QMainWindow):
                 widgets.btn_segmentation_video.setStyleSheet("color: #FFFFFF;")
                 widgets.btn_get_fisheye.setStyleSheet("color: #FFFFFF;")
                 widgets.btn_get_common.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_raw_to_platte.setStyleSheet("color: #FFFFFF;")
                 # widgets.table_widget_get_image.setStyleSheet("color: #FFFFFF;")
                 self.setTableFontColor(widgets.table_widget_get_image)
 
@@ -329,6 +315,7 @@ class MainWindow(QMainWindow):
                 widgets.btn_segmentation_video.setStyleSheet("color: #000000;")
                 widgets.btn_get_fisheye.setStyleSheet("color: #000000;")
                 widgets.btn_get_common.setStyleSheet("color: #000000;")
+                widgets.btn_raw_to_platte.setStyleSheet("color: #000000;")
                 # widgets.table_widget_get_image.setStyleSheet("color: #000000;")
                 self.setTableFontColor(widgets.table_widget_get_image)
             # LOAD AND APPLY STYLE
@@ -340,14 +327,12 @@ class MainWindow(QMainWindow):
         print(f'Button "{btn_name}" pressed!')
 
     # RESIZE EVENTS
-    # ///////////////////////////////////////////////////////////////
 
     def resizeEvent(self, event):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
-    # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()

@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
     QVBoxLayout, QWidget)
 import resources_rc
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1241,6 +1242,7 @@ class Ui_MainWindow(object):
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setGeometry(QRect(10, 0, 801, 31))
         self.lineEdit.setAlignment(Qt.AlignCenter)
+        self.lineEdit.setReadOnly(True)
         self.tableWidget = QTableWidget(self.simulation_page)
         if (self.tableWidget.columnCount() < 2):
             self.tableWidget.setColumnCount(2)
@@ -1415,13 +1417,13 @@ class Ui_MainWindow(object):
         self.widget_7.setGeometry(QRect(0, 209, 830, 331))
         self.widget_8 = QWidget(self.widget_7)
         self.widget_8.setObjectName(u"widget_8")
-        self.widget_8.setGeometry(QRect(-1, 9, 831, 51))
+        self.widget_8.setGeometry(QRect(0, 9, 828, 51))
         self.btn_get_fisheye = QPushButton(self.widget_8)
         self.btn_get_fisheye.setObjectName(u"btn_get_fisheye")
-        self.btn_get_fisheye.setGeometry(QRect(0, -1, 415, 51))
+        self.btn_get_fisheye.setGeometry(QRect(0, 0, 415, 50))
         self.btn_get_common = QPushButton(self.widget_8)
         self.btn_get_common.setObjectName(u"btn_get_common")
-        self.btn_get_common.setGeometry(QRect(415, 0, 414, 50))
+        self.btn_get_common.setGeometry(QRect(415, 0, 411, 50))
         self.table_widget_get_image = QTableWidget(self.widget_7)
         if (self.table_widget_get_image.columnCount() < 2):
             self.table_widget_get_image.setColumnCount(2)
@@ -1484,7 +1486,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem75 = QTableWidgetItem()
         self.table_widget_get_image.setItem(0, 1, __qtablewidgetitem75)
         self.table_widget_get_image.setObjectName(u"table_widget_get_image")
-        self.table_widget_get_image.setGeometry(QRect(-8, 50, 841, 510))
+        self.table_widget_get_image.setGeometry(QRect(-10, 100, 841, 231))
         sizePolicy3.setHeightForWidth(self.table_widget_get_image.sizePolicy().hasHeightForWidth())
         self.table_widget_get_image.setSizePolicy(sizePolicy3)
         palette1 = QPalette()
@@ -1526,6 +1528,7 @@ class Ui_MainWindow(object):
         self.table_widget_get_image.setFrameShape(QFrame.NoFrame)
         self.table_widget_get_image.setLineWidth(1)
         self.table_widget_get_image.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.table_widget_get_image.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.table_widget_get_image.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.table_widget_get_image.setAutoScroll(True)
         self.table_widget_get_image.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1545,6 +1548,9 @@ class Ui_MainWindow(object):
         self.table_widget_get_image.verticalHeader().setMinimumSectionSize(21)
         self.table_widget_get_image.verticalHeader().setHighlightSections(False)
         self.table_widget_get_image.verticalHeader().setStretchLastSection(True)
+        self.btn_raw_to_platte = QPushButton(self.widget_7)
+        self.btn_raw_to_platte.setObjectName(u"btn_raw_to_platte")
+        self.btn_raw_to_platte.setGeometry(QRect(0, 60, 826, 51))
 
         self.verticalLayout_20.addWidget(self.widget_5)
 
@@ -1690,7 +1696,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1782,69 +1788,69 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.table_widget_get_image_2.isSortingEnabled()
         self.table_widget_get_image_2.setSortingEnabled(False)
         ___qtablewidgetitem15 = self.table_widget_get_image_2.item(0, 0)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"W", None));
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"W/S", None));
         ___qtablewidgetitem16 = self.table_widget_get_image_2.item(0, 1)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"\u524d\u8fdb", None));
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"\u524d\u8fdb/\u5239\u8f66", None));
         ___qtablewidgetitem17 = self.table_widget_get_image_2.item(0, 2)
         ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"TAB", None));
         ___qtablewidgetitem18 = self.table_widget_get_image_2.item(0, 3)
         ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"\u6539\u53d8\u4f20\u611f\u5668\u4f4d\u7f6e", None));
         ___qtablewidgetitem19 = self.table_widget_get_image_2.item(1, 0)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"S", None));
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"A/D", None));
         ___qtablewidgetitem20 = self.table_widget_get_image_2.item(1, 1)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"\u5239\u8f66", None));
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"\u5de6/\u53f3\u8f6c\u5411", None));
         ___qtablewidgetitem21 = self.table_widget_get_image_2.item(1, 2)
         ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"N", None));
         ___qtablewidgetitem22 = self.table_widget_get_image_2.item(1, 3)
         ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"\u4e0b\u4e00\u4e2a\u4f20\u611f\u5668", None));
         ___qtablewidgetitem23 = self.table_widget_get_image_2.item(2, 0)
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"A/D", None));
+        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Space", None));
         ___qtablewidgetitem24 = self.table_widget_get_image_2.item(2, 1)
-        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u5de6/\u53f3\u8f6c\u5411", None));
+        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u624b\u5239", None));
         ___qtablewidgetitem25 = self.table_widget_get_image_2.item(2, 2)
         ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"F1", None));
         ___qtablewidgetitem26 = self.table_widget_get_image_2.item(2, 3)
         ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362HUD\u663e\u793a", None));
         ___qtablewidgetitem27 = self.table_widget_get_image_2.item(3, 0)
-        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"Space", None));
+        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"TAB", None));
         ___qtablewidgetitem28 = self.table_widget_get_image_2.item(3, 1)
-        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"\u624b\u5239", None));
+        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"\u6539\u53d8\u4f20\u611f\u5668\u4f4d\u7f6e", None));
         ___qtablewidgetitem29 = self.table_widget_get_image_2.item(3, 2)
         ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"R", None));
         ___qtablewidgetitem30 = self.table_widget_get_image_2.item(3, 3)
         ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"\u8bb0\u5f55\u56fe\u50cf\u5230\u78c1\u76d8", None));
         ___qtablewidgetitem31 = self.table_widget_get_image_2.item(4, 0)
-        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"TAB", None));
+        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"N", None));
         ___qtablewidgetitem32 = self.table_widget_get_image_2.item(4, 1)
-        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"\u6539\u53d8\u4f20\u611f\u5668\u4f4d\u7f6e", None));
+        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"\u4e0b\u4e00\u4e2a\u4f20\u611f\u5668", None));
         ___qtablewidgetitem33 = self.table_widget_get_image_2.item(4, 2)
         ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"ESC", None));
         ___qtablewidgetitem34 = self.table_widget_get_image_2.item(4, 3)
         ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"\u9000\u51fa", None));
         ___qtablewidgetitem35 = self.table_widget_get_image_2.item(5, 0)
-        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"N", None));
+        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"[1-9]", None));
         ___qtablewidgetitem36 = self.table_widget_get_image_2.item(5, 1)
-        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"\u4e0b\u4e00\u4e2a\u4f20\u611f\u5668", None));
+        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362\u81f3\u4f20\u611f\u5668[1-9]", None));
         ___qtablewidgetitem37 = self.table_widget_get_image_2.item(6, 0)
-        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"[1-9]", None));
+        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"F1", None));
         ___qtablewidgetitem38 = self.table_widget_get_image_2.item(6, 1)
-        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362\u81f3\u4f20\u611f\u5668[1-9]", None));
+        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362HUD\u663e\u793a", None));
         ___qtablewidgetitem39 = self.table_widget_get_image_2.item(7, 0)
-        ___qtablewidgetitem39.setText(QCoreApplication.translate("MainWindow", u"F1", None));
+        ___qtablewidgetitem39.setText(QCoreApplication.translate("MainWindow", u"R", None));
         ___qtablewidgetitem40 = self.table_widget_get_image_2.item(7, 1)
-        ___qtablewidgetitem40.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362HUD\u663e\u793a", None));
+        ___qtablewidgetitem40.setText(QCoreApplication.translate("MainWindow", u"\u8bb0\u5f55\u56fe\u50cf\u5230\u78c1\u76d8", None));
         ___qtablewidgetitem41 = self.table_widget_get_image_2.item(8, 0)
-        ___qtablewidgetitem41.setText(QCoreApplication.translate("MainWindow", u"R", None));
+        ___qtablewidgetitem41.setText(QCoreApplication.translate("MainWindow", u"C", None));
         ___qtablewidgetitem42 = self.table_widget_get_image_2.item(8, 1)
-        ___qtablewidgetitem42.setText(QCoreApplication.translate("MainWindow", u"\u8bb0\u5f55\u56fe\u50cf\u5230\u78c1\u76d8", None));
+        ___qtablewidgetitem42.setText(QCoreApplication.translate("MainWindow", u"\u6539\u53d8\u5929\u6c14", None));
         ___qtablewidgetitem43 = self.table_widget_get_image_2.item(9, 0)
-        ___qtablewidgetitem43.setText(QCoreApplication.translate("MainWindow", u"C", None));
+        ___qtablewidgetitem43.setText(QCoreApplication.translate("MainWindow", u"V", None));
         ___qtablewidgetitem44 = self.table_widget_get_image_2.item(9, 1)
-        ___qtablewidgetitem44.setText(QCoreApplication.translate("MainWindow", u"\u6539\u53d8\u5929\u6c14", None));
+        ___qtablewidgetitem44.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u56fe\u5c42", None));
         ___qtablewidgetitem45 = self.table_widget_get_image_2.item(10, 0)
-        ___qtablewidgetitem45.setText(QCoreApplication.translate("MainWindow", u"ESC", None));
+        ___qtablewidgetitem45.setText(QCoreApplication.translate("MainWindow", u"B/SHIFT+B", None));
         ___qtablewidgetitem46 = self.table_widget_get_image_2.item(10, 1)
-        ___qtablewidgetitem46.setText(QCoreApplication.translate("MainWindow", u"\u9000\u51fa", None));
+        ___qtablewidgetitem46.setText(QCoreApplication.translate("MainWindow", u"\u52a0\u8f7d/\u5378\u8f7d\u56fe\u5c42", None));
         self.table_widget_get_image_2.setSortingEnabled(__sortingEnabled)
 
         self.lineEdit.setText(QCoreApplication.translate("MainWindow", u"\u5feb\u6377\u952e\u64cd\u4f5c\u8bf4\u660e", None))
@@ -1922,10 +1928,11 @@ class Ui_MainWindow(object):
         self.table_widget_get_image.setSortingEnabled(False)
         self.table_widget_get_image.setSortingEnabled(__sortingEnabled1)
 
+        self.btn_raw_to_platte.setText(QCoreApplication.translate("MainWindow", u"\u8bed\u4e49\u5206\u5272\u539f\u59cb\u56fe\u50cf\u8f6c\u6362\u4e3aCityscapes\u8c03\u8272\u677f\u56fe\u50cf", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.4", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.5", None))
     # retranslateUi
 

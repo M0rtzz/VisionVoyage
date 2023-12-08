@@ -1271,7 +1271,7 @@ Button */
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QPushButton" name="btn_share">
+                 <widget class="QPushButton" name="btn_start_server">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -1299,10 +1299,10 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-share-boxed.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-link.png);</string>
                   </property>
                   <property name="text">
-                   <string>分享</string>
+                   <string>启动 VisionVoyage 服务器</string>
                   </property>
                  </widget>
                 </item>
@@ -1843,7 +1843,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <string notr="true">background: transparent;</string>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>3</number>
                       </property>
                       <widget class="QWidget" name="simulation_page">
                        <widget class="QTableWidget" name="table_widget_get_image_2">
@@ -2230,7 +2230,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </column>
                         <item row="0" column="0">
                          <property name="text">
-                          <string>W</string>
+                          <string>W/S</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2238,7 +2238,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="0" column="1">
                          <property name="text">
-                          <string>前进</string>
+                          <string>前进/刹车</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2262,7 +2262,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="1" column="0">
                          <property name="text">
-                          <string>S</string>
+                          <string>A/D</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2270,7 +2270,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="1" column="1">
                          <property name="text">
-                          <string>刹车</string>
+                          <string>左/右转向</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2294,7 +2294,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="2" column="0">
                          <property name="text">
-                          <string>A/D</string>
+                          <string>Space</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2302,7 +2302,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="2" column="1">
                          <property name="text">
-                          <string>左/右转向</string>
+                          <string>手刹</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2326,7 +2326,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="3" column="0">
                          <property name="text">
-                          <string>Space</string>
+                          <string>TAB</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2334,7 +2334,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="3" column="1">
                          <property name="text">
-                          <string>手刹</string>
+                          <string>改变传感器位置</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2358,7 +2358,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="4" column="0">
                          <property name="text">
-                          <string>TAB</string>
+                          <string>N</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2366,7 +2366,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="4" column="1">
                          <property name="text">
-                          <string>改变传感器位置</string>
+                          <string>下一个传感器</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2390,7 +2390,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="5" column="0">
                          <property name="text">
-                          <string>N</string>
+                          <string>[1-9]</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2398,7 +2398,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="5" column="1">
                          <property name="text">
-                          <string>下一个传感器</string>
+                          <string>切换至传感器[1-9]</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2406,7 +2406,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="6" column="0">
                          <property name="text">
-                          <string>[1-9]</string>
+                          <string>F1</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2414,7 +2414,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="6" column="1">
                          <property name="text">
-                          <string>切换至传感器[1-9]</string>
+                          <string>切换HUD显示</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2422,7 +2422,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="7" column="0">
                          <property name="text">
-                          <string>F1</string>
+                          <string>R</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2430,7 +2430,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="7" column="1">
                          <property name="text">
-                          <string>切换HUD显示</string>
+                          <string>记录图像到磁盘</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2438,7 +2438,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="8" column="0">
                          <property name="text">
-                          <string>R</string>
+                          <string>C</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2446,7 +2446,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="8" column="1">
                          <property name="text">
-                          <string>记录图像到磁盘</string>
+                          <string>改变天气</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2454,7 +2454,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="9" column="0">
                          <property name="text">
-                          <string>C</string>
+                          <string>V</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2462,7 +2462,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="9" column="1">
                          <property name="text">
-                          <string>改变天气</string>
+                          <string>选择图层</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2470,7 +2470,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="10" column="0">
                          <property name="text">
-                          <string>ESC</string>
+                          <string>B/SHIFT+B</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2478,7 +2478,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="10" column="1">
                          <property name="text">
-                          <string>退出</string>
+                          <string>加载/卸载图层</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -2950,9 +2950,9 @@ background-repeat: no-repeat;</string>
                            <widget class="QWidget" name="widget_8" native="true">
                             <property name="geometry">
                              <rect>
-                              <x>-1</x>
+                              <x>0</x>
                               <y>9</y>
-                              <width>831</width>
+                              <width>828</width>
                               <height>51</height>
                              </rect>
                             </property>
@@ -2960,9 +2960,9 @@ background-repeat: no-repeat;</string>
                              <property name="geometry">
                               <rect>
                                <x>0</x>
-                               <y>-1</y>
+                               <y>0</y>
                                <width>415</width>
-                               <height>51</height>
+                               <height>50</height>
                               </rect>
                              </property>
                              <property name="text">
@@ -2974,7 +2974,7 @@ background-repeat: no-repeat;</string>
                               <rect>
                                <x>415</x>
                                <y>0</y>
-                               <width>414</width>
+                               <width>411</width>
                                <height>50</height>
                               </rect>
                              </property>
@@ -2986,10 +2986,10 @@ background-repeat: no-repeat;</string>
                            <widget class="QTableWidget" name="table_widget_get_image">
                             <property name="geometry">
                              <rect>
-                              <x>-8</x>
-                              <y>50</y>
+                              <x>-10</x>
+                              <y>100</y>
                               <width>841</width>
-                              <height>510</height>
+                              <height>231</height>
                              </rect>
                             </property>
                             <property name="sizePolicy">
@@ -3214,6 +3214,9 @@ background-repeat: no-repeat;</string>
                             <property name="verticalScrollBarPolicy">
                              <enum>Qt::ScrollBarAlwaysOn</enum>
                             </property>
+                            <property name="horizontalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAlwaysOff</enum>
+                            </property>
                             <property name="sizeAdjustPolicy">
                              <enum>QAbstractScrollArea::AdjustToContents</enum>
                             </property>
@@ -3418,6 +3421,19 @@ background-repeat: no-repeat;</string>
                               <string/>
                              </property>
                             </item>
+                           </widget>
+                           <widget class="QPushButton" name="btn_raw_to_platte">
+                            <property name="geometry">
+                             <rect>
+                              <x>0</x>
+                              <y>60</y>
+                              <width>826</width>
+                              <height>51</height>
+                             </rect>
+                            </property>
+                            <property name="text">
+                             <string>语义分割原始图像转换为Cityscapes调色板图像</string>
+                            </property>
                            </widget>
                           </widget>
                          </widget>
@@ -3758,6 +3774,7 @@ background-repeat: no-repeat;</string>
   </widget>
  </widget>
  <resources>
+  <include location="resources.qrc"/>
   <include location="resources.qrc"/>
  </resources>
  <connections/>
