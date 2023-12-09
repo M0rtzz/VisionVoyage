@@ -1843,7 +1843,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <string notr="true">background: transparent;</string>
                       </property>
                       <property name="currentIndex">
-                       <number>2</number>
+                       <number>3</number>
                       </property>
                       <widget class="QWidget" name="simulation_page">
                        <widget class="QTableWidget" name="table_widget_operation_help">

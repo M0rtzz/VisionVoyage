@@ -926,6 +926,7 @@ def game_loop(args):
 
     pygame.init()
     pygame.font.init()
+    pygame.display.set_caption("自动驾驶")
     world = None
 
     try:

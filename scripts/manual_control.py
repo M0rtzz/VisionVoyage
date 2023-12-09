@@ -9,19 +9,18 @@
 # Allows controlling a vehicle with a keyboard. For a simpler and more
 # documented example, please take a look at tutorial.py.
 
-                            QMetaObject, QObject, QPoint, QRect,
-                            QSize, QTime, QUrl, Qt)
+# """
+# Welcome to CARLA manual control.
 
-                           QFont, QFontDatabase, QGradient, QIcon,
-                           QImage, QKeySequence, QLinearGradient, QPainter,
-                           QPalette, QPixmap, QRadialGradient, QTransform)
+# Use ARROWS or WASD keys for control.
+
+#     W            : throttle
 #     S            : brake
-                               QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-                               QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-                               QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
-                               QVBoxLayout, QWidget)
+#     A/D          : steer left/right
+#     Q            : toggle reverse
+#     Space        : hand-brake
+#     P            : toggle autopilot
 #     M            : toggle manual transmission
-
 #     ,/.          : gear up/down
 #     CTRL + W     : toggle constant velocity mode at 60 km/h
 
@@ -41,525 +40,524 @@
 #     T            : toggle vehicle's telemetry
 
 #     V            : Select next map layer (Shift+V reverse)
-                                      "\n"
-                                      "SET APP STYLESHEET - FULL STYLES HERE\n"
-                                      "DARK THEME - DRACULA COLOR BASED\n"
-                                      "\n"
-                                      "///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
-                                      "\n"
-                                      "QWidget{\n"
-                                      "	color: rgb(221, 221, 221);\n"
-                                      "	font: 10pt \"Segoe UI\";\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Tooltip */\n"
-                                      "QToolTip {\n"
-                                      "	color: #ffffff;\n"
-                                      "	background-color: rgba(33, 37, 43, 180);\n"
-                                      "	border: 1px solid rgb(44, 49, 58);\n"
-                                      "	background-image: none;\n"
-                                      "	background-position: left center;\n"
-                                      "    background-repeat: no-repeat;\n"
-                                      "	border: none;\n"
-                                      "	border-left: 2px solid rgb(255, 121, 198);\n"
-                                      "	text-align: left;\n"
-                                      "	padding-left: 8px;\n"
-                                      "	margin: 0px;\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Bg App */\n"
-                                      "#bgApp {	\n"
-                                      "	background"
-                                      "-color: rgb(40, 44, 52);\n"
-                                      "	border: 1px solid rgb(44, 49, 58);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Left Menu */\n"
-                                      "#leftMenuBg {	\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "}\n"
-                                      "#topLogo {\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "	background-image: url(:/images/images/images/VisionVoyage.png);\n"
-                                      "	background-position: centered;\n"
-                                      "	background-repeat: no-repeat;\n"
-                                      "}\n"
-                                      "#titleLeftApp { font: 8pt \"Segoe UI\"; }\n"
-                                      "#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); }\n"
-                                      "\n"
-                                      "/* MENUS */\n"
-                                      "#topMenu .QPushButton {	\n"
-                                      "	background-position: left center;\n"
-                                      "    background-repeat: no-repeat;\n"
-                                      "	border: none;\n"
-                                      "	border-left: 22px solid transparent;\n"
-                                      "	background-color: transparent;\n"
-                                      "	text-align: left;\n"
-                                      "	padding-left: 44px;\n"
-                                      "}\n"
-                                      "#topMenu .QPushButton:hover {\n"
-                                      "	background-color: rgb(40, 44, 52);\n"
-                                      "}\n"
-                                      "#topMenu .QPushButton:pressed {	\n"
-                                      "	background-color: rgb(189, 147, 24"
-                                      "9);\n"
-                                      "	color: rgb(255, 255, 255);\n"
-                                      "}\n"
-                                      "#bottomMenu .QPushButton {	\n"
-                                      "	background-position: left center;\n"
-                                      "    background-repeat: no-repeat;\n"
-                                      "	border: none;\n"
-                                      "	border-left: 20px solid transparent;\n"
-                                      "	background-color:transparent;\n"
-                                      "	text-align: left;\n"
-                                      "	padding-left: 44px;\n"
-                                      "}\n"
-                                      "#bottomMenu .QPushButton:hover {\n"
-                                      "	background-color: rgb(40, 44, 52);\n"
-                                      "}\n"
-                                      "#bottomMenu .QPushButton:pressed {	\n"
-                                      "	background-color: rgb(189, 147, 249);\n"
-                                      "	color: rgb(255, 255, 255);\n"
-                                      "}\n"
-                                      "#leftMenuFrame{\n"
-                                      "	border-top: 3px solid rgb(44, 49, 58);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* Toggle Button */\n"
-                                      "#toggleButton {\n"
-                                      "	background-position: left center;\n"
-                                      "    background-repeat: no-repeat;\n"
-                                      "	border: none;\n"
-                                      "	border-left: 20px solid transparent;\n"
-                                      "	background-color: rgb(37, 41, 48);\n"
-                                      "	text-align: left;\n"
-                                      "	padding-left: 44px;\n"
-                                      "	color: rgb(113, 126, 149);\n"
-                                      "}\n"
-                                      "#toggleButton:hover {\n"
-                                      "	background-color: rgb(40, 44, 52);\n"
-                                      "}\n"
-                                      "#toggleButton:pressed {\n"
-                                      "	background-color: rgb(189, 147, "
-                                      "249);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* Title Menu */\n"
-                                      "#titleRightInfo { padding-left: 10px; }\n"
-                                      "\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Extra Tab */\n"
-                                      "#extraLeftBox {	\n"
-                                      "	background-color: rgb(44, 49, 58);\n"
-                                      "}\n"
-                                      "#extraTopBg{	\n"
-                                      "	background-color: rgb(189, 147, 249)\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* Icon */\n"
-                                      "#extraIcon {\n"
-                                      "	background-position: center;\n"
-                                      "	background-repeat: no-repeat;\n"
-                                      "	\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* Label */\n"
-                                      "#extraLabel { color: rgb(255, 255, 255); }\n"
-                                      "\n"
-                                      "/* Btn Close */\n"
-                                      "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-                                      "#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-                                      "#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
-                                      "\n"
-                                      "/* Extra Content */\n"
-                                      "#extraContent{\n"
-                                      "	border-top: 3px solid rgb(40, 44, 52);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* Extra Top Menus */\n"
-                                      ""
-                                      "#extraTopMenu .QPushButton {\n"
-                                      "background-position: left center;\n"
-                                      "    background-repeat: no-repeat;\n"
-                                      "	border: none;\n"
-                                      "	border-left: 22px solid transparent;\n"
-                                      "	background-color:transparent;\n"
-                                      "	text-align: left;\n"
-                                      "	padding-left: 44px;\n"
-                                      "}\n"
-                                      "#extraTopMenu .QPushButton:hover {\n"
-                                      "	background-color: rgb(40, 44, 52);\n"
-                                      "}\n"
-                                      "#extraTopMenu .QPushButton:pressed {	\n"
-                                      "	background-color: rgb(189, 147, 249);\n"
-                                      "	color: rgb(255, 255, 255);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Content App */\n"
-                                      "#contentTopBg{	\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "}\n"
-                                      "#contentBottom{\n"
-                                      "	border-top: 3px solid rgb(44, 49, 58);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* Top Buttons */\n"
-                                      "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-                                      "#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
-                                      "#rightButtons .QPushButton:pressed { "
-                                      "background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
-                                      "\n"
-                                      "/* Theme Settings */\n"
-                                      "#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-                                      "#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }\n"
-                                      "\n"
-                                      "/* Bottom Bar */\n"
-                                      "#bottomBar { background-color: rgb(44, 49, 58); }\n"
-                                      "#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
-                                      "\n"
-                                      "/* CONTENT SETTINGS */\n"
-                                      "/* MENUS */\n"
-                                      "#contentSettings .QPushButton {	\n"
-                                      "	background-position: left center;\n"
-                                      "    background-repeat: no-repeat;\n"
-                                      "	border: none;\n"
-                                      "	border-left: 22px solid transparent;\n"
-                                      "	background-color:transparent;\n"
-                                      "	text-align: left;\n"
-                                      "	padding-left: 44px;\n"
-                                      "}\n"
-                                      "#contentSettings .QPushButton:hover {\n"
-                                      "	background-color: rgb(40, 44, 52);\n"
-                                      "}\n"
-                                      "#contentSettings .QPushButton:pressed {	\n"
-                                      "	background-color: rgb(189, 147, 249);\n"
-                                      "	color: rgb(255, 255, 255);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* ///////////////////////////////////////"
-                                      "//////////////////////////////////////////////////////////\n"
-                                      "QTableWidget */\n"
-                                      "QTableWidget {	\n"
-                                      "	background-color: transparent;\n"
-                                      "	padding: 10px;\n"
-                                      "	border-radius: 5px;\n"
-                                      "	gridline-color: rgb(44, 49, 58);\n"
-                                      "	border-bottom: 1px solid rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "QTableWidget::item{\n"
-                                      "	border-color: rgb(44, 49, 60);\n"
-                                      "	padding-left: 5px;\n"
-                                      "	padding-right: 5px;\n"
-                                      "	gridline-color: rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "QTableWidget::item:selected{\n"
-                                      "	background-color: rgb(189, 147, 249);\n"
-                                      "}\n"
-                                      "QHeaderView::section{\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "	max-width: 30px;\n"
-                                      "	border: 1px solid rgb(44, 49, 58);\n"
-                                      "	border-style: none;\n"
-                                      "    border-bottom: 1px solid rgb(44, 49, 60);\n"
-                                      "    border-right: 1px solid rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "QTableWidget::horizontalHeader {	\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "}\n"
-                                      "QHeaderView::section:horizontal\n"
-                                      "{\n"
-                                      "    border: 1px solid rgb(33, 37, 43);\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "	padding: 3px;\n"
-                                      "	border-top-left-radius: 7px;"
-                                      "\n"
-                                      "    border-top-right-radius: 7px;\n"
-                                      "}\n"
-                                      "QHeaderView::section:vertical\n"
-                                      "{\n"
-                                      "    border: 1px solid rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "LineEdit */\n"
-                                      "QLineEdit {\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "	border-radius: 5px;\n"
-                                      "	border: 2px solid rgb(33, 37, 43);\n"
-                                      "	padding-left: 10px;\n"
-                                      "	selection-color: rgb(255, 255, 255);\n"
-                                      "	selection-background-color: rgb(255, 121, 198);\n"
-                                      "}\n"
-                                      "QLineEdit:hover {\n"
-                                      "	border: 2px solid rgb(64, 71, 88);\n"
-                                      "}\n"
-                                      "QLineEdit:focus {\n"
-                                      "	border: 2px solid rgb(91, 101, 124);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "PlainTextEdit */\n"
-                                      "QPlainTextEdit {\n"
-                                      "	background-color: rgb(27, 29, 35);\n"
-                                      "	border-radius: 5px;\n"
-                                      "	padding: 10px;\n"
-                                      "	selection-color: rgb(255, 255, 255);\n"
-                                      "	selection-background-color: rgb(255, 121, 198);\n"
-                                      "}\n"
-                                      "QPlainTextEdit  QScrollBar:vertical {\n"
-                                      ""
-                                      "    width: 8px;\n"
-                                      " }\n"
-                                      "QPlainTextEdit  QScrollBar:horizontal {\n"
-                                      "    height: 8px;\n"
-                                      " }\n"
-                                      "QPlainTextEdit:hover {\n"
-                                      "	border: 2px solid rgb(64, 71, 88);\n"
-                                      "}\n"
-                                      "QPlainTextEdit:focus {\n"
-                                      "	border: 2px solid rgb(91, 101, 124);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "ScrollBars */\n"
-                                      "QScrollBar:horizontal {\n"
-                                      "    border: none;\n"
-                                      "    background: rgb(52, 59, 72);\n"
-                                      "    height: 8px;\n"
-                                      "    margin: 0px 21px 0 21px;\n"
-                                      "	border-radius: 0px;\n"
-                                      "}\n"
-                                      "QScrollBar::handle:horizontal {\n"
-                                      "    background: rgb(189, 147, 249);\n"
-                                      "    min-width: 25px;\n"
-                                      "	border-radius: 4px\n"
-                                      "}\n"
-                                      "QScrollBar::add-line:horizontal {\n"
-                                      "    border: none;\n"
-                                      "    background: rgb(55, 63, 77);\n"
-                                      "    width: 20px;\n"
-                                      "	border-top-right-radius: 4px;\n"
-                                      "    border-bottom-right-radius: 4px;\n"
-                                      "    subcontrol-position: right;\n"
-                                      "    subcontrol-origin: margin;\n"
-                                      "}\n"
-                                      "QScrollBar::sub-line:horizontal {\n"
-                                      "    border: none;\n"
-                                      "    background: "
-                                      "rgb(55, 63, 77);\n"
-                                      "    width: 20px;\n"
-                                      "	border-top-left-radius: 4px;\n"
-                                      "    border-bottom-left-radius: 4px;\n"
-                                      "    subcontrol-position: left;\n"
-                                      "    subcontrol-origin: margin;\n"
-                                      "}\n"
-                                      "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
-                                      "{\n"
-                                      "     background: none;\n"
-                                      "}\n"
-                                      "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
-                                      "{\n"
-                                      "     background: none;\n"
-                                      "}\n"
-                                      " QScrollBar:vertical {\n"
-                                      "	border: none;\n"
-                                      "    background: rgb(52, 59, 72);\n"
-                                      "    width: 8px;\n"
-                                      "    margin: 21px 0 21px 0;\n"
-                                      "	border-radius: 0px;\n"
-                                      " }\n"
-                                      " QScrollBar::handle:vertical {	\n"
-                                      "	background: rgb(189, 147, 249);\n"
-                                      "    min-height: 25px;\n"
-                                      "	border-radius: 4px\n"
-                                      " }\n"
-                                      " QScrollBar::add-line:vertical {\n"
-                                      "     border: none;\n"
-                                      "    background: rgb(55, 63, 77);\n"
-                                      "     height: 20px;\n"
-                                      "	border-bottom-left-radius: 4px;\n"
-                                      "    border-bottom-right-radius: 4px;\n"
-                                      "     subcontrol-position: bottom;\n"
-                                      "     subcontrol-origin: margin;\n"
-                                      " }\n"
-                                      " QScrollBar::sub-line:vertical {\n"
-                                      "	bo"
-                                      "rder: none;\n"
-                                      "    background: rgb(55, 63, 77);\n"
-                                      "     height: 20px;\n"
-                                      "	border-top-left-radius: 4px;\n"
-                                      "    border-top-right-radius: 4px;\n"
-                                      "     subcontrol-position: top;\n"
-                                      "     subcontrol-origin: margin;\n"
-                                      " }\n"
-                                      " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                      "     background: none;\n"
-                                      " }\n"
-                                      "\n"
-                                      " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                      "     background: none;\n"
-                                      " }\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "CheckBox */\n"
-                                      "QCheckBox::indicator {\n"
-                                      "    border: 3px solid rgb(52, 59, 72);\n"
-                                      "	width: 15px;\n"
-                                      "	height: 15px;\n"
-                                      "	border-radius: 10px;\n"
-                                      "    background: rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "QCheckBox::indicator:hover {\n"
-                                      "    border: 3px solid rgb(58, 66, 81);\n"
-                                      "}\n"
-                                      "QCheckBox::indicator:checked {\n"
-                                      "    background: 3px solid rgb(52, 59, 72);\n"
-                                      "	border: 3px solid rgb(52, 59, 72);	\n"
-                                      "	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/*"
-                                      " /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "RadioButton */\n"
-                                      "QRadioButton::indicator {\n"
-                                      "    border: 3px solid rgb(52, 59, 72);\n"
-                                      "	width: 15px;\n"
-                                      "	height: 15px;\n"
-                                      "	border-radius: 10px;\n"
-                                      "    background: rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "QRadioButton::indicator:hover {\n"
-                                      "    border: 3px solid rgb(58, 66, 81);\n"
-                                      "}\n"
-                                      "QRadioButton::indicator:checked {\n"
-                                      "    background: 3px solid rgb(94, 106, 130);\n"
-                                      "	border: 3px solid rgb(52, 59, 72);	\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "ComboBox */\n"
-                                      "QComboBox{\n"
-                                      "	background-color: rgb(27, 29, 35);\n"
-                                      "	border-radius: 5px;\n"
-                                      "	border: 2px solid rgb(33, 37, 43);\n"
-                                      "	padding: 5px;\n"
-                                      "	padding-left: 10px;\n"
-                                      "}\n"
-                                      "QComboBox:hover{\n"
-                                      "	border: 2px solid rgb(64, 71, 88);\n"
-                                      "}\n"
-                                      "QComboBox::drop-down {\n"
-                                      "	subcontrol-origin: padding;\n"
-                                      "	subcontrol-position: top right;\n"
-                                      "	width: 25px; \n"
-                                      "	border-left-width: 3px;\n"
-                                      ""
-                                      "	border-left-color: rgba(39, 44, 54, 150);\n"
-                                      "	border-left-style: solid;\n"
-                                      "	border-top-right-radius: 3px;\n"
-                                      "	border-bottom-right-radius: 3px;	\n"
-                                      "	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
-                                      "	background-position: center;\n"
-                                      "	background-repeat: no-reperat;\n"
-                                      " }\n"
-                                      "QComboBox QAbstractItemView {\n"
-                                      "	color: rgb(255, 121, 198);	\n"
-                                      "	background-color: rgb(33, 37, 43);\n"
-                                      "	padding: 10px;\n"
-                                      "	selection-background-color: rgb(39, 44, 54);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Sliders */\n"
-                                      "QSlider::groove:horizontal {\n"
-                                      "    border-radius: 5px;\n"
-                                      "    height: 10px;\n"
-                                      "	margin: 0px;\n"
-                                      "	background-color: rgb(52, 59, 72);\n"
-                                      "}\n"
-                                      "QSlider::groove:horizontal:hover {\n"
-                                      "	background-color: rgb(55, 62, 76);\n"
-                                      "}\n"
-                                      "QSlider::handle:horizontal {\n"
-                                      "    background-color: rgb(189, 147, 249);\n"
-                                      "    border: none;\n"
-                                      "    height: 10px;\n"
-                                      "    width: 10px;\n"
-                                      "    margin: 0px;\n"
-                                      "	border-radius: 5px;"
-                                      "\n"
-                                      "}\n"
-                                      "QSlider::handle:horizontal:hover {\n"
-                                      "    background-color: rgb(195, 155, 255);\n"
-                                      "}\n"
-                                      "QSlider::handle:horizontal:pressed {\n"
-                                      "    background-color: rgb(255, 121, 198);\n"
-                                      "}\n"
-                                      "\n"
-                                      "QSlider::groove:vertical {\n"
-                                      "    border-radius: 5px;\n"
-                                      "    width: 10px;\n"
-                                      "    margin: 0px;\n"
-                                      "	background-color: rgb(52, 59, 72);\n"
-                                      "}\n"
-                                      "QSlider::groove:vertical:hover {\n"
-                                      "	background-color: rgb(55, 62, 76);\n"
-                                      "}\n"
-                                      "QSlider::handle:vertical {\n"
-                                      "    background-color: rgb(189, 147, 249);\n"
-                                      "	border: none;\n"
-                                      "    height: 10px;\n"
-                                      "    width: 10px;\n"
-                                      "    margin: 0px;\n"
-                                      "	border-radius: 5px;\n"
-                                      "}\n"
-                                      "QSlider::handle:vertical:hover {\n"
-                                      "    background-color: rgb(195, 155, 255);\n"
-                                      "}\n"
-                                      "QSlider::handle:vertical:pressed {\n"
-                                      "    background-color: rgb(255, 121, 198);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "CommandLinkButton */\n"
-                                      "QCommandLinkButton {	\n"
-                                      "	color: rgb(255, 121, 198);\n"
-                                      "	border-radius: 5px;\n"
-                                      "	paddi"
-                                      "ng: 5px;\n"
-                                      "	color: rgb(255, 170, 255);\n"
-                                      "}\n"
-                                      "QCommandLinkButton:hover {	\n"
-                                      "	color: rgb(255, 170, 255);\n"
-                                      "	background-color: rgb(44, 49, 60);\n"
-                                      "}\n"
-                                      "QCommandLinkButton:pressed {	\n"
-                                      "	color: rgb(189, 147, 249);\n"
-                                      "	background-color: rgb(52, 58, 71);\n"
-                                      "}\n"
-                                      "\n"
-                                      "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-                                      "Button */\n"
-                                      "#pagesContainer QPushButton {\n"
-                                      "	border: 2px solid rgb(52, 59, 72);\n"
-                                      "	border-radius: 5px;	\n"
-                                      "	background-color: rgb(52, 59, 72);\n"
-                                      "}\n"
-                                      "#pagesContainer QPushButton:hover {\n"
-                                      "	background-color: rgb(57, 65, 80);\n"
-                                      "	border: 2px solid rgb(61, 70, 86);\n"
-                                      "}\n"
-                                      "#pagesContainer QPushButton:pressed {	\n"
-                                      "	background-color: rgb(35, 40, 49);\n"
-                                      "	border: 2px solid rgb(43, 50, 61);\n"
-                                      "}\n"
-                                      "\n"
-                                      "")
+#     B            : Load current selected map layer (Shift+B to unload)
+
+#     R            : toggle recording images to disk
+
+#     CTRL + R     : toggle recording of simulation (replacing any previous)
+#     CTRL + P     : start replaying last recorded simulation
+#     CTRL + +     : increments the start time of the replay by 1 second (+SHIFT = 10 seconds)
+#     CTRL + -     : decrements the start time of the replay by 1 second (+SHIFT = 10 seconds)
+
+#     F1           : toggle HUD
+#     H/?          : toggle help
+#     ESC          : quit
+# """
+
+
+"""
+    W            : 加速
+    S            : 刹车
+    A/D          : 左/右转向
+    Q            : 切换倒车
+    Space        : 手刹
+    P            : 切换自动驾驶
+    M            : 切换手动变速
+    ,/.          : 升/降档
+    CTRL + W     : 切换至60公里/小时的恒速模式
+    L            : 切换下一种灯光类型
+    SHIFT + L    : 切换远光灯
+    Z/X          : 开启/关闭右/左转向灯
+    I            : 开启/关闭车内灯光
+    TAB          : 改变传感器位置
+    ` 或 N       : 下一个传感器
+    [1-9]        : 切换至传感器[1-9]
+    G            : 切换雷达可视化
+    C            : 改变天气 (Shift+C 为逆序)
+    Backspace    : 更换车辆
+    O            : 打开/关闭车辆所有门
+    T            : 切换车辆遥测数据
+    V            : 选择下一个地图层 (Shift+V 为逆序)
+    B            : 载入当前选择的地图层 (Shift+B 为卸载)
+    R            : 切换记录图像到磁盘
+    CTRL + R     : 切换仿真记录 (替换之前的记录)
+    CTRL + P     : 开始重播上次记录的仿真
+    CTRL + +     : 将重放开始时间增加1秒 (+SHIFT = 增加10秒)
+    CTRL + -     : 将重放开始时间减少1秒 (+SHIFT = 减少10秒)
+    F1           : 切换HUD显示
+    H/?          : 切换帮助信息显示
+    ESC          : 退出
+"""
+
+
+from __future__ import print_function
+
+
+# ==============================================================================
+# -- find carla module ---------------------------------------------------------
+# ==============================================================================
+
+
+import glob
+import os
+import sys
+
+try:
+    sys.path.append(glob.glob('./dist/carla-*%d.%d-%s.egg' % (
+        sys.version_info.major,
+        sys.version_info.minor,
+        'win-amd64' if os.name == 'nt' else 'linux-x86_64'))[0])
+except IndexError:
+    pass
+
+
+# ==============================================================================
+# -- imports -------------------------------------------------------------------
+# ==============================================================================
+
+
+import carla
+import fnmatch
+from carla import ColorConverter as cc
+
+import argparse
+import collections
+import datetime
+import logging
+import math
+import random
+import re
+import weakref
+
+try:
+    import pygame
+    from pygame.locals import KMOD_CTRL
+    from pygame.locals import KMOD_SHIFT
+    from pygame.locals import K_0
+    from pygame.locals import K_9
+    from pygame.locals import K_BACKQUOTE
+    from pygame.locals import K_BACKSPACE
+    from pygame.locals import K_COMMA
+    from pygame.locals import K_DOWN
+    from pygame.locals import K_ESCAPE
+    from pygame.locals import K_F1
+    from pygame.locals import K_LEFT
+    from pygame.locals import K_PERIOD
+    from pygame.locals import K_RIGHT
+    from pygame.locals import K_SLASH
+    from pygame.locals import K_SPACE
+    from pygame.locals import K_TAB
+    from pygame.locals import K_UP
+    from pygame.locals import K_a
+    from pygame.locals import K_b
+    from pygame.locals import K_c
+    from pygame.locals import K_d
+    from pygame.locals import K_f
+    from pygame.locals import K_g
+    from pygame.locals import K_h
+    from pygame.locals import K_i
+    from pygame.locals import K_l
+    from pygame.locals import K_m
+    from pygame.locals import K_n
+    from pygame.locals import K_o
+    from pygame.locals import K_p
+    from pygame.locals import K_q
+    from pygame.locals import K_r
+    from pygame.locals import K_s
+    from pygame.locals import K_t
+    from pygame.locals import K_v
+    from pygame.locals import K_w
+    from pygame.locals import K_x
+    from pygame.locals import K_z
+    from pygame.locals import K_MINUS
+    from pygame.locals import K_EQUALS
+except ImportError:
+    raise RuntimeError('cannot import pygame, make sure pygame package is installed')
+
+try:
+    import numpy as np
+except ImportError:
+    raise RuntimeError('cannot import numpy, make sure numpy package is installed')
+
+
+# ==============================================================================
+# -- Global functions ----------------------------------------------------------
+# ==============================================================================
+
+
+def find_weather_presets():
+    rgx = re.compile('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)')
+    def name(x): return ' '.join(m.group(0) for m in rgx.finditer(x))
+    presets = [x for x in dir(carla.WeatherParameters) if re.match('[A-Z].+', x)]
+    return [(getattr(carla.WeatherParameters, x), name(x)) for x in presets]
+
+
+def get_actor_display_name(actor, truncate=250):
+    name = ' '.join(actor.type_id.replace('_', '.').title().split('.')[1:])
+    return (name[:truncate - 1] + u'\u2026') if len(name) > truncate else name
+
+
+def get_actor_blueprints(world, filter, generation):
+    bps = world.get_blueprint_library().filter(filter)
+
+    if generation.lower() == "all":
+        return bps
+
+    # If the filter returns only one bp, we assume that this one needed
+    # and therefore, we ignore the generation
+    if len(bps) == 1:
+        return bps
+
+    try:
+        int_generation = int(generation)
+        # Check if generation is in available generations
+        if int_generation in [1, 2]:
+            bps = [x for x in bps if int(x.get_attribute('generation')) == int_generation]
+            return bps
+        else:
+            print("   Warning! Actor Generation is not valid. No actor will be spawned.")
+            return []
+    except:
+        print("   Warning! Actor Generation is not valid. No actor will be spawned.")
+        return []
+
+
+# ==============================================================================
+# -- World ---------------------------------------------------------------------
+# ==============================================================================
+
+
+class World(object):
+    def __init__(self, carla_world, hud, args):
+        self.world = carla_world
+        self.sync = args.sync
+        self.actor_role_name = args.rolename
+        try:
+            self.map = self.world.get_map()
+        except RuntimeError as error:
+            print('RuntimeError: {}'.format(error))
+            print('  The server could not send the OpenDRIVE (.xodr) file:')
+            print('  Make sure it exists, has the same name of your town, and is correct.')
+            sys.exit(1)
+        self.hud = hud
+        self.player = None
+        self.collision_sensor = None
+        self.lane_invasion_sensor = None
+        self.gnss_sensor = None
+        self.imu_sensor = None
+        self.radar_sensor = None
+        self.camera_manager = None
+        self._weather_presets = find_weather_presets()
+        self._weather_index = 0
+        self._actor_filter = args.filter
+        self._actor_generation = args.generation
+        self._gamma = args.gamma
+        self.restart()
+        self.world.on_tick(hud.on_world_tick)
+        self.recording_enabled = False
+        self.recording_start = 0
+        self.constant_velocity_enabled = False
+        self.show_vehicle_telemetry = False
+        self.doors_are_open = False
+        self.current_map_layer = 0
+        self.map_layer_names = [
+            carla.MapLayer.NONE,
+            carla.MapLayer.Buildings,
+            carla.MapLayer.Decals,
+            carla.MapLayer.Foliage,
+            carla.MapLayer.Ground,
+            carla.MapLayer.ParkedVehicles,
+            carla.MapLayer.Particles,
+            carla.MapLayer.Props,
+            carla.MapLayer.StreetLights,
+            carla.MapLayer.Walls,
+            carla.MapLayer.All
+        ]
+
+    def restart(self):
+        self.player_max_speed = 1.589
+        self.player_max_speed_fast = 3.713
+        # Keep same camera config if the camera manager exists.
+        cam_index = self.camera_manager.index if self.camera_manager is not None else 0
+        cam_pos_index = self.camera_manager.transform_index if self.camera_manager is not None else 0
+        # Get a random blueprint.
+        blueprint = random.choice(get_actor_blueprints(self.world, self._actor_filter, self._actor_generation))
+        blueprint.set_attribute('role_name', self.actor_role_name)
+        if blueprint.has_attribute('terramechanics'):
+            blueprint.set_attribute('terramechanics', 'true')
+        if blueprint.has_attribute('color'):
+            color = random.choice(blueprint.get_attribute('color').recommended_values)
+            blueprint.set_attribute('color', color)
+        if blueprint.has_attribute('driver_id'):
+            driver_id = random.choice(blueprint.get_attribute('driver_id').recommended_values)
+            blueprint.set_attribute('driver_id', driver_id)
+        if blueprint.has_attribute('is_invincible'):
+            blueprint.set_attribute('is_invincible', 'true')
+        # set the max speed
+        if blueprint.has_attribute('speed'):
+            self.player_max_speed = float(blueprint.get_attribute('speed').recommended_values[1])
+            self.player_max_speed_fast = float(blueprint.get_attribute('speed').recommended_values[2])
+
+        # Spawn the player.
+        if self.player is not None:
+            spawn_point = self.player.get_transform()
+            spawn_point.location.z += 2.0
+            spawn_point.rotation.roll = 0.0
+            spawn_point.rotation.pitch = 0.0
+            self.destroy()
+            self.player = self.world.try_spawn_actor(blueprint, spawn_point)
+            self.show_vehicle_telemetry = False
+            self.modify_vehicle_physics(self.player)
+        while self.player is None:
+            if not self.map.get_spawn_points():
+                print('There are no spawn points available in your map/town.')
+                print('Please add some Vehicle Spawn Point to your UE4 scene.')
+                sys.exit(1)
+            spawn_points = self.map.get_spawn_points()
+            spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
+            self.player = self.world.try_spawn_actor(blueprint, spawn_point)
+            self.show_vehicle_telemetry = False
+            self.modify_vehicle_physics(self.player)
+        # Set up the sensors.
+        self.collision_sensor = CollisionSensor(self.player, self.hud)
+        self.lane_invasion_sensor = LaneInvasionSensor(self.player, self.hud)
+        self.gnss_sensor = GnssSensor(self.player)
+        self.imu_sensor = IMUSensor(self.player)
+        self.camera_manager = CameraManager(self.player, self.hud, self._gamma)
+        self.camera_manager.transform_index = cam_pos_index
+        self.camera_manager.set_sensor(cam_index, notify=False)
+        actor_type = get_actor_display_name(self.player)
+        self.hud.notification(actor_type)
+
+        if self.sync:
+            self.world.tick()
+        else:
+            self.world.wait_for_tick()
+
+    def next_weather(self, reverse=False):
+        self._weather_index += -1 if reverse else 1
+        self._weather_index %= len(self._weather_presets)
+        preset = self._weather_presets[self._weather_index]
+        self.hud.notification('Weather: %s' % preset[1])
+        self.player.get_world().set_weather(preset[0])
+
+    def next_map_layer(self, reverse=False):
+        self.current_map_layer += -1 if reverse else 1
+        self.current_map_layer %= len(self.map_layer_names)
+        selected = self.map_layer_names[self.current_map_layer]
+        self.hud.notification('LayerMap selected: %s' % selected)
+
+    def load_map_layer(self, unload=False):
+        selected = self.map_layer_names[self.current_map_layer]
+        if unload:
+            self.hud.notification('Unloading map layer: %s' % selected)
+            self.world.unload_map_layer(selected)
+        else:
+            self.hud.notification('Loading map layer: %s' % selected)
+            self.world.load_map_layer(selected)
+
+    def toggle_radar(self):
+        if self.radar_sensor is None:
+            self.radar_sensor = RadarSensor(self.player)
+        elif self.radar_sensor.sensor is not None:
+            self.radar_sensor.sensor.destroy()
+            self.radar_sensor = None
+
+    def modify_vehicle_physics(self, actor):
+        # If actor is not a vehicle, we cannot use the physics control
+        try:
+            physics_control = actor.get_physics_control()
+            physics_control.use_sweep_wheel_collision = True
+            actor.apply_physics_control(physics_control)
+        except Exception:
+            pass
+
+    def tick(self, clock):
+        self.hud.tick(self, clock)
+
+    def render(self, display):
+        self.camera_manager.render(display)
+        self.hud.render(display)
+
+    def destroy_sensors(self):
+        self.camera_manager.sensor.destroy()
+        self.camera_manager.sensor = None
+        self.camera_manager.index = None
+
+    def destroy(self):
+        if self.radar_sensor is not None:
+            self.toggle_radar()
+        sensors = [
+            self.camera_manager.sensor,
+            self.collision_sensor.sensor,
+            self.lane_invasion_sensor.sensor,
+            self.gnss_sensor.sensor,
+            self.imu_sensor.sensor]
+        for sensor in sensors:
+            if sensor is not None:
+                sensor.stop()
+                sensor.destroy()
+        if self.player is not None:
+            self.player.destroy()
+
+
+# ==============================================================================
+# -- KeyboardControl -----------------------------------------------------------
+# ==============================================================================
+
+
+class KeyboardControl(object):
+    """Class that handles keyboard input."""
+
+    def __init__(self, world, start_in_autopilot):
+        self._autopilot_enabled = start_in_autopilot
+        self._ackermann_enabled = False
+        self._ackermann_reverse = 1
+        if isinstance(world.player, carla.Vehicle):
+            self._control = carla.VehicleControl()
+            self._ackermann_control = carla.VehicleAckermannControl()
+            self._lights = carla.VehicleLightState.NONE
+            world.player.set_autopilot(self._autopilot_enabled)
+            world.player.set_light_state(self._lights)
+        elif isinstance(world.player, carla.Walker):
+            self._control = carla.WalkerControl()
+            self._autopilot_enabled = False
+            self._rotation = world.player.get_transform().rotation
+        else:
+            raise NotImplementedError("Actor type not supported")
+        self._steer_cache = 0.0
+        world.hud.notification("Press 'H' or '?' for help.", seconds=4.0)
+
+    def parse_events(self, client, world, clock, sync_mode):
+        if isinstance(self._control, carla.VehicleControl):
+            current_lights = self._lights
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return True
+            elif event.type == pygame.KEYUP:
+                if self._is_quit_shortcut(event.key):
+                    return True
+                elif event.key == K_BACKSPACE:
+                    if self._autopilot_enabled:
+                        world.player.set_autopilot(False)
+                        world.restart()
+                        world.player.set_autopilot(True)
+                    else:
+                        world.restart()
+                elif event.key == K_F1:
+                    world.hud.toggle_info()
+                elif event.key == K_v and pygame.key.get_mods() & KMOD_SHIFT:
+                    world.next_map_layer(reverse=True)
+                elif event.key == K_v:
+                    world.next_map_layer()
+                elif event.key == K_b and pygame.key.get_mods() & KMOD_SHIFT:
+                    world.load_map_layer(unload=True)
+                elif event.key == K_b:
+                    world.load_map_layer()
+                elif event.key == K_h or (event.key == K_SLASH and pygame.key.get_mods() & KMOD_SHIFT):
+                    world.hud.help.toggle()
+                elif event.key == K_TAB:
+                    world.camera_manager.toggle_camera()
+                elif event.key == K_c and pygame.key.get_mods() & KMOD_SHIFT:
+                    world.next_weather(reverse=True)
+                elif event.key == K_c:
+                    world.next_weather()
+                elif event.key == K_g:
+                    world.toggle_radar()
+                elif event.key == K_BACKQUOTE:
+                    world.camera_manager.next_sensor()
+                elif event.key == K_n:
+                    world.camera_manager.next_sensor()
+                elif event.key == K_w and (pygame.key.get_mods() & KMOD_CTRL):
+                    if world.constant_velocity_enabled:
+                        world.player.disable_constant_velocity()
+                        world.constant_velocity_enabled = False
+                        world.hud.notification("Disabled Constant Velocity Mode")
+                    else:
+                        world.player.enable_constant_velocity(carla.Vector3D(17, 0, 0))
+                        world.constant_velocity_enabled = True
+                        world.hud.notification("Enabled Constant Velocity Mode at 60 km/h")
+                elif event.key == K_o:
+                    try:
+                        if world.doors_are_open:
+                            world.hud.notification("Closing Doors")
+                            world.doors_are_open = False
+                            world.player.close_door(carla.VehicleDoor.All)
+                        else:
+                            world.hud.notification("Opening doors")
+                            world.doors_are_open = True
+                            world.player.open_door(carla.VehicleDoor.All)
+                    except Exception:
+                        pass
+                elif event.key == K_t:
+                    if world.show_vehicle_telemetry:
+                        world.player.show_debug_telemetry(False)
+                        world.show_vehicle_telemetry = False
+                        world.hud.notification("Disabled Vehicle Telemetry")
+                    else:
+                        try:
+                            world.player.show_debug_telemetry(True)
+                            world.show_vehicle_telemetry = True
+                            world.hud.notification("Enabled Vehicle Telemetry")
+                        except Exception:
+                            pass
+                elif event.key > K_0 and event.key <= K_9:
+                    index_ctrl = 0
+                    if pygame.key.get_mods() & KMOD_CTRL:
+                        index_ctrl = 9
+                    world.camera_manager.set_sensor(event.key - 1 - K_0 + index_ctrl)
+                elif event.key == K_r and not (pygame.key.get_mods() & KMOD_CTRL):
+                    world.camera_manager.toggle_recording()
+                elif event.key == K_r and (pygame.key.get_mods() & KMOD_CTRL):
+                    if (world.recording_enabled):
+                        client.stop_recorder()
+                        world.recording_enabled = False
+                        world.hud.notification("Recorder is OFF")
+                    else:
+                        client.start_recorder("manual_recording.rec")
+                        world.recording_enabled = True
+                        world.hud.notification("Recorder is ON")
+                elif event.key == K_p and (pygame.key.get_mods() & KMOD_CTRL):
+                    # stop recorder
+                    client.stop_recorder()
+                    world.recording_enabled = False
+                    # work around to fix camera at start of replaying
+                    current_index = world.camera_manager.index
+                    world.destroy_sensors()
+                    # disable autopilot
+                    self._autopilot_enabled = False
+                    world.player.set_autopilot(self._autopilot_enabled)
+                    world.hud.notification("Replaying file 'manual_recording.rec'")
+                    # replayer
+                    client.replay_file("manual_recording.rec", world.recording_start, 0, 0)
+                    world.camera_manager.set_sensor(current_index)
+                elif event.key == K_MINUS and (pygame.key.get_mods() & KMOD_CTRL):
+                    if pygame.key.get_mods() & KMOD_SHIFT:
+                        world.recording_start -= 10
+                    else:
+                        world.recording_start -= 1
+                    world.hud.notification("Recording start time is %d" % (world.recording_start))
+                elif event.key == K_EQUALS and (pygame.key.get_mods() & KMOD_CTRL):
+                    if pygame.key.get_mods() & KMOD_SHIFT:
+                        world.recording_start += 10
+                    else:
+                        world.recording_start += 1
+                    world.hud.notification("Recording start time is %d" % (world.recording_start))
+                if isinstance(self._control, carla.VehicleControl):
+                    if event.key == K_f:
+                        # Toggle ackermann controller
+                        self._ackermann_enabled = not self._ackermann_enabled
+                        world.hud.show_ackermann_info(self._ackermann_enabled)
+                        world.hud.notification("Ackermann Controller %s" %
+                                               ("Enabled" if self._ackermann_enabled else "Disabled"))
+                    if event.key == K_q:
+                        if not self._ackermann_enabled:
+                            self._control.gear = 1 if self._control.reverse else -1
+                        else:
+                            self._ackermann_reverse *= -1
+                            # Reset ackermann control
+                            self._ackermann_control = carla.VehicleAckermannControl()
+                    elif event.key == K_m:
                         self._control.manual_gear_shift = not self._control.manual_gear_shift
                         self._control.gear = world.player.get_control().gear
                         world.hud.notification('%s Transmission' %
@@ -605,13 +603,13 @@
                         current_lights ^= carla.VehicleLightState.RightBlinker
 
         if not self._autopilot_enabled:
-        self.titleLeftApp.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
+            if isinstance(self._control, carla.VehicleControl):
                 self._parse_vehicle_keys(pygame.key.get_pressed(), clock.get_time())
                 self._control.reverse = self._control.gear < 0
                 # Set automatic control-related vehicle lights
                 if self._control.brake:
                     current_lights |= carla.VehicleLightState.Brake
-        self.titleLeftDescription.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
+                else:  # Remove the Brake flag
                     current_lights &= ~carla.VehicleLightState.Brake
                 if self._control.reverse:
                     current_lights |= carla.VehicleLightState.Reverse
@@ -647,6 +645,7 @@
         if keys[K_DOWN] or keys[K_s]:
             if not self._ackermann_enabled:
                 self._control.brake = min(self._control.brake + 0.2, 1)
+            else:
                 self._ackermann_control.speed -= min(abs(self._ackermann_control.speed),
                                                      round(milliseconds * 0.005, 2)) * self._ackermann_reverse
                 self._ackermann_control.speed = max(0, abs(self._ackermann_control.speed)) * self._ackermann_reverse
@@ -705,6 +704,7 @@ class HUD(object):
     #     self.dim = (width, height)
     #     font = pygame.font.Font(pygame.font.get_default_font(), 20)
     #     font_name = 'courier' if os.name == 'nt' else 'mono'
+    #     fonts = [x for x in pygame.font.get_fonts() if font_name in x]
     #     default_font = 'ubuntumono'
     #     mono = default_font if default_font in fonts else fonts[0]
     #     mono = pygame.font.match_font(mono)
@@ -727,9 +727,12 @@ class HUD(object):
         font_path = '/home/m0rtzz/Workspaces/VisionVoyage/Project/fonts/simhei.ttf'
         font_size = 20
         font = pygame.font.Font(font_path, font_size)
+        # 创建一个FadingText对象，用于显示渐隐文本
         self._font_mono = pygame.font.Font(font_path, 12 if os.name == 'nt' else 14)
         self._notifications = FadingText(font, (width, 40), (0, height - 40))
+        # 创建一个HelpText对象，用于显示帮助文本
         help_font_size = 24
+        self.help = HelpText(pygame.font.Font(font_path, help_font_size), width, height)
         self.server_fps = 0
         self.frame = 0
         self.simulation_time = 0
@@ -786,7 +789,9 @@ class HUD(object):
             'Server:  % 16.0f FPS' % self.server_fps,
             'Client:  % 16.0f FPS' % clock.get_fps(),
             '',
+            # 'Vehicle: % 20s' % get_actor_display_name(world.player, truncate=20),
             # 'Map:     % 20s' % world.map.name.split('/')[-1],
+            '时长: % 12s' % datetime.timedelta(seconds=int(self.simulation_time)),
             # '',
             '速度:   % 15.0f km/h' % (3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2)),
             u'朝向:% 16.0f\N{DEGREE SIGN} % 2s' % (compass, heading),
@@ -842,6 +847,7 @@ class HUD(object):
                 vehicle_type = get_actor_display_name(vehicle, truncate=22)
                 # self._info_text.append('% 4dm %s' % (d, vehicle_type))
 
+    def show_ackermann_info(self, enabled):
         self._show_ackermann_info = enabled
 
     def update_ackermann_control(self, ackermann_control):
@@ -859,6 +865,7 @@ class HUD(object):
     def render(self, display):
         if self._show_info:
             info_surface = pygame.Surface((220, self.dim[1]))
+            info_surface.set_alpha(100)
             display.blit(info_surface, (0, 0))
             v_offset = 4
             bar_h_offset = 100
@@ -868,7 +875,9 @@ class HUD(object):
                     break
                 if isinstance(item, list):
                     if len(item) > 1:
+                        points = [(x + 8, v_offset + 8 + (1.0 - y) * 30) for x, y in enumerate(item)]
                         pygame.draw.lines(display, (255, 136, 0), False, points, 2)
+                    item = None
                     v_offset += 18
                 elif isinstance(item, tuple):
                     if isinstance(item[1], bool):
@@ -912,9 +921,10 @@ class FadingText(object):
         self.surface.fill((0, 0, 0, 0))
         self.surface.blit(text_texture, (10, 11))
 
-        self.titleRightInfo.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
+    def tick(self, _, clock):
         delta_seconds = 1e-3 * clock.get_time()
         self.seconds_left = max(0.0, self.seconds_left - delta_seconds)
+        self.surface.set_alpha(500.0 * self.seconds_left)
 
     def render(self, display):
         display.blit(self.surface, self.pos)
@@ -980,7 +990,9 @@ class CollisionSensor(object):
     def _on_collision(weak_self, event):
         self = weak_self()
         if not self:
+            return
         actor_type = get_actor_display_name(event.other_actor)
+        self.hud.notification('Collision with %r' % actor_type)
         impulse = event.normal_impulse
         intensity = math.sqrt(impulse.x**2 + impulse.y**2 + impulse.z**2)
         self.history.append((event.frame, intensity))
@@ -1021,7 +1033,7 @@ class LaneInvasionSensor(object):
 
 # ==============================================================================
 # -- GnssSensor ----------------------------------------------------------------
-        __qtablewidgetitem.setBackground(QColor(0, 0, 0))
+# ==============================================================================
 
 
 class GnssSensor(object):
@@ -1054,100 +1066,100 @@ class GnssSensor(object):
 
 class IMUSensor(object):
     def __init__(self, parent_actor):
-        __qtablewidgetitem15.setTextAlignment(Qt.AlignCenter)
+        self.sensor = None
         self._parent = parent_actor
         self.accelerometer = (0.0, 0.0, 0.0)
-        __qtablewidgetitem16.setTextAlignment(Qt.AlignCenter)
+        self.gyroscope = (0.0, 0.0, 0.0)
         self.compass = 0.0
         world = self._parent.get_world()
-        __qtablewidgetitem17.setTextAlignment(Qt.AlignCenter)
+        bp = world.get_blueprint_library().find('sensor.other.imu')
         self.sensor = world.spawn_actor(
             bp, carla.Transform(), attach_to=self._parent)
-        __qtablewidgetitem18.setTextAlignment(Qt.AlignCenter)
+        # We need to pass the lambda a weak reference to self to avoid circular
         # reference.
         weak_self = weakref.ref(self)
-        __qtablewidgetitem19.setTextAlignment(Qt.AlignCenter)
+        self.sensor.listen(
             lambda sensor_data: IMUSensor._IMU_callback(weak_self, sensor_data))
 
-        __qtablewidgetitem20.setTextAlignment(Qt.AlignCenter)
+    @staticmethod
     def _IMU_callback(weak_self, sensor_data):
         self = weak_self()
-        __qtablewidgetitem21.setTextAlignment(Qt.AlignCenter)
+        if not self:
             return
         limits = (-99.9, 99.9)
-        __qtablewidgetitem22.setTextAlignment(Qt.AlignCenter)
+        self.accelerometer = (
             max(limits[0], min(limits[1], sensor_data.accelerometer.x)),
             max(limits[0], min(limits[1], sensor_data.accelerometer.y)),
-        __qtablewidgetitem23.setTextAlignment(Qt.AlignCenter)
+            max(limits[0], min(limits[1], sensor_data.accelerometer.z)))
         self.gyroscope = (
             max(limits[0], min(limits[1], math.degrees(sensor_data.gyroscope.x))),
-        __qtablewidgetitem24.setTextAlignment(Qt.AlignCenter)
+            max(limits[0], min(limits[1], math.degrees(sensor_data.gyroscope.y))),
             max(limits[0], min(limits[1], math.degrees(sensor_data.gyroscope.z))))
         self.compass = math.degrees(sensor_data.compass)
-        __qtablewidgetitem25.setTextAlignment(Qt.AlignCenter)
+
 
 # ==============================================================================
-        __qtablewidgetitem26.setTextAlignment(Qt.AlignCenter)
+# -- RadarSensor ---------------------------------------------------------------
 # ==============================================================================
 
-        __qtablewidgetitem27.setTextAlignment(Qt.AlignCenter)
+
 class RadarSensor(object):
     def __init__(self, parent_actor):
-        __qtablewidgetitem28.setTextAlignment(Qt.AlignCenter)
+        self.sensor = None
         self._parent = parent_actor
         bound_x = 0.5 + self._parent.bounding_box.extent.x
-        __qtablewidgetitem29.setTextAlignment(Qt.AlignCenter)
+        bound_y = 0.5 + self._parent.bounding_box.extent.y
         bound_z = 0.5 + self._parent.bounding_box.extent.z
 
-        __qtablewidgetitem30.setTextAlignment(Qt.AlignCenter)
+        self.velocity_range = 7.5  # m/s
         world = self._parent.get_world()
         self.debug = world.debug
-        __qtablewidgetitem31.setTextAlignment(Qt.AlignCenter)
+        bp = world.get_blueprint_library().find('sensor.other.radar')
         bp.set_attribute('horizontal_fov', str(35))
         bp.set_attribute('vertical_fov', str(20))
-        __qtablewidgetitem32.setTextAlignment(Qt.AlignCenter)
+        self.sensor = world.spawn_actor(
             bp,
             carla.Transform(
-        __qtablewidgetitem33.setTextAlignment(Qt.AlignCenter)
+                carla.Location(x=bound_x + 0.05, z=bound_z+0.05),
                 carla.Rotation(pitch=5)),
             attach_to=self._parent)
-        __qtablewidgetitem34.setTextAlignment(Qt.AlignCenter)
+        # We need a weak reference to self to avoid circular reference.
         weak_self = weakref.ref(self)
         self.sensor.listen(
-        __qtablewidgetitem35.setTextAlignment(Qt.AlignCenter)
+            lambda radar_data: RadarSensor._Radar_callback(weak_self, radar_data))
 
     @staticmethod
-        __qtablewidgetitem36.setTextAlignment(Qt.AlignCenter)
+    def _Radar_callback(weak_self, radar_data):
         self = weak_self()
         if not self:
-        __qtablewidgetitem37.setTextAlignment(Qt.AlignCenter)
+            return
         # To get a numpy [[vel, altitude, azimuth, depth],...[,,,]]:
         # points = np.frombuffer(radar_data.raw_data, dtype=np.dtype('f4'))
-        __qtablewidgetitem38.setTextAlignment(Qt.AlignCenter)
+        # points = np.reshape(points, (len(radar_data), 4))
 
         current_rot = radar_data.transform.rotation
-        __qtablewidgetitem39.setTextAlignment(Qt.AlignCenter)
+        for detect in radar_data:
             azi = math.degrees(detect.azimuth)
             alt = math.degrees(detect.altitude)
-        __qtablewidgetitem40.setTextAlignment(Qt.AlignCenter)
+            # The 0.25 adjusts a bit the distance so the dots can
             # be properly seen
             fw_vec = carla.Vector3D(x=detect.depth - 0.25)
-        __qtablewidgetitem41.setTextAlignment(Qt.AlignCenter)
+            carla.Transform(
                 carla.Location(),
                 carla.Rotation(
-        __qtablewidgetitem42.setTextAlignment(Qt.AlignCenter)
+                    pitch=current_rot.pitch + alt,
                     yaw=current_rot.yaw + azi,
                     roll=current_rot.roll)).transform(fw_vec)
-        __qtablewidgetitem43.setTextAlignment(Qt.AlignCenter)
+
             def clamp(min_v, max_v, value):
                 return max(min_v, min(value, max_v))
-        __qtablewidgetitem44.setTextAlignment(Qt.AlignCenter)
+
             norm_velocity = detect.velocity / self.velocity_range  # range [-1, 1]
             r = int(clamp(0.0, 1.0, 1.0 - norm_velocity) * 255.0)
-        __qtablewidgetitem45.setTextAlignment(Qt.AlignCenter)
+            g = int(clamp(0.0, 1.0, 1.0 - abs(norm_velocity)) * 255.0)
             b = int(abs(clamp(- 1.0, 0.0, - 1.0 - norm_velocity)) * 255.0)
             self.debug.draw_point(
-        __qtablewidgetitem46.setTextAlignment(Qt.AlignCenter)
+                radar_data.transform.location + fw_vec,
                 size=0.075,
                 life_time=0.06,
                 persistent_lines=False,
@@ -1257,8 +1269,8 @@ class CameraManager(object):
                     bp.set_attribute('gamma', str(gamma_correction))
                 # for attr_name, attr_value in item[3].items():
                 #     bp.set_attribute(attr_name, attr_value)
-                                "background-position: center;\n"
-                                "background-repeat: no-repeat;")
+            elif item[0].startswith('sensor.lidar'):
+                # elif item[0] == 'sensor.lidar':
                 self.lidar_range = 50
 
                 for attr_name, attr_value in item[3].items():
@@ -1305,9 +1317,10 @@ class CameraManager(object):
         if self.surface is not None:
             display.blit(self.surface, (0, 0))
 
-        self.labelBoxBlenderInstalation.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
+    @staticmethod
     def _parse_image(weak_self, image):
         self = weak_self()
+        if not self:
             return
         if self.sensors[self.index][0].startswith('sensor.lidar'):
             # if self.sensors[self.index][0] == 'sensor.lidar':
@@ -1339,9 +1352,12 @@ class CameraManager(object):
             array = np.frombuffer(image.raw_data, dtype=np.dtype("uint8"))
             array = np.reshape(array, (image.height, image.width, 4))
             array = array[:, :, :3]
+            array = array[:, :, ::-1]
             self.surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
         else:
+            image.convert(self.sensors[self.index][1])
             array = np.frombuffer(image.raw_data, dtype=np.dtype("uint8"))
+            array = np.reshape(array, (image.height, image.width, 4))
             array = array[:, :, :3]
             array = array[:, :, ::-1]
             self.surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
@@ -1357,6 +1373,7 @@ class CameraManager(object):
 def game_loop(args):
     pygame.init()
     pygame.font.init()
+    pygame.display.set_caption("虚拟驾驶")
     world = None
     original_settings = None
 
@@ -1368,7 +1385,9 @@ def game_loop(args):
         if args.sync:
             original_settings = sim_world.get_settings()
             settings = sim_world.get_settings()
+            if not settings.synchronous_mode:
                 settings.synchronous_mode = True
+                settings.fixed_delta_seconds = 0.05
             sim_world.apply_settings(settings)
 
             traffic_manager = client.get_trafficmanager()
@@ -1408,14 +1427,14 @@ def game_loop(args):
 
         if original_settings:
             sim_world.apply_settings(original_settings)
-        __qtablewidgetitem49.setBackground(QColor(0, 0, 0))
+
         if (world and world.recording_enabled):
             client.stop_recorder()
 
         if world is not None:
             world.destroy()
 
-        __qtablewidgetitem51.setFont(font)
+        pygame.quit()
 
 
 # ==============================================================================
@@ -1497,120 +1516,3 @@ def main():
 if __name__ == '__main__':
 
     main()
-        self.creditsLabel.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
-        self.version.setAlignment(Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
-                                                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-                                                         "p, li { white-space: pre-wrap; }\n"
-                                                         "hr { height: 1px; border-width: 0; }\n"
-                                                         "li.unchecked::marker { content: \"\\2610\"; }\n"
-                                                         "li.checked::marker { content: \"\\2612\"; }\n"
-                                                         "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">VisionVoyage</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">\u4e00\u6b3e\u57fa\u4e8e\u9c7c\u773c\u76f8\u673a\u4e0e\u5176\u4ed6\u611f\u77e5\u6280\u672f\u7684\u81ea\u52a8\u9a7e\u9a76"
-                                                         "\u4eff\u771f\u7cfb\u7edf\u3002</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">MIT License</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Ingenuity Drive</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">\u4e2a\u6027\u5316\u5b9a\u5236</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">\u60a8\u53ef\u4ee5\u901a\u8fc7\u4e0b\u65b9\u201c\u8054\u7cfb\u6211\u4eec\u201d\u6765\u5411\u6211"
-                                                         "\u53f8\u5546\u8ba8\u4e2a\u6027\u5316\u5b9a\u5236\u65b9\u6848\uff0c\u6211\u53f8\u4f1a\u5b9a\u5236\u60a8\u6240\u9700\u7684\u4eff\u771f\u5730\u56fe\u548c\u8f66\u8f86\u6a21\u578b\u4ee5\u53ca\u63d0\u4f9b\u4e13\u4e1a\u7684\u6280\u672f\u652f\u6301\uff0c\u4f7f\u60a8\u83b7\u5f97\u72ec\u7279\u7684\u81ea\u52a8\u9a7e\u9a76\u4eff\u771f\u4f53\u9a8c\u3002</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">\u8054\u7cfb\u6211\u4eec</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">M0rtzz E-mail : m0rtzz@163.com</span></p></body></html>", None))
-        self.titleRightInfo.setText(QCoreApplication.translate(
-            "MainWindow", u"<html><head/><body><p><span style=\" font-weight:700;\">VisionVoyage Client</span></p></body></html>", None))
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"\u6309\u952e", None))
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"\u4f5c\u7528", None))
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"\u6309\u952e", None))
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"\u4f5c\u7528", None))
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"W/S", None))
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"\u524d\u8fdb/\u5239\u8f66", None))
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"TAB", None))
-        ___qtablewidgetitem18.setText(QCoreApplication.translate(
-            "MainWindow", u"\u6539\u53d8\u4f20\u611f\u5668\u4f4d\u7f6e", None))
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"A/D", None))
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"\u5de6/\u53f3\u8f6c\u5411", None))
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"N", None))
-        ___qtablewidgetitem22.setText(QCoreApplication.translate(
-            "MainWindow", u"\u4e0b\u4e00\u4e2a\u4f20\u611f\u5668", None))
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Space", None))
-        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u624b\u5239", None))
-        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"F1", None))
-        ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362HUD\u663e\u793a", None))
-        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"TAB", None))
-        ___qtablewidgetitem28.setText(QCoreApplication.translate(
-            "MainWindow", u"\u6539\u53d8\u4f20\u611f\u5668\u4f4d\u7f6e", None))
-        ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"R", None))
-        ___qtablewidgetitem30.setText(QCoreApplication.translate(
-            "MainWindow", u"\u8bb0\u5f55\u56fe\u50cf\u5230\u78c1\u76d8", None))
-        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"N", None))
-        ___qtablewidgetitem32.setText(QCoreApplication.translate(
-            "MainWindow", u"\u4e0b\u4e00\u4e2a\u4f20\u611f\u5668", None))
-        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"ESC", None))
-        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"\u9000\u51fa", None))
-        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"[1-9]", None))
-        ___qtablewidgetitem36.setText(QCoreApplication.translate(
-            "MainWindow", u"\u5207\u6362\u81f3\u4f20\u611f\u5668[1-9]", None))
-        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"F1", None))
-        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362HUD\u663e\u793a", None))
-        ___qtablewidgetitem39.setText(QCoreApplication.translate("MainWindow", u"R", None))
-        ___qtablewidgetitem40.setText(QCoreApplication.translate(
-            "MainWindow", u"\u8bb0\u5f55\u56fe\u50cf\u5230\u78c1\u76d8", None))
-        ___qtablewidgetitem41.setText(QCoreApplication.translate("MainWindow", u"C", None))
-        ___qtablewidgetitem42.setText(QCoreApplication.translate("MainWindow", u"\u6539\u53d8\u5929\u6c14", None))
-        ___qtablewidgetitem43.setText(QCoreApplication.translate("MainWindow", u"V", None))
-        ___qtablewidgetitem44.setText(QCoreApplication.translate("MainWindow", u"\u9009\u62e9\u56fe\u5c42", None))
-        ___qtablewidgetitem45.setText(QCoreApplication.translate("MainWindow", u"B/SHIFT+B", None))
-        ___qtablewidgetitem46.setText(QCoreApplication.translate(
-            "MainWindow", u"\u52a0\u8f7d/\u5378\u8f7d\u56fe\u5c42", None))
-        self.lineEdit.setText(QCoreApplication.translate(
-            "MainWindow", u"\u5feb\u6377\u952e\u64cd\u4f5c\u8bf4\u660e", None))
-        ___qtablewidgetitem47.setText(QCoreApplication.translate("MainWindow", u"\u865a\u62df\u9a7e\u9a76", None))
-        ___qtablewidgetitem48.setText(QCoreApplication.translate("MainWindow", u"\u81ea\u52a8\u9a7e\u9a76", None))
-        self.btn_fisheye_one2one.setText(QCoreApplication.translate(
-            "MainWindow", u"\u666e\u901a\u56fe\u50cf\u8f6c\u9c7c\u773c\u56fe\u50cf", None))
-        self.btn_fisheye_five2one.setText(QCoreApplication.translate(
-            "MainWindow", u"\u591a\u5f20\u666e\u901a\u56fe\u50cf\u62fc\u63a5\u9c7c\u773c\u56fe\u50cf", None))
-        self.btn_segmentation_image.setText(QCoreApplication.translate(
-            "MainWindow", u"\u4e0a\u4f20\u56fe\u50cf\u8fdb\u884c\u5206\u5272", None))
-        self.btn_segmentation_video.setText(QCoreApplication.translate(
-            "MainWindow", u"\u4e0a\u4f20\u89c6\u9891\u8fdb\u884c\u5b9e\u65f6\u5206\u5272", None))
-        self.btn_get_fisheye.setText(QCoreApplication.translate(
-            "MainWindow", u"\u83b7\u53d6\u9c7c\u773c\u56fe\u50cf", None))
-        self.btn_get_common.setText(QCoreApplication.translate(
-            "MainWindow", u"\u83b7\u53d6\u5176\u4ed6\u975e\u7578\u53d8\u4f20\u611f\u5668\u56fe\u50cf", None))
-        ___qtablewidgetitem49.setText(QCoreApplication.translate("MainWindow", u"\u9c7c\u773c\u56fe\u50cf", None))
-        ___qtablewidgetitem50.setText(QCoreApplication.translate(
-            "MainWindow", u"\u5176\u4ed6\u975e\u7578\u53d8\u4f20\u611f\u5668\u56fe\u50cf", None))
-        ___qtablewidgetitem51.setText(QCoreApplication.translate("MainWindow", u"New Row", None))
-        ___qtablewidgetitem52.setText(QCoreApplication.translate("MainWindow", u"New Row", None))
-        ___qtablewidgetitem53.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem54.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem55.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem56.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem57.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem58.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem59.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem60.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem61.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem62.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem63.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem64.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem65.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem66.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem67.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem68.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem69.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem70.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem71.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem72.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
-        ___qtablewidgetitem73.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u5efa\u884c", None))
