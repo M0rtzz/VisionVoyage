@@ -1843,10 +1843,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <string notr="true">background: transparent;</string>
                       </property>
                       <property name="currentIndex">
-                       <number>3</number>
+                       <number>2</number>
                       </property>
                       <widget class="QWidget" name="simulation_page">
-                       <widget class="QTableWidget" name="table_widget_get_image_2">
+                       <widget class="QTableWidget" name="table_widget_operation_help">
                         <property name="geometry">
                          <rect>
                           <x>0</x>
@@ -2485,7 +2485,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                          </property>
                         </item>
                        </widget>
-                       <widget class="QLineEdit" name="lineEdit">
+                       <widget class="QLineEdit" name="line_edit_operation_help">
                         <property name="geometry">
                          <rect>
                           <x>10</x>
@@ -2542,7 +2542,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           <height>60</height>
                          </rect>
                         </property>
-                        <widget class="QPushButton" name="pushButton">
+                        <widget class="QPushButton" name="btn_generate_traffic">
                          <property name="geometry">
                           <rect>
                            <x>0</x>
@@ -2555,7 +2555,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           <string>交通初始化</string>
                          </property>
                         </widget>
-                        <widget class="QPushButton" name="pushButton_2">
+                        <widget class="QPushButton" name="btn_manual_control">
                          <property name="geometry">
                           <rect>
                            <x>267</x>
@@ -2568,7 +2568,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           <string>虚拟驾驶</string>
                          </property>
                         </widget>
-                        <widget class="QPushButton" name="pushButton_3">
+                        <widget class="QPushButton" name="btn_automatic_control">
                          <property name="geometry">
                           <rect>
                            <x>534</x>
@@ -2776,7 +2776,7 @@ background-repeat: no-repeat;</string>
                                        </widget>
                                       </item>
                                       <item row="0" column="0">
-                                       <widget class="QLineEdit" name="line_edit">
+                                       <widget class="QLineEdit" name="line_edit_filenames">
                                         <property name="minimumSize">
                                          <size>
                                           <width>0</width>

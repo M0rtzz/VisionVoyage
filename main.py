@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.dark_theme_enabled = True
         self.filenames = set()
-        self.fisheye_directory = 'images/my_images/fisheye_sensor'
+        self.fisheye_directory = 'images/my_images/fisheye_dataset'
         self.common_directory = 'images/my_images/other_sensors'
 
         # SET AS GLOBAL WIDGETS
@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):
         # # APPLY TEXTS
         self.setWindowTitle(title)
         # widgets.titleRightInfo.setText(description)
-        self.ui.line_edit.textChanged.connect(self.handleLineEditChange)
+        self.ui.line_edit_filenames.textChanged.connect(self.handleLineEditChange)
 
         # TOGGLE MENU
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -83,6 +83,9 @@ class MainWindow(QMainWindow):
         widgets.btn_get_common.clicked.connect(self.buttonClick)
         widgets.btn_raw_to_platte.clicked.connect(self.buttonClick)
         widgets.btn_start_server.clicked.connect(self.buttonClick)
+        widgets.btn_generate_traffic.clicked.connect(self.buttonClick)
+        widgets.btn_manual_control.clicked.connect(self.buttonClick)
+        widgets.btn_automatic_control.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -133,19 +136,48 @@ class MainWindow(QMainWindow):
                         color = QColor(0, 0, 0)  # 黑色
                         item.setForeground(color)
 
+    def clearColumn(self, widget, column_index):
+        # 获取表格的行数
+        row_count = widget.rowCount()
+
+        # 清空指定列的每个单元格
+        for row in range(row_count):
+            item = widget.item(row, column_index)
+            if item is not None:
+                widget.takeItem(row, column_index)
+
+    # def onItemClickedFisheye(self, item):
+    #     column = item.column()
+    #     row = item.row()
+    #     table_widget = item.tableWidget()
+    #     file_name = table_widget.item(row, column).text()
+    #     file_path = os.path.join(self.fisheye_directory, file_name)
+    #     if os.path.isfile(file_path):  # 检查文件是否存在
+    #         # file_dir = os.path.dirname(file_path)
+    #         # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
+    #         cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+    #         cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
+    #         mat = cv2.imread(file_path)
+    #         cv2.imshow(file_name, mat)
+
     def onItemClickedFisheye(self, item):
         column = item.column()
         row = item.row()
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
-        file_path = os.path.join(self.fisheye_directory, file_name)
-        if os.path.isfile(file_path):  # 检查文件是否存在
-            # file_dir = os.path.dirname(file_path)
-            # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
-            cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
-            cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
-            mat = cv2.imread(file_path)
-            cv2.imshow(file_name, mat)
+
+        # 遍历 fisheye_dataset 目录下的所有子目录
+        for root, dirs, files in os.walk(self.fisheye_directory):
+            for name in files:
+                if name == file_name:  # 如果找到了匹配的文件名
+                    file_path = os.path.join(root, name)
+                    if os.path.isfile(file_path):  # 检查文件是否存在
+                        cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+                        cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
+                        mat = cv2.imread(file_path)
+                        cv2.imshow(file_name, mat)
+                        return  # 找到文件后就返回，不再继续搜索
+        print("File not found:", file_name)  # 如果没有找到文件，打印信息
 
     def onItemClickedCommon(self, item):
         column = item.column()
@@ -185,30 +217,30 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        if btn_name == "btn_widgets":
+        elif btn_name == "btn_widgets":
             widgets.stackedWidget.setCurrentWidget(widgets.widgets)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        if btn_name == "btn_image":
+        elif btn_name == "btn_image":
             widgets.stackedWidget.setCurrentWidget(widgets.image_page)  # SET PAGE
             UIFunctions.resetStyle(self, btn_name)  # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
 
-        if btn_name == "btn_simulation":
+        elif btn_name == "btn_simulation":
             widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)  # SET PAGE
             UIFunctions.resetStyle(self, btn_name)  # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
 
-        if btn_name == "btn_personal_center":
+        elif btn_name == "btn_personal_center":
             print("btn_personal_center clicked!")
 
-        if btn_name == "btn_my_image":
+        elif btn_name == "btn_my_image":
             print("btn_my_image clicked!")
             # os.system("nautilus ./images/my_images")
             self.openVisualDirectory("./images/my_images")
 
-        if btn_name == "btn_open_dir":
+        elif btn_name == "btn_open_dir":
             print("btn_open_dir clicked!")
             print("self.filenames", self.filenames)
             file_dialog = QFileDialog()
@@ -220,51 +252,65 @@ class MainWindow(QMainWindow):
                 None, "选择图片", "./images/my_images", "图像文件 (*.png *.jpg *.bmp *.jpeg)", options=options)
             if files:
                 self.filenames.update([os.path.basename(file) for file in files])  # 将已选择的文件名添加到集合中
-                self.ui.line_edit.setText(", ".join(self.filenames))
+                self.ui.line_edit_filenames.setText(", ".join(self.filenames))
 
-        if btn_name == "btn_fisheye_one2one":
+        elif btn_name == "btn_fisheye_one2one":
             print("btn_fisheye_one2one clicked!")
 
-        if btn_name == "btn_fisheye_five2one":
+        elif btn_name == "btn_fisheye_five2one":
             print("btn_fisheye_five2one clicked!")
 
-        if btn_name == "btn_segmentation_image":
+        elif btn_name == "btn_segmentation_image":
             print("btn_segmentation_image clicked!")
 
-        if btn_name == "btn_segmentation_video":
+        elif btn_name == "btn_segmentation_video":
             print("btn_segmentation_video clicked!")
 
-        if btn_name == "btn_raw_to_platte":
+        elif btn_name == "btn_raw_to_platte":
             print("btn_raw_to_platte clicked!")
 
-        if btn_name == "btn_start_server":
+        elif btn_name == "btn_start_server":
             print("btn_start_server clicked!")
 
-        if btn_name == "btn_get_fisheye":
+        elif btn_name == "btn_generate_traffic":
+            print("btn_generate_traffic clicked!")
+
+        elif btn_name == "btn_manual_control":
+            print("btn_manual_control clicked!")
+
+        elif btn_name == "btn_automatic_control":
+            print("btn_automatic_control clicked!")
+
+        elif btn_name == "btn_get_fisheye":
             print("btn_get_fisheye clicked!")
-            directory = './images/my_images/fisheye_sensor'
+            base_directory = './images/my_images/fisheye_dataset'
             table_widget = widgets.table_widget_get_image
 
             # 连接itemClicked信号到槽函数
             table_widget.itemClicked.connect(self.onItemClickedFisheye)
-            # 获取目录中的所有.png文件
-            png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
 
-            # 设置表格行数
-            # table_widget.setRowCount(len(png_files))
+            # 指定要查找.png文件的子目录列表
+            sub_dirs = ['rgb', 'semantic_segmentation_raw']
+
+            # 获取指定子目录中的所有.png文件
+            png_files = []
+            for sub_dir in sub_dirs:
+                dir_path = os.path.join(base_directory, sub_dir)
+                if os.path.exists(dir_path):
+                    png_files.extend([os.path.join(sub_dir, file)
+                                      for file in os.listdir(dir_path) if file.endswith(".png")])
 
             # 清空第一列的内容
-            for row in range(0, table_widget.rowCount()):
-                item = table_widget.item(row, 0)
-                if item is not None:
-                    table_widget.takeItem(row, 0)
+            self.clearColumn(table_widget, 0)
 
-            # 在第一列的每一行中显示文件名
+            # 在表格中显示文件名，去掉路径，只显示文件名
             for index, file in enumerate(png_files):
+                # 使用os.path.basename去掉路径，只保留文件名
+                file = os.path.basename(file)
                 item = QTableWidgetItem(file)
                 table_widget.setItem(index, 0, item)
 
-        if btn_name == "btn_get_common":
+        elif btn_name == "btn_get_common":
             print("btn_get_common clicked!")
             directory = './images/my_images/other_sensors'
             table_widget = widgets.table_widget_get_image
@@ -274,21 +320,15 @@ class MainWindow(QMainWindow):
             # 获取目录中的所有.png文件
             png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
 
-            # 设置表格行数
-            # table_widget.setRowCount(len(png_files))
-
             # 清空第二列的内容
-            for row in range(0, table_widget.rowCount()):
-                item = table_widget.item(row, 1)
-                if item is not None:
-                    table_widget.takeItem(row, 1)
+            self.clearColumn(table_widget, 1)
 
             # 在第二列的每一行中显示文件名
             for index, file in enumerate(png_files):
                 item = QTableWidgetItem(file)
                 table_widget.setItem(index, 1, item)
 
-        if btn_name == "btn_adjustments":
+        elif btn_name == "btn_adjustments":
             print("btn_adjustments clicked!")
             self.dark_theme_enabled = not self.dark_theme_enabled
 
@@ -303,8 +343,13 @@ class MainWindow(QMainWindow):
                 widgets.btn_get_fisheye.setStyleSheet("color: #FFFFFF;")
                 widgets.btn_get_common.setStyleSheet("color: #FFFFFF;")
                 widgets.btn_raw_to_platte.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_generate_traffic.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_manual_control.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_automatic_control.setStyleSheet("color: #FFFFFF;")
+                widgets.line_edit_operation_help.setStyleSheet("color: #FFFFFF;")
                 # widgets.table_widget_get_image.setStyleSheet("color: #FFFFFF;")
                 self.setTableFontColor(widgets.table_widget_get_image)
+                self.setTableFontColor(widgets.table_widget_operation_help)
 
             else:
                 theme_file = "./themes/py_dracula_light.qss"
@@ -316,8 +361,14 @@ class MainWindow(QMainWindow):
                 widgets.btn_get_fisheye.setStyleSheet("color: #000000;")
                 widgets.btn_get_common.setStyleSheet("color: #000000;")
                 widgets.btn_raw_to_platte.setStyleSheet("color: #000000;")
+                widgets.btn_raw_to_platte.setStyleSheet("color: #000000;")
+                widgets.btn_generate_traffic.setStyleSheet("color: #000000;")
+                widgets.btn_manual_control.setStyleSheet("color: #000000;")
+                widgets.btn_automatic_control.setStyleSheet("color: #000000;")
+                widgets.line_edit_operation_help.setStyleSheet("color: #000000;")
                 # widgets.table_widget_get_image.setStyleSheet("color: #000000;")
                 self.setTableFontColor(widgets.table_widget_get_image)
+                self.setTableFontColor(widgets.table_widget_operation_help)
             # LOAD AND APPLY STYLE
             UIFunctions.theme(self, theme_file, True)
             # SET HACKS
