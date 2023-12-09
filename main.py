@@ -146,20 +146,6 @@ class MainWindow(QMainWindow):
             if item is not None:
                 widget.takeItem(row, column_index)
 
-    # def onItemClickedFisheye(self, item):
-    #     column = item.column()
-    #     row = item.row()
-    #     table_widget = item.tableWidget()
-    #     file_name = table_widget.item(row, column).text()
-    #     file_path = os.path.join(self.fisheye_directory, file_name)
-    #     if os.path.isfile(file_path):  # 检查文件是否存在
-    #         # file_dir = os.path.dirname(file_path)
-    #         # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
-    #         cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
-    #         cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
-    #         mat = cv2.imread(file_path)
-    #         cv2.imshow(file_name, mat)
-
     def onItemClickedFisheye(self, item):
         column = item.column()
         row = item.row()

@@ -1374,7 +1374,7 @@ class CameraManager(object):
 def game_loop(args):
     pygame.init()
     pygame.font.init()
-    pygame.display.set_caption("虚拟驾驶")
+    pygame.display.set_caption("虚拟驾驶(Press ESC to exit)")
     world = None
     original_settings = None
 
@@ -1507,7 +1507,6 @@ def main():
     # print(__doc__)
 
     try:
-
         game_loop(args)
 
     except KeyboardInterrupt:

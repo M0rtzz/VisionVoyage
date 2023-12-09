@@ -926,7 +926,7 @@ def game_loop(args):
 
     pygame.init()
     pygame.font.init()
-    pygame.display.set_caption("自动驾驶")
+    pygame.display.set_caption("自动驾驶(Press ESC to exit)")
     world = None
 
     try:
