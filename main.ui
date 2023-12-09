@@ -1843,7 +1843,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <string notr="true">background: transparent;</string>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>2</number>
                       </property>
                       <widget class="QWidget" name="simulation_page">
                        <widget class="QTableWidget" name="table_widget_operation_help">
@@ -2836,7 +2836,7 @@ background-repeat: no-repeat;</string>
                                    </rect>
                                   </property>
                                   <property name="text">
-                                   <string>多张普通图像拼接鱼眼图像</string>
+                                   <string>五张普通图像拼接鱼眼图像</string>
                                   </property>
                                  </widget>
                                 </widget>
@@ -3729,7 +3729,7 @@ background-repeat: no-repeat;</string>
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>v1.0.6</string>
+                   <string>v2.0.1</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

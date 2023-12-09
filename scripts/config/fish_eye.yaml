@@ -1,0 +1,22 @@
+DATA_SAVE_PATH: data
+
+MAP: Town03_Opt
+# MAP: Town10HD_Opt
+
+HERO_VEHICLE: vehicle.tesla.model3
+
+SAVE_INTERVAL: 120
+
+NUM_OF_ENV_VEHICLES: 130
+
+NUM_OF_ENV_PEDESTRIANS: 30
+
+SENSOR_GROUP_LIST:
+  - NAME: fisheye
+    TYPE: camera_fisheye
+    PicSize: 1024
+    FishSize: 1344
+    FOV: 196
+    SETUP: { image_size_x: "1024", image_size_y: "1024", fov: "90" }
+    TRANSFORM: { x: 2.4, y: 0, z: 1.2 }
+    # TRANSFORM: { x: 3, y: 0, z: 1.5 }

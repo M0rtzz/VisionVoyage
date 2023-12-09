@@ -37,7 +37,8 @@ class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.dark_theme_enabled = True
-        self.filenames = set()
+        self.file_names = set()
+        self.file_paths = set()
         self.fisheye_directory = 'images/my_images/fisheye_dataset'
         self.common_directory = 'images/my_images/other_sensors'
 
@@ -157,7 +158,7 @@ class MainWindow(QMainWindow):
             for name in files:
                 if name == file_name:  # 如果找到了匹配的文件名
                     file_path = os.path.join(root, name)
-                    if os.path.isfile(file_path):  # 检查文件是否存在
+                    if os.path.exists(file_path):  # 检查文件是否存在
                         cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
                         cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
                         mat = cv2.imread(file_path)
@@ -171,7 +172,7 @@ class MainWindow(QMainWindow):
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
         file_path = os.path.join(self.common_directory, file_name)
-        if os.path.isfile(file_path):  # 检查文件是否存在
+        if os.path.exists(file_path):  # 检查文件是否存在
             # file_dir = os.path.dirname(file_path)
             # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
             cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
@@ -181,7 +182,7 @@ class MainWindow(QMainWindow):
 
     def handleLineEditChange(self, text):
         if not text:  # 如果LineEdit内容为空
-            self.filenames.clear()  # 清空filenames集合
+            self.file_names.clear()  # 清空file_names集合
 
     def openVisualDirectory(self, directory):
         if sys.platform.startswith('linux'):  # Linux
@@ -228,7 +229,7 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_open_dir":
             print("btn_open_dir clicked!")
-            print("self.filenames", self.filenames)
+            print("self.file_names", self.file_names)
             file_dialog = QFileDialog()
             file_dialog.setFileMode(QFileDialog.ExistingFiles)  # 设置多选模式
             options = QFileDialog.Options()
@@ -237,14 +238,18 @@ class MainWindow(QMainWindow):
             files, _ = file_dialog.getOpenFileNames(
                 None, "选择图片", "./images/my_images", "图像文件 (*.png *.jpg *.bmp *.jpeg)", options=options)
             if files:
-                self.filenames.update([os.path.basename(file) for file in files])  # 将已选择的文件名添加到集合中
-                self.ui.line_edit_filenames.setText(", ".join(self.filenames))
+                self.file_names.update([os.path.basename(file) for file in files])  # 将已选择的文件名添加到集合中
+                self.ui.line_edit_filenames.setText(", ".join(self.file_names))
+                self.file_paths.update([os.path.relpath(file, "./")
+                                       for file in files])  # 将已选择的文件的相对路径添加到集合中
 
         elif btn_name == "btn_fisheye_one2one":
             print("btn_fisheye_one2one clicked!")
 
         elif btn_name == "btn_fisheye_five2one":
             print("btn_fisheye_five2one clicked!")
+            terminal_command = "./scripts/cubemap2fisheye.py " + " ".join(self.file_paths)
+            os.system(terminal_command)
 
         elif btn_name == "btn_segmentation_image":
             print("btn_segmentation_image clicked!")
@@ -257,6 +262,7 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_start_server":
             print("btn_start_server clicked!")
+            os.system("./scripts/VisionVoyageServer")
 
         elif btn_name == "btn_generate_traffic":
             print("btn_generate_traffic clicked!")

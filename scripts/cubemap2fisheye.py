@@ -2,6 +2,8 @@
 
 import numpy as np
 import math
+import os
+import datetime
 import cv2
 import argparse
 
@@ -194,3 +196,42 @@ def cube2fisheye(picture_group, PicSize, FishSize, FOV):
                 fisheye_picture[row, column, :] = cubemap[y_cubemap, x_cubemap, :]
 
     return fisheye_picture
+
+
+def main(input_images):
+    PicSize = 1024  # 立方体贴图每个面的尺寸
+    FishSize = 1344  # 鱼眼图像尺寸
+    FOV = 196  # 鱼眼视角
+    output_path = './images/my_images/fisheye_transformation/cubemap2fisheye/'
+    output_file_name = datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S') + ".png"
+    # 加载输入图像
+    input_images = sorted(input_images, key=lambda x: (
+        'LEFT' in x, 'RIGHT' in x, 'TOP' in x, 'BOTTOM' in x, 'FRONT' in x), reverse=True)
+    print(input_images)
+    lPic = cv2.imread(input_images[0])
+    rPic = cv2.imread(input_images[1])
+    tPic = cv2.imread(input_images[2])
+    bPic = cv2.imread(input_images[3])
+    fPic = cv2.imread(input_images[4])
+    # 生成鱼眼图像
+    fisheye_picture = cube2fisheye([lPic, rPic, tPic, bPic, fPic], PicSize, FishSize, FOV)
+
+    # 保存鱼眼图像
+    cv2.imwrite(output_path + output_file_name, fisheye_picture)
+    if os.path.exists(output_path + output_file_name):
+        print("转换成功")
+        cv2.namedWindow("Press ESC to exit", cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+        cv2.resizeWindow("Press ESC to exit", 800, 600)  # 设置窗口大小为 800x600
+        mat = cv2.imread(output_path + output_file_name)
+        cv2.imshow("Press ESC to exit", mat)
+        while True:
+            if cv2.waitKey(1) == 27:  # 按下esc键的ASCII码为27
+                break
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Generate fisheye image from cube map')
+    parser.add_argument('input_images', nargs=5, help='input cube map images')
+
+    args = parser.parse_args()
+    main(args.input_images)
