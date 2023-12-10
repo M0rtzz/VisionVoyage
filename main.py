@@ -18,6 +18,7 @@ from enum import auto
 import sys
 import os
 import platform
+import subprocess
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from matplotlib.image import imread
@@ -194,6 +195,41 @@ class MainWindow(QMainWindow):
         else:
             print("Unsupported platform")
 
+    def openFirstImage(self, folder_path):
+        # 检查文件夹路径是否存在
+        if not os.path.isdir(folder_path):
+            print("指定的文件夹不存在")
+            return
+
+        # 支持的图片格式列表
+        image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff']
+
+        # 查找文件夹中第一张图片
+        first_image = None
+        for file in sorted(os.listdir(folder_path)):
+            if any(file.lower().endswith(ext) for ext in image_extensions):
+                first_image = file
+                break
+
+        # 如果没有找到图片
+        if not first_image:
+            print("在指定的文件夹中没有找到图片")
+            return
+
+        # 获取完整的文件路径
+        image_path = os.path.join(folder_path, first_image)
+
+        # 根据不同的操作系统打开图片
+        try:
+            if sys.platform.startswith('win32'):
+                os.startfile(image_path)  # Windows
+            elif sys.platform.startswith('darwin'):
+                subprocess.run(['open', image_path])  # macOS
+            else:  # 假设是Linux或类Unix系统
+                subprocess.run(['xdg-open', image_path])
+        except Exception as e:
+            print(f"打开图片时出现错误: {e}")
+
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -245,6 +281,9 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_fisheye_one2one":
             print("btn_fisheye_one2one clicked!")
+            terminal_command = "./scripts/PT2fisheye.py " + " ".join(self.file_paths)
+            os.system(terminal_command)
+            self.openFirstImage('./images/my_images/fisheye_transformation/normal2fisheye')
 
         elif btn_name == "btn_fisheye_five2one":
             print("btn_fisheye_five2one clicked!")
