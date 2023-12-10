@@ -301,7 +301,8 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_start_server":
             print("btn_start_server clicked!")
-            subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server启动终端', '--', 'sh', './scripts/VisionVoyageServer.sh'])
+            subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server启动终端',
+                             '--', 'sh', './scripts/VisionVoyageServer.sh'])
 
         elif btn_name == "btn_generate_traffic":
             print("btn_generate_traffic clicked!")
@@ -310,6 +311,8 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_manual_control":
             print("btn_manual_control clicked!")
+            subprocess.Popen(['gnome-terminal', '--title', '虚拟驾驶',
+                              '--', 'python3', './scripts/manual_control.py'])
 
         elif btn_name == "btn_automatic_control":
             print("btn_automatic_control clicked!")

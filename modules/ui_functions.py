@@ -54,7 +54,7 @@ class UIFunctions(MainWindow):
             GLOBAL_STATE = False
             self.showNormal()
             # self.resize(self.width()+1, self.height()+1)
-            self.resize(947, 686) # fix bug
+            self.resize(947, 686)  # fix bug
             self.ui.appMargins.setContentsMargins(10, 10, 10, 10)
             self.ui.maximizeRestoreAppBtn.setToolTip("Maximize")
             self.ui.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/images/icons/icon_maximize.png"))
@@ -280,7 +280,8 @@ class UIFunctions(MainWindow):
         self.ui.maximizeRestoreAppBtn.clicked.connect(lambda: UIFunctions.maximize_restore(self))
 
         # CLOSE APPLICATION
-        self.ui.closeAppBtn.clicked.connect(lambda: self.close())
+        # self.ui.closeAppBtn.clicked.connect(lambda: self.close())
+        self.ui.closeAppBtn.clicked.connect(lambda: (os.system("killall CarlaUE4-Linux-Shipping"), self.close()))
 
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
