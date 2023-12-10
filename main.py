@@ -298,6 +298,8 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_raw_to_platte":
             print("btn_raw_to_platte clicked!")
+            os.system("./scripts/gray2color")
+            self.openFirstImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
         elif btn_name == "btn_start_server":
             print("btn_start_server clicked!")
