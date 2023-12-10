@@ -316,6 +316,8 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_automatic_control":
             print("btn_automatic_control clicked!")
+            subprocess.Popen(['gnome-terminal', '--title', '自动驾驶',
+                              '--', 'python3', './scripts/automatic_control.py'])
 
         elif btn_name == "btn_get_fisheye":
             print("btn_get_fisheye clicked!")
