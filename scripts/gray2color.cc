@@ -70,7 +70,7 @@ void grayToColor(const string &img_path, const Mat &color_map)
     Mat gray_img = imread(img_path, IMREAD_GRAYSCALE);
     // 判断彩色图片是否已经存在
     fs::path path(img_path);
-    string save_dir = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_CityScapesPalette";
+    string save_dir = "./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette";
     if (!fs::exists(save_dir))
     {
         fs::create_directory(save_dir);
@@ -138,9 +138,7 @@ int main()
                                     // Vec3b(81, 0, 81)      // ground  25
     );
     // 文件路径
-    // string img_dir = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw";
-    string img_dir = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw_changed_index";
-    // string img_dir = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/1";
+    string img_dir = "./images/my_images/fisheye_dataset/semantic_segmentation_raw";
     if (!fs::exists(img_dir))
     {
         fs::create_directory(img_dir);
