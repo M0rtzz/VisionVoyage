@@ -42,6 +42,8 @@ class MainWindow(QMainWindow):
         self.file_paths = set()
         self.fisheye_directory = 'images/my_images/fisheye_dataset'
         self.common_directory = 'images/my_images/other_sensors'
+        self.normal_directory = 'images/my_images/fisheye_transformation/normal2fisheye'
+        self.cubemap_directory = 'images/my_images/fisheye_transformation/cubemap2fisheye'
 
         # SET AS GLOBAL WIDGETS
         self.ui = Ui_MainWindow()
@@ -181,6 +183,34 @@ class MainWindow(QMainWindow):
             mat = cv2.imread(file_path)
             cv2.imshow(file_name, mat)
 
+    def onItemClickedPT(self, item):
+        column = item.column()
+        row = item.row()
+        table_widget = item.tableWidget()
+        file_name = table_widget.item(row, column).text()
+        file_path = os.path.join(self.normal_directory, file_name)
+        if os.path.exists(file_path):  # 检查文件是否存在
+            # file_dir = os.path.dirname(file_path)
+            # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
+            cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+            cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
+            mat = cv2.imread(file_path)
+            cv2.imshow(file_name, mat)
+
+    def onItemClickedCubemap(self, item):
+        column = item.column()
+        row = item.row()
+        table_widget = item.tableWidget()
+        file_name = table_widget.item(row, column).text()
+        file_path = os.path.join(self.cubemap_directory, file_name)
+        if os.path.exists(file_path):  # 检查文件是否存在
+            # file_dir = os.path.dirname(file_path)
+            # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
+            cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+            cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
+            mat = cv2.imread(file_path)
+            cv2.imshow(file_name, mat)
+
     def handleLineEditChange(self, text):
         if not text:  # 如果LineEdit内容为空
             self.file_names.clear()  # 清空file_names集合
@@ -195,7 +225,7 @@ class MainWindow(QMainWindow):
         else:
             print("Unsupported platform")
 
-    def openFirstImage(self, folder_path):
+    def openImage(self, folder_path, flag=False):
         # 检查文件夹路径是否存在
         if not os.path.isdir(folder_path):
             print("指定的文件夹不存在")
@@ -204,20 +234,40 @@ class MainWindow(QMainWindow):
         # 支持的图片格式列表
         image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff']
 
-        # 查找文件夹中第一张图片
-        first_image = None
-        for file in sorted(os.listdir(folder_path)):
-            if any(file.lower().endswith(ext) for ext in image_extensions):
-                first_image = file
-                break
+        if not flag:  # 如果不需要查找最新更改的文件
+            # 查找文件夹中第一张图片
+            first_image = None
+            for file in sorted(os.listdir(folder_path)):
+                if any(file.lower().endswith(ext) for ext in image_extensions):
+                    first_image = file
+                    break
 
-        # 如果没有找到图片
-        if not first_image:
-            print("在指定的文件夹中没有找到图片")
-            return
+            # 如果没有找到图片
+            if not first_image:
+                print("在指定的文件夹中没有找到图片")
+                return
 
-        # 获取完整的文件路径
-        image_path = os.path.join(folder_path, first_image)
+            # 获取完整的文件路径
+            image_path = os.path.join(folder_path, first_image)
+        else:  # 如果需要查找最新更改的文件
+            # 查找文件夹中最新更改的图片
+            latest_image = None
+            latest_time = 0
+            for file in sorted(os.listdir(folder_path)):
+                if any(file.lower().endswith(ext) for ext in image_extensions):
+                    file_path = os.path.join(folder_path, file)
+                    file_time = os.path.getmtime(file_path)
+                    if file_time > latest_time:
+                        latest_time = file_time
+                        latest_image = file
+
+            # 如果没有找到图片
+            if not latest_image:
+                print("在指定的文件夹中没有找到图片")
+                return
+
+            # 获取完整的文件路径
+            image_path = os.path.join(folder_path, latest_image)
 
         # 根据不同的操作系统打开图片
         try:
@@ -281,9 +331,26 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_fisheye_one2one":
             print("btn_fisheye_one2one clicked!")
-            terminal_command = "./scripts/PT2fisheye.py " + " ".join(self.file_paths)
+            # terminal_command = "./scripts/PT2fisheye.py " + " ".join(self.file_paths)
+            terminal_command = "./scripts/PT2fisheye " + " ".join(self.file_paths)
             os.system(terminal_command)
-            self.openFirstImage('./images/my_images/fisheye_transformation/normal2fisheye')
+            directory = './images/my_images/fisheye_transformation/normal2fisheye'
+            table_widget = widgets.table_widget_transform_upload_result
+
+            # 连接itemClicked信号到槽函数
+            table_widget.itemClicked.connect(self.onItemClickedPT)
+            # 获取目录中的所有.png文件
+            png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
+
+            # 清空第一列的内容
+            self.clearColumn(table_widget, 0)
+
+            # 在第一列的每一行中显示文件名
+            for index, file in enumerate(png_files):
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 0, item)
+
+            self.openImage('./images/my_images/fisheye_transformation/normal2fisheye', flag=True)
 
         elif btn_name == "btn_fisheye_five2one":
             print("btn_fisheye_five2one clicked!")
@@ -299,7 +366,7 @@ class MainWindow(QMainWindow):
         elif btn_name == "btn_raw_to_platte":
             print("btn_raw_to_platte clicked!")
             os.system("./scripts/gray2color")
-            self.openFirstImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
+            self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
         elif btn_name == "btn_start_server":
             print("btn_start_server clicked!")
