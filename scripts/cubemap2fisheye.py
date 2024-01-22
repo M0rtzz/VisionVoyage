@@ -231,7 +231,7 @@ def main(input_images):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate fisheye image from cube map')
-    parser.add_argument('input_images', nargs=5, help='input cube map images')
+    parser.add_argument('input_images', type=str, nargs=5, help='input cube map images')
 
     args = parser.parse_args()
     main(args.input_images)

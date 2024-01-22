@@ -64,8 +64,8 @@ def processImages(image_paths, target_dir):
         image_file = os.path.basename(img_path)
         target_path = os.path.join(target_dir, image_file)
 
-        if os.path.exists(target_path):
-            continue
+        # if os.path.exists(target_path):
+        #     continue
 
         img = cv2.imread(img_path)
         result = getOneFisheye(img, 0, 0)
