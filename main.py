@@ -502,8 +502,6 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btn_name}" pressed!')
 
-    # RESIZE EVENTS
-
     def resizeEvent(self, event):
         # Update Size Grips
         UIFunctions.resize_grips(self)
