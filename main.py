@@ -214,6 +214,7 @@ class MainWindow(QMainWindow):
     def handleLineEditChange(self, text):
         if not text:  # 如果LineEdit内容为空
             self.file_names.clear()  # 清空file_names集合
+            self.file_paths.clear()  # 清空file_paths集合
 
     def openVisualDirectory(self, directory):
         if sys.platform.startswith('linux'):  # Linux
@@ -356,6 +357,23 @@ class MainWindow(QMainWindow):
             print("btn_fisheye_five2one clicked!")
             terminal_command = "./scripts/cubemap2fisheye.py " + " ".join(self.file_paths)
             os.system(terminal_command)
+            directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
+            table_widget = widgets.table_widget_transform_upload_result
+
+            # 连接itemClicked信号到槽函数
+            table_widget.itemClicked.connect(self.onItemClickedCubemap)
+            # 获取目录中的所有.png文件
+            png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
+
+            # 清空第二列的内容
+            self.clearColumn(table_widget, 1)
+
+            # 在第二列的每一行中显示文件名
+            for index, file in enumerate(png_files):
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 1, item)
+
+            self.openImage('./images/my_images/fisheye_transformation/cubemap2fisheye', flag=True)
 
         elif btn_name == "btn_segmentation_image":
             print("btn_segmentation_image clicked!")
