@@ -207,7 +207,6 @@ def main(input_images):
     # 加载输入图像
     input_images = sorted(input_images, key=lambda x: (
         'LEFT' in x, 'RIGHT' in x, 'TOP' in x, 'BOTTOM' in x, 'FRONT' in x), reverse=True)
-    print(input_images)
     lPic = cv2.imread(input_images[0])
     rPic = cv2.imread(input_images[1])
     tPic = cv2.imread(input_images[2])
@@ -220,13 +219,13 @@ def main(input_images):
     cv2.imwrite(output_path + output_file_name, fisheye_picture)
     if os.path.exists(output_path + output_file_name):
         print("转换成功")
-        cv2.namedWindow("Press ESC to exit", cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
-        cv2.resizeWindow("Press ESC to exit", 800, 600)  # 设置窗口大小为 800x600
-        mat = cv2.imread(output_path + output_file_name)
-        cv2.imshow("Press ESC to exit", mat)
-        while True:
-            if cv2.waitKey(1) == 27:  # 按下esc键的ASCII码为27
-                break
+        # cv2.namedWindow("Press ESC to exit", cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+        # cv2.resizeWindow("Press ESC to exit", 800, 600)  # 设置窗口大小为 800x600
+        # mat = cv2.imread(output_path + output_file_name)
+        # cv2.imshow("Press ESC to exit", mat)
+        # while True:
+        #     if cv2.waitKey(1) == 27:  # 按下esc键的ASCII码为27
+        #         break
 
 
 if __name__ == '__main__':
