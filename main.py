@@ -1,16 +1,10 @@
 # ///////////////////////////////////////////////////////////////
 #
-# BY: WANDERSON M.PIMENTA
-# PROJECT MADE WITH: Qt Designer and PySide6
-# V: 1.0.0
-#
-# This project can be used freely for all uses, as long as they maintain the
-# respective credits only in the Python scripts, any information in the visual
-# interface (GUI) can be modified without any implication.
-#
-# There are limitations on Qt licenses if you want to use your products
-# commercially, I recommend reading them on the official website:
-# https://doc.qt.io/qtforpython/licenses.html
+# @file main.py
+# @brief 程序入口文件
+# @author M0rtzz E-mail: m0rtzz@163.com
+# @version 4.0
+# @PROJECT MADE WITH: Qt Designer and PySide6
 #
 # ///////////////////////////////////////////////////////////////
 
