@@ -34,10 +34,10 @@ class MainWindow(QMainWindow):
         self.dark_theme_enabled = True
         self.file_names = set()
         self.file_paths = set()
-        self.fisheye_directory = 'images/my_images/fisheye_dataset'
-        self.common_directory = 'images/my_images/other_sensors'
-        self.normal_directory = 'images/my_images/fisheye_transformation/normal2fisheye'
-        self.cubemap_directory = 'images/my_images/fisheye_transformation/cubemap2fisheye'
+        self.fisheye_directory = './images/my_images/fisheye_dataset'
+        self.common_directory = './images/my_images/other_sensors'
+        self.normal_directory = './images/my_images/fisheye_transformation/normal2fisheye'
+        self.cubemap_directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
 
         # SET AS GLOBAL WIDGETS
         self.ui = Ui_MainWindow()
