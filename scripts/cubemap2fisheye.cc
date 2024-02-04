@@ -35,7 +35,7 @@ string toLower(const string &str)
 }
 
 /**
- * @brief  自定义比较函数，按照特定顺序排序
+ * @brief  比较函数，按照特定顺序排序
  * @param  a
  * @param  b
  * @return true
