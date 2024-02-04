@@ -53,11 +53,14 @@ bool compareImageNames(const string &a, const string &b)
     for (int i = 0; i < order.size(); ++i)
     {
         if (lower_a.find(order[i]) != string::npos)
+        {
             priorityA[i] = 1;
+        }
         if (lower_b.find(order[i]) != string::npos)
+        {
             priorityB[i] = 1;
+        }
     }
-
     return lexicographical_compare(priorityA.begin(), priorityA.end(), priorityB.begin(), priorityB.end(), greater<int>());
 }
 
