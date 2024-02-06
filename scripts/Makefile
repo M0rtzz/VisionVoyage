@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++17
+CXXFLAGS = -std=c++17
 LIBS = `pkg-config --cflags --libs opencv4 eigen3`
 
 all: gray2color PT2fisheye cubemap2fisheye VisionVoyageServer
