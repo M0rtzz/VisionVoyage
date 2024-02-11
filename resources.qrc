@@ -2,6 +2,7 @@
   <qresource prefix="images">
     <file>images/images/VisionVoyage.png</file>
     <file>images/images/VisionVoyage_vertical.png</file>
+    <file>images/images/IngenuityDrive.png</file>
     <file>images/images/sensors.png</file>
     <file>images/images/fisheye_rgb.png</file>
     <file>images/images/fisheye_semantic.png</file>

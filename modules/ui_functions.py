@@ -66,6 +66,7 @@ class UIFunctions(MainWindow):
 
     # RETURN STATUS
     # ///////////////////////////////////////////////////////////////
+
     def returStatus(self):
         return GLOBAL_STATE
 
@@ -281,7 +282,8 @@ class UIFunctions(MainWindow):
 
         # CLOSE APPLICATION
         # self.ui.closeAppBtn.clicked.connect(lambda: self.close())
-        self.ui.closeAppBtn.clicked.connect(lambda: (os.system("killall CarlaUE4-Linux-Shipping"), self.close()))
+        self.ui.closeAppBtn.clicked.connect(
+            lambda: (os.system("killall CarlaUE4-Linux-Shipping >/dev/null 2>&1"), self.close()))
 
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:

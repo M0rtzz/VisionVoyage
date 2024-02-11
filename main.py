@@ -327,7 +327,7 @@ class MainWindow(QMainWindow):
         elif btn_name == "btn_fisheye_one2one":
             print("btn_fisheye_one2one clicked!")
             # terminal_command = "./scripts/PT2fisheye.py " + " ".join(self.file_paths)
-            terminal_command = "./scripts/PT2fisheye " + " ".join(self.file_paths)
+            terminal_command = "./scripts/PT2fisheye.out " + " ".join(self.file_paths)
             os.system(terminal_command)
             directory = './images/my_images/fisheye_transformation/normal2fisheye'
             table_widget = widgets.table_widget_transform_upload_result
@@ -350,7 +350,7 @@ class MainWindow(QMainWindow):
         elif btn_name == "btn_fisheye_five2one":
             print("btn_fisheye_five2one clicked!")
             # terminal_command = "./scripts/cubemap2fisheye.py " + " ".join(self.file_paths)
-            terminal_command = "./scripts/cubemap2fisheye " + " ".join(self.file_paths)
+            terminal_command = "./scripts/cubemap2fisheye.out " + " ".join(self.file_paths)
             os.system(terminal_command)
             directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
             table_widget = widgets.table_widget_transform_upload_result
@@ -403,6 +403,7 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_get_fisheye":
             print("btn_get_fisheye clicked!")
+            os.system("./scripts/dataset_main.py")
             base_directory = './images/my_images/fisheye_dataset'
             table_widget = widgets.table_widget_get_image
 

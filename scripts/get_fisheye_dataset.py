@@ -298,17 +298,21 @@ class DataCollector:
             # print("bicycle_bp", bicycle_bp)
             # print("motorcycle_bp", motorcycle_bp)
             # print(vehicle_bp)
-            if self.bus_nums < 7:
-                vehicle_bp = bus_bp
-                self.bus_nums += 1
-            elif self.bicycle_nums < 20:
-                vehicle_bp = bicycle_bp
-                self.bicycle_nums += 1
-            elif self.motorcycle_nums < 20:
-                vehicle_bp = motorcycle_bp
-                self.motorcycle_nums += 1
-            elif (self.bus_nums == 7 and self.bicycle_nums == 20 and self.motorcycle_nums == 20):
-                vehicle_bp = random.choice(filtered_list)
+
+            # # 太卡了笔记本
+            # if self.bus_nums < 7:
+            #     vehicle_bp = bus_bp
+            #     self.bus_nums += 1
+            # elif self.bicycle_nums < 20:
+            #     vehicle_bp = bicycle_bp
+            #     self.bicycle_nums += 1
+            # elif self.motorcycle_nums < 20:
+            #     vehicle_bp = motorcycle_bp
+            #     self.motorcycle_nums += 1
+            # elif (self.bus_nums == 7 and self.bicycle_nums == 20 and self.motorcycle_nums == 20):
+                # vehicle_bp = random.choice(filtered_list)
+
+            vehicle_bp = random.choice(filtered_list)
             # has no idea about the meaning of driver_id
             if vehicle_bp.has_attribute('driver_id'):
                 driver_id = random.choice(vehicle_bp.get_attribute('driver_id').recommended_values)
@@ -422,19 +426,23 @@ class DataCollector:
                                           y=sensor_transform.get('y', 0), z=self.hero_vehicle.bounding_box.extent.z)
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1, transform_left, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1,
+                             transform_left, parent=self.hero_vehicle))
 
                 transform_right = carla.Transform(location, carla.Rotation(yaw=yaw + 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1, transform_right, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1,
+                             transform_right, parent=self.hero_vehicle))
 
                 transform_top = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch + 90, roll=roll))
                 batch.append(SpawnActor(sensor_camera_semantic_segmentation_1, transform_top, parent=self.hero_vehicle))
 
                 transform_bottom = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch - 90, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1, transform_bottom, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1,
+                             transform_bottom, parent=self.hero_vehicle))
 
                 transform_front = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1, transform_front, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_1,
+                             transform_front, parent=self.hero_vehicle))
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
                 batch.append(SpawnActor(sensor_camera_rgb_1, transform_left, parent=self.hero_vehicle))
@@ -457,19 +465,23 @@ class DataCollector:
                 yaw = -90
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2, transform_left, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2,
+                             transform_left, parent=self.hero_vehicle))
 
                 transform_right = carla.Transform(location, carla.Rotation(yaw=yaw + 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2, transform_right, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2,
+                             transform_right, parent=self.hero_vehicle))
 
                 transform_top = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch + 90, roll=roll))
                 batch.append(SpawnActor(sensor_camera_semantic_segmentation_2, transform_top, parent=self.hero_vehicle))
 
                 transform_bottom = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch - 90, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2, transform_bottom, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2,
+                             transform_bottom, parent=self.hero_vehicle))
 
                 transform_front = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2, transform_front, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_2,
+                             transform_front, parent=self.hero_vehicle))
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
                 batch.append(SpawnActor(sensor_camera_rgb_2, transform_left, parent=self.hero_vehicle))
@@ -492,19 +504,23 @@ class DataCollector:
                 yaw = 90
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3, transform_left, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3,
+                             transform_left, parent=self.hero_vehicle))
 
                 transform_right = carla.Transform(location, carla.Rotation(yaw=yaw + 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3, transform_right, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3,
+                             transform_right, parent=self.hero_vehicle))
 
                 transform_top = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch + 90, roll=roll))
                 batch.append(SpawnActor(sensor_camera_semantic_segmentation_3, transform_top, parent=self.hero_vehicle))
 
                 transform_bottom = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch - 90, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3, transform_bottom, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3,
+                             transform_bottom, parent=self.hero_vehicle))
 
                 transform_front = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3, transform_front, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_3,
+                             transform_front, parent=self.hero_vehicle))
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
                 batch.append(SpawnActor(sensor_camera_rgb_3, transform_left, parent=self.hero_vehicle))
@@ -526,19 +542,23 @@ class DataCollector:
                                           y=sensor_transform.get('y', 0), z=self.hero_vehicle.bounding_box.extent.z)
                 yaw = 180
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4, transform_left, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4,
+                             transform_left, parent=self.hero_vehicle))
 
                 transform_right = carla.Transform(location, carla.Rotation(yaw=yaw + 90, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4, transform_right, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4,
+                             transform_right, parent=self.hero_vehicle))
 
                 transform_top = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch + 90, roll=roll))
                 batch.append(SpawnActor(sensor_camera_semantic_segmentation_4, transform_top, parent=self.hero_vehicle))
 
                 transform_bottom = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch - 90, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4, transform_bottom, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4,
+                             transform_bottom, parent=self.hero_vehicle))
 
                 transform_front = carla.Transform(location, carla.Rotation(yaw=yaw, pitch=pitch, roll=roll))
-                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4, transform_front, parent=self.hero_vehicle))
+                batch.append(SpawnActor(sensor_camera_semantic_segmentation_4,
+                             transform_front, parent=self.hero_vehicle))
 
                 transform_left = carla.Transform(location, carla.Rotation(yaw=yaw - 90, pitch=pitch, roll=roll))
                 batch.append(SpawnActor(sensor_camera_rgb_4, transform_left, parent=self.hero_vehicle))
@@ -859,7 +879,7 @@ class DataCollector:
                         # fisheye_picture = cv2.cvtColor(fisheye_picture, cv2.COLOR_BGR2RGB)
                         # gray_image = cv2.cvtColor(fisheye_picture, cv2.COLOR_BGR2GRAY)
 
-                        # save_path = "/home/m0rtzz/Program_Files/carla-0.9.13/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw/"
+                        # save_path = "/home/m0rtzz/Program_Files/carla-0.9.13/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_raw/"
                         # file_name = "%06d.png" % time_stamp
                         # file_name_with_suffix = file_name.split(".")[0] + "_Raw.png"
                         # file_path = os.path.join(save_path, file_name_with_suffix)
@@ -911,7 +931,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw/"
+                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         front_files = [f for f in file_names if "FRONT" in f]
@@ -937,7 +957,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_utils.cube2fisheye(picture_group_1_, PicSize, FishSize, FOV)
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/rgb/"
+                        save_path = "./images/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
 
                         front_files = [f for f in file_names if "FRONT" in f]
@@ -964,7 +984,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw/"
+                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         left_files = [f for f in file_names if "LEFT" in f]
@@ -991,7 +1011,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_utils.cube2fisheye(picture_group_2_, PicSize, FishSize, FOV)
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/rgb/"
+                        save_path = "./images/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
 
                         left_files = [f for f in file_names if "LEFT" in f]
@@ -1018,7 +1038,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw/"
+                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         right_files = [f for f in file_names if "RIGHT" in f]
@@ -1046,7 +1066,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
 
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/rgb/"
+                        save_path = "./images/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
 
                         right_files = [f for f in file_names if "RIGHT" in f]
@@ -1073,7 +1093,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_Raw/"
+                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         rear_files = [f for f in file_names if "REAR" in f]
@@ -1101,7 +1121,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
 
-                        save_path = "/home/m0rtzz/Program_Files/carla-0.9.14/PythonAPI/examples/carla-data-generator/data/fisheye/rgb/"
+                        save_path = "./images/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
                         rear_files = [f for f in file_names if "REAR" in f]
                         latest_rear_rgb_file_name = sorted(rear_files)[-1] if rear_files else None

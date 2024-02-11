@@ -1,7 +1,7 @@
 DATA_SAVE_PATH: data
 
-MAP: Town03_Opt
-# MAP: Town10HD_Opt
+# MAP: Town03_Opt
+MAP: Town10HD_Opt
 
 HERO_VEHICLE: vehicle.tesla.model3
 

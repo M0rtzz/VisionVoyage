@@ -11,7 +11,7 @@ def config_from_yaml(config_file):
         collector_config = yaml.safe_load(f)
     return collector_config
 
-def create_logger(log_dir='log'):
+def create_logger(log_dir='./logs'):
     log_file = 'log_generator_%s.txt' % datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
     log_file = os.path.join(log_dir, log_file)
 

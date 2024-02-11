@@ -74,7 +74,7 @@ string currentTimeFormatted()
     auto in_time_t = chrono::system_clock::to_time_t(now);
 
     stringstream ss;
-    ss << put_time(localtime(&in_time_t), "%Y-%m-%d_%H-%M-%S");
+    ss << put_time(localtime(&in_time_t), "%Y-%m-%d_%H:%M:%S");
     return ss.str();
 }
 
@@ -302,7 +302,7 @@ int main(int argc, char **argv)
 
     Mat fisheye_picture = cube2Fisheye(input_images, pic_size, fish_size, FOV);
 
-    string output_file_name = currentTimeFormatted() + ".png";
+    string output_file_name = "./images/my_images/fisheye_transformation/cubemap2fisheye/" + currentTimeFormatted() + ".png";
     imwrite(output_file_name, fisheye_picture);
 
     cout << "转换成功，文件保存为: " << output_file_name << endl;
