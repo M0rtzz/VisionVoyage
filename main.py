@@ -383,8 +383,8 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_start_server":
             print("btn_start_server clicked!")
-            subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server启动终端',
-                             '--', 'sh', './scripts/VisionVoyageServer.sh'])
+            subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server状态终端',
+                             '--', 'sh', './scripts/VisionVoyageServer.sh -quality-level=low'])
 
         elif btn_name == "btn_generate_traffic":
             print("btn_generate_traffic clicked!")

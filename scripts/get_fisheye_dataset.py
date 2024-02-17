@@ -785,7 +785,7 @@ class DataCollector:
             self.set_traffic_lights_to_green()
             self.set_synchronization_world()
             self.set_synchronization_traffic_manager(traffic_manager)
-            # print("success2")
+            print("success")
 
             time_stamp = self.start_timestamp
             interval_index = 0
