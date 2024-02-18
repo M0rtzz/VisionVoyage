@@ -1845,7 +1845,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <string notr="true">background: transparent;</string>
                       </property>
                       <property name="currentIndex">
-                       <number>1</number>
+                       <number>0</number>
                       </property>
                       <widget class="QWidget" name="simulation_page">
                        <widget class="QTableWidget" name="table_widget_operation_help">
@@ -2392,7 +2392,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         </item>
                         <item row="5" column="0">
                          <property name="text">
-                          <string>[1-9]</string>
+                          <string>[0-9]</string>
                          </property>
                          <property name="textAlignment">
                           <set>AlignCenter</set>
@@ -4191,7 +4191,7 @@ background-repeat: no-repeat;
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>v2.0.1</string>
+                   <string>v4.0.5</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

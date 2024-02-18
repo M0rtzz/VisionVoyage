@@ -1829,7 +1829,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1960,7 +1960,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem32 = self.table_widget_operation_help.item(4, 1)
         ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"\u4e0b\u4e00\u4e2a\u4f20\u611f\u5668", None));
         ___qtablewidgetitem33 = self.table_widget_operation_help.item(5, 0)
-        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"[1-9]", None));
+        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"[0-9]", None));
         ___qtablewidgetitem34 = self.table_widget_operation_help.item(5, 1)
         ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362\u81f3\u4f20\u611f\u5668[1-9]", None));
         ___qtablewidgetitem35 = self.table_widget_operation_help.item(6, 0)
@@ -2122,6 +2122,6 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v2.0.1", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v4.0.5", None))
     # retranslateUi
 

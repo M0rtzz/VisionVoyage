@@ -128,6 +128,7 @@ import math
 import random
 import re
 import weakref
+from PIL import Image
 
 try:
     import pygame
@@ -1177,6 +1178,16 @@ class CameraManager(object):
         self.sensor = None
         self.surface = None
         self._parent = parent_actor
+        self.i_rgb = 0
+        self.i_depth_raw = 0
+        self.i_depth_gray_scale = 0
+        self.i_semantic_segmentation_raw = 0
+        self.i_semantic_segmentation_cityscapes_palette = 0
+        self.i_instance_segmentation = 0
+        self.i_dvs = 0
+        self.i_optical_flow = 0
+        self.i_normals = 0
+        self.i_lidar_ray_cast = 0
         self.hud = hud
         self.recording = False
         bound_x = 0.5 + self._parent.bounding_box.extent.x
@@ -1206,16 +1217,16 @@ class CameraManager(object):
         self.transform_index = 1
         self.sensors = [
             ['sensor.camera.rgb', cc.Raw, 'Camera RGB', {}],
-            # ['sensor.camera.depth', cc.Raw, 'Camera Depth (Raw)', {}],
-            # ['sensor.camera.depth', cc.Depth, 'Camera Depth (Gray Scale)', {}],
-            ['sensor.camera.depth', cc.LogarithmicDepth, 'Camera Depth (Logarithmic Gray Scale)', {}],
+            ['sensor.camera.depth', cc.Raw, 'Camera Depth (Raw)', {}],
+            ['sensor.camera.depth', cc.Depth, 'Camera Depth (Gray Scale)', {}],
+            # ['sensor.camera.depth', cc.LogarithmicDepth, 'Camera Depth (Logarithmic Gray Scale)', {}],
             ['sensor.camera.semantic_segmentation', cc.Raw, 'Camera Semantic Segmentation (Raw)', {}],
             ['sensor.camera.semantic_segmentation', cc.CityScapesPalette,
                 'Camera Semantic Segmentation (CityScapes Palette)', {}],
             # ['sensor.camera.instance_segmentation', cc.CityScapesPalette,
             #     'Camera Instance Segmentation (CityScapes Palette)', {}],
             ['sensor.camera.instance_segmentation', cc.Raw, 'Camera Instance Segmentation (Raw)', {}],
-            ['sensor.camera.fisheye', cc.Raw, 'Camera Fisheye', {}],
+            # ['sensor.camera.fisheye', cc.Raw, 'Camera Fisheye', {}],
             ['sensor.camera.dvs', cc.Raw, 'Dynamic Vision Sensor', {}],
             # ['sensor.camera.rgb', cc.Raw, 'Camera RGB Distorted',
             #     {'lens_circle_multiplier': '3.0',
@@ -1319,6 +1330,60 @@ class CameraManager(object):
         if self.surface is not None:
             display.blit(self.surface, (0, 0))
 
+    def check_file_exists(self, directory, s):
+        for file_name in os.listdir(directory):
+            if s in file_name:
+                return True
+        return False
+
+    def get_sorted_files(self, directory, s):
+        files = [f for f in os.listdir(directory) if s in os.path.splitext(f)[0]]
+        return sorted(files)
+
+    def parse_index_from_file_name(self, file_name: str, sensor_type: str) -> int:
+        match = re.search(f'(\d+)_{sensor_type}.png', file_name)
+        return int(match.group(1))
+
+    def save_image(self, flag: int, sensor_type: str, suffix: str) -> None:
+        if flag % 4 == 0:  # 每隔四帧保存一次
+            directory = '_out/'
+            if not self.check_file_exists(directory, sensor_type):  # 如果目录下没有符合条件的文件
+                save_index = 0
+            else:
+                sorted_files = self.get_sorted_files(directory, sensor_type)
+                save_index = self.parse_index_from_file_name(sorted_files[-1], sensor_type) + 1
+
+            file_name = f"{save_index:06d}_{sensor_type}{suffix}"
+            pygame.image.save(self.surface, os.path.join(directory, file_name))
+        # 定义不同 sensor_type 对应的处理逻辑
+        sensor_handling = {
+            'rgb': self.i_rgb,
+            'depth_raw': self.i_depth_raw,
+            'depth_gray_scale': self.i_depth_gray_scale,
+            'semantic_segmentation_raw': self.i_semantic_segmentation_raw,
+            'semantic_segmentation_cityScapes_palette': self.i_semantic_segmentation_cityscapes_palette,
+            'instance_segmentation': self.i_instance_segmentation,
+            'dvs': self.i_dvs,
+            'optical_flow': self.i_optical_flow,
+            'normals': self.i_normals,
+            'lidar_ray_cast': self.i_lidar_ray_cast,
+        }
+
+        if sensor_type in sensor_handling:
+            flag = sensor_handling[sensor_type]
+
+        flag += 1
+
+    def rename_files(self, directory, start_index=0):
+        files = [f for f in os.listdir(directory) if f.endswith('.ply')]
+        files.sort()
+
+        for i, file in enumerate(files):
+            new_name = f"{start_index + i:06d}_lidar_ray_cast.ply"
+            old_path = os.path.join(directory, file)
+            new_path = os.path.join(directory, new_name)
+            os.rename(old_path, new_path)
+
     @staticmethod
     def _parse_image(weak_self, image):
         self = weak_self()
@@ -1364,7 +1429,35 @@ class CameraManager(object):
             array = array[:, :, ::-1]
             self.surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
         if self.recording:
-            image.save_to_disk('_out/%08d' % image.frame)
+            if self.sensors[self.index][0].startswith('sensor.camera.rgb'):
+                self.save_image(self.i_rgb, 'rgb', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.depth') and self.sensors[self.index][2].startswith('Camera Depth (Raw)'):
+                self.save_image(self.i_depth_raw, 'depth_raw', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.depth') and self.sensors[self.index][2].startswith('Camera Depth (Gray Scale)'):
+                self.save_image(self.i_depth_gray_scale, 'depth_gray_scale', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.semantic_segmentation') and self.sensors[self.index][2].startswith('Camera Semantic Segmentation (Raw)'):
+                self.save_image(self.i_semantic_segmentation_raw, 'semantic_segmentation_raw', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.semantic_segmentation') and self.sensors[self.index][2].startswith('Camera Semantic Segmentation (CityScapes Palette)'):
+                self.save_image(self.i_semantic_segmentation_cityscapes_palette,
+                                'semantic_segmentation_cityscapes_palette', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.instance_segmentation'):
+                self.save_image(self.i_instance_segmentation, 'instance_segmentation', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.dvs'):
+                self.save_image(self.i_dvs, 'dvs', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.optical_flow'):
+                # buffer = np.frombuffer(image.raw_data, dtype=np.uint8)
+                # buffer = buffer.reshape(image.height, image.width, 4)[..., [2, 1, 0]]  # BGRA -> RGB
+                # if self.i % 4 == 0:  # 每隔四帧保存一次
+                #     save_index = self.i // 4
+                #     Image.fromarray(buffer).save(f"_out/{save_index}.png")
+                # self.i += 1
+                self.save_image(self.i_optical_flow, 'optical_flow', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.camera.normals'):
+                self.save_image(self.i_normals, 'normals', '.png')
+            elif self.sensors[self.index][0].startswith('sensor.lidar.ray_cast'):
+                # image.save_to_disk('_out/%08d' % image.frame)
+                image.save_to_disk(f"_out/{image.frame:06d}_lidar_ray_cast")
+                self.rename_files("_out")
 
 
 # ==============================================================================
@@ -1375,7 +1468,7 @@ class CameraManager(object):
 def game_loop(args):
     pygame.init()
     pygame.font.init()
-    pygame.display.set_caption("虚拟驾驶(Press ESC to exit)")
+    pygame.display.set_caption("Press R to save images or point cloud datas(Press ESC to exit)")
     world = None
     original_settings = None
 
