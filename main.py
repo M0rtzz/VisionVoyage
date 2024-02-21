@@ -168,14 +168,14 @@ class MainWindow(QMainWindow):
         row = item.row()
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
-        file_path = os.path.join(self.common_directory, file_name)
-        if os.path.exists(file_path):  # 检查文件是否存在
-            # file_dir = os.path.dirname(file_path)
-            # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
-            cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
-            cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
-            mat = cv2.imread(file_path)
-            cv2.imshow(file_name, mat)
+
+        for root, dirs, files in os.walk(self.common_directory):
+            if file_name in files:
+                file_path = os.path.join(root, file_name)
+                cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+                cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
+                mat = cv2.imread(file_path)
+                cv2.imshow(file_name, mat)
 
     def onItemClickedPT(self, item):
         column = item.column()
@@ -439,8 +439,11 @@ class MainWindow(QMainWindow):
 
             # 连接itemClicked信号到槽函数
             table_widget.itemClicked.connect(self.onItemClickedCommon)
+
             # 获取目录中的所有.png文件
-            png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
+            # png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
+            png_files = [os.path.basename(os.path.join(dp, f)) for dp, dn, filenames in os.walk(directory)
+                         for f in filenames if f.endswith(".png")]
 
             # 清空第二列的内容
             self.clearColumn(table_widget, 1)
