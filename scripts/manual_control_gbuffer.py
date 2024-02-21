@@ -1344,9 +1344,9 @@ class CameraManager(object):
         match = re.search(f'(\d+)_{sensor_type}.png', file_name)
         return int(match.group(1))
 
-    def save_image(self, flag: int, sensor_type: str, suffix: str) -> None:
+    def save_image(self, flag: int, sensor_type: str, suffix: str, directory: str) -> None:
         if flag % 4 == 0:  # 每隔四帧保存一次
-            directory = '_out/'
+            # directory = '_out/'
             if not self.check_file_exists(directory, sensor_type):  # 如果目录下没有符合条件的文件
                 save_index = 0
             else:
@@ -1430,20 +1430,23 @@ class CameraManager(object):
             self.surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
         if self.recording:
             if self.sensors[self.index][0].startswith('sensor.camera.rgb'):
-                self.save_image(self.i_rgb, 'rgb', '.png')
+                self.save_image(self.i_rgb, 'rgb', '.png', './images/my_images/other_sensors/rgb/')
             elif self.sensors[self.index][0].startswith('sensor.camera.depth') and self.sensors[self.index][2].startswith('Camera Depth (Raw)'):
-                self.save_image(self.i_depth_raw, 'depth_raw', '.png')
+                self.save_image(self.i_depth_raw, 'depth_raw', '.png', './images/my_images/other_sensors/depth_raw/')
             elif self.sensors[self.index][0].startswith('sensor.camera.depth') and self.sensors[self.index][2].startswith('Camera Depth (Gray Scale)'):
-                self.save_image(self.i_depth_gray_scale, 'depth_gray_scale', '.png')
+                self.save_image(self.i_depth_gray_scale, 'depth_gray_scale',
+                                '.png', './images/my_images/other_sensors/depth_gray_scale/')
             elif self.sensors[self.index][0].startswith('sensor.camera.semantic_segmentation') and self.sensors[self.index][2].startswith('Camera Semantic Segmentation (Raw)'):
-                self.save_image(self.i_semantic_segmentation_raw, 'semantic_segmentation_raw', '.png')
+                self.save_image(self.i_semantic_segmentation_raw,
+                                'semantic_segmentation_raw', '.png', './images/my_images/other_sensors/semantic_segmentation_raw/')
             elif self.sensors[self.index][0].startswith('sensor.camera.semantic_segmentation') and self.sensors[self.index][2].startswith('Camera Semantic Segmentation (CityScapes Palette)'):
                 self.save_image(self.i_semantic_segmentation_cityscapes_palette,
-                                'semantic_segmentation_cityscapes_palette', '.png')
+                                'semantic_segmentation_cityscapes_palette', '.png', './images/my_images/other_sensors/semantic_segmentation_cityscapes_palette/')
             elif self.sensors[self.index][0].startswith('sensor.camera.instance_segmentation'):
-                self.save_image(self.i_instance_segmentation, 'instance_segmentation', '.png')
+                self.save_image(self.i_instance_segmentation, 'instance_segmentation',
+                                '.png', './images/my_images/other_sensors/instance_segmentation/')
             elif self.sensors[self.index][0].startswith('sensor.camera.dvs'):
-                self.save_image(self.i_dvs, 'dvs', '.png')
+                self.save_image(self.i_dvs, 'dvs', '.png', './images/my_images/other_sensors/dvs/')
             elif self.sensors[self.index][0].startswith('sensor.camera.optical_flow'):
                 # buffer = np.frombuffer(image.raw_data, dtype=np.uint8)
                 # buffer = buffer.reshape(image.height, image.width, 4)[..., [2, 1, 0]]  # BGRA -> RGB
@@ -1451,13 +1454,13 @@ class CameraManager(object):
                 #     save_index = self.i // 4
                 #     Image.fromarray(buffer).save(f"_out/{save_index}.png")
                 # self.i += 1
-                self.save_image(self.i_optical_flow, 'optical_flow', '.png')
+                self.save_image(self.i_optical_flow, 'optical_flow', '.png', './images/my_images/other_sensors/optical_flow/')
             elif self.sensors[self.index][0].startswith('sensor.camera.normals'):
-                self.save_image(self.i_normals, 'normals', '.png')
+                self.save_image(self.i_normals, 'normals', '.png', './images/my_images/other_sensors/normals/')
             elif self.sensors[self.index][0].startswith('sensor.lidar.ray_cast'):
                 # image.save_to_disk('_out/%08d' % image.frame)
-                image.save_to_disk(f"_out/{image.frame:06d}_lidar_ray_cast")
-                self.rename_files("_out")
+                image.save_to_disk(f"./images/my_images/other_sensors/lidar_ray_cast/{image.frame:06d}_lidar_ray_cast")
+                self.rename_files("./images/my_images/other_sensors/lidar_ray_cast")
 
 
 # ==============================================================================

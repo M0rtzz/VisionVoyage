@@ -433,6 +433,7 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_get_common":
             print("btn_get_common clicked!")
+            os.system("./scripts/manual_control_gbuffer.py")
             directory = './images/my_images/other_sensors'
             table_widget = widgets.table_widget_get_image
 
