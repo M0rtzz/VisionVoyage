@@ -341,11 +341,28 @@ class World(object):
         self.hud.notification('Weather: %s' % preset[1])
         self.player.get_world().set_weather(preset[0])
 
+    def get_translation(self, selected_layer):
+        translations = {
+            carla.MapLayer.NONE: '无',
+            carla.MapLayer.Buildings: '建筑物',
+            carla.MapLayer.Decals: '贴图细节',
+            carla.MapLayer.Foliage: '植被',
+            carla.MapLayer.Ground: '地面',
+            carla.MapLayer.ParkedVehicles: '停放车辆',
+            carla.MapLayer.Particles: '粒子效果',
+            carla.MapLayer.Props: '道具',
+            carla.MapLayer.StreetLights: '路灯',
+            carla.MapLayer.Walls: '墙壁',
+            carla.MapLayer.All: '所有'
+        }
+        return translations.get(selected_layer, 'Unknown')
+
     def next_map_layer(self, reverse=False):
         self.current_map_layer += -1 if reverse else 1
         self.current_map_layer %= len(self.map_layer_names)
         selected = self.map_layer_names[self.current_map_layer]
-        self.hud.notification('LayerMap selected: %s' % selected)
+        # self.hud.notification('LayerMap selected: %s' % selected)
+        self.hud.notification('LayerMap selected: %s（%s）' % (selected, self.get_translation(selected)))
 
     def load_map_layer(self, unload=False):
         selected = self.map_layer_names[self.current_map_layer]
