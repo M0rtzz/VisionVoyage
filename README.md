@@ -17,11 +17,16 @@
 | 赵柏茗 | 计科 | 市场调研       | 负责市场调研，分析和营销                                           |
 | 徐梦蝶 | 计科 | 财务           | 管理项目使用的经费和虚拟经费，监控财务使用情况并提供报告             |
 
-<br>
 资源整合命令
 
 ```bash
-Convert UI
+# Convert UI
 pyside6-uic main.ui > ui_main.py
-Convert QRC
+# Convert QRC
 pyside6-rcc resources.qrc -o resources_rc.py
+```
+
+### 下载VisionVoyage Server
+
+[DOWNLOAD_VISIONVOYAGE_SERVER.md](./docs/DOWNLOAD_VISIONVOYAGE_SERVER.md)
+
