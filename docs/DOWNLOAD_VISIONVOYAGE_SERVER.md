@@ -20,7 +20,7 @@ Download VisionVoyage Server from:
 
 ![MEGA](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:09/10:41:48_image-20240309104148567.png)
 
-## 4.Dropbox (Outside the GFW )
+## 4.Dropbox (Outside the GFW)
 
 [Dropbox_URL](https://www.dropbox.com/scl/fi/ml70virqxomwpcfoh6vag/VisionVoyage-Server-UE4.26-Shipping.tar.gz?rlkey=a1p6a2zrgdmevr3d2zm5sfbea&dl=0)
 
