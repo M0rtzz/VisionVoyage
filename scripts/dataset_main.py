@@ -11,7 +11,7 @@ def main():
     parser.add_argument('-c', '--cfg_file', type=str, default='fish_eye.yaml', help='specify the config for collector')
 
     args = parser.parse_args()
-    cfg_file = os.path.join("./scripts/config", args.cfg_file)
+    cfg_file = os.path.join("./scripts/configs", args.cfg_file)
     collector_config = utils.config_from_yaml(cfg_file)
 
     data_collector = DataCollector(collector_config)
