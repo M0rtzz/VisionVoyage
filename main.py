@@ -332,17 +332,11 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btn_name)  # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
 
-        elif btn_name == "btn_personal_center":
-            print("btn_personal_center clicked!")
-
         elif btn_name == "btn_my_image":
-            print("btn_my_image clicked!")
             # os.system("nautilus ./images/my_images")
             self.openVisualDirectory("./images/my_images")
 
         elif btn_name == "btn_open_dir":
-            print("btn_open_dir clicked!")
-            print("self.file_names", self.file_names)
             file_dialog = QFileDialog()
             file_dialog.setFileMode(QFileDialog.ExistingFiles)  # 设置多选模式
             options = QFileDialog.Options()
@@ -358,7 +352,6 @@ class MainWindow(QMainWindow):
                                        for file in files])  # 将已选择的文件的相对路径添加到集合中
 
         elif btn_name == "btn_fisheye_one2one":
-            print("btn_fisheye_one2one clicked!")
             # terminal_command = "./scripts/PT2fisheye.py " + " ".join(self.file_paths)
             terminal_command = "./scripts/PT2fisheye.out " + " ".join(self.file_paths)
             os.system(terminal_command)
@@ -381,7 +374,6 @@ class MainWindow(QMainWindow):
             self.openImage('./images/my_images/fisheye_transformation/normal2fisheye', flag=True)
 
         elif btn_name == "btn_fisheye_five2one":
-            print("btn_fisheye_five2one clicked!")
             # terminal_command = "./scripts/cubemap2fisheye.py " + " ".join(self.file_paths)
             terminal_command = "./scripts/cubemap2fisheye.out " + " ".join(self.file_paths)
             os.system(terminal_command)
@@ -404,7 +396,6 @@ class MainWindow(QMainWindow):
             self.openImage('./images/my_images/fisheye_transformation/cubemap2fisheye', flag=True)
 
         elif btn_name == "btn_segmentation_image":
-            print("btn_segmentation_image clicked!")
             terminal_command = "./scripts/sem_seg_image.py --image_paths " + " ".join(self.file_paths)
             os.system(terminal_command)
             base_directory = './images/my_images/sem_seg/output'
@@ -435,7 +426,6 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_segmentation_video":
-            print("btn_segmentation_video clicked!")
             terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/pspv5s.pt --source" + \
                 " ".join(self.file_paths)
             os.system(terminal_command)
@@ -467,32 +457,26 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_raw_to_platte":
-            print("btn_raw_to_platte clicked!")
             os.system("./scripts/gray2color")
             self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
         elif btn_name == "btn_start_server":
-            print("btn_start_server clicked!")
             subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server状态终端',
                              '--', 'sh', './scripts/VisionVoyageServer.sh', "-quality-level=low"])
 
         elif btn_name == "btn_generate_traffic":
-            print("btn_generate_traffic clicked!")
             subprocess.Popen(['gnome-terminal', '--title', '交通初始化',
                              '--', 'python3', './scripts/generate_traffic.py'])
 
         elif btn_name == "btn_manual_control":
-            print("btn_manual_control clicked!")
             subprocess.Popen(['gnome-terminal', '--title', '虚拟驾驶',
                               '--', 'python3', './scripts/manual_control.py'])
 
         elif btn_name == "btn_automatic_control":
-            print("btn_automatic_control clicked!")
             subprocess.Popen(['gnome-terminal', '--title', '自动驾驶',
                               '--', 'python3', './scripts/automatic_control.py'])
 
         elif btn_name == "btn_get_fisheye":
-            print("btn_get_fisheye clicked!")
             os.system("./scripts/dataset_main.py")
             base_directory = './images/my_images/fisheye_dataset'
             table_widget = widgets.table_widget_get_image
@@ -522,7 +506,6 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 0, item)
 
         elif btn_name == "btn_get_common":
-            print("btn_get_common clicked!")
             os.system("./scripts/manual_control_gbuffer.py")
             directory = './images/my_images/other_sensors'
             table_widget = widgets.table_widget_get_image
@@ -544,7 +527,6 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 1, item)
 
         elif btn_name == "btn_adjustments":
-            print("btn_adjustments clicked!")
             self.dark_theme_enabled = not self.dark_theme_enabled
 
             # 根据当前主题选择相应的主题文件
@@ -590,7 +572,7 @@ class MainWindow(QMainWindow):
             AppFunctions.setThemeHack(self)
 
         # PRINT BTN NAME
-        print(f'Button "{btn_name}" pressed!')
+        # print(f'Button "{btn_name}" pressed!')
 
     def resizeEvent(self, event):
         # Update Size Grips
