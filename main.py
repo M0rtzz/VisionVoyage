@@ -436,6 +436,35 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_segmentation_video":
             print("btn_segmentation_video clicked!")
+            terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/pspv5s.pt --source" + \
+                " ".join(self.file_paths)
+            os.system(terminal_command)
+            base_directory = './images/my_images/sem_seg/output'
+            table_widget = widgets.table_widget_transform_upload_result
+
+            # 连接itemClicked信号到槽函数
+            table_widget.itemClicked.connect(self.onItemClickedSemSeg)
+
+            # 指定要查找.png文件的子目录列表
+            sub_dirs = ['images', 'videos']
+
+            # 获取指定子目录中的所有.png和.mp4文件
+            media_files = []
+            for sub_dir in sub_dirs:
+                dir_path = os.path.join(base_directory, sub_dir)
+                if os.path.exists(dir_path):
+                    media_files.extend([os.path.join(sub_dir, file)
+                                        for file in os.listdir(dir_path) if file.endswith(".png") or file.endswith(".mp4")])
+
+            # 清空第三列的内容
+            self.clearColumn(table_widget, 2)
+
+            # 在表格中显示文件名，去掉路径，只显示文件名
+            for index, file in enumerate(media_files):
+                # 使用os.path.basename去掉路径，只保留文件名
+                file = os.path.basename(file)
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_raw_to_platte":
             print("btn_raw_to_platte clicked!")
