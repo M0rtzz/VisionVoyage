@@ -38,6 +38,7 @@ class MainWindow(QMainWindow):
         self.common_directory = './images/my_images/other_sensors'
         self.normal_directory = './images/my_images/fisheye_transformation/normal2fisheye'
         self.cubemap_directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
+        self.sem_seg_directory = './images/my_images/sem_seg/output'
 
         # SET AS GLOBAL WIDGETS
         self.ui = Ui_MainWindow()
@@ -101,8 +102,8 @@ class MainWindow(QMainWindow):
 
         # SET CUSTOM THEME
         use_custom_theme = True
-        # theme_file = "./themes/py_dracula_light.qss"
-        theme_file = "./themes/py_dracula_dark.qss"
+        # theme_file = "./themes/light.qss"
+        theme_file = "./themes/dark.qss"
 
         # SET THEME AND HACKS
         if use_custom_theme:
@@ -143,6 +144,27 @@ class MainWindow(QMainWindow):
             item = widget.item(row, column_index)
             if item is not None:
                 widget.takeItem(row, column_index)
+
+    def onItemClickedSemSeg(self, item):
+        column = item.column()
+        row = item.row()
+        table_widget = item.tableWidget()
+        file_name = table_widget.item(row, column).text()
+        # 遍历 output 目录下的所有子目录
+        for root, dirs, files in os.walk(self.sem_seg_directory):
+            for name in files:
+                if name == file_name:
+                    file_path = os.path.join(root, name)
+                    if os.path.exists(file_path):
+                        if file_name.endswith(".mp4"):
+                            self.openVideoWithDefaultPlayer(file_path)
+                        else:
+                            cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
+                            cv2.resizeWindow(file_name, 800, 600)
+                            mat = cv2.imread(file_path)
+                            cv2.imshow(file_name, mat)
+                        return
+        print("File not found:", file_name)
 
     def onItemClickedFisheye(self, item):
         column = item.column()
@@ -209,6 +231,16 @@ class MainWindow(QMainWindow):
         if not text:  # 如果LineEdit内容为空
             self.file_names.clear()  # 清空file_names集合
             self.file_paths.clear()  # 清空file_paths集合
+
+    def openVideoWithDefaultPlayer(self, video_path):
+        if sys.platform.startswith('linux'):  # Linux
+            subprocess.run(['xdg-open', video_path])
+        elif sys.platform == 'darwin':  # MacOS
+            subprocess.run(['open', video_path])
+        elif sys.platform == 'win32':  # Windows
+            subprocess.run(['start', '', video_path], shell=True)
+        else:
+            print("Unsupported operating system")
 
     def openVisualDirectory(self, directory):
         if sys.platform.startswith('linux'):  # Linux
@@ -316,8 +348,9 @@ class MainWindow(QMainWindow):
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog  # 禁用原生对话框
             # files, _ = file_dialog.getOpenFileNames(self, "选择文件", "", "所有文件 (*)")
+            filter = "图像文件 (*.png *.jpg *.bmp *.jpeg);;视频文件 (*.mp4 *.avi *.mov *.mkv)"
             files, _ = file_dialog.getOpenFileNames(
-                None, "选择图片", "./images/my_images", "图像文件 (*.png *.jpg *.bmp *.jpeg)", options=options)
+                None, "选择图片或视频", "./images/my_images", filter, options=options)
             if files:
                 self.file_names.update([os.path.basename(file) for file in files])  # 将已选择的文件名添加到集合中
                 self.ui.line_edit_filenames.setText(", ".join(self.file_names))
@@ -372,6 +405,34 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_segmentation_image":
             print("btn_segmentation_image clicked!")
+            terminal_command = "./scripts/sem_seg_image.py --image_paths " + " ".join(self.file_paths)
+            os.system(terminal_command)
+            base_directory = './images/my_images/sem_seg/output'
+            table_widget = widgets.table_widget_transform_upload_result
+
+            # 连接itemClicked信号到槽函数
+            table_widget.itemClicked.connect(self.onItemClickedSemSeg)
+
+            # 指定要查找.png文件的子目录列表
+            sub_dirs = ['images', 'videos']
+
+            # 获取指定子目录中的所有.png和.mp4文件
+            media_files = []
+            for sub_dir in sub_dirs:
+                dir_path = os.path.join(base_directory, sub_dir)
+                if os.path.exists(dir_path):
+                    media_files.extend([os.path.join(sub_dir, file)
+                                        for file in os.listdir(dir_path) if file.endswith(".png") or file.endswith(".mp4")])
+
+            # 清空第三列的内容
+            self.clearColumn(table_widget, 2)
+
+            # 在表格中显示文件名，去掉路径，只显示文件名
+            for index, file in enumerate(media_files):
+                # 使用os.path.basename去掉路径，只保留文件名
+                file = os.path.basename(file)
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_segmentation_video":
             print("btn_segmentation_video clicked!")
@@ -459,7 +520,7 @@ class MainWindow(QMainWindow):
 
             # 根据当前主题选择相应的主题文件
             if self.dark_theme_enabled:
-                theme_file = "./themes/py_dracula_dark.qss"
+                theme_file = "./themes/dark.qss"
                 # 设置字体为颜色为白色
                 widgets.btn_fisheye_one2one.setStyleSheet("color: #FFFFFF;")
                 widgets.btn_fisheye_five2one.setStyleSheet("color: #FFFFFF;")
@@ -477,7 +538,7 @@ class MainWindow(QMainWindow):
                 self.setTableFontColor(widgets.table_widget_operation_help)
 
             else:
-                theme_file = "./themes/py_dracula_light.qss"
+                theme_file = "./themes/light.qss"
                 # 设置字体为颜色为黑色
                 widgets.btn_fisheye_one2one.setStyleSheet("color: #000000;")
                 widgets.btn_fisheye_five2one.setStyleSheet("color: #000000;")
