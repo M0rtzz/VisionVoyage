@@ -61,7 +61,7 @@ CITYSCAPES_IDMAP = [
     [33],
 ]
 
-Cityscapes_Class = ["road", "sidewalk", "building", "wall", "fence",
+CITYSCAPES_CLASS = ["road", "sidewalk", "building", "wall", "fence",
                     "pole", "traffic light", "traffic sign", "vegetation",
                     "terrain", "sky", "person", "rider", "car", "truck",
                     "bus", "train", "motorcycle", "bicyle"]
