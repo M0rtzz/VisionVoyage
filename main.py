@@ -1,3 +1,5 @@
+#!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
+
 # ///////////////////////////////////////////////////////////////
 #
 # @file main.py
@@ -426,7 +428,7 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_segmentation_video":
-            terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/pspv5s.pt --source" + \
+            terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/video.pt --source" + \
                 " ".join(self.file_paths)
             os.system(terminal_command)
             base_directory = './images/my_images/sem_seg/output'
