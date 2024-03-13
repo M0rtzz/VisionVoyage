@@ -17,6 +17,10 @@ from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 import numpy as np
 
+# NOTE: 禁止指定警告输出
+import warnings
+warnings.filterwarnings("ignore", message="torch.meshgrid*", category=UserWarning)
+
 CITYSCAPES_COLORMAP = [
     [128, 64, 128],
     [244, 35, 232],

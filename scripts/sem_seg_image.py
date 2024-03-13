@@ -5,6 +5,10 @@ import os
 import cv2
 from mmseg.apis import inference_model, init_model, show_result_pyplot
 
+# NOTE: 禁止指定警告输出
+import warnings
+warnings.filterwarnings("ignore", message="torch.meshgrid*", category=UserWarning)
+
 # 从命令行获取图片路径参数
 parser = argparse.ArgumentParser(description='Image Segmentation')
 parser.add_argument('--image_paths', nargs='+', help='input image paths')
