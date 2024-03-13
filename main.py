@@ -339,6 +339,9 @@ class MainWindow(QMainWindow):
             self.openVisualDirectory("./images/my_images")
 
         elif btn_name == "btn_open_dir":
+            # 点击按钮自动清空 self.ui.line_edit_filenames 和 self.file_paths
+            self.ui.line_edit_filenames.clear()
+            self.file_paths.clear()
             file_dialog = QFileDialog()
             file_dialog.setFileMode(QFileDialog.ExistingFiles)  # 设置多选模式
             options = QFileDialog.Options()
