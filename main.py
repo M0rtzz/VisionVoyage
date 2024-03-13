@@ -13,16 +13,17 @@
 from enum import auto
 import sys
 import os
-import platform
 import subprocess
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-from matplotlib.image import imread
 import cv2
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 from modules import *
 from widgets import *
+
+# NOTE: 禁止指定警告输出
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", message="torch.meshgrid*", category=UserWarning)
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -325,14 +326,14 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_image":
-            widgets.stackedWidget.setCurrentWidget(widgets.image_page)  # SET PAGE
-            UIFunctions.resetStyle(self, btn_name)  # RESET ANOTHERS BUTTONS SELECTED
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
+            widgets.stackedWidget.setCurrentWidget(widgets.image_page)
+            UIFunctions.resetStyle(self, btn_name)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_simulation":
-            widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)  # SET PAGE
-            UIFunctions.resetStyle(self, btn_name)  # RESET ANOTHERS BUTTONS SELECTED
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
+            widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)
+            UIFunctions.resetStyle(self, btn_name)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_my_image":
             # os.system("nautilus ./images/my_images")
@@ -459,7 +460,7 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_raw_to_platte":
-            os.system("./scripts/gray2color")
+            os.system("./scripts/gray2color.out")
             self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
         elif btn_name == "btn_start_server":
@@ -584,12 +585,11 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
-
-        # PRINT MOUSE EVENTS
-        if event.buttons() == Qt.LeftButton:
-            print('Mouse click: LEFT CLICK')
-        if event.buttons() == Qt.RightButton:
-            print('Mouse click: RIGHT CLICK')
+        # # PRINT MOUSE EVENTS
+        # if event.buttons() == Qt.LeftButton:
+        #     print('Mouse click: LEFT CLICK')
+        # if event.buttons() == Qt.RightButton:
+        #     print('Mouse click: RIGHT CLICK')
 
 
 if __name__ == "__main__":

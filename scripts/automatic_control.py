@@ -9,6 +9,7 @@
 """Example of automatic vehicle control from client side."""
 
 from __future__ import print_function
+import numpy.random as random
 
 import argparse
 import collections
@@ -17,7 +18,7 @@ import glob
 import logging
 import math
 import os
-import numpy.random as random
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import re
 import sys
 import weakref
