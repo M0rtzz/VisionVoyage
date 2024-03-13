@@ -30,3 +30,6 @@ pyside6-rcc resources.qrc -o resources_rc.py
 
 [DOWNLOAD_VISIONVOYAGE_SERVER.md](./docs/DOWNLOAD_VISIONVOYAGE_SERVER.md)
 
+### 演示视频
+
+[DOWNLOAD_DEMOSTRATION.md](./docs/DOWNLOAD_DEMOSTRATION.md)
