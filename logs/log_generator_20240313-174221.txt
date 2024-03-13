@@ -1,8 +1,0 @@
-2024-03-13 17:42:29,431   INFO  ------------------------ Start Generating ------------------------
-2024-03-13 17:42:30,104   INFO  Set hero vehicle Done!
-2024-03-13 17:42:30,360   INFO  Total blueprints: 40
-2024-03-13 17:42:30,360   INFO  Total spawn points: 155
-2024-03-13 17:42:31,060   INFO  Spawn failed because of collision at spawn position
-2024-03-13 17:42:31,061   INFO  Set env vehicles Done!
-2024-03-13 17:44:09,002   INFO  Set sensors Done!
-2024-03-13 17:44:40,476   INFO  Something wrong happened!
