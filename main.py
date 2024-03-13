@@ -23,7 +23,6 @@ from widgets import *
 # NOTE: 禁止指定警告输出
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-warnings.filterwarnings("ignore", message="torch.meshgrid*", category=UserWarning)
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
