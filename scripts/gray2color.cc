@@ -76,10 +76,12 @@ void grayToColor(const string &img_path, const Mat &color_map)
         fs::create_directory(save_dir);
     }
     string save_path = (save_dir / path.filename()).replace_extension(".png");
-    if (fs::exists(save_path))
-    {
-        return;
-    }
+
+    // NOTE: 为了演示，强行覆盖已有文件
+    // if (fs::exists(save_path))
+    // {
+    //     return;
+    // }
 
     // double min_val, max_val;
     // Point min_loc, max_loc;

@@ -3,7 +3,7 @@
 # base_path=$(dirname "$0")
 base_path=$(pwd)
 exec_name="main"
-rm -rf "$HOME/Desktop/VisionVoyage.desktop" 2>/dev/null
+rm -f "$HOME/Desktop/VisionVoyage.desktop" 2>/dev/null
 echo "[Desktop Entry]
 Name=VisionVoyage
 Exec=$base_path/$exec_name.sh

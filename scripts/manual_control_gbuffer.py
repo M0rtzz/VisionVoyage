@@ -91,6 +91,7 @@
 
 
 from __future__ import print_function
+import sys
 
 
 # ==============================================================================
@@ -100,7 +101,7 @@ from __future__ import print_function
 
 import glob
 import os
-import sys
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 try:
     sys.path.append(glob.glob('./scripts/dist/VisionVoyage-*%d.%d-%s.egg' % (

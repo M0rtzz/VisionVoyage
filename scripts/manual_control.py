@@ -91,6 +91,18 @@
 
 
 from __future__ import print_function
+import weakref
+import re
+import random
+import math
+import logging
+import datetime
+import collections
+import argparse
+from carla import ColorConverter as cc
+import fnmatch
+import carla
+import sys
 
 
 # ==============================================================================
@@ -100,7 +112,8 @@ from __future__ import print_function
 
 import glob
 import os
-import sys
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+
 
 try:
     sys.path.append(glob.glob('./scripts/dist/VisionVoyage-*%d.%d-%s.egg' % (
@@ -115,19 +128,6 @@ except IndexError:
 # -- imports -------------------------------------------------------------------
 # ==============================================================================
 
-
-import carla
-import fnmatch
-from carla import ColorConverter as cc
-
-import argparse
-import collections
-import datetime
-import logging
-import math
-import random
-import re
-import weakref
 
 try:
     import pygame

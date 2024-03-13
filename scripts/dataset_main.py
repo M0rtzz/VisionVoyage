@@ -1,6 +1,6 @@
 #!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
 
-import utils
+import dataset_utils
 from get_fisheye_dataset import DataCollector
 import os
 import argparse
@@ -12,7 +12,7 @@ def main():
 
     args = parser.parse_args()
     cfg_file = os.path.join("./scripts/configs", args.cfg_file)
-    collector_config = utils.config_from_yaml(cfg_file)
+    collector_config = dataset_utils.config_from_yaml(cfg_file)
 
     data_collector = DataCollector(collector_config)
     data_collector.start_collecting()

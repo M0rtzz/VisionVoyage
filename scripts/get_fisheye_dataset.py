@@ -7,7 +7,7 @@ import queue
 import numpy as np
 import os
 import logging
-import utils
+import dataset_utils
 import fisheye_utils
 import cv2
 import fnmatch
@@ -40,12 +40,12 @@ class DataCollector:
         self.two_wheels_nums = 0
         self.bicycle_nums = 0
         self.motorcycle_nums = 0
-        self.logger = utils.create_logger()
+        self.logger = dataset_utils.create_logger()
         self.collector_config = collector_config
         self.map = collector_config.get('MAP', 'Town04_Opt')
         self.hero_vehicle_name = collector_config.get('HERO_VEHICLE', 'vehicle.tesla.model3')
-        self.num_of_env_vehicles = collector_config.get('NUM_OF_ENV_VEHICLES', 80)
-        self.num_of_env_pedestrians = collector_config.get('NUM_OF_ENV_PEDESTRIANS', 30)
+        self.num_of_env_vehicles = collector_config.get('NUM_OF_ENV_VEHICLES', 3)
+        self.num_of_env_pedestrians = collector_config.get('NUM_OF_ENV_PEDESTRIANS', 3)
         self.data_save_path = collector_config.get('DATA_SAVE_PATH', 'data')
         self.env_vehicles_points = []
         if not os.path.exists(self.data_save_path):
@@ -290,7 +290,8 @@ class DataCollector:
         self.logger.info(f'Total blueprints: {len(vehicle_blueprints)}')
         self.logger.info(f'Total spawn points: {len(spawn_points)}')
         for i, transform in enumerate(spawn_points):
-            if (i >= self.num_of_env_vehicles) and (self.bus_nums == 7 and self.bicycle_nums == 20 and self.motorcycle_nums == 20):
+            # if (i >= self.num_of_env_vehicles) and (self.bus_nums == 7 and self.bicycle_nums == 20 and self.motorcycle_nums == 20):
+            if (i >= self.num_of_env_vehicles):
                 break
 
             bicycle_bp = random.choice(filtered_blueprints_bicycle)
@@ -310,7 +311,7 @@ class DataCollector:
             #     vehicle_bp = motorcycle_bp
             #     self.motorcycle_nums += 1
             # elif (self.bus_nums == 7 and self.bicycle_nums == 20 and self.motorcycle_nums == 20):
-                # vehicle_bp = random.choice(filtered_list)
+            # vehicle_bp = random.choice(filtered_list)
 
             vehicle_bp = random.choice(filtered_list)
             # has no idea about the meaning of driver_id
@@ -330,9 +331,9 @@ class DataCollector:
 
                 # print(response.actor_id)
 
-        print("bus_nums", self.bus_nums)
-        print("bicycle_nums", self.bicycle_nums)
-        print("motorcycle_nums", self.motorcycle_nums)
+        # print("bus_nums", self.bus_nums)
+        # print("bicycle_nums", self.bicycle_nums)
+        # print("motorcycle_nums", self.motorcycle_nums)
         # print("env_vehicles", self.env_vehicles)
 
         # NOTE: 汽车加速
@@ -606,7 +607,6 @@ class DataCollector:
                     self.sensor_actors_4_.append(actor)
 
                 # print(len(self.sensor_actors_2_))
-        self.logger.info('Set sensors Done!')
 
     # TAG
     def set_sensor_queue(self):
@@ -653,6 +653,7 @@ class DataCollector:
             sensor.listen(q_.put)
             self.sensor_queues_4_.append(q_)
             # print("sensor_queues_", len(self.sensor_queues_))
+        self.logger.info('Set sensors Done!')
 
     def set_spectator(self, z=20, pitch=-90):
         spectator = self.world.get_spectator()
@@ -785,7 +786,6 @@ class DataCollector:
             self.set_traffic_lights_to_green()
             self.set_synchronization_world()
             self.set_synchronization_traffic_manager(traffic_manager)
-            print("success")
 
             time_stamp = self.start_timestamp
             interval_index = 0
