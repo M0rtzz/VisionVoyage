@@ -1422,7 +1422,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;个性化定制&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;您可以通过下方“联系我们”来向我司商讨个性化定制方案，我司会定制您所需的仿真地图和车辆模型以及提供专业的技术支持，使您获得独特的自动驾驶仿真体验。&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;联系我们&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;M0rtzz E-mail : m0rtzz@163.com&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;M0rtzz E-mail : m0rtzz@outlook.com&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/images/images/images/IngenuityDrive.png&quot; /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
@@ -4009,7 +4009,7 @@ background-repeat: no-repeat;
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="btn_message">
+                          <widget class="QPushButton" name="btn_send_mail">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                              <horstretch>0</horstretch>
@@ -4040,7 +4040,7 @@ background-repeat: no-repeat;
                             <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-open.png);</string>
                            </property>
                            <property name="text">
-                            <string>Message</string>
+                            <string>Contact Us</string>
                            </property>
                           </widget>
                          </item>

@@ -10,7 +10,6 @@
 #
 # ///////////////////////////////////////////////////////////////
 
-from enum import auto
 import sys
 import os
 import subprocess
@@ -87,6 +86,7 @@ class MainWindow(QMainWindow):
         widgets.btn_generate_traffic.clicked.connect(self.buttonClick)
         widgets.btn_manual_control.clicked.connect(self.buttonClick)
         widgets.btn_automatic_control.clicked.connect(self.buttonClick)
+        widgets.btn_send_mail.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -576,8 +576,10 @@ class MainWindow(QMainWindow):
             # SET HACKS
             AppFunctions.setThemeHack(self)
 
-        # PRINT BTN NAME
-        # print(f'Button "{btn_name}" pressed!')
+        elif btn_name == "btn_send_mail":
+            import webbrowser
+            to_email = "m0rtzz@outlook.com"
+            webbrowser.open("mailto:" + to_email, new=1)
 
     def resizeEvent(self, event):
         # Update Size Grips

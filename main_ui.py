@@ -1728,17 +1728,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.btn_message = QPushButton(self.topMenus)
-        self.btn_message.setObjectName(u"btn_message")
-        sizePolicy.setHeightForWidth(self.btn_message.sizePolicy().hasHeightForWidth())
-        self.btn_message.setSizePolicy(sizePolicy)
-        self.btn_message.setMinimumSize(QSize(0, 45))
-        self.btn_message.setFont(font1)
-        self.btn_message.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_message.setLayoutDirection(Qt.LeftToRight)
-        self.btn_message.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-open.png);")
+        self.btn_send_mail = QPushButton(self.topMenus)
+        self.btn_send_mail.setObjectName(u"btn_send_mail")
+        sizePolicy.setHeightForWidth(self.btn_send_mail.sizePolicy().hasHeightForWidth())
+        self.btn_send_mail.setSizePolicy(sizePolicy)
+        self.btn_send_mail.setMinimumSize(QSize(0, 45))
+        self.btn_send_mail.setFont(font1)
+        self.btn_send_mail.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_send_mail.setLayoutDirection(Qt.LeftToRight)
+        self.btn_send_mail.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-open.png);")
 
-        self.verticalLayout_14.addWidget(self.btn_message)
+        self.verticalLayout_14.addWidget(self.btn_send_mail)
 
         self.btn_print = QPushButton(self.topMenus)
         self.btn_print.setObjectName(u"btn_print")
@@ -1869,9 +1869,9 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">\u60a8\u53ef\u4ee5\u901a\u8fc7\u4e0b\u65b9\u201c\u8054\u7cfb\u6211\u4eec\u201d\u6765\u5411\u6211"
                         "\u53f8\u5546\u8ba8\u4e2a\u6027\u5316\u5b9a\u5236\u65b9\u6848\uff0c\u6211\u53f8\u4f1a\u5b9a\u5236\u60a8\u6240\u9700\u7684\u4eff\u771f\u5730\u56fe\u548c\u8f66\u8f86\u6a21\u578b\u4ee5\u53ca\u63d0\u4f9b\u4e13\u4e1a\u7684\u6280\u672f\u652f\u6301\uff0c\u4f7f\u60a8\u83b7\u5f97\u72ec\u7279\u7684\u81ea\u52a8\u9a7e\u9a76\u4eff\u771f\u4f53\u9a8c\u3002</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">\u8054\u7cfb\u6211\u4eec</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">M0rtzz E-mail : m0rtzz@163.com</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/images/images/images/IngenuityDrive."
-                        "png\" /></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">M0rtzz E-mail : m0rtzz@outlook.com</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/images/images/images/IngenuityDr"
+                        "ive.png\" /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#ffffff;\"><br /></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:700;\">VisionVoyage Client</span></p></body></html>", None))
 #if QT_CONFIG(tooltip)
@@ -2118,7 +2118,7 @@ class Ui_MainWindow(object):
         self.table_widget_get_image.setSortingEnabled(__sortingEnabled2)
 
         self.btn_raw_to_platte.setText(QCoreApplication.translate("MainWindow", u"\u8bed\u4e49\u5206\u5272\u539f\u59cb\u56fe\u50cf\u8f6c\u6362\u4e3aCityscapes\u8c03\u8272\u677f\u56fe\u50cf", None))
-        self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
+        self.btn_send_mail.setText(QCoreApplication.translate("MainWindow", u"Contact Us", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
