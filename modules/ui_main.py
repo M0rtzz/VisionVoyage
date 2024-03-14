@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-<<<<<<< HEAD
 # Form generated from reading UI file 'mainllUzio.ui'
-=======
-# Form generated from reading UI file 'mainyGqvTt.ui'
->>>>>>> develop
 ##
 # Created by: Qt User Interface Compiler version 6.6.0
 ##
