@@ -471,15 +471,15 @@ class MainWindow(QMainWindow):
 
         elif btn_name == "btn_generate_traffic":
             subprocess.Popen(['gnome-terminal', '--title', '交通初始化',
-                             '--', 'python3', './scripts/generate_traffic.py'])
+                             '--', './scripts/generate_traffic.py'])
 
         elif btn_name == "btn_manual_control":
             subprocess.Popen(['gnome-terminal', '--title', '虚拟驾驶',
-                              '--', 'python3', './scripts/manual_control.py'])
+                              '--', './scripts/manual_control.py'])
 
         elif btn_name == "btn_automatic_control":
             subprocess.Popen(['gnome-terminal', '--title', '自动驾驶',
-                              '--', 'python3', './scripts/automatic_control.py'])
+                              '--', './scripts/automatic_control.py'])
 
         elif btn_name == "btn_get_fisheye":
             os.system("./scripts/dataset_main.py")
