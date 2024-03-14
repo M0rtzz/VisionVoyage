@@ -334,14 +334,43 @@ class World(object):
         else:
             self.world.wait_for_tick()
 
+    def get_translation_weather(self, selected_weather):
+        translations = {
+            'Clear Noon': '晴天中午',
+            'Clear Sunset': '晴天日落',
+            'Cloudy Night': '多云夜晚',
+            'Cloudy Noon': '多云中午',
+            'Cloudy Sunset': '多云日落',
+            'Default': '默认',
+            'Dust Storm': '尘暴',
+            'Hard Rain Night': '大雨夜晚',
+            'Hard Rain Noon': '大雨中午',
+            'Hard Rain Sunset': '大雨日落',
+            'Mid Rain Sunset': '中雨日落',
+            'Mid Rainy Night': '中雨夜晚',
+            'Mid Rainy Noon': '中雨中午',
+            'Soft Rain Night': '小雨夜晚',
+            'Soft Rain Noon': '小雨中午',
+            'Soft Rain Sunset': '小雨日落',
+            'Wet Cloudy Night': '湿润多云夜晚',
+            'Wet Cloudy Noon': '湿润多云中午',
+            'Wet Cloudy Sunset': '湿润多云日落',
+            'Wet Night': '潮湿夜晚',
+            'Wet Noon': '潮湿中午',
+            'Wet Sunset': '潮湿日落',
+            'Clear Night': '晴天夜晚'
+        }
+
+        return translations.get(selected_weather, 'Unknown')
+
     def next_weather(self, reverse=False):
         self._weather_index += -1 if reverse else 1
         self._weather_index %= len(self._weather_presets)
         preset = self._weather_presets[self._weather_index]
-        self.hud.notification('Weather: %s' % preset[1])
+        self.hud.notification('Weather: %s（%s）' % (preset[1], self.get_translation_weather(preset[1])))
         self.player.get_world().set_weather(preset[0])
 
-    def get_translation(self, selected_layer):
+    def get_translation_layer(self, selected_layer):
         translations = {
             carla.MapLayer.NONE: '无',
             carla.MapLayer.Buildings: '建筑物',
@@ -362,7 +391,7 @@ class World(object):
         self.current_map_layer %= len(self.map_layer_names)
         selected = self.map_layer_names[self.current_map_layer]
         # self.hud.notification('LayerMap selected: %s' % selected)
-        self.hud.notification('LayerMap selected: %s（%s）' % (selected, self.get_translation(selected)))
+        self.hud.notification('LayerMap selected: %s（%s）' % (selected, self.get_translation_layer(selected)))
 
     def load_map_layer(self, unload=False):
         selected = self.map_layer_names[self.current_map_layer]
