@@ -305,7 +305,7 @@ int main(int argc, char **argv)
     string output_file_name = "./images/my_images/fisheye_transformation/cubemap2fisheye/" + currentTimeFormatted() + ".png";
     imwrite(output_file_name, fisheye_picture);
 
-    cout << "\n转换成功，文件保存为: " << output_file_name << endl;
+    // cout << "\n转换成功，文件保存为: " << output_file_name << endl;
 
     return 0;
 }

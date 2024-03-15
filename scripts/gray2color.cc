@@ -140,7 +140,7 @@ int main()
                                     // Vec3b(81, 0, 81)      // ground  25
     );
     // 文件路径
-    string img_dir = "./images/my_images/fisheye_dataset/semantic_segmentation_raw";
+    string img_dir = "./images/my_images/fisheye_dataset/semantic_segmentation_raw_changed_index";
     if (!fs::exists(img_dir))
     {
         fs::create_directory(img_dir);
@@ -158,5 +158,6 @@ int main()
         progress.updateTime();
     }
     cout << endl;
+    cout << "原始图像转换为Cityscapes调色板图像已完成" << endl;
     return 0;
 }

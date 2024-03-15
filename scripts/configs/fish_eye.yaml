@@ -1,11 +1,11 @@
-DATA_SAVE_PATH: data
+DATA_SAVE_PATH: ./images/my_images/fisheye_dataset
 
 # MAP: Town03_Opt
 MAP: Town10HD_Opt
 
 HERO_VEHICLE: vehicle.tesla.model3
 
-SAVE_INTERVAL: 120
+SAVE_INTERVAL: 20
 
 NUM_OF_ENV_VEHICLES: 130
 

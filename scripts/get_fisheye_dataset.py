@@ -42,11 +42,11 @@ class DataCollector:
         self.motorcycle_nums = 0
         self.logger = dataset_utils.create_logger()
         self.collector_config = collector_config
-        self.map = collector_config.get('MAP', 'Town04_Opt')
+        self.map = collector_config.get('MAP', 'Town10HD_Opt')
         self.hero_vehicle_name = collector_config.get('HERO_VEHICLE', 'vehicle.tesla.model3')
-        self.num_of_env_vehicles = collector_config.get('NUM_OF_ENV_VEHICLES', 3)
-        self.num_of_env_pedestrians = collector_config.get('NUM_OF_ENV_PEDESTRIANS', 3)
-        self.data_save_path = collector_config.get('DATA_SAVE_PATH', 'data')
+        self.num_of_env_vehicles = collector_config.get('NUM_OF_ENV_VEHICLES', 0)
+        self.num_of_env_pedestrians = collector_config.get('NUM_OF_ENV_PEDESTRIANS', 0)
+        self.data_save_path = collector_config.get('DATA_SAVE_PATH', './images/my_images/fisheye_dataset')
         self.env_vehicles_points = []
         if not os.path.exists(self.data_save_path):
             os.mkdir(self.data_save_path)
@@ -350,9 +350,9 @@ class DataCollector:
         batch = []
         batch_ = []
         for sensor_group in self.sensor_group_list:
-            path = os.path.join(self.data_save_path, sensor_group["NAME"])
-            if not os.path.exists(path):
-                os.mkdir(path)
+            # path = os.path.join(self.data_save_path, sensor_group["NAME"])
+            # if not os.path.exists(path):
+            #     os.mkdir(path)
             ################# Special Setup for Fisheye #################
 
             def set_sensors_fisheye(sensor_group, batch):
@@ -773,7 +773,7 @@ class DataCollector:
 
             self.set_hero_vehicle()
 
-            self.set_env_vehicles()
+            # self.set_env_vehicles()
             # self.filter_vehicles_dont_want()
             # self.set_env_pedestrians()
 
@@ -820,7 +820,7 @@ class DataCollector:
                         print(interval_index, end=" ", flush=True)
                     continue
 
-                print('120\n')
+                print('20\n')
                 interval_index = 0
 
                 ############################# Save Data ###########################

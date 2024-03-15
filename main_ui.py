@@ -1752,17 +1752,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.btn_print)
 
-        self.btn_logout = QPushButton(self.topMenus)
-        self.btn_logout.setObjectName(u"btn_logout")
-        sizePolicy.setHeightForWidth(self.btn_logout.sizePolicy().hasHeightForWidth())
-        self.btn_logout.setSizePolicy(sizePolicy)
-        self.btn_logout.setMinimumSize(QSize(0, 45))
-        self.btn_logout.setFont(font1)
-        self.btn_logout.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_logout.setLayoutDirection(Qt.LeftToRight)
-        self.btn_logout.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png);")
+        self.btn_unlock = QPushButton(self.topMenus)
+        self.btn_unlock.setObjectName(u"btn_unlock")
+        sizePolicy.setHeightForWidth(self.btn_unlock.sizePolicy().hasHeightForWidth())
+        self.btn_unlock.setSizePolicy(sizePolicy)
+        self.btn_unlock.setMinimumSize(QSize(0, 45))
+        self.btn_unlock.setFont(font1)
+        self.btn_unlock.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_unlock.setLayoutDirection(Qt.LeftToRight)
+        self.btn_unlock.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-unlocked.png);")
 
-        self.verticalLayout_14.addWidget(self.btn_logout)
+        self.verticalLayout_14.addWidget(self.btn_unlock)
 
 
         self.verticalLayout_13.addWidget(self.topMenus, 0, Qt.AlignTop)
@@ -2120,8 +2120,8 @@ class Ui_MainWindow(object):
         self.btn_raw_to_platte.setText(QCoreApplication.translate("MainWindow", u"\u8bed\u4e49\u5206\u5272\u539f\u59cb\u56fe\u50cf\u8f6c\u6362\u4e3aCityscapes\u8c03\u8272\u677f\u56fe\u50cf", None))
         self.btn_send_mail.setText(QCoreApplication.translate("MainWindow", u"Contact Us", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
-        self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
+        self.btn_unlock.setText(QCoreApplication.translate("MainWindow", u"Unlock", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v5.1.0-stable", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v5.2.0-stable", None))
     # retranslateUi
 

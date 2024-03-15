@@ -87,6 +87,7 @@ class MainWindow(QMainWindow):
         widgets.btn_manual_control.clicked.connect(self.buttonClick)
         widgets.btn_automatic_control.clicked.connect(self.buttonClick)
         widgets.btn_send_mail.clicked.connect(self.buttonClick)
+        widgets.btn_print.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -462,6 +463,7 @@ class MainWindow(QMainWindow):
                 table_widget.setItem(index, 2, item)
 
         elif btn_name == "btn_raw_to_platte":
+            os.system("./scripts/change_index.out")
             os.system("./scripts/gray2color.out")
             self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
@@ -490,7 +492,7 @@ class MainWindow(QMainWindow):
             table_widget.itemClicked.connect(self.onItemClickedFisheye)
 
             # 指定要查找.png文件的子目录列表
-            sub_dirs = ['rgb', 'semantic_segmentation_raw']
+            sub_dirs = ['rgb', 'semantic_segmentation_raw', 'semantic_segmentation_CityScapesPalette']
 
             # 获取指定子目录中的所有.png文件
             png_files = []
@@ -580,6 +582,22 @@ class MainWindow(QMainWindow):
             import webbrowser
             to_email = "m0rtzz@outlook.com"
             webbrowser.open("mailto:" + to_email, new=1)
+
+        elif btn_name == "btn_print":
+            file_dialog = QFileDialog()
+            file_dialog.setFileMode(QFileDialog.ExistingFiles)  # 设置多选模式
+            options = QFileDialog.Options()
+            options |= QFileDialog.DontUseNativeDialog  # 禁用原生对话框
+            # files, _ = file_dialog.getOpenFileNames(self, "选择文件", "", "所有文件 (*)")
+            filter = "文件 (*.txt *.pdf)"
+            files, _ = file_dialog.getOpenFileNames(
+                None, "选择文本或PDF文件", "./logs", filter, options=options)
+            terminal_command_1 = "./scripts/txt2pdf.out " + " ".join(files)
+            os.system(terminal_command_1)
+            print_files = set(file.replace(".txt", ".pdf") if file.endswith(
+                ".txt") else file.replace(".pdf", ".pdf") for file in files)
+            terminal_command_2 = "pdftk " + " ".join(print_files) + " cat output - | lpr"
+            os.system(terminal_command_2)
 
     def resizeEvent(self, event):
         # Update Size Grips

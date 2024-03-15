@@ -1,4 +1,5 @@
 **/__pycache__/
 .vscode/
-logs/*.txt
+# logs/*.txt
+logs/*.pdf
 scripts/*.out

@@ -4081,7 +4081,7 @@ background-repeat: no-repeat;
                           </widget>
                          </item>
                          <item>
-                          <widget class="QPushButton" name="btn_logout">
+                          <widget class="QPushButton" name="btn_unlock">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                              <horstretch>0</horstretch>
@@ -4109,10 +4109,10 @@ background-repeat: no-repeat;
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);</string>
+                            <string notr="true">background-image: url(:/icons/images/icons/cil-lock-unlocked.png);</string>
                            </property>
                            <property name="text">
-                            <string>Logout</string>
+                            <string>Unlock</string>
                            </property>
                           </widget>
                          </item>
@@ -4191,7 +4191,7 @@ background-repeat: no-repeat;
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>v5.1.0-stable</string>
+                   <string>v5.2.0-stable</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
