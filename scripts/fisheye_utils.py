@@ -2,8 +2,10 @@
 
 import numpy as np
 import math
-import cv2
-import argparse
+
+# NOTE: 禁止指定警告输出
+import warnings
+warnings.filterwarnings("ignore", message="invalid value encountered in less", category=RuntimeWarning)
 
 
 def get_spherical_coordinates(FishSize):

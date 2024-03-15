@@ -274,7 +274,7 @@ def detect(save_img=False):
                 s_writer.write(dst)
     if save_txt or save_img:
         s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
-        print(f"Results saved to {save_dir}{s}")
+        # print(f"Results saved to {save_dir}{s}")
     if s_writer != None:
         s_writer.release()
     print(f'Done. ({time.time() - t0:.3f}s)')
