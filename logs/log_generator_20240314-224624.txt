@@ -1,0 +1,11 @@
+2024-03-14 22:46:31,765   INFO  ------------------------ Start Generating ------------------------
+2024-03-14 22:46:32,531   INFO  Set hero vehicle Done!
+2024-03-14 22:46:32,808   INFO  Total blueprints: 40
+2024-03-14 22:46:32,808   INFO  Total spawn points: 155
+2024-03-14 22:46:33,785   INFO  Set env vehicles Done!
+2024-03-14 22:47:31,486   INFO  Set sensors Done!
+2024-03-14 22:48:28,261   INFO  RAW: 552702_FRONT.png [32msaved successfully![0m
+2024-03-14 22:48:37,399   INFO  RGB: 552702_FRONT.png [32msaved successfully![0m
+2024-03-14 22:48:46,430   INFO  RAW: 148000_LEFT.png [32msaved successfully![0m
+2024-03-14 22:48:55,540   INFO  RGB: 148000_LEFT.png [32msaved successfully![0m
+2024-03-14 22:49:01,699   INFO  Exit by user!
