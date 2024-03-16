@@ -1,5 +1,6 @@
 **/__pycache__/
-.vscode/
-# logs/*.txt
-logs/*.pdf
 scripts/*.out
+# logs/*.txt
+certs/*.pem
+logs/*.pdf
+.vscode/

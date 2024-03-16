@@ -14,10 +14,14 @@ import sys
 import os
 import subprocess
 import cv2
+import time
+import pyautogui
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 from modules import *
 from widgets import *
+
+from scripts.alipay import AlipayPayment
 
 # NOTE: 禁止指定警告输出
 import warnings
@@ -40,6 +44,7 @@ class MainWindow(QMainWindow):
         self.normal_directory = './images/my_images/fisheye_transformation/normal2fisheye'
         self.cubemap_directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
         self.sem_seg_directory = './images/my_images/sem_seg/output'
+        self.is_plus = False
 
         # SET AS GLOBAL WIDGETS
         self.ui = Ui_MainWindow()
@@ -88,6 +93,7 @@ class MainWindow(QMainWindow):
         widgets.btn_automatic_control.clicked.connect(self.buttonClick)
         widgets.btn_send_mail.clicked.connect(self.buttonClick)
         widgets.btn_print.clicked.connect(self.buttonClick)
+        widgets.btn_unlock.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -246,7 +252,7 @@ class MainWindow(QMainWindow):
             print("Unsupported operating system")
 
     def openVisualDirectory(self, directory):
-        if sys.platform.startswith('linux'):  # Linux
+        if sys.platform.startswith('linux'):  # Linux或类Unix系统
             os.system(f"xdg-open {directory}")
         elif sys.platform == 'darwin':  # macOS
             os.system(f"open {directory}")
@@ -301,14 +307,40 @@ class MainWindow(QMainWindow):
 
         # 根据不同的操作系统打开图片
         try:
-            if sys.platform.startswith('win32'):
-                os.startfile(image_path)  # Windows
-            elif sys.platform.startswith('darwin'):
-                subprocess.run(['open', image_path])  # macOS
-            else:  # 假设是Linux或类Unix系统
+            if sys.platform.startswith('win32'):  # Windows
+                os.startfile(image_path)
+            elif sys.platform.startswith('darwin'):  # macOS
+                subprocess.run(['open', image_path])
+            else:  # Linux或类Unix系统
                 subprocess.run(['xdg-open', image_path])
         except Exception as e:
             print(f"打开图片时出现错误: {e}")
+
+    def becomePlus(self):
+        app_private_key_path = "./certs/app_private_key.pem"
+        alipay_public_key_path = "./certs/alipay_public_key.pem"
+        background_url = 'https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:15/22:26:14_background.png'
+
+        alipay_payment = AlipayPayment(app_private_key_path, alipay_public_key_path)
+        qr_code_url, out_trade_no_with_time = alipay_payment.createOrder()
+        qr_cv = alipay_payment.generateQrCode(qr_code_url)
+        alipay_payment.displayQrCodeOnBackground(qr_cv, background_url)
+
+        # 检查支付状态
+        self.is_plus = alipay_payment.checkPaymentStatus(out_trade_no_with_time)
+
+    def close_window_by_title(self, window_title):
+        if sys.platform.startswith('win32'):  # Windows
+            command = f'taskkill /F /FI "WINDOWTITLE eq {window_title}"'
+            os.system(command)
+        elif sys.platform.startswith('darwin'):  # macOS
+            command = f"osascript -e 'quit app \"{window_title}\"'"
+            os.system(command)
+        elif sys.platform.startswith('linux'):  # Linux或类Unix系统
+            command = f'wmctrl -c "{window_title}"'
+            os.system(command)
+        else:
+            print("Unsupported platform")
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -326,11 +358,25 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_image":
+            while True:
+                if self.is_plus:
+                    break
+                else:
+                    self.becomePlus()
+                    self.close_window_by_title("请在三分钟内完成支付")
+                    time.sleep(2)
             widgets.stackedWidget.setCurrentWidget(widgets.image_page)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_simulation":
+            while True:
+                if self.is_plus:
+                    break
+                else:
+                    self.becomePlus()
+                    self.close_window_by_title("请在三分钟内完成支付")
+                    time.sleep(2)
             widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -598,6 +644,9 @@ class MainWindow(QMainWindow):
                 ".txt") else file.replace(".pdf", ".pdf") for file in files)
             terminal_command_2 = "pdftk " + " ".join(print_files) + " cat output - | lpr"
             os.system(terminal_command_2)
+
+        elif btn_name == "btn_unlock":
+            self.becomePlus()
 
     def resizeEvent(self, event):
         # Update Size Grips
