@@ -9,6 +9,7 @@ import requests
 import qrcode
 import time
 import cv2
+import os
 
 
 class AlipayPayment:
@@ -82,7 +83,7 @@ class AlipayPayment:
         title = "请在三分钟内完成支付"
         threading.Thread(target=processImage, args=(qr_image, background, title)).start()
 
-    def checkPaymentStatus(self, out_trade_no_with_time):
+    def checkPaymentStatus(self, out_trade_no_with_time, phone_number):
         paid = False
         for i in range(36):
             result = self.alipay.api_alipay_trade_query(out_trade_no=out_trade_no_with_time)
@@ -91,6 +92,14 @@ class AlipayPayment:
                 {'code': '10000', 'msg': 'Success', 'buyer_logon_id': '150******10', 'buyer_pay_amount': '1.00', 'fund_bill_list': [{'amount': '1.00', 'fund_channel': 'ALIPAYACCOUNT'}], 'invoice_amount': '1.00', 'out_trade_no': 'VisionVoyage_Year:2024_Month:03_Day:16_11:13:54', 'point_amount': '0.00', 'receipt_amount': '1.00', 'send_pay_date': '2024-03-16 11:14:03', 'total_amount': '1.00', 'trade_no': '2024031622001477011404408798', 'trade_status': 'TRADE_SUCCESS', 'buyer_open_id': '001OBDctSn0Cp6XAHwAJOSX86oRFK5giogmBm_OVwrOJvoe'}
                 '''
                 print(result)
+                # buyer_logon_id = result.get("buyer_logon_id")
+                buyer_logon_id = phone_number
+                trade_no = result.get("trade_no")
+                trade_status = result.get("trade_status")
+                buyer_open_id = result.get("buyer_open_id")
+                terminal_command = "./scripts/encryptor.out true " + buyer_logon_id + \
+                    " " + trade_no + " " + trade_status + " " + buyer_open_id
+                os.system(terminal_command)
                 paid = True
                 # break
                 print("\033[1;32mPayment successful!\033[0m")
@@ -100,6 +109,13 @@ class AlipayPayment:
 
         if paid is False:
             print("\033[1;31mPayment failed, canceling the order\033[0m")
+            buyer_logon_id = phone_number
+            trade_no = 'NONE'
+            trade_status = 'TRADE_FAILURE'
+            buyer_open_id = 'NONE'
+            terminal_command = "./scripts/encryptor.out true " + buyer_logon_id + \
+                " " + trade_no + " " + trade_status + " " + buyer_open_id
+            os.system(terminal_command)
             self.alipay.api_alipay_trade_cancel(out_trade_no=out_trade_no_with_time)
 
         return paid

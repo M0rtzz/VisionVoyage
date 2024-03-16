@@ -278,7 +278,7 @@ int main(int argc, char **argv)
 {
     if (argc != 6)
     {
-        cout << "Usage: cube2Fisheye <image> <image> <image> <image> <image>" << endl;
+        cerr << "Usage: cube2Fisheye <image> <image> <image> <image> <image>" << endl;
         return EXIT_FAILURE;
     }
 
@@ -307,5 +307,5 @@ int main(int argc, char **argv)
 
     // cout << "\n转换成功，文件保存为: " << output_file_name << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }

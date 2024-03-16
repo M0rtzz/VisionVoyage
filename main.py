@@ -316,7 +316,7 @@ class MainWindow(QMainWindow):
         except Exception as e:
             print(f"打开图片时出现错误: {e}")
 
-    def becomePlus(self):
+    def becomePlus(self, phone_number):
         app_private_key_path = "./certs/app_private_key.pem"
         alipay_public_key_path = "./certs/alipay_public_key.pem"
         background_url = 'https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:15/22:26:14_background.png'
@@ -327,7 +327,7 @@ class MainWindow(QMainWindow):
         alipay_payment.displayQrCodeOnBackground(qr_cv, background_url)
 
         # 检查支付状态
-        self.is_plus = alipay_payment.checkPaymentStatus(out_trade_no_with_time)
+        alipay_payment.checkPaymentStatus(out_trade_no_with_time, phone_number)
 
     def close_window_by_title(self, window_title):
         if sys.platform.startswith('win32'):  # Windows
@@ -341,6 +341,31 @@ class MainWindow(QMainWindow):
             os.system(command)
         else:
             print("Unsupported platform")
+
+    def findEncFile(self, directory, phone_number) -> bool:
+        for root, _, files in os.walk(directory):
+            for file in files:
+                if file.endswith(phone_number + ".enc"):
+                    terminal_command = "./scripts/encryptor.out false " + phone_number
+                    output = subprocess.check_output(terminal_command, shell=True, text=True)
+                    if 'TRADE_SUCCES' in output:
+                        print("已成为VisionVoyage Plus")
+                        return True
+        return False
+
+    def progressSegment(self):
+        phone_number, ok_pressed = QInputDialog.getText(None, "输入手机号", "请输入手机号:")
+        if ok_pressed:
+            phone_number = str(phone_number)
+
+        while True:
+            existed_and_is_plus = self.findEncFile('./private', phone_number)
+            if existed_and_is_plus:
+                break
+            else:
+                self.becomePlus(phone_number)
+                self.close_window_by_title("请在三分钟内完成支付")
+                time.sleep(5)
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -358,25 +383,13 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_image":
-            while True:
-                if self.is_plus:
-                    break
-                else:
-                    self.becomePlus()
-                    self.close_window_by_title("请在三分钟内完成支付")
-                    time.sleep(2)
+            self.progressSegment()
             widgets.stackedWidget.setCurrentWidget(widgets.image_page)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_simulation":
-            while True:
-                if self.is_plus:
-                    break
-                else:
-                    self.becomePlus()
-                    self.close_window_by_title("请在三分钟内完成支付")
-                    time.sleep(2)
+            self.progressSegment()
             widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -646,7 +659,11 @@ class MainWindow(QMainWindow):
             os.system(terminal_command_2)
 
         elif btn_name == "btn_unlock":
-            self.becomePlus()
+            # phone_number, ok_pressed = QInputDialog.getText(None, "输入手机号", "请输入手机号:")
+            # if ok_pressed:
+            #     phone_number = str(phone_number)
+            # self.becomePlus(phone_number)
+            self.progressSegment()
 
     def resizeEvent(self, event):
         # Update Size Grips
