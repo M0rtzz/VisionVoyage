@@ -8,9 +8,10 @@
  */
 
 #include <iostream>
-#include <opencv2/opencv.hpp>
-#include <filesystem>
 #include <chrono>
+#include <cstdlib>
+#include <filesystem>
+#include <opencv2/opencv.hpp>
 
 using namespace cv;
 using namespace std;
@@ -155,8 +156,8 @@ int main(int argc, char **argv)
 {
     if (argc < 2)
     {
-        cout << "Usage: " << argv[0] << " image_paths..." << endl;
-        return 1;
+        cerr << "Usage: " << argv[0] << " image_paths..." << endl;
+        return EXIT_FAILURE;
     }
 
     vector<string> image_paths;
@@ -168,5 +169,5 @@ int main(int argc, char **argv)
     string target_dir = "./images/my_images/fisheye_transformation/normal2fisheye/";
     processImages(image_paths, target_dir);
 
-    return 0;
+    return EXIT_SUCCESS;
 }

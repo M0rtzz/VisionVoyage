@@ -1,5 +1,6 @@
 **/__pycache__/
 scripts/*.out
+scripts/*.enc
 # logs/*.txt
 certs/*.pem
 logs/*.pdf
