@@ -7,7 +7,7 @@ rm -f "$HOME/Desktop/VisionVoyage.desktop" 2>/dev/null
 echo "[Desktop Entry]
 Name=VisionVoyage
 Exec=$base_path/$exec_name.sh
-Icon=$base_path/icons/icon.ico
+Icon=$base_path/images/icons/icon.ico
 Terminal=true
 Type=Application
 StartupNotify=false" >"$HOME/Desktop/VisionVoyage.desktop"
