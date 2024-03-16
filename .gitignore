@@ -1,8 +1,0 @@
-**/__pycache__/
-scripts/*.out
-scripts/*.enc
-# logs/*.txt
-certs/*.pem
-main_ui.py
-logs/*.pdf
-.vscode/
