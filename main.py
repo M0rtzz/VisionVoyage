@@ -660,10 +660,6 @@ class MainWindow(QMainWindow):
             os.system(terminal_command_2)
 
         elif btn_name == "btn_unlock":
-            # phone_number, ok_pressed = QInputDialog.getText(None, "输入手机号", "请输入手机号:")
-            # if ok_pressed:
-            #     phone_number = str(phone_number)
-            # self.becomePlus(phone_number)
             self.paymentCodeSegment()
 
     def resizeEvent(self, event):
@@ -674,42 +670,11 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
-        # # PRINT MOUSE EVENTS
-        # if event.buttons() == Qt.LeftButton:
-        #     print('Mouse click: LEFT CLICK')
-        # if event.buttons() == Qt.RightButton:
-        #     print('Mouse click: RIGHT CLICK')
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("./images/icons/icon.ico"))
-
-#     def printVisionVoyage():
-#         import threading
-#         os.system("sl")
-#         print('''
-# __      __          _                                              _____
-# \ \    / / ___     | |     __      ___    _ __     ___      o O O |_   _|   ___
-#  \ \/\/ / / -_)    | |    / _|    / _ \  | '  \   / -_)    o        | |    / _ \
-#   \_/\_/  \___|   _|_|_   \__|_   \___/  |_|_|_|  \___|   TS__[O]  _|_|_   \___/
-# _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|
-# "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'
-# ''')
-#         print('''
-#  __   __    _               _                    __   __           _  _            __ _
-#  \ \ / /   (_)     ___     (_)     ___    _ _    \ \ / /   ___    | || |  __ _    / _` |   ___
-#   \ V /    | |    (_-<     | |    / _ \  | ' \    \ V /   / _ \    \_, | / _` |   \__, |  / -_)
-#   _\_/_   _|_|_   /__/_   _|_|_   \___/  |_||_|   _\_/_   \___/   _|__/  \__,_|   |___/   \___|
-# _| """"|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_| """"|_|"""""|_| """"|_|"""""|_|"""""|_|"""""|
-# "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
-# ''')
-
-#     # 创建一个线程来运行命令
-#     print_thread = threading.Thread(target=printVisionVoyage)
-#     # 启动线程
-#     print_thread.daemon = True
-#     print_thread.start()
     os.system("sl")
     window = MainWindow()
     print('''
