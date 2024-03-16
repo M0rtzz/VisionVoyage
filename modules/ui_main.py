@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-# Form generated from reading UI file 'mainwIKirG.ui'
+# Form generated from reading UI file 'mainxjsViZ.ui'
 ##
 # Created by: Qt User Interface Compiler version 6.6.0
 ##
@@ -2114,5 +2114,5 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_unlock.setText(QCoreApplication.translate("MainWindow", u"Unlock", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v5.3.0-stable", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v5.4.0-stable", None))
     # retranslateUi
