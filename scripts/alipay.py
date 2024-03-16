@@ -87,9 +87,10 @@ class AlipayPayment:
         paid = False
         for i in range(36):
             result = self.alipay.api_alipay_trade_query(out_trade_no=out_trade_no_with_time)
+            # WAIT_BUYER_PAY
             if result.get("trade_status", "") == "TRADE_SUCCESS":
                 '''如：
-                {'code': '10000', 'msg': 'Success', 'buyer_logon_id': '150******10', 'buyer_pay_amount': '1.00', 'fund_bill_list': [{'amount': '1.00', 'fund_channel': 'ALIPAYACCOUNT'}], 'invoice_amount': '1.00', 'out_trade_no': 'VisionVoyage_Year:2024_Month:03_Day:16_11:13:54', 'point_amount': '0.00', 'receipt_amount': '1.00', 'send_pay_date': '2024-03-16 11:14:03', 'total_amount': '1.00', 'trade_no': '2024031622001477011404408798', 'trade_status': 'TRADE_SUCCESS', 'buyer_open_id': '001OBDctSn0Cp6XAHwAJOSX86oRFK5giogmBm_OVwrOJvoe'}
+                {'code': '10000', 'msg': 'Success', 'buyer_logon_id': '150******10', 'buyer_pay_amount': '1.00', 'fund_bill_list': [{'amount': '1.00', 'fund_channel': 'ALIPAYACCOUNT'}], 'invoice_amount': '1.00', 'out_trade_no': 'VisionVoyage_Year:2024_Month:03_Day:16_20:49:33', 'point_amount': '0.00', 'receipt_amount': '1.00', 'send_pay_date': '2024-03-16 20:50:15', 'total_amount': '1.00', 'trade_no': '2024031622001477011405355171', 'trade_status': 'TRADE_SUCCESS', 'buyer_open_id': '001OBDctSn0Cp6XAHwAJOSX86oRFK5giogmBm_OVwrOJvoe'}
                 '''
                 print(result)
                 # buyer_logon_id = result.get("buyer_logon_id")

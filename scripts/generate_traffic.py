@@ -14,6 +14,8 @@ import sys
 import time
 import fnmatch
 
+# NOTE: 禁止输出错误信息
+sys.stderr = open('/dev/null', 'w')
 try:
     sys.path.append(glob.glob('./scripts/dist/VisionVoyage-*%d.%d-%s.egg' % (
         sys.version_info.major,

@@ -10,21 +10,19 @@
 #
 # ///////////////////////////////////////////////////////////////
 
-import sys
-import os
-import subprocess
-import cv2
-import time
-import pyautogui
-
-# IMPORT / GUI AND MODULES AND WIDGETS
-from modules import *
-from widgets import *
-
 from scripts.alipay import AlipayPayment
+from widgets import *
+from modules import *
+import subprocess
+import warnings
+import time
+import sys
+import cv2
+import os
+# NOTE: 禁止输出错误信息
+sys.stderr = open('/dev/null', 'w')
 
 # NOTE: 禁止指定警告输出
-import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
@@ -329,7 +327,7 @@ class MainWindow(QMainWindow):
         # 检查支付状态
         alipay_payment.checkPaymentStatus(out_trade_no_with_time, phone_number)
 
-    def close_window_by_title(self, window_title):
+    def closeWindowByTitle(self, window_title):
         if sys.platform.startswith('win32'):  # Windows
             command = f'taskkill /F /FI "WINDOWTITLE eq {window_title}"'
             os.system(command)
@@ -353,18 +351,19 @@ class MainWindow(QMainWindow):
                         return True
         return False
 
-    def progressSegment(self):
-        phone_number, ok_pressed = QInputDialog.getText(None, "输入手机号", "请输入手机号:")
+    def paymentCodeSegment(self):
+        phone_number, ok_pressed = QInputDialog.getText(None, "请输入手机号", "请输入输入您支付宝绑定的手机号:")
         if ok_pressed:
             phone_number = str(phone_number)
 
         while True:
             existed_and_is_plus = self.findEncFile('./private', phone_number)
             if existed_and_is_plus:
+                self.is_plus = True
                 break
             else:
                 self.becomePlus(phone_number)
-                self.close_window_by_title("请在三分钟内完成支付")
+                self.closeWindowByTitle("请在三分钟内完成支付")
                 time.sleep(5)
 
     def buttonClick(self):
@@ -383,13 +382,15 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_image":
-            self.progressSegment()
+            if self.is_plus == False:
+                self.paymentCodeSegment()
             widgets.stackedWidget.setCurrentWidget(widgets.image_page)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         elif btn_name == "btn_simulation":
-            self.progressSegment()
+            if self.is_plus == False:
+                self.paymentCodeSegment()
             widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)
             UIFunctions.resetStyle(self, btn_name)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -663,7 +664,7 @@ class MainWindow(QMainWindow):
             # if ok_pressed:
             #     phone_number = str(phone_number)
             # self.becomePlus(phone_number)
-            self.progressSegment()
+            self.paymentCodeSegment()
 
     def resizeEvent(self, event):
         # Update Size Grips
@@ -682,6 +683,49 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("icon.ico"))
+    app.setWindowIcon(QIcon("./images/icons/icon.ico"))
+
+#     def printVisionVoyage():
+#         import threading
+#         os.system("sl")
+#         print('''
+# __      __          _                                              _____
+# \ \    / / ___     | |     __      ___    _ __     ___      o O O |_   _|   ___
+#  \ \/\/ / / -_)    | |    / _|    / _ \  | '  \   / -_)    o        | |    / _ \
+#   \_/\_/  \___|   _|_|_   \__|_   \___/  |_|_|_|  \___|   TS__[O]  _|_|_   \___/
+# _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|
+# "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'
+# ''')
+#         print('''
+#  __   __    _               _                    __   __           _  _            __ _
+#  \ \ / /   (_)     ___     (_)     ___    _ _    \ \ / /   ___    | || |  __ _    / _` |   ___
+#   \ V /    | |    (_-<     | |    / _ \  | ' \    \ V /   / _ \    \_, | / _` |   \__, |  / -_)
+#   _\_/_   _|_|_   /__/_   _|_|_   \___/  |_||_|   _\_/_   \___/   _|__/  \__,_|   |___/   \___|
+# _| """"|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_| """"|_|"""""|_| """"|_|"""""|_|"""""|_|"""""|
+# "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
+# ''')
+
+#     # 创建一个线程来运行命令
+#     print_thread = threading.Thread(target=printVisionVoyage)
+#     # 启动线程
+#     print_thread.daemon = True
+#     print_thread.start()
+    os.system("sl")
     window = MainWindow()
+    print('''
+__      __          _                                              _____          
+\ \    / / ___     | |     __      ___    _ __     ___      o O O |_   _|   ___   
+ \ \/\/ / / -_)    | |    / _|    / _ \  | '  \   / -_)    o        | |    / _ \  
+  \_/\_/  \___|   _|_|_   \__|_   \___/  |_|_|_|  \___|   TS__[O]  _|_|_   \___/  
+_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""| 
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-' 
+''')
+    print('''
+ __   __    _               _                    __   __           _  _            __ _          
+ \ \ / /   (_)     ___     (_)     ___    _ _    \ \ / /   ___    | || |  __ _    / _` |   ___   
+  \ V /    | |    (_-<     | |    / _ \  | ' \    \ V /   / _ \    \_, | / _` |   \__, |  / -_)  
+  _\_/_   _|_|_   /__/_   _|_|_   \___/  |_||_|   _\_/_   \___/   _|__/  \__,_|   |___/   \___|  
+_| """"|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_| """"|_|"""""|_| """"|_|"""""|_|"""""|_|"""""| 
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+''')
     sys.exit(app.exec())

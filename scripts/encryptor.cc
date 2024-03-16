@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 {
     if (argc < 3)
     {
-        std::cerr << "Usage: at least: is_encrypt buyer_logon_id or more." << std::endl;
+        // std::cerr << "Usage: at least: is_encrypt buyer_logon_id or more." << std::endl;
         return EXIT_FAILURE;
     }
 
