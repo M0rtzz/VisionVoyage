@@ -1,7 +1,7 @@
 **/__pycache__/
 resources_rc.py
 scripts/*.out
-scripts/*.enc
+private/*.enc
 # logs/*.txt
 certs/*.pem
 main_ui.py
