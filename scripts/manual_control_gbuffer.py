@@ -1391,7 +1391,6 @@ class CameraManager(object):
         if not self:
             return
         if self.sensors[self.index][0].startswith('sensor.lidar'):
-            # if self.sensors[self.index][0] == 'sensor.lidar':
             points = np.frombuffer(image.raw_data, dtype=np.dtype('f4'))
             points = np.reshape(points, (int(points.shape[0] / 4), 4))
             lidar_data = np.array(points[:, :2])
@@ -1404,7 +1403,6 @@ class CameraManager(object):
             lidar_img = np.zeros((lidar_img_size), dtype=np.uint8)
             lidar_img[tuple(lidar_data.T)] = (255, 255, 255)
             self.surface = pygame.surfarray.make_surface(lidar_img)
-        # elif self.sensors[self.index][0] == 'sensor.camera.dvs':
         elif self.sensors[self.index][0].startswith('sensor.camera.dvs'):
             # Example of converting the raw_data from a carla.DVSEventArray
             # sensor into a NumPy array and using it as an image
@@ -1414,7 +1412,6 @@ class CameraManager(object):
             # Blue is positive, red is negative
             dvs_img[dvs_events[:]['y'], dvs_events[:]['x'], dvs_events[:]['pol'] * 2] = 255
             self.surface = pygame.surfarray.make_surface(dvs_img.swapaxes(0, 1))
-        # elif self.sensors[self.index][0] == 'sensor.camera.optical_flow':
         elif self.sensors[self.index][0].startswith('sensor.camera.optical_flow'):
             image = image.get_color_coded_flow()
             array = np.frombuffer(image.raw_data, dtype=np.dtype("uint8"))
