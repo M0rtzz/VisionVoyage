@@ -1,3 +1,5 @@
+!**/000000_*.ply
+!**/000000_*.png
 **/__pycache__/
 resources_rc.py
 scripts/*.out
