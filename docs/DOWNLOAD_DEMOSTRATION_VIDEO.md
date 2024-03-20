@@ -12,7 +12,7 @@ Download Demostration Video from:
 
 [MediaFire_URL](https://www.mediafire.com/folder/229qkziooj6wj/VisionVoyage_Demonstration)
 
-![image-20240320113630436](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:20/11:36:30_image-20240320113630436.png)
+![image-20240320144724216](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:20/14:47:29_image-20240320144724216.png)
 
 ## 3.MEGA (Outside the GFW)
 
