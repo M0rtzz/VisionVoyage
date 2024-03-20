@@ -3,7 +3,7 @@
 images/my_images/other_sensors/*/*.ply
 images/my_images/other_sensors/*/*.png
 **/__pycache__/
-resources_rc.py
+# resources_rc.py
 scripts/*.out
 private/*.enc
 # logs/*.txt
