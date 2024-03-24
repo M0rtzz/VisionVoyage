@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-# Form generated from reading UI file 'mainHasTzi.ui'
+# Form generated from reading UI file 'mainkPyEwB.ui'
 ##
 # Created by: Qt User Interface Compiler version 6.6.0
 ##
@@ -1801,7 +1801,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -1982,9 +1982,11 @@ class Ui_MainWindow(object):
         self.line_edit_filenames.setText("")
         self.line_edit_filenames.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
         ___qtablewidgetitem47 = self.table_widget_transform_upload_result.horizontalHeaderItem(0)
-        ___qtablewidgetitem47.setText(QCoreApplication.translate("MainWindow", u"normal2fisheye", None))
+        ___qtablewidgetitem47.setText(QCoreApplication.translate(
+            "MainWindow", u"\u666e\u901a\u56fe\u50cf\u8f6c\u6362\u7ed3\u679c", None))
         ___qtablewidgetitem48 = self.table_widget_transform_upload_result.horizontalHeaderItem(1)
-        ___qtablewidgetitem48.setText(QCoreApplication.translate("MainWindow", u"cubemap2fisheye", None))
+        ___qtablewidgetitem48.setText(QCoreApplication.translate(
+            "MainWindow", u"\u666e\u901a\u56fe\u50cf\u62fc\u63a5\u7ed3\u679c", None))
         ___qtablewidgetitem49 = self.table_widget_transform_upload_result.horizontalHeaderItem(2)
         ___qtablewidgetitem49.setText(QCoreApplication.translate("MainWindow", u"\u5206\u5272\u7ed3\u679c", None))
         ___qtablewidgetitem50 = self.table_widget_transform_upload_result.verticalHeaderItem(0)
@@ -2114,5 +2116,5 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_unlock.setText(QCoreApplication.translate("MainWindow", u"Unlock", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v6.2.0-stable", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v6.3.0-stable", None))
     # retranslateUi

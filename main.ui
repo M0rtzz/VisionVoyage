@@ -1845,7 +1845,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <string notr="true">background: transparent;</string>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>2</number>
                       </property>
                       <widget class="QWidget" name="simulation_page">
                        <widget class="QTableWidget" name="table_widget_operation_help">
@@ -3244,7 +3244,7 @@ background-repeat: no-repeat;
                                   </row>
                                   <column>
                                    <property name="text">
-                                    <string>normal2fisheye</string>
+                                    <string>普通图像转换结果</string>
                                    </property>
                                    <property name="background">
                                     <color>
@@ -3256,7 +3256,7 @@ background-repeat: no-repeat;
                                   </column>
                                   <column>
                                    <property name="text">
-                                    <string>cubemap2fisheye</string>
+                                    <string>普通图像拼接结果</string>
                                    </property>
                                   </column>
                                   <column>
@@ -4191,7 +4191,7 @@ background-repeat: no-repeat;
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>v6.2.0-stable</string>
+                   <string>v6.3.0-stable</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
