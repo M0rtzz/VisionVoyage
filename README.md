@@ -22,6 +22,7 @@
 ```bash
 # Convert UI
 pyside6-uic main.ui > ui_main.py
+
 # Convert QRC
 pyside6-rcc resources.qrc -o resources_rc.py
 ```
