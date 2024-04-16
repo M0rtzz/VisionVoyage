@@ -19,6 +19,7 @@ import time
 import sys
 import cv2
 import os
+
 # NOTE: 禁止输出错误信息
 sys.stderr = open('/dev/null', 'w')
 
