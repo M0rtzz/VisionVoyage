@@ -5,6 +5,7 @@ images/my_images/other_sensors/*/*.png
 **/__pycache__/
 scripts/*.out
 private/*.enc
+.cz-config.js
 certs/*.pem
 main_ui.py
 logs/*.pdf
