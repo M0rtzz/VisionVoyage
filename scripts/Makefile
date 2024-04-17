@@ -1,4 +1,4 @@
-CC = g++
+CC = clang++
 CXXFLAGS = -std=c++17 -lhpdf -lcryptopp
 LIBS = `pkg-config --cflags --libs opencv4 eigen3`
 
@@ -8,9 +8,10 @@ all: gray2color.out PT2fisheye.out cubemap2fisheye.out change_index.out txt2pdf.
 	$(CC) $< -o $@ $(CXXFLAGS) $(LIBS)
 
 VisionVoyageServer.out: VisionVoyageServer.c
-	gcc $< -o $@
+	clang $< -o $@
 
 .PHONY: clean
+
 clean:
 	rm -f *.out
 
