@@ -21,7 +21,7 @@ import cv2
 import os
 
 # NOTE: 禁止输出错误信息
-sys.stderr = open('/dev/null', 'w')
+# sys.stderr = open('/dev/null', 'w')
 
 # NOTE: 禁止指定警告输出
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -368,28 +368,249 @@ class MainWindow(QMainWindow):
                 time.sleep(5)
 
     def buttonClick(self):
+        def handle_btn_home(btn):
+            widgets.stackedWidget.setCurrentWidget(widgets.home)
+            UIFunctions.resetStyle(self, widget=btn.objectName())
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        def handle_btn_widgets(btn):
+            widgets.stackedWidget.setCurrentWidget(widgets.widgets)
+            UIFunctions.resetStyle(self, widget=btn.objectName())
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        def handle_btn_image(btn):
+            if not self.is_plus:
+                self.paymentCodeSegment()
+            widgets.stackedWidget.setCurrentWidget(widgets.image_page)
+            UIFunctions.resetStyle(self, widget=btn.objectName())
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        def handle_btn_simulation(btn):
+            if not self.is_plus:
+                self.paymentCodeSegment()
+            widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)
+            UIFunctions.resetStyle(self, widget=btn.objectName())
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        def handle_btn_my_image(btn):
+            self.openVisualDirectory("./images/my_images")
+
+        def handle_btn_open_dir(btn):
+            self.ui.line_edit_filenames.clear()
+            self.file_paths.clear()
+            file_dialog = QFileDialog()
+            file_dialog.setFileMode(QFileDialog.ExistingFiles)
+            options = QFileDialog.Options()
+            options |= QFileDialog.DontUseNativeDialog
+            filter = "图像文件 (*.png *.jpg *.bmp *.jpeg);;视频文件 (*.mp4 *.avi *.mov *.mkv)"
+            files, _ = file_dialog.getOpenFileNames(
+                None, "选择图片或视频", "./images/my_images", filter, options=options)
+            if files:
+                self.file_names.update([os.path.basename(file) for file in files])
+                self.ui.line_edit_filenames.setText(", ".join(self.file_names))
+                self.file_paths.update([os.path.relpath(file, "./") for file in files])
+
+        def handle_btn_fisheye_one2one(btn):
+            terminal_command = "./scripts/PT2fisheye.out " + " ".join(self.file_paths)
+            os.system(terminal_command)
+            directory = './images/my_images/fisheye_transformation/normal2fisheye'
+            table_widget = widgets.table_widget_transform_upload_result
+            table_widget.itemClicked.connect(self.onItemClickedPT)
+            png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
+            self.clearColumn(table_widget, 0)
+            for index, file in enumerate(png_files):
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 0, item)
+            self.openImage('./images/my_images/fisheye_transformation/normal2fisheye', flag=True)
+
+        def handle_btn_fisheye_five2one(btn):
+            terminal_command = "./scripts/cubemap2fisheye.out " + " ".join(self.file_paths)
+            os.system(terminal_command)
+            directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
+            table_widget = widgets.table_widget_transform_upload_result
+            table_widget.itemClicked.connect(self.onItemClickedCubemap)
+            png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
+            self.clearColumn(table_widget, 1)
+            for index, file in enumerate(png_files):
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 1, item)
+            self.openImage('./images/my_images/fisheye_transformation/cubemap2fisheye', flag=True)
+
+        def handle_btn_segmentation_image(btn):
+            terminal_command = "./scripts/sem_seg_image.py --image_paths " + " ".join(self.file_paths)
+            os.system(terminal_command)
+            base_directory = './images/my_images/sem_seg/output'
+            table_widget = widgets.table_widget_transform_upload_result
+            table_widget.itemClicked.connect(self.onItemClickedSemSeg)
+            sub_dirs = ['images', 'videos']
+            media_files = []
+            for sub_dir in sub_dirs:
+                dir_path = os.path.join(base_directory, sub_dir)
+                if os.path.exists(dir_path):
+                    media_files.extend([os.path.join(sub_dir, file)
+                                        for file in os.listdir(dir_path) if file.endswith(".png") or file.endswith(".mp4")])
+            self.clearColumn(table_widget, 2)
+            for index, file in enumerate(media_files):
+                file = os.path.basename(file)
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 2, item)
+
+        def handle_btn_segmentation_video(btn):
+            terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/video.pt --source " + \
+                " ".join(self.file_paths)
+            os.system(terminal_command)
+            base_directory = './images/my_images/sem_seg/output'
+            table_widget = widgets.table_widget_transform_upload_result
+            table_widget.itemClicked.connect(self.onItemClickedSemSeg)
+            sub_dirs = ['images', 'videos']
+            media_files = []
+            for sub_dir in sub_dirs:
+                dir_path = os.path.join(base_directory, sub_dir)
+                if os.path.exists(dir_path):
+                    media_files.extend([os.path.join(sub_dir, file)
+                                        for file in os.listdir(dir_path) if file.endswith(".png") or file.endswith(".mp4")])
+            self.clearColumn(table_widget, 2)
+            for index, file in enumerate(media_files):
+                file = os.path.basename(file)
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 2, item)
+
+        def handle_btn_raw_to_platte(btn):
+            os.system("./scripts/change_index.out")
+            os.system("./scripts/gray2color.out")
+            self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
+
+        def handle_btn_start_server(btn):
+            subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server状态终端',
+                              '--', 'sh', './scripts/VisionVoyageServer.sh', "-quality-level=low"])
+
+        def handle_btn_generate_traffic(btn):
+            subprocess.Popen(['gnome-terminal', '--title', '交通初始化',
+                              '--', './scripts/generate_traffic.py'])
+
+        def handle_btn_manual_control(btn):
+            subprocess.Popen(['gnome-terminal', '--title', '虚拟驾驶',
+                              '--', './scripts/manual_control.py'])
+
+        def handle_btn_automatic_control(btn):
+            subprocess.Popen(['gnome-terminal', '--title', '自动驾驶',
+                              '--', './scripts/automatic_control.py'])
+
+        def handle_btn_get_fisheye(btn):
+            os.system("./scripts/dataset_main.py")
+            base_directory = './images/my_images/fisheye_dataset'
+            table_widget = widgets.table_widget_get_image
+            table_widget.itemClicked.connect(self.onItemClickedFisheye)
+            sub_dirs = ['rgb', 'semantic_segmentation_raw', 'semantic_segmentation_CityScapesPalette']
+            png_files = []
+            for sub_dir in sub_dirs:
+                dir_path = os.path.join(base_directory, sub_dir)
+                if os.path.exists(dir_path):
+                    png_files.extend([os.path.join(sub_dir, file)
+                                      for file in os.listdir(dir_path) if file.endswith(".png")])
+            self.clearColumn(table_widget, 0)
+            for index, file in enumerate(png_files):
+                file = os.path.basename(file)
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 0, item)
+
+        def handle_btn_get_common(btn):
+            os.system("./scripts/manual_control_gbuffer.py")
+            directory = './images/my_images/other_sensors'
+            table_widget = widgets.table_widget_get_image
+            table_widget.itemClicked.connect(self.onItemClickedCommon)
+            png_files = [os.path.basename(os.path.join(dp, f)) for dp, dn, filenames in os.walk(directory)
+                         for f in filenames if f.endswith(".png")]
+            self.clearColumn(table_widget, 1)
+            for index, file in enumerate(png_files):
+                item = QTableWidgetItem(file)
+                table_widget.setItem(index, 1, item)
+
+        def handle_btn_adjustments(btn):
+            self.dark_theme_enabled = not self.dark_theme_enabled
+            if self.dark_theme_enabled:
+                theme_file = "./themes/dark.qss"
+                # 设置字体为颜色为白色
+                widgets.btn_fisheye_one2one.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_fisheye_five2one.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_segmentation_image.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_segmentation_video.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_get_fisheye.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_get_common.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_raw_to_platte.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_generate_traffic.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_manual_control.setStyleSheet("color: #FFFFFF;")
+                widgets.btn_automatic_control.setStyleSheet("color: #FFFFFF;")
+                widgets.line_edit_operation_help.setStyleSheet("color: #FFFFFF;")
+                # widgets.table_widget_get_image.setStyleSheet("color: #FFFFFF;")
+                self.setTableFontColor(widgets.table_widget_get_image)
+                self.setTableFontColor(widgets.table_widget_operation_help)
+            else:
+                theme_file = "./themes/light.qss"
+                widgets.btn_fisheye_one2one.setStyleSheet("color: #000000;")
+                widgets.btn_fisheye_five2one.setStyleSheet("color: #000000;")
+                widgets.btn_segmentation_image.setStyleSheet("color: #000000;")
+                widgets.btn_segmentation_video.setStyleSheet("color: #000000;")
+                widgets.btn_get_fisheye.setStyleSheet("color: #000000;")
+                widgets.btn_get_common.setStyleSheet("color: #000000;")
+                widgets.btn_raw_to_platte.setStyleSheet("color: #000000;")
+                widgets.btn_raw_to_platte.setStyleSheet("color: #000000;")
+                widgets.btn_generate_traffic.setStyleSheet("color: #000000;")
+                widgets.btn_manual_control.setStyleSheet("color: #000000;")
+                widgets.btn_automatic_control.setStyleSheet("color: #000000;")
+                widgets.line_edit_operation_help.setStyleSheet("color: #000000;")
+                # widgets.table_widget_get_image.setStyleSheet("color: #000000;")
+                self.setTableFontColor(widgets.table_widget_get_image)
+                self.setTableFontColor(widgets.table_widget_operation_help)
+
+            UIFunctions.theme(self, file=theme_file, useCustomTheme=True)
+            AppFunctions.setThemeHack(self)
+
+        def handle_btn_send_mail(btn):
+            import webbrowser
+            to_email = "m0rtzz@outlook.com"
+            webbrowser.open("mailto:" + to_email, new=1)
+
+        def handle_btn_print(btn):
+            file_dialog = QFileDialog()
+            file_dialog.setFileMode(QFileDialog.ExistingFiles)
+            options = QFileDialog.Options()
+            options |= QFileDialog.DontUseNativeDialog
+            filter = "文件 (*.txt *.pdf)"
+            files, _ = file_dialog.getOpenFileNames(
+                None, "选择文本或PDF文件", "./logs", filter, options=options)
+            terminal_command_1 = "./scripts/txt2pdf.out " + " ".join(files)
+            os.system(terminal_command_1)
+            print_files = set(file.replace(".txt", ".pdf") if file.endswith(
+                ".txt") else file.replace(".pdf", ".pdf") for file in files)
+            terminal_command_2 = "pdftk " + " ".join(print_files) + " cat output - | lpr"
+            os.system(terminal_command_2)
+
+        def handle_btn_unlock(btn):
+            self.paymentCodeSegment()
+
         btn_actions = {
-            "btn_home": self.handle_btn_home,
-            "btn_widgets": self.handle_btn_widgets,
-            "btn_image": self.handle_btn_image,
-            "btn_simulation": self.handle_btn_simulation,
-            "btn_my_image": self.handle_btn_my_image,
-            "btn_open_dir": self.handle_btn_open_dir,
-            "btn_fisheye_one2one": self.handle_btn_fisheye_one2one,
-            "btn_fisheye_five2one": self.handle_btn_fisheye_five2one,
-            "btn_segmentation_image": self.handle_btn_segmentation_image,
-            "btn_segmentation_video": self.handle_btn_segmentation_video,
-            "btn_raw_to_platte": self.handle_btn_raw_to_platte,
-            "btn_start_server": self.handle_btn_start_server,
-            "btn_generate_traffic": self.handle_btn_generate_traffic,
-            "btn_manual_control": self.handle_btn_manual_control,
-            "btn_automatic_control": self.handle_btn_automatic_control,
-            "btn_get_fisheye": self.handle_btn_get_fisheye,
-            "btn_get_common": self.handle_btn_get_common,
-            "btn_adjustments": self.handle_btn_adjustments,
-            "btn_send_mail": self.handle_btn_send_mail,
-            "btn_print": self.handle_btn_print,
-            "btn_unlock": self.handle_btn_unlock
+            "btn_home": handle_btn_home,
+            "btn_widgets": handle_btn_widgets,
+            "btn_image": handle_btn_image,
+            "btn_simulation": handle_btn_simulation,
+            "btn_my_image": handle_btn_my_image,
+            "btn_open_dir": handle_btn_open_dir,
+            "btn_fisheye_one2one": handle_btn_fisheye_one2one,
+            "btn_fisheye_five2one": handle_btn_fisheye_five2one,
+            "btn_segmentation_image": handle_btn_segmentation_image,
+            "btn_segmentation_video": handle_btn_segmentation_video,
+            "btn_raw_to_platte": handle_btn_raw_to_platte,
+            "btn_start_server": handle_btn_start_server,
+            "btn_generate_traffic": handle_btn_generate_traffic,
+            "btn_manual_control": handle_btn_manual_control,
+            "btn_automatic_control": handle_btn_automatic_control,
+            "btn_get_fisheye": handle_btn_get_fisheye,
+            "btn_get_common": handle_btn_get_common,
+            "btn_adjustments": handle_btn_adjustments,
+            "btn_send_mail": handle_btn_send_mail,
+            "btn_print": handle_btn_print,
+            "btn_unlock": handle_btn_unlock
         }
 
         btn = self.sender()
@@ -398,200 +619,6 @@ class MainWindow(QMainWindow):
         action = btn_actions.get(btn_name)
         if action:
             action(btn)
-
-    def handle_btn_home(self, btn):
-        widgets.stackedWidget.setCurrentWidget(widgets.home)
-        UIFunctions.resetStyle(self, btn.objectName())
-        btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-
-    def handle_btn_widgets(self, btn):
-        widgets.stackedWidget.setCurrentWidget(widgets.widgets)
-        UIFunctions.resetStyle(self, btn.objectName())
-        btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-
-    def handle_btn_image(self, btn):
-        if not self.is_plus:
-            self.paymentCodeSegment()
-        widgets.stackedWidget.setCurrentWidget(widgets.image_page)
-        UIFunctions.resetStyle(self, btn.objectName())
-        btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-
-    def handle_btn_simulation(self, btn):
-        if not self.is_plus:
-            self.paymentCodeSegment()
-        widgets.stackedWidget.setCurrentWidget(widgets.simulation_page)
-        UIFunctions.resetStyle(self, btn.objectName())
-        btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-
-    def handle_btn_my_image(self, btn):
-        self.openVisualDirectory("./images/my_images")
-
-    def handle_btn_open_dir(self, btn):
-        self.ui.line_edit_filenames.clear()
-        self.file_paths.clear()
-        file_dialog = QFileDialog()
-        file_dialog.setFileMode(QFileDialog.ExistingFiles)
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        filter = "图像文件 (*.png *.jpg *.bmp *.jpeg);;视频文件 (*.mp4 *.avi *.mov *.mkv)"
-        files, _ = file_dialog.getOpenFileNames(
-            None, "选择图片或视频", "./images/my_images", filter, options=options)
-        if files:
-            self.file_names.update([os.path.basename(file) for file in files])
-            self.ui.line_edit_filenames.setText(", ".join(self.file_names))
-            self.file_paths.update([os.path.relpath(file, "./") for file in files])
-
-    def handle_btn_fisheye_one2one(self, btn):
-        terminal_command = "./scripts/PT2fisheye.out " + " ".join(self.file_paths)
-        os.system(terminal_command)
-        directory = './images/my_images/fisheye_transformation/normal2fisheye'
-        table_widget = widgets.table_widget_transform_upload_result
-        table_widget.itemClicked.connect(self.onItemClickedPT)
-        png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
-        self.clearColumn(table_widget, 0)
-        for index, file in enumerate(png_files):
-            item = QTableWidgetItem(file)
-            table_widget.setItem(index, 0, item)
-        self.openImage('./images/my_images/fisheye_transformation/normal2fisheye', flag=True)
-
-    def handle_btn_fisheye_five2one(self, btn):
-        terminal_command = "./scripts/cubemap2fisheye.out " + " ".join(self.file_paths)
-        os.system(terminal_command)
-        directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
-        table_widget = widgets.table_widget_transform_upload_result
-        table_widget.itemClicked.connect(self.onItemClickedCubemap)
-        png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
-        self.clearColumn(table_widget, 1)
-        for index, file in enumerate(png_files):
-            item = QTableWidgetItem(file)
-            table_widget.setItem(index, 1, item)
-        self.openImage('./images/my_images/fisheye_transformation/cubemap2fisheye', flag=True)
-
-    def handle_btn_segmentation_image(self, btn):
-        terminal_command = "./scripts/sem_seg_image.py --image_paths " + " ".join(self.file_paths)
-        os.system(terminal_command)
-        base_directory = './images/my_images/sem_seg/output'
-        table_widget = widgets.table_widget_transform_upload_result
-        table_widget.itemClicked.connect(self.onItemClickedSemSeg)
-        sub_dirs = ['images', 'videos']
-        media_files = []
-        for sub_dir in sub_dirs:
-            dir_path = os.path.join(base_directory, sub_dir)
-            if os.path.exists(dir_path):
-                media_files.extend([os.path.join(sub_dir, file)
-                                    for file in os.listdir(dir_path) if file.endswith(".png") or file.endswith(".mp4")])
-        self.clearColumn(table_widget, 2)
-        for index, file in enumerate(media_files):
-            file = os.path.basename(file)
-            item = QTableWidgetItem(file)
-            table_widget.setItem(index, 2, item)
-
-    def handle_btn_segmentation_video(self, btn):
-        terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/video.pt --source " + \
-            " ".join(self.file_paths)
-        os.system(terminal_command)
-        base_directory = './images/my_images/sem_seg/output'
-        table_widget = widgets.table_widget_transform_upload_result
-        table_widget.itemClicked.connect(self.onItemClickedSemSeg)
-        sub_dirs = ['images', 'videos']
-        media_files = []
-        for sub_dir in sub_dirs:
-            dir_path = os.path.join(base_directory, sub_dir)
-            if os.path.exists(dir_path):
-                media_files.extend([os.path.join(sub_dir, file)
-                                    for file in os.listdir(dir_path) if file.endswith(".png") or file.endswith(".mp4")])
-        self.clearColumn(table_widget, 2)
-        for index, file in enumerate(media_files):
-            file = os.path.basename(file)
-            item = QTableWidgetItem(file)
-            table_widget.setItem(index, 2, item)
-
-    def handle_btn_raw_to_platte(self, btn):
-        os.system("./scripts/change_index.out")
-        os.system("./scripts/gray2color.out")
-        self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
-
-    def handle_btn_start_server(self, btn):
-        subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server状态终端',
-                          '--', 'sh', './scripts/VisionVoyageServer.sh', "-quality-level=low"])
-
-    def handle_btn_generate_traffic(self, btn):
-        subprocess.Popen(['gnome-terminal', '--title', '交通初始化',
-                          '--', './scripts/generate_traffic.py'])
-
-    def handle_btn_manual_control(self, btn):
-        subprocess.Popen(['gnome-terminal', '--title', '虚拟驾驶',
-                          '--', './scripts/manual_control.py'])
-
-    def handle_btn_automatic_control(self, btn):
-        subprocess.Popen(['gnome-terminal', '--title', '自动驾驶',
-                          '--', './scripts/automatic_control.py'])
-
-    def handle_btn_get_fisheye(self, btn):
-        os.system("./scripts/dataset_main.py")
-        base_directory = './images/my_images/fisheye_dataset'
-        table_widget = widgets.table_widget_get_image
-        table_widget.itemClicked.connect(self.onItemClickedFisheye)
-        sub_dirs = ['rgb', 'semantic_segmentation_raw', 'semantic_segmentation_CityScapesPalette']
-        png_files = []
-        for sub_dir in sub_dirs:
-            dir_path = os.path.join(base_directory, sub_dir)
-            if os.path.exists(dir_path):
-                png_files.extend([os.path.join(sub_dir, file)
-                                  for file in os.listdir(dir_path) if file.endswith(".png")])
-        self.clearColumn(table_widget, 0)
-        for index, file in enumerate(png_files):
-            file = os.path.basename(file)
-            item = QTableWidgetItem(file)
-            table_widget.setItem(index, 0, item)
-
-    def handle_btn_get_common(self, btn):
-        os.system("./scripts/manual_control_gbuffer.py")
-        directory = './images/my_images/other_sensors'
-        table_widget = widgets.table_widget_get_image
-        table_widget.itemClicked.connect(self.onItemClickedCommon)
-        png_files = [os.path.basename(os.path.join(dp, f)) for dp, dn, filenames in os.walk(directory)
-                     for f in filenames if f.endswith(".png")]
-        self.clearColumn(table_widget, 1)
-        for index, file in enumerate(png_files):
-            item = QTableWidgetItem(file)
-            table_widget.setItem(index, 1, item)
-
-    def handle_btn_adjustments(self, btn):
-        self.dark_theme_enabled = not self.dark_theme_enabled
-        if self.dark_theme_enabled:
-            theme_file = "./themes/dark.qss"
-            self.setTableFontColor(widgets.table_widget_get_image)
-            self.setTableFontColor(widgets.table_widget_operation_help)
-        else:
-            theme_file = "./themes/light.qss"
-            self.setTableFontColor(widgets.table_widget_get_image)
-            self.setTableFontColor(widgets.table_widget_operation_help)
-        UIFunctions.theme(self, theme_file, True)
-        AppFunctions.setThemeHack(self)
-
-    def handle_btn_send_mail(self, btn):
-        import webbrowser
-        to_email = "m0rtzz@outlook.com"
-        webbrowser.open("mailto:" + to_email, new=1)
-
-    def handle_btn_print(self, btn):
-        file_dialog = QFileDialog()
-        file_dialog.setFileMode(QFileDialog.ExistingFiles)
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        filter = "文件 (*.txt *.pdf)"
-        files, _ = file_dialog.getOpenFileNames(
-            None, "选择文本或PDF文件", "./logs", filter, options=options)
-        terminal_command_1 = "./scripts/txt2pdf.out " + " ".join(files)
-        os.system(terminal_command_1)
-        print_files = set(file.replace(".txt", ".pdf") if file.endswith(
-            ".txt") else file.replace(".pdf", ".pdf") for file in files)
-        terminal_command_2 = "pdftk " + " ".join(print_files) + " cat output - | lpr"
-        os.system(terminal_command_2)
-
-    def handle_btn_unlock(self, btn):
-        self.paymentCodeSegment()
 
     def resizeEvent(self, event):
         # Update Size Grips
@@ -606,7 +633,7 @@ class MainWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("./images/icons/icon.ico"))
-    os.system("sl")
+    os.system("sl -e")
     window = MainWindow()
     print('''
 __      __          _                                              _____          
