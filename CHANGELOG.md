@@ -1,9 +1,16 @@
-##  (2024-04-17)
+##  (2024-04-18)
+
+
+
+
+## 6.5.0-stable (2024-04-17)
 
 * ♻️  refactor(main.py): refactor main.py ([44ac0d2](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/44ac0d2))
 * ✨ feat(ui_functions.py): update some funcs ([9265753](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/9265753))
 * 🎨 style(__init__.py): format code ([f9cb01f](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/f9cb01f))
 * 💡 comment(app_functions.py): update some funcs ([90e1324](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/90e1324))
+* 📝 docs(CHANGELOG.md): add CHANGELOG.md ([a4fa04c](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/a4fa04c))
+* 📝 docs(CHANGELOG.md): update CHANGELOG.md ([2f0983b](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/2f0983b))
 * 🤖 chore(Makefile): change C/C++ compiler ([2fddff3](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/2fddff3))
 * 🚧 wip: work in progress ([1d34862](https://gitcode.com/M0rtzz/VisionVoyage/commits/detail/1d34862))
 
