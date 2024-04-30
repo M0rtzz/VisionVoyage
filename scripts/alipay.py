@@ -120,15 +120,3 @@ class AlipayPayment:
             self.alipay.api_alipay_trade_cancel(out_trade_no=out_trade_no_with_time)
 
         return paid
-
-
-# if __name__ = '__main__':
-#     app_private_key_path = "app_private_key.pem"
-#     alipay_public_key_path = "alipay_public_key.pem"
-#     background_url = 'https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:15/22:26:14_background.png'
-
-#     alipay_payment = AlipayPayment(app_private_key_path, alipay_public_key_path)
-#     qr_code_url, out_trade_no_with_time = alipay_payment.createOrder()
-#     qr_cv = alipay_payment.generateQrCode(qr_code_url)
-#     alipay_payment.displayQrCodeOnBackground(qr_cv, background_url)
-#     alipay_payment.checkPaymentStatus(out_trade_no_with_time)
