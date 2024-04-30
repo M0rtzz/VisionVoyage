@@ -21,7 +21,7 @@ import cv2
 import os
 
 # NOTE: 禁止输出错误信息
-# sys.stderr = open('/dev/null', 'w')
+sys.stderr = open('/dev/null', 'w')
 
 # NOTE: 禁止指定警告输出
 warnings.filterwarnings("ignore", category=DeprecationWarning)
