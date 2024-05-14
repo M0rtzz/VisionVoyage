@@ -1,7 +1,17 @@
-##  (2024-04-21)
+##  (2024-05-14)
 
+* ✨ feat(main.py): ignore DeprecationWarning ([6ad348c](https://gitcode.com/M0rtzz/VisionVoyage/commits/6ad348c))
 * 🍱 asset: reduce demo video size ([ad1a59b](https://gitcode.com/M0rtzz/VisionVoyage/commits/ad1a59b))
+* 💄 ui: update the version number displayed on the GUI ([475315a](https://gitcode.com/M0rtzz/VisionVoyage/commits/475315a))
+* 📝 docs(CHANGELOG.md): update CHANGELOG.md ([12064e4](https://gitcode.com/M0rtzz/VisionVoyage/commits/12064e4))
 * 📝 docs(CHANGELOG.md): update CHANGELOG.md ([54c37f0](https://gitcode.com/M0rtzz/VisionVoyage/commits/54c37f0))
+* 📝 docs(DOWNLOAD_DEMONSTRATION_VIDEO.md): update image url ([027d191](https://gitcode.com/M0rtzz/VisionVoyage/commits/027d191))
+* 📝 docs(GET_STARTED.md): add GET_STARTED.md ([d0d2e8e](https://gitcode.com/M0rtzz/VisionVoyage/commits/d0d2e8e))
+* 📝 docs(README.md): add hyperlink to GET_STARTED.md ([79717d1](https://gitcode.com/M0rtzz/VisionVoyage/commits/79717d1))
+* 🔥 remove(alipay.py): rm unused comments ([0bf3f7c](https://gitcode.com/M0rtzz/VisionVoyage/commits/0bf3f7c))
+* 🔨 script(init_desktop.sh): change the shell interpreter ([4692420](https://gitcode.com/M0rtzz/VisionVoyage/commits/4692420))
+* 🧵 thread(main.sh): only allow single process access ([b955714](https://gitcode.com/M0rtzz/VisionVoyage/commits/b955714))
+* 🙈 ignore(.gitignore): update .gitignore ([f3a485b](https://gitcode.com/M0rtzz/VisionVoyage/commits/f3a485b))
 
 
 
