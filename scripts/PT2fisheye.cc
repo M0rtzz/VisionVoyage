@@ -7,10 +7,10 @@
  *
  */
 
-#include <iostream>
 #include <chrono>
 #include <cstdlib>
 #include <filesystem>
+#include <iostream>
 #include <opencv2/opencv.hpp>
 
 using namespace cv;
@@ -168,6 +168,8 @@ int main(int argc, char **argv)
 
     string target_dir = "./images/my_images/fisheye_transformation/normal2fisheye/";
     processImages(image_paths, target_dir);
+
+    cout << endl;
 
     return EXIT_SUCCESS;
 }
