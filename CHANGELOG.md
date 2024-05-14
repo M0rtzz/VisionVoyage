@@ -1,8 +1,10 @@
 ##  (2024-05-14)
 
 * ✨ feat(main.py): ignore DeprecationWarning ([6ad348c](https://gitcode.com/M0rtzz/VisionVoyage/commits/6ad348c))
+* ✨ feat(PT2fisheye.cc): just add a newline ([7dc96cc](https://gitcode.com/M0rtzz/VisionVoyage/commits/7dc96cc))
 * 🍱 asset: reduce demo video size ([ad1a59b](https://gitcode.com/M0rtzz/VisionVoyage/commits/ad1a59b))
 * 💄 ui: update the version number displayed on the GUI ([475315a](https://gitcode.com/M0rtzz/VisionVoyage/commits/475315a))
+* 📝 docs(CHANGELOG.md): update CHANGELOG.md ([7a50300](https://gitcode.com/M0rtzz/VisionVoyage/commits/7a50300))
 * 📝 docs(CHANGELOG.md): update CHANGELOG.md ([12064e4](https://gitcode.com/M0rtzz/VisionVoyage/commits/12064e4))
 * 📝 docs(CHANGELOG.md): update CHANGELOG.md ([54c37f0](https://gitcode.com/M0rtzz/VisionVoyage/commits/54c37f0))
 * 📝 docs(DOWNLOAD_DEMONSTRATION_VIDEO.md): update image url ([027d191](https://gitcode.com/M0rtzz/VisionVoyage/commits/027d191))
