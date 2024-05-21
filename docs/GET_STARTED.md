@@ -331,7 +331,7 @@ python3 -m pip install -v -e .
 
 [https://blog.csdn.net/rankun1/article/details/92401295](https://blog.csdn.net/rankun1/article/details/92401295)
 
-获取秘钥之后在`certs/`下创建`alipay_public_key.pem`和`app_private_key.pem`，分别对应支付宝公钥和应用公钥。
+获取秘钥之后在`certs/`下创建`alipay_public_key.pem`和`app_private_key.pem`，分别对应支付宝公钥和应用私钥。
 
 ### （3）修改路径
 
