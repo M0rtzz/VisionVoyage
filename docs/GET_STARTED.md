@@ -4,7 +4,7 @@
 
 此软件为ZZU计院的双创项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
 
-环境为Ubuntu20.04.6 LTS
+环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
 
 ![image-20240430150629416](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
 
@@ -307,7 +307,33 @@ test_evaluator = val_evaluator
 python3 -m pip install -v -e .
 ```
 
-### （2）修改路径
+### （2）申请支付宝当面付
+
+因为软件集成了付费功能，所以需要开通支付宝的当面付功能
+
+[https://b.alipay.com/page/product-mall/all-product](https://b.alipay.com/page/product-mall/all-product)
+
+![image-20240521142002149](/home/m0rtzz/.config/Typora/typora-user-images/image-20240521142002149.png)
+
+点击之后使用支付宝APP搜码或者使用账号密码登录，然后开通此产品，显示已开通后，点击开发设置：
+
+![image-20240521142246943](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images%2FYear%3A2024%2FMonth%3A05%2FDay%3A21%2F14%3A22%3A47_image-20240521142246943.png)
+
+创建应用并关联：
+
+![image-20240521142336673](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images%2FYear%3A2024%2FMonth%3A05%2FDay%3A21%2F14%3A23%3A36_image-20240521142336673.png)
+
+之后获取秘钥：
+
+![image-20240521143417101](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images%2FYear%3A2024%2FMonth%3A05%2FDay%3A21%2F14%3A34%3A17_image-20240521143417101.png)
+
+具体步骤可参考此博客：
+
+[https://blog.csdn.net/rankun1/article/details/92401295](https://blog.csdn.net/rankun1/article/details/92401295)
+
+获取秘钥之后在`certs/`下创建`alipay_public_key.pem`和`app_private_key.pem`，分别对应支付宝公钥和应用公钥。
+
+### （3）修改路径
 
 1）`scripts/VisionVoyageServer.sh`
 
@@ -327,7 +353,7 @@ python3 -m pip install -v -e .
 cd scripts/ && make all
 ```
 
-### （3）添加桌面图标
+### （4）添加桌面图标
 
 ```shell
 sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./init_desktop.sh
