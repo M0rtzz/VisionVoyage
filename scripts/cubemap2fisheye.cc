@@ -1,7 +1,7 @@
 /**
  * @file cubemap2fisheye.cc
  * @brief  ./cubemap2fisheye.py c++重写
- * @author M0rtzz E-mail : m0rtzz@163.com
+ * @author M0rtzz E-mail : m0rtzz@outlook.com
  * @version 1.0
  * @date 2024-02-03
  *

@@ -1,7 +1,7 @@
 /**
  * @file change_index.cc
  * @brief  ./changeIndex.py c++重写
- * @author M0rtzz E-mail : m0rtzz@163.com
+ * @author M0rtzz E-mail : m0rtzz@outlook.com
  * @version 1.0
  * @date 2023-11-06
  *

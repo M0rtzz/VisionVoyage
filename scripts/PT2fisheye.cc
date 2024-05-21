@@ -1,7 +1,7 @@
 /**
  * @file PT2fisheye.cc
  * @brief  origin2fisheye
- * @author M0rtzz E-mail : m0rtzz@163.com
+ * @author M0rtzz E-mail : m0rtzz@outlook.com
  * @version 1.0
  * @date 2024-01-22
  *

@@ -4,7 +4,7 @@
 #
 # @file main.py
 # @brief 程序入口文件
-# @author M0rtzz E-mail: m0rtzz@163.com
+# @author M0rtzz E-mail: m0rtzz@outlook.com
 # @version 4.0
 # @PROJECT MADE WITH: Qt Designer and PySide6
 #
