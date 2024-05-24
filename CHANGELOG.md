@@ -1,19 +1,25 @@
-##  (2024-05-14)
+##  (2024-05-24)
 
 * ✨ feat(main.py): ignore DeprecationWarning ([6ad348c](https://gitcode.com/M0rtzz/VisionVoyage/commits/6ad348c))
 * ✨ feat(PT2fisheye.cc): just add a newline ([7dc96cc](https://gitcode.com/M0rtzz/VisionVoyage/commits/7dc96cc))
 * 🍱 asset: reduce demo video size ([ad1a59b](https://gitcode.com/M0rtzz/VisionVoyage/commits/ad1a59b))
 * 💄 ui: update the version number displayed on the GUI ([475315a](https://gitcode.com/M0rtzz/VisionVoyage/commits/475315a))
+* 💡 comment: just change my E-mail ([afdfed7](https://gitcode.com/M0rtzz/VisionVoyage/commits/afdfed7))
+* 📝 docs(CHANGELOG.md): update CHANGELOG.md ([1756634](https://gitcode.com/M0rtzz/VisionVoyage/commits/1756634))
 * 📝 docs(CHANGELOG.md): update CHANGELOG.md ([7a50300](https://gitcode.com/M0rtzz/VisionVoyage/commits/7a50300))
 * 📝 docs(CHANGELOG.md): update CHANGELOG.md ([12064e4](https://gitcode.com/M0rtzz/VisionVoyage/commits/12064e4))
 * 📝 docs(CHANGELOG.md): update CHANGELOG.md ([54c37f0](https://gitcode.com/M0rtzz/VisionVoyage/commits/54c37f0))
 * 📝 docs(DOWNLOAD_DEMONSTRATION_VIDEO.md): update image url ([027d191](https://gitcode.com/M0rtzz/VisionVoyage/commits/027d191))
 * 📝 docs(GET_STARTED.md): add GET_STARTED.md ([d0d2e8e](https://gitcode.com/M0rtzz/VisionVoyage/commits/d0d2e8e))
+* 📝 docs(GET_STARTED.md): update GET_STARTED.md ([fab86b0](https://gitcode.com/M0rtzz/VisionVoyage/commits/fab86b0))
+* 📝 docs(GET_STARTED.md): update GET_STARTED.md ([1a75dde](https://gitcode.com/M0rtzz/VisionVoyage/commits/1a75dde))
 * 📝 docs(README.md): add hyperlink to GET_STARTED.md ([79717d1](https://gitcode.com/M0rtzz/VisionVoyage/commits/79717d1))
+* 📝 docs(README.md): update README.md ([806135b](https://gitcode.com/M0rtzz/VisionVoyage/commits/806135b))
 * 🔥 remove(alipay.py): rm unused comments ([0bf3f7c](https://gitcode.com/M0rtzz/VisionVoyage/commits/0bf3f7c))
 * 🔨 script(init_desktop.sh): change the shell interpreter ([4692420](https://gitcode.com/M0rtzz/VisionVoyage/commits/4692420))
 * 🧵 thread(main.sh): only allow single process access ([b955714](https://gitcode.com/M0rtzz/VisionVoyage/commits/b955714))
 * 🙈 ignore(.gitignore): update .gitignore ([f3a485b](https://gitcode.com/M0rtzz/VisionVoyage/commits/f3a485b))
+* 🚚 move(DEMONSTRATION.md): rename DOWNLOAD_DEMONSTRATION_VIDEO.md to DEMONSTRATION.md ([80fc6ab](https://gitcode.com/M0rtzz/VisionVoyage/commits/80fc6ab))
 
 
 
