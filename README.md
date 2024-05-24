@@ -33,7 +33,7 @@ pyside6-rcc resources.qrc -o resources_rc.py
 
 ### 演示视频
 
-[DOWNLOAD_DEMOSTRATION.md](./docs/DOWNLOAD_DEMOSTRATION.md)
+[DEMONSTRATION.md](./docs/DEMONSTRATION.md)
 
 ### GET_STARTED
 
