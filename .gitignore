@@ -1,4 +1,3 @@
-images/my_images/sem_seg/output/videos/video.mp4
 !images/my_images/other_sensors/*/000000_*.ply
 !images/my_images/other_sensors/*/000000_*.png
 images/my_images/other_sensors/*/*.ply
