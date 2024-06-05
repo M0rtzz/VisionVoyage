@@ -10,4 +10,5 @@ certs/*.pem
 main_ui.py
 logs/*.pdf
 .vscode/
+.husky/
 setup.py
