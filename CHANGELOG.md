@@ -1,7 +1,13 @@
 ##  (2024-06-27)
 
+
+
+
+## 7.0.0-stable (2024-06-27)
+
 * 📝 docs: add docs ([3bde511](https://github.com/M0rtzz/VisionVoyage/commit/3bde511))
 * 📝 docs: add docs ([b5a7ee1](https://github.com/M0rtzz/VisionVoyage/commit/b5a7ee1))
+* 📝 docs(CHANGELOG.md): automatic update ([d5f0e29](https://github.com/M0rtzz/VisionVoyage/commit/d5f0e29))
 * 📝 docs(CHANGELOG.md): automatic update ([ebbed92](https://github.com/M0rtzz/VisionVoyage/commit/ebbed92))
 * 📝 docs(GET_STARTED.md): add git-lfs command ([020aa97](https://github.com/M0rtzz/VisionVoyage/commit/020aa97))
 * 📝 docs(README.md): update team members ([680903e](https://github.com/M0rtzz/VisionVoyage/commit/680903e))
