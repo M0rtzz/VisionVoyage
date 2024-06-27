@@ -3,10 +3,17 @@
 
 
 
+## 7.1.0-stable (2024-06-27)
+
+* 📝 docs(LICENSE): update LICENSE to WTFPL ([b7bb9d1](https://github.com/M0rtzz/VisionVoyage/commit/b7bb9d1))
+
+
+
 ## 7.0.0-stable (2024-06-27)
 
 * 📝 docs: add docs ([3bde511](https://github.com/M0rtzz/VisionVoyage/commit/3bde511))
 * 📝 docs: add docs ([b5a7ee1](https://github.com/M0rtzz/VisionVoyage/commit/b5a7ee1))
+* 📝 docs(CHANGELOG.md): automatic update ([807e760](https://github.com/M0rtzz/VisionVoyage/commit/807e760))
 * 📝 docs(CHANGELOG.md): automatic update ([d5f0e29](https://github.com/M0rtzz/VisionVoyage/commit/d5f0e29))
 * 📝 docs(CHANGELOG.md): automatic update ([ebbed92](https://github.com/M0rtzz/VisionVoyage/commit/ebbed92))
 * 📝 docs(GET_STARTED.md): add git-lfs command ([020aa97](https://github.com/M0rtzz/VisionVoyage/commit/020aa97))
