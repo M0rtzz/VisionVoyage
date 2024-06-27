@@ -6,7 +6,16 @@
 
 环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
 
-![image-20240430150629416](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
+![image-20240430150629416](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
+
+拉取预训练权重：
+
+```shell
+sudo apt update -y && sudo apt install git-lfs -y
+git-lfs pull
+```
+
+![image-20240627153649877](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting/images/Year:2024/Month:06/Day:27/15:36:49_image-20240627153649877.png)
 
 ---
 
@@ -51,7 +60,7 @@ python3 -m pip install numpy==1.18.4
 
 解压后在`PythonAPI/carla/dist/`中
 
-![image-20240430142501765](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/14:25:06_image-20240430142501765.png)
+![image-20240430142501765](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/14:25:06_image-20240430142501765.png)
 
 ```shell
 conda activate py38 && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
@@ -228,7 +237,7 @@ class CBAM4(BaseModule):
 
 [https://datasetninja.com/woodscape#images](https://datasetninja.com/woodscape#images)
 
-![image-20240430153625781](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:36:25_image-20240430153625781.png)
+![image-20240430153625781](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:36:25_image-20240430153625781.png)
 
 ```python
 # dataset settings
@@ -317,15 +326,15 @@ python3 -m pip install -v -e .
 
 点击之后使用支付宝APP搜码或者使用账号密码登录，然后开通此产品，显示已开通后，点击开发设置：
 
-![image-20240521142246943](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images%2FYear%3A2024%2FMonth%3A05%2FDay%3A21%2F14%3A22%3A47_image-20240521142246943.png)
+![image-20240521142246943](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:05/Day:21/14:22:47_image-20240521142246943.png)
 
 创建应用并关联：
 
-![image-20240521142336673](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images%2FYear%3A2024%2FMonth%3A05%2FDay%3A21%2F14%3A23%3A36_image-20240521142336673.png)
+![image-20240521142336673](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:05/Day:21/14:23:36_image-20240521142336673.png)
 
 之后获取秘钥：
 
-![image-20240521143417101](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images%2FYear%3A2024%2FMonth%3A05%2FDay%3A21%2F14%3A34%3A17_image-20240521143417101.png)
+![image-20240521143417101](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:05/Day:21/14:34:17_image-20240521143417101.png)
 
 具体步骤可参考此博客：
 
@@ -359,7 +368,7 @@ cd scripts/ && make all
 sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./init_desktop.sh
 ```
 
-![image-20240430150536547](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:05:36_image-20240430150536547.png)
+![image-20240430150536547](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:05:36_image-20240430150536547.png)
 
 ## ③运行
 
@@ -371,7 +380,7 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./init_desktop.sh
 
 双击桌面图标（右键设置为允许启动）
 
-![image-20240430151406177](https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:14:11_image-20240430151406177.png)
+![image-20240430151406177](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:14:11_image-20240430151406177.png)
 
 >   [!NOTE]
 >
