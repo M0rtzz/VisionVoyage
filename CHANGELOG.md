@@ -1,5 +1,11 @@
 ##  (2024-06-28)
 
+
+
+
+## 7.3.0-stable (2024-06-28)
+
+* 📝 docs(CHANGELOG.md): automatic update ([425ff48](https://github.com/M0rtzz/VisionVoyage/commit/425ff48))
 * 📝 docs(README.md): add 3rd party lib description ([824fc5a](https://github.com/M0rtzz/VisionVoyage/commit/824fc5a))
 
 
