@@ -3,6 +3,13 @@
 
 
 
+## 7.4.0-stable (2024-06-28)
+
+* 📝 docs(CHANGELOG.md): automatic update ([a343b22](https://github.com/M0rtzz/VisionVoyage/commit/a343b22))
+* 📝 docs(README.md): change shell command ([a815b4d](https://github.com/M0rtzz/VisionVoyage/commit/a815b4d))
+
+
+
 ## 7.3.0-stable (2024-06-28)
 
 * 📝 docs(CHANGELOG.md): automatic update ([425ff48](https://github.com/M0rtzz/VisionVoyage/commit/425ff48))
