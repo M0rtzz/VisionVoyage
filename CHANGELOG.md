@@ -3,6 +3,13 @@
 
 
 
+## 7.5.0-stable (2024-06-28)
+
+* 📄 license: add GPL v3.0 LICENSE ([95f166f](https://github.com/M0rtzz/VisionVoyage/commit/95f166f))
+* 📝 docs(CHANGELOG.md): automatic update ([bc1ddb3](https://github.com/M0rtzz/VisionVoyage/commit/bc1ddb3))
+
+
+
 ## 7.4.0-stable (2024-06-28)
 
 * 📝 docs(CHANGELOG.md): automatic update ([a343b22](https://github.com/M0rtzz/VisionVoyage/commit/a343b22))
