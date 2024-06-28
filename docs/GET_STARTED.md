@@ -24,7 +24,7 @@ git-lfs pull
 一些运行依赖：
 
 ```shell
-sudo apt install wmctrl sl
+sudo apt install wmctrl sl libhpdf-dev libcrypto++-dev libeigen3-dev
 ```
 
 还需要编译安装OpenCV，可参考我的博客:
