@@ -1,5 +1,7 @@
-##  (2024-06-27)
+##  (2024-06-28)
 
+* 📝 docs(CHANGELOG.md): automatic update ([f3d9370](https://github.com/M0rtzz/VisionVoyage/commit/f3d9370))
+* 📝 docs(GET_STARTED.md): add command to install dependency ([bd07586](https://github.com/M0rtzz/VisionVoyage/commit/bd07586))
 
 
 
