@@ -1,5 +1,12 @@
 ##  (2024-06-28)
 
+* 📝 docs(README.md): add 3rd party lib description ([824fc5a](https://github.com/M0rtzz/VisionVoyage/commit/824fc5a))
+
+
+
+## 7.2.0-stable (2024-06-28)
+
+* 📝 docs(CHANGELOG.md): automatic update ([a3ce61c](https://github.com/M0rtzz/VisionVoyage/commit/a3ce61c))
 * 📝 docs(CHANGELOG.md): automatic update ([ee8f8b4](https://github.com/M0rtzz/VisionVoyage/commit/ee8f8b4))
 * 📝 docs(CHANGELOG.md): automatic update ([f3d9370](https://github.com/M0rtzz/VisionVoyage/commit/f3d9370))
 * 📝 docs(GET_STARTED.md): add a package to print pdf file ([32e6e05](https://github.com/M0rtzz/VisionVoyage/commit/32e6e05))
