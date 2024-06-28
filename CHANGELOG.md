@@ -1,6 +1,8 @@
 ##  (2024-06-28)
 
+* 📝 docs(CHANGELOG.md): automatic update ([ee8f8b4](https://github.com/M0rtzz/VisionVoyage/commit/ee8f8b4))
 * 📝 docs(CHANGELOG.md): automatic update ([f3d9370](https://github.com/M0rtzz/VisionVoyage/commit/f3d9370))
+* 📝 docs(GET_STARTED.md): add a package to print pdf file ([32e6e05](https://github.com/M0rtzz/VisionVoyage/commit/32e6e05))
 * 📝 docs(GET_STARTED.md): add command to install dependency ([bd07586](https://github.com/M0rtzz/VisionVoyage/commit/bd07586))
 
 
