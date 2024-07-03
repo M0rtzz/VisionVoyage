@@ -1,10 +1,10 @@
-# 开始：安装和运行VisionVoyage
+# 开始：安装和运行 VisionVoyage
 
-## ①前提
+## ① 前提
 
-此软件为ZZU计院的双创项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
+此软件为 ZZU 计院的双创项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
 
-环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
+环境为 Ubuntu20.04.6 LTS，需要 NVIDIA 的 GPU。
 
 ![image-20240430150629416](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
 
@@ -19,7 +19,7 @@ git-lfs pull
 
 ---
 
-## ②安装
+## ② 安装
 
 一些运行依赖：
 
@@ -27,11 +27,11 @@ git-lfs pull
 sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev
 ```
 
-还需要编译安装OpenCV，可参考我的博客:
+还需要编译安装 OpenCV，可参考我的博客:
 
-[https://blog.csdn.net/M0rtzz/article/details/136060074](https://blog.csdn.net/M0rtzz/article/details/136060074)
+[博客](https://www.m0rtzz.com/posts/3#opencv420%E7%9A%84cmake%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9ubuntu2004%E8%A3%85%E8%BF%99%E4%B8%AA)
 
-### （1）conda创建两个环境
+### （1）conda 创建两个环境
 
 #### 环境一
 
@@ -49,14 +49,14 @@ conda install -c conda-forge gcc=12.1.0
 
 ```shell
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install pyside6 opencv-python==4.2.0.34 python-alipay-sdk tqdm matplotlib==3.3.0 qrcode pygame
+python3 -m pip install pyside6 opencv-python==4.2.0.34 python-alipay-sdk tqdm matplotlib==3.3.0 qrcode pygame requests pillow
 
 # 必须安装numpy==1.18.4
 python3 -m pip uninstall numpy
 python3 -m pip install numpy==1.18.4
 ```
 
-之后安装我提供的wheel包：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+之后安装我提供的 wheel 包：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
 
 解压后在`PythonAPI/carla/dist/`中
 
@@ -78,11 +78,11 @@ conda create -n mmsegmentation python=3.8
 conda activate mmsegmentation
 ```
 
-首选安装pytorch，需要GPU版，根据官网命令安装：
+首选安装 pytorch，需要 GPU 版，根据官网命令安装：
 
-[PyTorch官网](https://pytorch.org/)
+[PyTorch 官网](https://pytorch.org/)
 
-推荐使用校园联合镜像站中南方科技大学提供NVIDIA镜像channel（修改~/.condarc）：
+推荐使用校园联合镜像站中南方科技大学提供 NVIDIA 镜像 channel（修改~/.condarc）：
 
 ```yaml
 channels:
@@ -104,7 +104,7 @@ custom_channels:
   nvidia: https://mirrors.cernet.edu.cn/anaconda-extra/cloud
 ```
 
-之后安装mmsegmentation：
+之后安装 mmsegmentation：
 
 ```shell
 python3 -m pip install -U openmim
@@ -247,7 +247,7 @@ crop_size = (512, 512)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations'),
-    
+
     dict(
         type='RandomResize',
         scale=(2048, 1024),
@@ -310,7 +310,7 @@ val_evaluator = dict(type='IoUMetric', iou_metrics=['mIoU'])
 test_evaluator = val_evaluator
 ```
 
-之后将mmsegmentaion作为editable mode安装：
+之后将 mmsegmentaion 作为 editable mode 安装：
 
 ```shell
 python3 -m pip install -v -e .
@@ -324,7 +324,7 @@ python3 -m pip install -v -e .
 
 ![image-20240521142002149](/home/m0rtzz/.config/Typora/typora-user-images/image-20240521142002149.png)
 
-点击之后使用支付宝APP搜码或者使用账号密码登录，然后开通此产品，显示已开通后，点击开发设置：
+点击之后使用支付宝 APP 搜码或者使用账号密码登录，然后开通此产品，显示已开通后，点击开发设置：
 
 ![image-20240521142246943](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:05/Day:21/14:22:47_image-20240521142246943.png)
 
@@ -350,13 +350,13 @@ python3 -m pip install -v -e .
 
 2）`scripts/`中的脚本和`main.py`
 
-修改其中所有python脚本的首行解释器绝对路径为自己的，例如：
+修改其中所有 python 脚本的首行解释器绝对路径为自己的，例如：
 
 ```python
 #!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
 ```
 
-全部修改完成之后，编译C++源程序：
+全部修改完成之后，编译 C++源程序：
 
 ```shell
 cd scripts/ && make all
@@ -370,7 +370,7 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./init_desktop.sh
 
 ![image-20240430150536547](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:05:36_image-20240430150536547.png)
 
-## ③运行
+## ③ 运行
 
 ```shell
 ./main.sh
@@ -382,7 +382,6 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./init_desktop.sh
 
 ![image-20240430151406177](https://cdn.jsdelivr.us/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:04/Day:30/15:14:11_image-20240430151406177.png)
 
->   [!NOTE]
+> [!NOTE]
 >
->   ***<u>==Updateing!!!==</u>***
-
+> **_<u>==Updateing!!!==</u>_**
