@@ -24,7 +24,7 @@ git-lfs pull
 一些运行依赖：
 
 ```shell
-sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev
+sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev
 ```
 
 还需要编译安装 OpenCV，可参考我的博客:
