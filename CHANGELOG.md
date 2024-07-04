@@ -1,11 +1,18 @@
-##  (2024-07-03)
+##  (2024-07-04)
 
+
+
+
+## 7.8.0-stable (2024-07-04)
+
+* 💩 poop: misspelling ([271cf6b](https://github.com/M0rtzz/VisionVoyage/commit/271cf6b))
 
 
 
 ## 7.7.0-stable (2024-07-03)
 
 * 📝 docs: update dev doc ([be0158f](https://github.com/M0rtzz/VisionVoyage/commit/be0158f))
+* 📝 docs(CHANGELOG.md): automatic update ([2956fa0](https://github.com/M0rtzz/VisionVoyage/commit/2956fa0))
 * 📝 docs(CHANGELOG.md): automatic update ([1a81b0e](https://github.com/M0rtzz/VisionVoyage/commit/1a81b0e))
 * 📝 docs(GET_STARTED.md): add install package cmd ([08dd1d9](https://github.com/M0rtzz/VisionVoyage/commit/08dd1d9))
 * 📝 docs(GET_STARTED.md): add install package cmd ([b808c6d](https://github.com/M0rtzz/VisionVoyage/commit/b808c6d))
