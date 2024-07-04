@@ -36,7 +36,7 @@ pyside6-rcc resources.qrc -o resources_rc.py
 
 ---
 
-## Thirty Party
+## 3rdparty
 
 CARLA：
 
