@@ -1,11 +1,18 @@
-##  (2024-07-04)
+##  (2024-07-06)
 
+
+
+
+## 7.9.0-stable (2024-07-06)
+
+* 💄 ui: update version and license display ([0d1dba8](https://github.com/M0rtzz/VisionVoyage/commit/0d1dba8))
 
 
 
 ## 7.8.0-stable (2024-07-04)
 
 * 💩 poop: misspelling ([271cf6b](https://github.com/M0rtzz/VisionVoyage/commit/271cf6b))
+* 📝 docs(CHANGELOG.md): automatic update ([1b25bc6](https://github.com/M0rtzz/VisionVoyage/commit/1b25bc6))
 
 
 
