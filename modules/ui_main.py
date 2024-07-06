@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-# Form generated from reading UI file 'mainHoOigG.ui'
+## Form generated from reading UI file 'maineQmnIG.ui'
 ##
-# Created by: Qt User Interface Compiler version 6.6.0
+## Created by: Qt User Interface Compiler version 6.6.0
 ##
-# WARNING! All changes made in this file will be lost when recompiling UI file!
+## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
@@ -1173,9 +1173,9 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Active, QPalette.Window, brush1)
         brush3 = QBrush(QColor(221, 221, 221, 128))
         brush3.setStyle(Qt.SolidPattern)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
@@ -1184,9 +1184,9 @@ class Ui_MainWindow(object):
         brush4.setStyle(Qt.NoBrush)
         palette.setBrush(QPalette.Inactive, QPalette.Base, brush4)
         palette.setBrush(QPalette.Inactive, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Text, brush)
@@ -1195,9 +1195,9 @@ class Ui_MainWindow(object):
         brush5.setStyle(Qt.NoBrush)
         palette.setBrush(QPalette.Disabled, QPalette.Base, brush5)
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         self.table_widget_operation_help.setPalette(palette)
         self.table_widget_operation_help.setFont(font1)
         self.table_widget_operation_help.setFrameShape(QFrame.NoFrame)
@@ -1430,9 +1430,9 @@ class Ui_MainWindow(object):
         brush6.setStyle(Qt.NoBrush)
         palette1.setBrush(QPalette.Active, QPalette.Base, brush6)
         palette1.setBrush(QPalette.Active, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette1.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette1.setBrush(QPalette.Inactive, QPalette.Text, brush)
@@ -1441,9 +1441,9 @@ class Ui_MainWindow(object):
         brush7.setStyle(Qt.NoBrush)
         palette1.setBrush(QPalette.Inactive, QPalette.Base, brush7)
         palette1.setBrush(QPalette.Inactive, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette1.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette1.setBrush(QPalette.Disabled, QPalette.Text, brush)
@@ -1452,9 +1452,9 @@ class Ui_MainWindow(object):
         brush8.setStyle(Qt.NoBrush)
         palette1.setBrush(QPalette.Disabled, QPalette.Base, brush8)
         palette1.setBrush(QPalette.Disabled, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         self.table_widget_transform_upload_result.setPalette(palette1)
         self.table_widget_transform_upload_result.setFont(font1)
         self.table_widget_transform_upload_result.setLayoutDirection(Qt.LeftToRight)
@@ -1612,9 +1612,9 @@ class Ui_MainWindow(object):
         brush9.setStyle(Qt.NoBrush)
         palette2.setBrush(QPalette.Active, QPalette.Base, brush9)
         palette2.setBrush(QPalette.Active, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette.Active, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         palette2.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette2.setBrush(QPalette.Inactive, QPalette.Text, brush)
@@ -1623,9 +1623,9 @@ class Ui_MainWindow(object):
         brush10.setStyle(Qt.NoBrush)
         palette2.setBrush(QPalette.Inactive, QPalette.Base, brush10)
         palette2.setBrush(QPalette.Inactive, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         palette2.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette2.setBrush(QPalette.Disabled, QPalette.Text, brush)
@@ -1634,9 +1634,9 @@ class Ui_MainWindow(object):
         brush11.setStyle(Qt.NoBrush)
         palette2.setBrush(QPalette.Disabled, QPalette.Base, brush11)
         palette2.setBrush(QPalette.Disabled, QPalette.Window, brush1)
-# if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush3)
-# endif
+#endif
         self.table_widget_get_image.setPalette(palette2)
         self.table_widget_get_image.setFont(font1)
         self.table_widget_get_image.setFrameShape(QFrame.NoFrame)
@@ -1818,9 +1818,9 @@ class Ui_MainWindow(object):
         self.btn_simulation.setText(QCoreApplication.translate("MainWindow", u"\u9a7e\u9a76\u4eff\u771f", None))
         self.btn_personal_center.setText(QCoreApplication.translate("MainWindow", u"\u6211\u7684", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"\u6211\u7684", None))
-# if QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close \u6211\u7684", None))
-# endif // QT_CONFIG(tooltip)
+#endif // QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setText("")
         self.btn_start_server.setText(QCoreApplication.translate(
             "MainWindow", u"\u542f\u52a8 VisionVoyage \u670d\u52a1\u5668", None))
@@ -1836,7 +1836,7 @@ class Ui_MainWindow(object):
                                                          "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">VisionVoyage</span></p>\n"
                                                          "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">\u4e00\u6b3e\u57fa\u4e8e\u9c7c\u773c\u76f8\u673a\u4e0e\u5176\u4ed6\u611f\u77e5\u6280\u672f\u7684\u81ea\u52a8\u9a7e\u9a76"
                                                          "\u4eff\u771f\u7cfb\u7edf\u3002</span></p>\n"
-                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">MIT License</span></p>\n"
+                                                         "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">WTFPL License</span></p>\n"
                                                          "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Ingenuity Drive</span></p>\n"
                                                          "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">\u4e2a\u6027\u5316\u5b9a\u5236</span></p>\n"
                                                          "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">\u60a8\u53ef\u4ee5\u901a\u8fc7\u4e0b\u65b9\u201c\u8054\u7cfb\u6211\u4eec\u201d\u6765\u5411\u6211"
@@ -1848,21 +1848,21 @@ class Ui_MainWindow(object):
                                                          "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#ffffff;\"><br /></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate(
             "MainWindow", u"<html><head/><body><p><span style=\" font-weight:700;\">VisionVoyage Client</span></p></body></html>", None))
-# if QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
-# endif // QT_CONFIG(tooltip)
+#endif // QT_CONFIG(tooltip)
         self.settingsTopBtn.setText("")
-# if QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
-# endif // QT_CONFIG(tooltip)
+#endif // QT_CONFIG(tooltip)
         self.minimizeAppBtn.setText("")
-# if QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
         self.maximizeRestoreAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
-# endif // QT_CONFIG(tooltip)
+#endif // QT_CONFIG(tooltip)
         self.maximizeRestoreAppBtn.setText("")
-# if QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
-# endif // QT_CONFIG(tooltip)
+#endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
         ___qtablewidgetitem = self.table_widget_operation_help.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"\u6309\u952e", None))
@@ -2116,5 +2116,5 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_unlock.setText(QCoreApplication.translate("MainWindow", u"Unlock", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v6.5.0-stable", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v7.9.0-stable", None))
     # retranslateUi
