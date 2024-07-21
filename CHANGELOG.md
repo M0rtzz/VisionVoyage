@@ -1,11 +1,18 @@
-##  (2024-07-06)
+##  (2024-07-21)
 
+
+
+
+## 8.0.0-stable (2024-07-21)
+
+* 📝 docs: update image url ([d0f2f4b](https://github.com/M0rtzz/VisionVoyage/commit/d0f2f4b))
 
 
 
 ## 7.9.0-stable (2024-07-06)
 
 * 💄 ui: update version and license display ([0d1dba8](https://github.com/M0rtzz/VisionVoyage/commit/0d1dba8))
+* 📝 docs(CHANGELOG.md): automatic update ([639a91c](https://github.com/M0rtzz/VisionVoyage/commit/639a91c))
 
 
 
