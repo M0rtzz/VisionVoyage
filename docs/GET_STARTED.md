@@ -451,6 +451,16 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 
 ![image-20240430151406177](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:14:11_image-20240430151406177.png)
 
+## ④ Customize
+
+设计GUI：
+
+```
+pyside6-designer main.ui
+```
+
+
+
 > [!NOTE]
 >
 >   ***Updateing!!!***
