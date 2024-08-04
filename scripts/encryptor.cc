@@ -9,6 +9,8 @@
 #include <cryptopp/base64.h>
 #include <cryptopp/osrng.h>
 
+using type = unsigned char;
+
 class EncryptionHelper
 {
 public:
@@ -92,9 +94,9 @@ int main(int argc, char *argv[])
     // std::string data2process = cleaned_logon_id + "," + trade_no + "," + trade_status + "," + buyer_open_id;
 
     std::string data2process = buyer_logon_id + "," + trade_no + "," + trade_status + "," + buyer_open_id;
-    std::string key = "M0rtzzAshore!!!!";                               // 替换为您的密钥
-    std::string iv = "M0rtzzGod!!!!!!!";                                // 替换为您的初始化向量
-    std::string output_file = "./private/" + buyer_logon_id + ".enc";   // 保存加密数据的文件名
+    std::string key = "M0rtzzAshore!!!!";                             // 替换为您的密钥
+    std::string iv = "M0rtzzGod!!!!!!!";                              // 替换为您的初始化向量
+    std::string output_file = "./private/" + buyer_logon_id + ".enc"; // 保存加密数据的文件名
 
     EncryptionHelper helper;
 
