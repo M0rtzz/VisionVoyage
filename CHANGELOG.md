@@ -1,7 +1,13 @@
 ##  (2024-08-04)
 
+
+
+
+## 8.2.0-stable (2024-08-04)
+
 * ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
 * ✨ feat: update version display ([dcf198e](https://github.com/M0rtzz/VisionVoyage/commit/dcf198e))
+* 📝 docs(CHANGELOG.md): automatic update ([dcfed06](https://github.com/M0rtzz/VisionVoyage/commit/dcfed06))
 * 📝 docs(CHANGELOG.md): automatic update ([e6b08a8](https://github.com/M0rtzz/VisionVoyage/commit/e6b08a8))
 * 📝 docs(CHANGELOG.md): automatic update ([e9f049f](https://github.com/M0rtzz/VisionVoyage/commit/e9f049f))
 * 📝 docs(CHANGELOG.md): automatic update ([b0fcf28](https://github.com/M0rtzz/VisionVoyage/commit/b0fcf28))
