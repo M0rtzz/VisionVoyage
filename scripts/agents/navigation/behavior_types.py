@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
+#!/home/m0rtzz/Program_Files/anaconda3/envs/VisionVoyage/bin/python3
 # This work is licensed under the terms of the MIT license.
 # For a copy, see <https://opensource.org/licenses/MIT>.
 
