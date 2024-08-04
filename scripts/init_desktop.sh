@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/sh
 
 #添加桌面文件
 # base_path=$(dirname "$0")

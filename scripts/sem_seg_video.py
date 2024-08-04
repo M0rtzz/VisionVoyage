@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/bin/python3
+#!/home/m0rtzz/Program_Files/anaconda3/envs/mmsegmentation/bin/python3
 
 import argparse
 import time

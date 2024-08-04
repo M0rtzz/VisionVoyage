@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/bin/python3
+#!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
 
 import dataset_utils
 from get_fisheye_dataset import DataCollector

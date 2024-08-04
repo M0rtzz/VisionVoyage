@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/bin/python3
+#!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
 
 # ///////////////////////////////////////////////////////////////
 #
@@ -21,7 +21,7 @@ import cv2
 import os
 
 # NOTE: 禁止输出错误信息
-# sys.stderr = open('/dev/null', 'w')
+sys.stderr = open('/dev/null', 'w')
 
 # NOTE: 禁止指定警告输出
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -318,7 +318,7 @@ class MainWindow(QMainWindow):
     def becomePlus(self, phone_number):
         app_private_key_path = "./certs/app_private_key.pem"
         alipay_public_key_path = "./certs/alipay_public_key.pem"
-        background_url = 'https://s21.ax1x.com/2024/08/04/pkviC2q.png'
+        background_url = 'https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:15/22:26:14_background.png'
 
         alipay_payment = AlipayPayment(app_private_key_path, alipay_public_key_path)
         qr_code_url, out_trade_no_with_time = alipay_payment.createOrder()

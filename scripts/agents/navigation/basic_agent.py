@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/bin/python3
+#!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
 # Copyright (c) # Copyright (c) 2018-2020 CVC.
 #
 # This work is licensed under the terms of the MIT license.

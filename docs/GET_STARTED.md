@@ -28,27 +28,33 @@ sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl
 sudo ln -s /usr/include/opencv4/opencv2 /usr/include/
 ```
 
-如果需要编译安装CUDA和CUDNN支持的OpenCV，可参考我的博客:
+还需要编译安装 OpenCV，可参考我的博客:
 
 [博客](https://www.m0rtzz.com/posts/3#opencv420%E7%9A%84cmake%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9ubuntu2004%E8%A3%85%E8%BF%99%E4%B8%AA)
 
-### （1）conda创建环境
+[博客](https://www.m0rtzz.com/posts/3#opencv420%E7%9A%84cmake%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9ubuntu2004%E8%A3%85%E8%BF%99%E4%B8%AA)
+
+#### 环境一
 
 ```shell
-conda create -n VisionVoyage python=3.8
+conda create -n py38 python=3.8
 ```
 
 ```shell
-conda activate VisionVoyage
+conda activate py38
 ```
 
 ```shell
-conda install conda-forge::gcc=12.1.0
+conda install -c conda-forge gcc=12.1.0
 ```
 
 ```shell
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install pyside6 python-alipay-sdk tqdm qrcode pygame Pillow 'pandas==1.2.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'seaborn>=0.11.0' 'pycocotools>=2.0'
+python3 -m pip install pyside6 opencv-python==4.2.0.34 python-alipay-sdk tqdm matplotlib==3.3.0 qrcode pygame requests pillow
+
+# 必须安装numpy==1.18.4
+python3 -m pip uninstall numpy
+python3 -m pip install numpy==1.18.4
 ```
 
 之后安装我提供的 wheel 包：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
@@ -58,14 +64,26 @@ python3 -m pip install pyside6 python-alipay-sdk tqdm qrcode pygame Pillow 'pand
 ![image-20240430142501765](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/14:25:06_image-20240430142501765.png)
 
 ```shell
-conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
+conda activate py38 && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
 ```
 
-然后安装pytorch（1.7.0≤torch≤2.0.1，鄙人的版本是2.0.1），需要GPU版，根据官网命令安装：
+---
+
+#### 环境二
+
+```shell
+conda create -n mmsegmentation python=3.8
+```
+
+```shell
+conda activate mmsegmentation
+```
+
+首选安装 pytorch，需要 GPU 版，根据官网命令安装：
 
 [PyTorch 官网](https://pytorch.org/)
 
-推荐使用南方科技大学提供的NVIDIA镜像channel（修改~/.condarc）：
+推荐使用校园联合镜像站中南方科技大学提供 NVIDIA 镜像 channel（修改~/.condarc）：
 
 ```yaml
 channels:
@@ -75,8 +93,6 @@ default_channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
 custom_channels:
   conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
@@ -86,28 +102,15 @@ custom_channels:
   pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud
-```
-
-Pytorch安装完成后：
-
-```shell
-python3 -m pip install thop
+  nvidia: https://mirrors.cernet.edu.cn/anaconda-extra/cloud
 ```
 
 之后安装 mmsegmentation：
 
 ```shell
 python3 -m pip install -U openmim
-mim install 'mmengine==0.10.3'
-python3 -m pip install -U pip setuptools
-mim install 'mmcv==2.1.0'
-
-# 必须安装numpy==1.18.4
-python3 -m pip uninstall seaborn
-python3 -m pip install 'seaborn==0.10.0'
-python3 -m pip uninstall numpy
-python3 -m pip install 'numpy==1.18.4'
+mim install mmengine==0.10.3
+mim install mmcv==2.1.0
 ```
 
 ```shell
@@ -318,112 +321,43 @@ python3 -m pip install -v -e .
 
 因为软件集成了付费功能，所以需要开通支付宝的当面付功能
 
-[https://b.alipay.com/page/product-workspace/product-detail/I1080300001000041016](https://b.alipay.com/page/product-workspace/product-detail/I1080300001000041016)
+[https://b.alipay.com/page/product-mall/all-product](https://b.alipay.com/page/product-mall/all-product)
 
-点击之后使用支付宝APP搜码或者使用账号密码登录，然后开通此产品：
+![image-20240521142002149](https://static.m0rtzz.com/images/Year:2024/Month:07/Day:21/19:35:28_image-20240521142002149.png)
 
-![image-20240804152418499](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:24:23_image-20240804152418499.png)
+点击之后使用支付宝 APP 搜码或者使用账号密码登录，然后开通此产品，显示已开通后，点击开发设置：
 
-经营类目选择`零售批发、杂货店`：
+![image-20240521142246943](https://static.m0rtzz.com/images/Year:2024/Month:05/Day:21/14:22:47_image-20240521142246943.png)
 
-![image-20240804152715438](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:27:15_image-20240804152715438.png)
+创建应用并关联：
 
-营业执照不填：
+![image-20240521142336673](https://static.m0rtzz.com/images/Year:2024/Month:05/Day:21/14:23:36_image-20240521142336673.png)
 
-![image-20240804152806391](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:28:06_image-20240804152806391.png)
+之后获取秘钥：
 
-> [!WARNING]
->
-> ![image-20240804153843474](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:38:43_image-20240804153843474.png)
+![image-20240521143417101](https://static.m0rtzz.com/images/Year:2024/Month:05/Day:21/14:34:17_image-20240521143417101.png)
 
-店铺名字和图片可以去网上找一张旧照片，地址随意填一个：
+具体步骤可参考此博客：
 
-![image-20240804153951004](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:39:51_image-20240804153951004.png)
-
-填写姓名和手机接受到的验证码：
-
-![image-20240804154137883](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:41:37_image-20240804154137883.png)
-
-![image-20240804154235792](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:42:35_image-20240804154235792.png)
-
-显示已开通后，点击开发设置：
-
-![image-20240521142246943](https://static.m0rtzz.com/images%2FYear:2024%2FMonth:05%2FDay:21%2F14:22:47_image-20240521142246943.png)
-
-创建应用并关联，创建后应该显示的是`开发中`，不是`上线`，获取到的AppID请妥善保存：
-
-![image-20240804164036661](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:40:36_image-20240804164036661.png)
-
-进入下面的网站开通：
-
-[https://openhome.alipay.com/platform/appManage.htm#/apps](https://openhome.alipay.com/platform/appManage.htm#/apps)
-
-![image-20240804164003553](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:40:03_image-20240804164003553.png)
-
-此步骤的支付宝开放平台密钥工具官方只提供了Windows和Mac OS的版本：
-
-![image-20240804155735037](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:57:35_image-20240804155735037.png)
-
-![image-20240804160041005](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:00:41_image-20240804160041005.png)
-
-![image-20240804160724762](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:07:31_image-20240804160724762.png)
-
-获取到的应用私钥请妥善保存：
-
-![image-20240804160947394](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:09:47_image-20240804160947394.png)
-
-![image-20240804161036395](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:10:36_image-20240804161036395.png)
-
-上传后获取到的支付宝公钥请妥善保存：
-
-![image-20240804161218381](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:12:18_image-20240804161218381.png)
-
-之后提交审核，审核完成后，应用状态将变为`上线`，此时将可以正常使用付费功能：
-
-![image-20240804164108248](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:41:08_image-20240804164108248.png)
+[https://blog.csdn.net/rankun1/article/details/92401295](https://blog.csdn.net/rankun1/article/details/92401295)
 
 获取秘钥之后在`certs/`下创建`alipay_public_key.pem`和`app_private_key.pem`，分别对应支付宝公钥和应用私钥。
 
-> [!IMPORTANT]
->
-> ```txt
-> 应用私钥格式：
-> -----BEGIN RSA PRIVATE KEY-----
-> 内容
-> -----END RSA PRIVATE KEY-----
-> 
-> 支付宝公钥格式：
-> -----BEGIN PUBLIC KEY-----
-> 内容
-> -----END PUBLIC KEY-----
-> ```
-
-修改`scripts/alipy.py`中的appid为自己的：
-
-```python
-class AlipayPayment:
-    def __init__(self, app_private_key_path, alipay_public_key_path):
-        self.app_private_key_string = open(app_private_key_path).read()
-        self.alipay_public_key_string = open(alipay_public_key_path).read()
-        self.alipay = AliPay(
-            appid="your-appid",
-            app_notify_url=None,
-            app_private_key_string=self.app_private_key_string,
-            alipay_public_key_string=self.alipay_public_key_string,
-            sign_type="RSA2",
-            debug=False
-        )
-```
-
 ### （3）修改路径
 
-```shell
-sudo chmod +x ./setup.sh && ./setup.sh
+1）`scripts/VisionVoyageServer.sh`
+
+修改其中的`UE4_PROJECT_ROOT`为解压服务器压缩包后的文件夹路径[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+
+2）`scripts/`中的脚本和`main.py`
+
+修改其中所有 python 脚本的首行解释器绝对路径为自己的，例如：
+
+```python
+#!/home/m0rtzz/Program_Files/anaconda3/envs/py38/bin/python3
 ```
 
-![image-20240804175012171](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/17:50:12_image-20240804175012171.png)
-
-全部修改完成之后，编译C++源程序：
+全部修改完成之后，编译 C++源程序：
 
 ```shell
 cd scripts/ && make all
@@ -432,7 +366,7 @@ cd scripts/ && make all
 ### （4）添加桌面图标
 
 ```shell
-sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.sh
+sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./init_desktop.sh
 ```
 
 ![image-20240430150536547](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:05:36_image-20240430150536547.png)
@@ -451,5 +385,4 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 
 > [!NOTE]
 >
->   ***Updateing!!!***
-
+> ***Updateing!!!***
