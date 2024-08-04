@@ -7,6 +7,7 @@
 
 * ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
 * ✨ feat: update version display ([dcf198e](https://github.com/M0rtzz/VisionVoyage/commit/dcf198e))
+* 📝 docs(CHANGELOG.md): automatic update ([8aa144a](https://github.com/M0rtzz/VisionVoyage/commit/8aa144a))
 * 📝 docs(CHANGELOG.md): automatic update ([735661f](https://github.com/M0rtzz/VisionVoyage/commit/735661f))
 * 📝 docs(CHANGELOG.md): automatic update ([dcfed06](https://github.com/M0rtzz/VisionVoyage/commit/dcfed06))
 * 📝 docs(CHANGELOG.md): automatic update ([e6b08a8](https://github.com/M0rtzz/VisionVoyage/commit/e6b08a8))
