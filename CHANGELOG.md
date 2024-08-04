@@ -1,9 +1,15 @@
 ##  (2024-08-04)
 
+
+
+
+## 8.1.0-stable (2024-08-04)
+
 * ✨ feat: update shebang ([3596986](https://github.com/M0rtzz/VisionVoyage/commit/3596986))
 * ✨ feat: update shebang ([bedf6f8](https://github.com/M0rtzz/VisionVoyage/commit/bedf6f8))
 * ✨ feat: update type ([bcbc25a](https://github.com/M0rtzz/VisionVoyage/commit/bcbc25a))
 * 🎨 style(setup.sh): add blank line ([8426fc5](https://github.com/M0rtzz/VisionVoyage/commit/8426fc5))
+* 📝 docs(CHANGELOG.md): automatic update ([5c8162a](https://github.com/M0rtzz/VisionVoyage/commit/5c8162a))
 * 📝 docs(GET_STARTED.md): simplify operation ([f5279ff](https://github.com/M0rtzz/VisionVoyage/commit/f5279ff))
 * 📝 docs(GET_STARTED.md): simplify operation ([4a9d7b9](https://github.com/M0rtzz/VisionVoyage/commit/4a9d7b9))
 * 🔨 script: update shebang ([cd5f680](https://github.com/M0rtzz/VisionVoyage/commit/cd5f680))
