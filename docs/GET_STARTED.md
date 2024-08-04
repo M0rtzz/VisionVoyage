@@ -34,7 +34,7 @@ sudo ln -s /usr/include/opencv4/opencv2 /usr/include/
 
 [博客](https://www.m0rtzz.com/posts/3#opencv420%E7%9A%84cmake%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9ubuntu2004%E8%A3%85%E8%BF%99%E4%B8%AA)
 
-### （1）conda创建环境
+### （1）conda创建虚拟环境
 
 ```shell
 conda create -n VisionVoyage python=3.8
@@ -50,24 +50,14 @@ conda install conda-forge::gcc=12.1.0
 
 ```shell
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install pyside6 python-alipay-sdk tqdm qrcode pygame Pillow 'pandas==1.2.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'seaborn>=0.11.0' 'pycocotools>=2.0'
+python3 -m pip install Pillow pyside6 python-alipay-sdk tqdm qrcode pygame 'pandas==1.2.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
 ```
 
-之后安装我提供的 wheel 包：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过），根据官网命令安装：
 
-解压后在`PythonAPI/carla/dist/`中
+[PyTorch 官网](https://pytorch.org/get-started/previous-versions/)
 
-![image-20240430142501765](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/14:25:06_image-20240430142501765.png)
-
-```shell
-conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
-```
-
-然后安装pytorch（1.7.0≤torch≤2.0.1，鄙人的版本是2.0.1），需要GPU版，根据官网命令安装：
-
-[PyTorch 官网](https://pytorch.org/)
-
-推荐使用南方科技大学提供的NVIDIA镜像channel（修改~/.condarc）：
+推荐使用南方科技大学提供的NVIDIA镜像channel（修改`~/.condarc`，同样推荐设置`env_dirs`，否则有可能虚拟环境默认在`~/.conda/envs/`中）：
 
 ```yaml
 channels:
@@ -89,6 +79,9 @@ custom_channels:
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud
+
+envs_dirs:
+  - /home/m0rtzz/Program_Files/anaconda3/envs
 ```
 
 Pytorch安装完成后：
@@ -106,8 +99,6 @@ python3 -m pip install -U pip setuptools
 mim install 'mmcv==2.1.0'
 
 # 必须安装numpy==1.18.4
-python3 -m pip uninstall seaborn
-python3 -m pip install 'seaborn==0.10.0'
 python3 -m pip uninstall numpy
 python3 -m pip install 'numpy==1.18.4'
 ```
@@ -118,7 +109,7 @@ git clone -b v1.2.2 https://github.com/open-mmlab/mmsegmentation.git mmsegmentat
 
 添加`CBAMA4 neck`：
 
-1）修改`mmseg/models/necks/__init__.py`
+1）修改`mmsegmentation-v1.2.2/mmseg/models/necks/__init__.py`
 
 ```python
 # Copyright (c) OpenMMLab. All rights reserved.
@@ -137,7 +128,7 @@ __all__ = [
 ]
 ```
 
-2）创建`mmseg/models/necks/CBAM.py`
+2）创建`mmsegmentation-v1.2.2/mmseg/models/necks/CBAM.py`
 
 ```python
 import torch
@@ -231,9 +222,9 @@ class CBAM4(BaseModule):
         return tuple(outs)
 ```
 
-3）创建`configs/_base_/datasets/Woodscape.py`
+3）创建`mmsegmentation-v1.2.2/configs/_base_/datasets/Woodscape.py`
 
-`data_root`的路径（下载并解压到想要的位置，貌似不下载并设置也行）：
+修改`data_root`的路径（下载并解压到想要的位置，貌似不下载并设置也行）：
 
 [https://datasetninja.com/woodscape#images](https://datasetninja.com/woodscape#images)
 
@@ -316,6 +307,20 @@ test_evaluator = val_evaluator
 python3 -m pip install -v -e .
 ```
 
+最后下载`VisionVOyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+
+下载`VisionVoyage-Server-UE4.26-Shipping.tar.gz`，解压：
+
+```shell
+tar -xvf VisionVoyage-Server-UE4.26-Shipping.tar.gz
+```
+
+然后在`VisionVoyage_Server/PythonAPI/carla/dist/`中（记下`VisionVoyage_Server`文件夹的路径，下面要用到）：
+
+```shell
+cd VisionVoyage_Server/PythonAPI/carla/dist/ && conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
+```
+
 ### （2）申请支付宝当面付
 
 因为软件集成了付费功能，所以需要开通支付宝的当面付功能
@@ -342,7 +347,7 @@ python3 -m pip install -v -e .
 
 ![image-20240804153951004](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:39:51_image-20240804153951004.png)
 
-填写姓名和手机接受到的验证码：
+填写姓名和手机接收到的验证码：
 
 ![image-20240804154137883](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:41:37_image-20240804154137883.png)
 
@@ -428,7 +433,7 @@ sudo chmod +x ./setup.sh && ./setup.sh
 全部修改完成之后，编译C++源程序：
 
 ```shell
-cd scripts/ && make all
+cd scripts/ && make
 ```
 
 ### （4）添加桌面图标
