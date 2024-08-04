@@ -24,7 +24,9 @@ git-lfs pull
 一些运行依赖：
 
 ```shell
+sudo apt update
 sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev
+sudo apt install libopencv-dev # 不支持CUDA和CUDNN
 sudo ln -s /usr/include/opencv4/opencv2 /usr/include/
 ```
 
