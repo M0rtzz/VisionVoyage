@@ -7,6 +7,7 @@
 
 * ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
 * ✨ feat: update version display ([dcf198e](https://github.com/M0rtzz/VisionVoyage/commit/dcf198e))
+* 📝 docs(CHANGELOG.md): automatic update ([735661f](https://github.com/M0rtzz/VisionVoyage/commit/735661f))
 * 📝 docs(CHANGELOG.md): automatic update ([dcfed06](https://github.com/M0rtzz/VisionVoyage/commit/dcfed06))
 * 📝 docs(CHANGELOG.md): automatic update ([e6b08a8](https://github.com/M0rtzz/VisionVoyage/commit/e6b08a8))
 * 📝 docs(CHANGELOG.md): automatic update ([e9f049f](https://github.com/M0rtzz/VisionVoyage/commit/e9f049f))
@@ -14,6 +15,7 @@
 * 📝 docs(CHANGELOG.md): automatic update ([773fe89](https://github.com/M0rtzz/VisionVoyage/commit/773fe89))
 * 📝 docs(GET_STARTED.md): add install cmd ([f150ca9](https://github.com/M0rtzz/VisionVoyage/commit/f150ca9))
 * 📝 docs(GET_STARTED.md): update install cmd ([93f8f5d](https://github.com/M0rtzz/VisionVoyage/commit/93f8f5d))
+* 🔨 script: update shebang ([8df9639](https://github.com/M0rtzz/VisionVoyage/commit/8df9639))
 
 
 
