@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 function _echoInfo() {
     echo -e "\e[1;33m[Info]: ${1}\e[0m"

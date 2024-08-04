@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 LOCKFILE=/tmp/VisionVoyage.lock
 
