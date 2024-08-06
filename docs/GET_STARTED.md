@@ -567,7 +567,6 @@ result = self.alipay.api_alipay_trade_precreate(
 
 [https://opendocs.alipay.com/support/07cfbk](https://opendocs.alipay.com/support/07cfbk)
 
-
 > [!NOTE]
 >
 > ***Updateing!!!***
