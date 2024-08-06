@@ -17,7 +17,7 @@ class AlipayPayment:
         self.app_private_key_string = open(app_private_key_path).read()
         self.alipay_public_key_string = open(alipay_public_key_path).read()
         self.alipay = AliPay(
-            appid="2021004138657032",
+            appid="2021004163658784",
             app_notify_url=None,
             app_private_key_string=self.app_private_key_string,
             alipay_public_key_string=self.alipay_public_key_string,
