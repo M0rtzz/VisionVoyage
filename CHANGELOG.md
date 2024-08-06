@@ -3,6 +3,14 @@
 
 
 
+## 8.3.0-stable (2024-08-06)
+
+* 💄 ui: update version display ([ef782d2](https://github.com/M0rtzz/VisionVoyage/commit/ef782d2))
+* 📝 docs(GET_STARTED.md): add tutorial for designing GUI ([293ccaa](https://github.com/M0rtzz/VisionVoyage/commit/293ccaa))
+* 🔥 remove(GET_STARTED.md): rm a space ([7446995](https://github.com/M0rtzz/VisionVoyage/commit/7446995))
+
+
+
 ## 8.2.0-stable (2024-08-06)
 
 * ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
@@ -12,6 +20,7 @@
 * 🎨 style(GET_STARTED.md): rm blank line ([7049ff0](https://github.com/M0rtzz/VisionVoyage/commit/7049ff0))
 * 🐛 fix: fix the bug of invalid absolute path ([2ee8aad](https://github.com/M0rtzz/VisionVoyage/commit/2ee8aad))
 * 🐛 fix(alipay.py): fix ssl certificate bug ([722edbb](https://github.com/M0rtzz/VisionVoyage/commit/722edbb))
+* 📝 docs(CHANGELOG.md): automatic update ([e24a658](https://github.com/M0rtzz/VisionVoyage/commit/e24a658))
 * 📝 docs(CHANGELOG.md): automatic update ([55437c3](https://github.com/M0rtzz/VisionVoyage/commit/55437c3))
 * 📝 docs(CHANGELOG.md): automatic update ([ae3b3f6](https://github.com/M0rtzz/VisionVoyage/commit/ae3b3f6))
 * 📝 docs(CHANGELOG.md): automatic update ([4fa4b57](https://github.com/M0rtzz/VisionVoyage/commit/4fa4b57))
