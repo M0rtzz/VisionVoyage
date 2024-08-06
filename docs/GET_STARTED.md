@@ -52,7 +52,7 @@ conda install conda-forge::gcc=12.1.0
 python3 -m pip install Pillow pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'pandas==1.2.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
 ```
 
-然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过），根据官网命令安装：
+然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过【但是最新版的torch\==2.4.0和torch\==2.3.1经测试会有一些奇奇怪怪的运行时错误，所以才有1.7.0≤torch≤2.0.1这个结论（bushi】），根据官网命令安装：
 
 [PyTorch 官网](https://pytorch.org/get-started/previous-versions/)
 
