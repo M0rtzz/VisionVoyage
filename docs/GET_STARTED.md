@@ -335,7 +335,7 @@ cd VisionVoyage_Server/PythonAPI/carla/dist/ && conda activate VisionVoyage && p
 
 ![image-20240804152715438](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:27:15_image-20240804152715438.png)
 
-营业执照不填：
+营业执照不上传：
 
 ![image-20240804152806391](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:28:06_image-20240804152806391.png)
 
@@ -458,7 +458,7 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 
 ## ④ Customize
 
-设计GUI：
+**设计GUI：**
 
 ```shell
 pyside6-designer main.ui
@@ -466,13 +466,43 @@ pyside6-designer main.ui
 
 ![image-20240804185843168](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/18:58:43_image-20240804185843168.png)
 
-修改之后首先`Ctrl + S`保存ui文件，之后点击：
+修改之后首先`Ctrl + S`保存`main.ui`文件，之后点击：
 
 ![image-20240806173718025](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:37:18_image-20240806173718025.png)
 
 将Python代码复制下来（绿色框）或者保存（红色框）覆盖`modules/ui_main.py`：
 
 ![image-20240806173852946](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:38:53_image-20240806173852946.png)
+
+或（保存`main.ui`文件之后）：
+
+```shell
+# Convert UI
+conda activate VisionVoyage && pyside6-uic main.ui > modules/ui_main.py
+```
+
+---
+
+**添加图片资源（需要在`resources.qrc`中添加）：**
+
+```xml
+<qresource prefix="images">
+  <file>images/images/VisionVoyage.png</file>
+  <file>images/images/VisionVoyage_vertical.png</file>
+  <file>images/images/IngenuityDrive.png</file>
+  <file>images/images/sensors.png</file>
+  <file>images/images/fisheye_rgb.png</file>
+  <file>images/images/fisheye_semantic.png</file>
+  <file>images/images/fisheye_collage.png</file>
+</qresource>
+```
+
+之后执行以下命令整合：
+
+```shell
+# Convert QRC
+conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py
+```
 
 这样就完成了GUI的设计。
 
