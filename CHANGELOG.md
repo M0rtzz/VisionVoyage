@@ -1,17 +1,13 @@
 ##  (2024-08-06)
 
-* 📝 docs(GET_STARTED.md): add tutorial for adding image asset ([ca331f6](https://github.com/M0rtzz/VisionVoyage/commit/ca331f6))
-* 🔥 remove(resources.qrc): rm blank line ([f246e2c](https://github.com/M0rtzz/VisionVoyage/commit/f246e2c))
-
-
-
-## 8.3.0-stable (2024-08-06)
-
 * 💄 ui: update version display ([ef782d2](https://github.com/M0rtzz/VisionVoyage/commit/ef782d2))
+* 📝 docs(CHANGELOG.md): automatic update ([edecf6a](https://github.com/M0rtzz/VisionVoyage/commit/edecf6a))
 * 📝 docs(CHANGELOG.md): automatic update ([8d5510d](https://github.com/M0rtzz/VisionVoyage/commit/8d5510d))
 * 📝 docs(CHANGELOG.md): automatic update ([4202ac1](https://github.com/M0rtzz/VisionVoyage/commit/4202ac1))
+* 📝 docs(GET_STARTED.md): add tutorial for adding image asset ([ca331f6](https://github.com/M0rtzz/VisionVoyage/commit/ca331f6))
 * 📝 docs(GET_STARTED.md): add tutorial for designing GUI ([293ccaa](https://github.com/M0rtzz/VisionVoyage/commit/293ccaa))
 * 🔥 remove(GET_STARTED.md): rm a space ([7446995](https://github.com/M0rtzz/VisionVoyage/commit/7446995))
+* 🔥 remove(resources.qrc): rm blank line ([f246e2c](https://github.com/M0rtzz/VisionVoyage/commit/f246e2c))
 
 
 
