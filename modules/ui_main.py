@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-# Form generated from reading UI file 'mainvLflCu.ui'
+# Form generated from reading UI file 'mainALRrlw.ui'
 ##
 # Created by: Qt User Interface Compiler version 6.6.3
 ##
@@ -1978,7 +1978,7 @@ class Ui_MainWindow(object):
         self.btn_manual_control.setText(QCoreApplication.translate("MainWindow", u"\u865a\u62df\u9a7e\u9a76", None))
         self.btn_automatic_control.setText(QCoreApplication.translate("MainWindow", u"\u81ea\u52a8\u9a7e\u9a76", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
-        self.btn_open_dir.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.btn_open_dir.setText("")
         self.line_edit_filenames.setText("")
         self.line_edit_filenames.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
         ___qtablewidgetitem47 = self.table_widget_transform_upload_result.horizontalHeaderItem(0)
@@ -2116,5 +2116,5 @@ class Ui_MainWindow(object):
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_unlock.setText(QCoreApplication.translate("MainWindow", u"Unlock", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: IngunityDrive", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v8.2.0-stable", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v8.3.0-stable", None))
     # retranslateUi
