@@ -466,6 +466,16 @@ pyside6-designer main.ui
 
 ![image-20240804185843168](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/18:58:43_image-20240804185843168.png)
 
+修改之后首先`Ctrl + S`保存ui文件，之后点击：
+
+![image-20240806173718025](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:37:18_image-20240806173718025.png)
+
+将Python代码复制下来（绿色框）或者保存（红色框）覆盖`modules/ui_main.py`：
+
+![image-20240806173852946](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:38:53_image-20240806173852946.png)
+
+这样就完成了GUI的设计。
+
 ## ⑤ Runtime Error
 
 ### （1）分割图像
