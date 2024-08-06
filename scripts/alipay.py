@@ -29,6 +29,9 @@ class AlipayPayment:
         out_trade_no = "VisionVoyage"
         current_time = datetime.datetime.now().strftime("Year:%Y_Month:%m_Day:%d_%H:%M:%S")
         out_trade_no_with_time = out_trade_no + "_" + current_time
+        # BUG: ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1135)
+        # import ssl
+        # ssl._create_default_https_context = ssl._create_unverified_context
         result = self.alipay.api_alipay_trade_precreate(
             subject="Upgrade to VisionVoyage Plus",
             out_trade_no=out_trade_no_with_time,
