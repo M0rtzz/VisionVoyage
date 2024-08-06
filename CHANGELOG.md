@@ -1,6 +1,5 @@
 ##  (2024-08-06)
 
-* 🎨 style(GET_STARTED.md): rm blank line ([7049ff0](https://github.com/M0rtzz/VisionVoyage/commit/7049ff0))
 
 
 
@@ -9,8 +8,10 @@
 * ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
 * ✨ feat: update SheBang ([f4eb003](https://github.com/M0rtzz/VisionVoyage/commit/f4eb003))
 * ✨ feat: update version display ([dcf198e](https://github.com/M0rtzz/VisionVoyage/commit/dcf198e))
+* 🎨 style(GET_STARTED.md): rm blank line ([7049ff0](https://github.com/M0rtzz/VisionVoyage/commit/7049ff0))
 * 🐛 fix: fix the bug of invalid absolute path ([2ee8aad](https://github.com/M0rtzz/VisionVoyage/commit/2ee8aad))
 * 🐛 fix(alipay.py): fix ssl certificate bug ([722edbb](https://github.com/M0rtzz/VisionVoyage/commit/722edbb))
+* 📝 docs(CHANGELOG.md): automatic update ([247f6b2](https://github.com/M0rtzz/VisionVoyage/commit/247f6b2))
 * 📝 docs(CHANGELOG.md): automatic update ([609087e](https://github.com/M0rtzz/VisionVoyage/commit/609087e))
 * 📝 docs(CHANGELOG.md): automatic update ([77fabd0](https://github.com/M0rtzz/VisionVoyage/commit/77fabd0))
 * 📝 docs(CHANGELOG.md): automatic update ([8aa144a](https://github.com/M0rtzz/VisionVoyage/commit/8aa144a))
