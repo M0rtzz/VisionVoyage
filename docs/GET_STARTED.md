@@ -26,8 +26,7 @@ git-lfs pull
 ```shell
 sudo apt update
 sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev
-sudo apt install libopencv-dev # 不支持CUDA和CUDNN
-sudo ln -s /usr/include/opencv4/opencv2 /usr/include/
+sudo apt install libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 ```
 
 如果需要编译安装CUDA和CUDNN支持的OpenCV，可参考我的博客:
@@ -313,7 +312,7 @@ python3 -m pip install -v -e .
 下载`VisionVoyage-Server-UE4.26-Shipping.tar.gz`，解压：
 
 ```shell
-tar -xvf VisionVoyage-Server-UE4.26-Shipping.tar.gz
+tar -xvf VisionVoyage-Server-UE4.26-Shipping.tar.gz # 解压之后是一个名为 `VisionVoyage_Server` 的文件夹
 ```
 
 然后在`VisionVoyage_Server/PythonAPI/carla/dist/`中（记下`VisionVoyage_Server`文件夹的路径，下面要用到）：
@@ -544,13 +543,9 @@ export SSL_CERT_DIR=/etc/ssl/certs
 在`sctipts/alipay.py`中取消证书验证（Line 32-34）：
 
 ```python
-# import ssl
-# ssl._create_default_https_context = ssl._create_unverified_context
-result = self.alipay.api_alipay_trade_precreate(
-    subject="Upgrade to VisionVoyage Plus",
-    out_trade_no=out_trade_no_with_time,
-    total_amount=1
-)
+# BUG: ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1135)
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 ```
 
 #### 2）商户信息未补齐
