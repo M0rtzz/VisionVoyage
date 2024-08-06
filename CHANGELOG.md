@@ -1,5 +1,6 @@
 ##  (2024-08-06)
 
+* 📝 docs(GET_STARTED.md): update cmd ([56d85f7](https://github.com/M0rtzz/VisionVoyage/commit/56d85f7))
 
 
 
@@ -11,6 +12,7 @@
 * 🎨 style(GET_STARTED.md): rm blank line ([7049ff0](https://github.com/M0rtzz/VisionVoyage/commit/7049ff0))
 * 🐛 fix: fix the bug of invalid absolute path ([2ee8aad](https://github.com/M0rtzz/VisionVoyage/commit/2ee8aad))
 * 🐛 fix(alipay.py): fix ssl certificate bug ([722edbb](https://github.com/M0rtzz/VisionVoyage/commit/722edbb))
+* 📝 docs(CHANGELOG.md): automatic update ([307a90f](https://github.com/M0rtzz/VisionVoyage/commit/307a90f))
 * 📝 docs(CHANGELOG.md): automatic update ([318773b](https://github.com/M0rtzz/VisionVoyage/commit/318773b))
 * 📝 docs(CHANGELOG.md): automatic update ([baff11d](https://github.com/M0rtzz/VisionVoyage/commit/baff11d))
 * 📝 docs(CHANGELOG.md): automatic update ([247f6b2](https://github.com/M0rtzz/VisionVoyage/commit/247f6b2))
