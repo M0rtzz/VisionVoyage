@@ -466,6 +466,64 @@ pyside6-designer main.ui
 
 ![image-20240804185843168](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/18:58:43_image-20240804185843168.png)
 
+## ⑤ Runtime Error
+
+### 1）分割图像
+
+![image-20240806110627986](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/11:07:11_image-20240806110627986.png)
+
+**解决办法：**
+
+将`mmsegmentation-v1.2.2/mmseg/visualization/local_visualizer.py`中（Line 168-175）：
+
+```python
+mask = cv2.rectangle(mask, loc,
+                     (loc[0] + label_width + baseline,
+                      loc[1] + label_height + baseline),
+                     classes_color, -1)
+mask = cv2.rectangle(mask, loc,
+                     (loc[0] + label_width + baseline,
+                      loc[1] + label_height + baseline),
+                     (0, 0, 0), rectangleThickness)
+```
+
+改为：
+
+```python
+mask = cv2.rectangle(mask, (loc[0], loc[1]),
+                     (loc[0] + label_width + baseline,
+                      loc[1] + label_height + baseline),
+                     classes_color, -1)
+mask = cv2.rectangle(mask, (loc[0], loc[1]),
+                     (loc[0] + label_width + baseline,
+                      loc[1] + label_height + baseline),
+                     (0, 0, 0), rectangleThickness)
+```
+
+**Reference：**
+
+[https://github.com/open-mmlab/mmsegmentation/issues/3409](https://github.com/open-mmlab/mmsegmentation/issues/3409)
+
+### 2）分割视频
+
+![image-20240806111334096](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/11:13:34_image-20240806111334096.png)
+
+**解决办法：**
+
+将`anaconda3/envs/mmsegmentation/lib/python3.8/site-packages/torch/nn/modules/upsampling.py`中（Line 155-157）：
+
+```python
+def forward(self, input: Tensor) -> Tensor:
+    return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners, recompute_scale_factor=self.recompute_scale_factor)
+```
+
+改为：
+
+```python
+def forward(self, input: Tensor) -> Tensor:
+    return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners)
+```
+
 > [!NOTE]
 >
 >   ***Updateing!!!***
