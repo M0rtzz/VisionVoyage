@@ -22,7 +22,7 @@ function modifyUE4Path() {
     local new_path
 
     # 提示用户输入新的路径
-    echo "请输入您的 \`VisionVoyage_Server/文件夹的\` 路径（例如：/home/m0rtzz/Program_Files/VisionVoyage_Server）："
+    echo "请输入您的 \`VisionVoyage_Server/文件夹的\` 路径（例如：/home/m0rtzz/Programs/VisionVoyage_Server）："
     read new_path
 
     new_path=$(realpath "${new_path}")

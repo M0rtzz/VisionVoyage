@@ -2,7 +2,7 @@
 
 UE4_TRUE_SCRIPT_NAME=$(echo \"$0\" | xargs readlink -f)
 # UE4_PROJECT_ROOT=$(dirname "$UE4_TRUE_SCRIPT_NAME")
-UE4_PROJECT_ROOT="/home/m0rtzz/Program_Files/VisionVoyage_Server"
+UE4_PROJECT_ROOT="/home/m0rtzz/Programs/VisionVoyage_Server"
 # gnome-terminal -- bash -c 'sleep 5s && wmctrl -r "CarlaUE4" -T "VisionVoyage Server"; exec bash'
 # gnome-terminal -- bash -c 'while true; do wmctrl -r "CarlaUE4" -T "VisionVoyage Server"; done'
 # gnome-terminal -- bash -c 'while true; do wmctrl -r "CarlaUE4" -T "VisionVoyage Server"; echo $?; done'

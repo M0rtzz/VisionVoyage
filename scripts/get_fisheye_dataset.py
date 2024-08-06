@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/envs/VisionVoyage/bin/python3
+#!/home/m0rtzz/Programs/anaconda3/envs/VisionVoyage/bin/python3
 
 import carla
 from carla import ColorConverter as cc
@@ -879,7 +879,7 @@ class DataCollector:
                         # fisheye_picture = cv2.cvtColor(fisheye_picture, cv2.COLOR_BGR2RGB)
                         # gray_image = cv2.cvtColor(fisheye_picture, cv2.COLOR_BGR2GRAY)
 
-                        # save_path = "/home/m0rtzz/Program_Files/carla-0.9.13/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_raw/"
+                        # save_path = "/home/m0rtzz/Programs/carla-0.9.13/PythonAPI/examples/carla-data-generator/data/fisheye/semantic_segmentation_raw/"
                         # file_name = "%06d.png" % time_stamp
                         # file_name_with_suffix = file_name.split(".")[0] + "_Raw.png"
                         # file_path = os.path.join(save_path, file_name_with_suffix)
@@ -894,7 +894,7 @@ class DataCollector:
                         # cv2.imwrite(file_path, red_channel)
 
                         # cv2.imwrite(os.path.join(save_path, "%06d__.png" % (time_stamp)), fisheye_picture_)
-                        # save_path = "/home/m0rtzz/Program_Files/carla-0.9.13/PythonAPI/examples/carla-data-generator/data/fisheye/rgb/"
+                        # save_path = "/home/m0rtzz/Programs/carla-0.9.13/PythonAPI/examples/carla-data-generator/data/fisheye/rgb/"
                         # file_name = "%06d.png" % time_stamp
                         # file_name_with_suffix = file_name.split(".")[0] + "_RGB.png"
                         # file_path = os.path.join(save_path, file_name_with_suffix)
@@ -907,7 +907,7 @@ class DataCollector:
                         picture_group_1_ = [np.reshape(np.frombuffer(data.raw_data, dtype=np.dtype("uint8")), (PicSize, PicSize, 4))[
                             :, :, :3][:, :, ::-1] for data in data_group_1_]
 
-                        # output_folder = "/home/m0rtzz/Program_Files/carla-0.9.14/_out/"
+                        # output_folder = "/home/m0rtzz/Programs/carla-0.9.14/_out/"
 
                         # existing_files = os.listdir(output_folder)
                         # num_existing_files = len(existing_files)

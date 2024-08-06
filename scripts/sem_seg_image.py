@@ -1,4 +1,4 @@
-#!/home/m0rtzz/Program_Files/anaconda3/envs/VisionVoyage/bin/python3
+#!/home/m0rtzz/Programs/anaconda3/envs/VisionVoyage/bin/python3
 
 import argparse
 import os
