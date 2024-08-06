@@ -54,7 +54,7 @@ python3 -m pip install Pillow pyside6 python-alipay-sdk regex ftfy tqdm qrcode p
 
 然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过【但是最新版的torch\==2.4.0和torch\==2.3.1经测试会有一些奇奇怪怪的运行时错误，所以才有1.7.0≤torch≤2.0.1这个结论（bushi】），根据官网命令安装：
 
-[PyTorch 官网](https://pytorch.org/get-started/previous-versions/)
+[PyTorch官网](https://pytorch.org/get-started/previous-versions/)
 
 推荐使用南方科技大学提供的NVIDIA镜像channel（修改`~/.condarc`，同样推荐设置`env_dirs`，否则有可能虚拟环境默认在`~/.conda/envs/`中）：
 
