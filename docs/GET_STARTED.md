@@ -50,7 +50,7 @@ conda install conda-forge::gcc=12.1.0
 
 ```shell
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install Pillow pyside6 python-alipay-sdk tqdm qrcode pygame 'pandas==1.2.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
+python3 -m pip install Pillow pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'pandas==1.2.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
 ```
 
 然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过），根据官网命令安装：
@@ -81,13 +81,13 @@ custom_channels:
   nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud
 
 envs_dirs:
-  - /home/m0rtzz/Program_Files/anaconda3/envs
+  - /home/m0rtzz/Programs/anaconda3/envs
 ```
 
 Pytorch安装完成后：
 
 ```shell
-python3 -m pip install thop
+python3 -m pip install thop 'onnx==1.13.0'
 ```
 
 之后安装 mmsegmentation：
@@ -97,9 +97,10 @@ python3 -m pip install -U openmim
 mim install 'mmengine==0.10.3'
 python3 -m pip install -U pip setuptools
 mim install 'mmcv==2.1.0'
+mim install 'mmdet==3.2.0'
 
 # 必须安装numpy==1.18.4
-python3 -m pip uninstall numpy
+yes | python3 -m pip uninstall numpy
 python3 -m pip install 'numpy==1.18.4'
 ```
 
@@ -428,7 +429,7 @@ class AlipayPayment:
 sudo chmod +x ./setup.sh && ./setup.sh
 ```
 
-![image-20240804175012171](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/17:50:12_image-20240804175012171.png)
+![image-20240806140341198](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/14:04:03_image-20240806140341198.png)
 
 全部修改完成之后，编译C++源程序：
 
@@ -468,7 +469,7 @@ pyside6-designer main.ui
 
 ## ⑤ Runtime Error
 
-### 1）分割图像
+### （1）分割图像
 
 ![image-20240806110627986](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/11:07:11_image-20240806110627986.png)
 
@@ -504,9 +505,9 @@ mask = cv2.rectangle(mask, (loc[0], loc[1]),
 
 [https://github.com/open-mmlab/mmsegmentation/issues/3409](https://github.com/open-mmlab/mmsegmentation/issues/3409)
 
-### 2）分割视频
+### （2）分割视频
 
-![image-20240806111334096](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/11:13:34_image-20240806111334096.png)
+![image-20240806141421958](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/14:14:22_image-20240806141421958.png)
 
 **解决办法：**
 
@@ -524,6 +525,49 @@ def forward(self, input: Tensor) -> Tensor:
     return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners)
 ```
 
+### （3）支付接口
+
+#### 1）SSL证书
+
+![image-20240806143021106](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/14:30:21_image-20240806143021106.png)
+
+**解决办法：**
+
+```shell
+sudo apt install ca-certificates
+sudo update-ca-certificates --fresh
+export SSL_CERT_DIR=/etc/ssl/certs
+```
+
+或：
+
+在`sctipts/alipay.py`中取消证书验证（Line 32-34）：
+
+```python
+# import ssl
+# ssl._create_default_https_context = ssl._create_unverified_context
+result = self.alipay.api_alipay_trade_precreate(
+    subject="Upgrade to VisionVoyage Plus",
+    out_trade_no=out_trade_no_with_time,
+    total_amount=1
+)
+```
+
+#### 2）商户信息未补齐
+
+![image-20240806144820760](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/14:48:20_image-20240806144820760.png)
+
+**解决办法：**
+
+电脑端登入[商家平台](http://b.alipay.com/)，点击右上角【铃铛】后，在【系统通知】中查看对应通知内容，并点击进入操作补全。
+
+![image-20240806150115646](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/15:01:15_image-20240806150115646.png)
+
+**Reference：**
+
+[https://opendocs.alipay.com/support/07cfbk](https://opendocs.alipay.com/support/07cfbk)
+
+
 > [!NOTE]
 >
->   ***Updateing!!!***
+> ***Updateing!!!***
