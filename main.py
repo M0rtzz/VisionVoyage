@@ -318,7 +318,7 @@ class MainWindow(QMainWindow):
     def becomePlus(self, phone_number):
         app_private_key_path = "./certs/app_private_key.pem"
         alipay_public_key_path = "./certs/alipay_public_key.pem"
-        background_url = 'https://jsd.cdn.zzko.cn/gh/M0rtzz/ImageHosting@master/images/Year:2024/Month:03/Day:15/22:26:14_background.png'
+        background_url = 'https://s21.ax1x.com/2024/08/06/pkxQISK.png'
 
         alipay_payment = AlipayPayment(app_private_key_path, alipay_public_key_path)
         qr_code_url, out_trade_no_with_time = alipay_payment.createOrder()
