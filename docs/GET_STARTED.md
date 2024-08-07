@@ -2,7 +2,7 @@
 
 ## ① 前提
 
-此软件为 ZZU 计院的双创项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
+此软件为 ZZU 计院的双创|生产实习项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
 
 环境为 Ubuntu20.04.6 LTS，需要 NVIDIA 的 GPU。
 
@@ -25,7 +25,7 @@ git-lfs pull
 
 ```shell
 sudo apt update
-sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev
+sudo apt install wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev libpthread-stubs0-dev
 sudo apt install libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 ```
 
@@ -48,8 +48,9 @@ conda install conda-forge::gcc=12.1.0
 ```
 
 ```shell
+sudo ln -s /usr/lib/x86_64-linux-gnu/libpthread.so.0 /usr/lib64/libpthread.so.0
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install Pillow pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'pandas==1.2.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
+python3 -m pip install cmake lit filelock Pillow jmespath packaging pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'lxml==4.4.1' 'service-identity==18.1.0' 'Twisted==22.10.0' 'pandas==1.2.0' 'onnx==1.13.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'opencv-python==4.2.0.34' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
 ```
 
 然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过【但是最新版的torch\==2.4.0和torch\==2.3.1经测试会有一些奇奇怪怪的运行时错误，所以才有1.7.0≤torch≤2.0.1这个结论（bushi】），根据官网命令安装：
@@ -86,15 +87,15 @@ envs_dirs:
 Pytorch安装完成后：
 
 ```shell
-python3 -m pip install thop 'onnx==1.13.0'
+python3 -m pip install thop
 ```
 
 之后安装 mmsegmentation：
 
 ```shell
+python3 -m pip install -U pip setuptools
 python3 -m pip install -U openmim
 mim install 'mmengine==0.10.3'
-python3 -m pip install -U pip setuptools
 mim install 'mmcv==2.1.0'
 mim install 'mmdet==3.2.0'
 
@@ -304,7 +305,7 @@ test_evaluator = val_evaluator
 之后将 mmsegmentaion 作为 editable mode 安装：
 
 ```shell
-python3 -m pip install -v -e .
+python3 -m pip install -U setuptools && python3 -m pip install -v -e .
 ```
 
 最后下载`VisionVOyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
@@ -501,7 +502,7 @@ conda activate VisionVoyage && pyside6-uic main.ui > modules/ui_main.py
 
 ```shell
 # Convert QRC
-conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py
+conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py && cp resources_rc.py modules/resources_rc.py
 ```
 
 这样就完成了GUI的设计。
@@ -544,27 +545,7 @@ mask = cv2.rectangle(mask, (loc[0], loc[1]),
 
 [https://github.com/open-mmlab/mmsegmentation/issues/3409](https://github.com/open-mmlab/mmsegmentation/issues/3409)
 
-### （2）分割视频
-
-![image-20240806141421958](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/14:14:22_image-20240806141421958.png)
-
-**解决办法：**
-
-将`anaconda3/envs/mmsegmentation/lib/python3.8/site-packages/torch/nn/modules/upsampling.py`中（Line 155-157）：
-
-```python
-def forward(self, input: Tensor) -> Tensor:
-    return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners, recompute_scale_factor=self.recompute_scale_factor)
-```
-
-改为：
-
-```python
-def forward(self, input: Tensor) -> Tensor:
-    return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners)
-```
-
-### （3）支付接口
+### （2）支付接口
 
 #### 1）SSL证书
 
