@@ -4191,7 +4191,7 @@ background-repeat: no-repeat;
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>v8.3.0-stable</string>
+                   <string>v8.4.0-stable</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
