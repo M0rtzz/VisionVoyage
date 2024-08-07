@@ -9,6 +9,7 @@
 * 🎨 style: format code ([a7acb3b](https://github.com/M0rtzz/VisionVoyage/commit/a7acb3b))
 * 🐛 fix(yolo.py): fix the AttributeError ([65d2666](https://github.com/M0rtzz/VisionVoyage/commit/65d2666))
 * 💄 ui(ui_main.py): update version display ([34f3fba](https://github.com/M0rtzz/VisionVoyage/commit/34f3fba))
+* 📝 docs(CHANGELOG.md): automatic update ([09e050e](https://github.com/M0rtzz/VisionVoyage/commit/09e050e))
 * 📝 docs(GET_STARTED.md): update install cmd ([4a5d2ef](https://github.com/M0rtzz/VisionVoyage/commit/4a5d2ef))
 * 🔥 remove: rm unused file ([6d7f9ab](https://github.com/M0rtzz/VisionVoyage/commit/6d7f9ab))
 
