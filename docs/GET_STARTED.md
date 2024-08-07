@@ -2,9 +2,9 @@
 
 ## ① 前提
 
-此软件为 ZZU 计院的双创|生产实习项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
+此软件为ZZU计院的双创|生产实习项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
 
-环境为 Ubuntu20.04.6 LTS，需要 NVIDIA 的 GPU。
+环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
 
 ![image-20240430150629416](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
 
@@ -511,7 +511,7 @@ conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py && c
 
 ### （1）分割图像
 
-![image-20240806110627986](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/11:07:11_image-20240806110627986.png)
+![image-20240807120318552](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:07/12:03:23_image-20240807120318552.png)
 
 **解决办法：**
 
