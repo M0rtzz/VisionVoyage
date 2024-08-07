@@ -395,11 +395,11 @@ class BasicAgent(object):
             # Simplified approach, using only the plan waypoints (similar to TM)
             else:
 
-                if target_wpt.road_id != ego_wpt.road_id or target_wpt.lane_id != ego_wpt.lane_id  + lane_offset:
+                if target_wpt.road_id != ego_wpt.road_id or target_wpt.lane_id != ego_wpt.lane_id + lane_offset:
                     next_wpt = self._local_planner.get_incoming_waypoint_and_direction(steps=3)[0]
                     if not next_wpt:
                         continue
-                    if target_wpt.road_id != next_wpt.road_id or target_wpt.lane_id != next_wpt.lane_id  + lane_offset:
+                    if target_wpt.road_id != next_wpt.road_id or target_wpt.lane_id != next_wpt.lane_id + lane_offset:
                         continue
 
                 target_forward_vector = target_transform.get_forward_vector()
@@ -416,8 +416,8 @@ class BasicAgent(object):
         return (False, None, -1)
 
     def _generate_lane_change_path(self, waypoint, direction='left', distance_same_lane=10,
-                                distance_other_lane=25, lane_change_distance=25,
-                                check=True, lane_changes=1, step_distance=2):
+                                   distance_other_lane=25, lane_change_distance=25,
+                                   check=True, lane_changes=1, step_distance=2):
         """
         This methods generates a path that results in a lane change.
         Use the different distances to fine-tune the maneuver.

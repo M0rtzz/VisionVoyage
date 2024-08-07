@@ -9,6 +9,15 @@
 """Example of automatic vehicle control from client side."""
 
 from __future__ import print_function
+from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
+from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
+from agents.navigation.behavior_agent import BehaviorAgent  # pylint: disable=import-error
+from carla import ColorConverter as cc
+import carla
+import fnmatch
+import weakref
+import sys
+import re
 import numpy.random as random
 
 import argparse
@@ -19,10 +28,6 @@ import logging
 import math
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-import re
-import sys
-import weakref
-import fnmatch
 
 try:
     import pygame
@@ -93,13 +98,6 @@ try:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/carla')
 except IndexError:
     pass
-
-import carla
-from carla import ColorConverter as cc
-
-from agents.navigation.behavior_agent import BehaviorAgent  # pylint: disable=import-error
-from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
-from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
 
 
 # ==============================================================================

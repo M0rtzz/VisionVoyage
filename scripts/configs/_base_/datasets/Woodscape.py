@@ -5,7 +5,7 @@ crop_size = (512, 512)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations'),
-    
+
     dict(
         type='RandomResize',
         scale=(2048, 1024),

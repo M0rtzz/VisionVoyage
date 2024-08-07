@@ -4,20 +4,19 @@ Usage:
     $ export PYTHONPATH="$PWD" && python models/export.py --weights ./weights/yolov5s.pt --img 640 --batch 1
 """
 
+from utils.torch_utils import select_device
+from utils.general import set_logging, check_img_size
+from utils.activations import Hardswish, SiLU
+from models.experimental import attempt_load
+import models
+import torch.nn as nn
+import torch
 import argparse
 import sys
 import time
 
 sys.path.append('./')  # to run '$ python *.py' files in subdirectories
 
-import torch
-import torch.nn as nn
-
-import models
-from models.experimental import attempt_load
-from utils.activations import Hardswish, SiLU
-from utils.general import set_logging, check_img_size
-from utils.torch_utils import select_device
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

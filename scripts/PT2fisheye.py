@@ -72,6 +72,7 @@ def processImages(image_paths, target_dir):
         result = result[274:850, 704:1344]  # 裁剪成正方形
         cv2.imwrite(target_path, result)
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some images.')
     parser.add_argument('image_paths', metavar='N', type=str, nargs='+',

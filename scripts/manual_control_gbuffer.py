@@ -91,6 +91,18 @@
 
 
 from __future__ import print_function
+from PIL import Image
+import weakref
+import re
+import random
+import math
+import logging
+import datetime
+import collections
+import argparse
+from carla import ColorConverter as cc
+import fnmatch
+import carla
 import sys
 
 
@@ -116,20 +128,6 @@ except IndexError:
 # -- imports -------------------------------------------------------------------
 # ==============================================================================
 
-
-import carla
-import fnmatch
-from carla import ColorConverter as cc
-
-import argparse
-import collections
-import datetime
-import logging
-import math
-import random
-import re
-import weakref
-from PIL import Image
 
 try:
     import pygame
@@ -1452,7 +1450,8 @@ class CameraManager(object):
                 #     save_index = self.i // 4
                 #     Image.fromarray(buffer).save(f"_out/{save_index}.png")
                 # self.i += 1
-                self.save_image(self.i_optical_flow, 'optical_flow', '.png', './images/my_images/other_sensors/optical_flow/')
+                self.save_image(self.i_optical_flow, 'optical_flow', '.png',
+                                './images/my_images/other_sensors/optical_flow/')
             elif self.sensors[self.index][0].startswith('sensor.camera.normals'):
                 self.save_image(self.i_normals, 'normals', '.png', './images/my_images/other_sensors/normals/')
             elif self.sensors[self.index][0].startswith('sensor.lidar.ray_cast'):

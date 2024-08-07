@@ -147,7 +147,7 @@ class LoadImages:  # for inference
         else:
             self.cap = None
         assert self.nf > 0, f'No images or videos found in {p}. ' \
-                            f'Supported formats are:\nimages: {img_formats}\nvideos: {vid_formats}'
+            f'Supported formats are:\nimages: {img_formats}\nvideos: {vid_formats}'
 
     def __iter__(self):
         self.count = 0
@@ -497,7 +497,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                 print(f'{prefix}WARNING: Ignoring corrupted image and/or label {im_file}: {e}')
 
             pbar.desc = f"{prefix}Scanning '{path.parent / path.stem}' images and labels... " \
-                        f"{nf} found, {nm} missing, {ne} empty, {nc} corrupted"
+                f"{nf} found, {nm} missing, {ne} empty, {nc} corrupted"
         pbar.close()
 
         if nf == 0:

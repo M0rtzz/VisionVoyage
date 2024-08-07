@@ -31,7 +31,7 @@ model = dict(
     # INFO
     neck=dict(
         type='CBAM4',
-        in_channels=[256, 512, 1024, 2048], # 输出通道和输入通道一样
+        in_channels=[256, 512, 1024, 2048],  # 输出通道和输入通道一样
         out_channels=[256, 512, 1024, 2048],
         num_outs=4
     ),

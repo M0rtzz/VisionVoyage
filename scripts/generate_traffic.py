@@ -8,6 +8,11 @@
 
 """Example script to generate traffic in the simulation"""
 
+from numpy import random
+import logging
+import argparse
+from carla import VehicleLightState as vls
+import carla
 import glob
 import os
 import sys
@@ -23,14 +28,6 @@ try:
         'win-amd64' if os.name == 'nt' else 'linux-x86_64'))[0])
 except IndexError:
     pass
-
-import carla
-
-from carla import VehicleLightState as vls
-
-import argparse
-import logging
-from numpy import random
 
 
 def get_actor_blueprints(world, filter, generation):

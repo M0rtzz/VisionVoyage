@@ -1,8 +1,9 @@
 import yaml
-import logging 
+import logging
 import datetime
 import os
 import numpy as np
+
 
 def config_from_yaml(config_file):
     if config_file == None:
@@ -10,6 +11,7 @@ def config_from_yaml(config_file):
     with open(config_file, 'r') as f:
         collector_config = yaml.safe_load(f)
     return collector_config
+
 
 def create_logger(log_dir='./logs'):
     log_file = 'log_generator_%s.txt' % datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
@@ -32,6 +34,7 @@ def create_logger(log_dir='./logs'):
 
     return logger
 
+
 def transform_points_to_reference(point, local_transform, reference_transform):
     cords = point[:, :4].copy()
     cords[:, -1] = 1
@@ -42,13 +45,14 @@ def transform_points_to_reference(point, local_transform, reference_transform):
     point[:, 1] = - point[:, 1]
     return point
 
+
 def actor2type(actor):
     CYCLIST = ['vehicle.bh.crossbike',
-                'vehicle.diamondback.century',
-                'vehicle.harley-davidson.low_rider',
-                'vehicle.gazelle.omafiets',
-                'vehicle.kawasaki.ninja',
-                'vehicle.yamaha.yzf']
+               'vehicle.diamondback.century',
+               'vehicle.harley-davidson.low_rider',
+               'vehicle.gazelle.omafiets',
+               'vehicle.kawasaki.ninja',
+               'vehicle.yamaha.yzf']
     if actor.type_id.startswith('walker'):
         return 'Pedestrian'
     elif actor.bounding_box.extent.x >= 4:
