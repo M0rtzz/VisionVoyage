@@ -1,5 +1,12 @@
-##  (2024-08-07)
+##  (2024-08-09)
 
+
+
+
+## 8.5.0-stable (2024-08-09)
+
+* ✨ feat(VisionVoyageServer.c): regenerate ([8b75d3f](https://github.com/M0rtzz/VisionVoyage/commit/8b75d3f))
+* 🎨 style: sort cpp headers ([147eadf](https://github.com/M0rtzz/VisionVoyage/commit/147eadf))
 
 
 
@@ -9,6 +16,7 @@
 * 🎨 style: format code ([a7acb3b](https://github.com/M0rtzz/VisionVoyage/commit/a7acb3b))
 * 🐛 fix(yolo.py): fix the AttributeError ([65d2666](https://github.com/M0rtzz/VisionVoyage/commit/65d2666))
 * 💄 ui(ui_main.py): update version display ([34f3fba](https://github.com/M0rtzz/VisionVoyage/commit/34f3fba))
+* 📝 docs(CHANGELOG.md): automatic update ([85f324c](https://github.com/M0rtzz/VisionVoyage/commit/85f324c))
 * 📝 docs(CHANGELOG.md): automatic update ([580fd2b](https://github.com/M0rtzz/VisionVoyage/commit/580fd2b))
 * 📝 docs(CHANGELOG.md): automatic update ([9001431](https://github.com/M0rtzz/VisionVoyage/commit/9001431))
 * 📝 docs(CHANGELOG.md): automatic update ([09e050e](https://github.com/M0rtzz/VisionVoyage/commit/09e050e))
