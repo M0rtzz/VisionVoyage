@@ -8,6 +8,7 @@
 * ✨ feat(VisionVoyageServer.c): regenerate ([8b75d3f](https://github.com/M0rtzz/VisionVoyage/commit/8b75d3f))
 * 🎨 style: sort cpp headers ([147eadf](https://github.com/M0rtzz/VisionVoyage/commit/147eadf))
 * 💄 ui: update version display ([05218eb](https://github.com/M0rtzz/VisionVoyage/commit/05218eb))
+* 📝 docs(CHANGELOG.md): automatic update ([85c87e4](https://github.com/M0rtzz/VisionVoyage/commit/85c87e4))
 * 📝 docs(CHANGELOG.md): automatic update ([c3b8fad](https://github.com/M0rtzz/VisionVoyage/commit/c3b8fad))
 * 📝 docs(CHANGELOG.md): automatic update ([32276b7](https://github.com/M0rtzz/VisionVoyage/commit/32276b7))
 * 📝 docs(CHANGELOG.md): automatic update ([2bcabe7](https://github.com/M0rtzz/VisionVoyage/commit/2bcabe7))
