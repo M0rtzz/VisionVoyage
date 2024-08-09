@@ -7,6 +7,7 @@
 
 * ✨ feat(VisionVoyageServer.c): regenerate ([8b75d3f](https://github.com/M0rtzz/VisionVoyage/commit/8b75d3f))
 * 🎨 style: sort cpp headers ([147eadf](https://github.com/M0rtzz/VisionVoyage/commit/147eadf))
+* 📝 docs(CHANGELOG.md): automatic update ([2bcabe7](https://github.com/M0rtzz/VisionVoyage/commit/2bcabe7))
 
 
 
