@@ -1,13 +1,13 @@
-#include <iostream>
-#include <fstream>
 #include <algorithm>
-#include <cstdlib>
 #include <cryptopp/aes.h>
-#include <cryptopp/modes.h>
-#include <cryptopp/filters.h>
-#include <cryptopp/files.h>
 #include <cryptopp/base64.h>
+#include <cryptopp/files.h>
+#include <cryptopp/filters.h>
+#include <cryptopp/modes.h>
 #include <cryptopp/osrng.h>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
 
 using type = unsigned char;
 
