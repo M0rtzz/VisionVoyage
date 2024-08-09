@@ -1,12 +1,8 @@
 ##  (2024-08-09)
 
-
-
-
-## 8.5.0-stable (2024-08-09)
-
 * ✨ feat(VisionVoyageServer.c): regenerate ([8b75d3f](https://github.com/M0rtzz/VisionVoyage/commit/8b75d3f))
 * 🎨 style: sort cpp headers ([147eadf](https://github.com/M0rtzz/VisionVoyage/commit/147eadf))
+* 📝 docs(CHANGELOG.md): automatic update ([7991c56](https://github.com/M0rtzz/VisionVoyage/commit/7991c56))
 * 📝 docs(CHANGELOG.md): automatic update ([2bcabe7](https://github.com/M0rtzz/VisionVoyage/commit/2bcabe7))
 
 
