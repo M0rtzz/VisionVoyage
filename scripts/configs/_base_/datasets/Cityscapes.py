@@ -1,6 +1,13 @@
-# dataset settings
+import subprocess
+import os
+
 dataset_type = 'CityscapesDataset'
-# data_root = 'data/cityscapes/'
+
+# data_root = './datasets/Cityscapes/'
+result = subprocess.run(['git', 'rev-parse', '--show-toplevel'], capture_output=True, text=True, check=True)
+repo_root_dir = result.stdout.strip()
+data_root = os.path.join(repo_root_dir, 'datasets/Cityscapes/')
+
 crop_size = (512, 1024)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -46,9 +53,9 @@ train_dataloader = dict(
     sampler=dict(type='InfiniteSampler', shuffle=True),
     dataset=dict(
         type=dataset_type,
-        # data_root=data_root,
+        data_root=data_root,
         data_prefix=dict(
-            img_path='leftImg8bit/train', seg_map_path='gtFine/train'),
+            img_path='leftImg8bit/train/', seg_map_path='gtFine/train/'),
         pipeline=train_pipeline))
 val_dataloader = dict(
     batch_size=1,
@@ -57,9 +64,9 @@ val_dataloader = dict(
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
         type=dataset_type,
-        # data_root=data_root,
+        data_root=data_root,
         data_prefix=dict(
-            img_path='leftImg8bit/val', seg_map_path='gtFine/val'),
+            img_path='leftImg8bit/val/', seg_map_path='gtFine/val/'),
         pipeline=test_pipeline))
 test_dataloader = val_dataloader
 

@@ -1,4 +1,13 @@
-_base_ = ['./mask2former_8xb2-90k_normal.py']
+import subprocess
+import os
+
+result = subprocess.run(['git', 'rev-parse', '--show-toplevel'], capture_output=True, text=True, check=True)
+repo_root_dir = result.stdout.strip()
+_base_dir = os.path.join(repo_root_dir, 'scripts/configs/_base_')
+
+# _base_ = ['./mask2former_8xb2-90k_normal.py']
+_base_ = [os.path.join(_base_dir, 'datasets/mask2former_8xb2-90k_normal.py')]
+
 pretrained = 'https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/swin/swin_tiny_patch4_window7_224_20220317-1cdeb081.pth'  # noqa
 depths = [2, 2, 6, 2]
 model = dict(
