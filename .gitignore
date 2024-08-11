@@ -1,10 +1,10 @@
-!images/my_images/other_sensors/*/000000_*.ply
-!images/my_images/other_sensors/*/000000_*.png
 images/my_images/other_sensors/*/*.ply
 images/my_images/other_sensors/*/*.png
+!images/my_images/other_sensors/*/000000_*.ply
+!images/my_images/other_sensors/*/000000_*.png
 server/VisionVoyage_Server/
-!datasets/README.md
 datasets/*
+!datasets/README.md
 **/__pycache__/
 scripts/*.out
 private/*.enc
