@@ -1,6 +1,13 @@
-# dataset settings
+import subprocess
+import os
+
 dataset_type = 'WoodscapeDataset'
-# data_root = '/home/m0rtzz/Downloads/Compressed/dataset/woodscape-rgb-fisheye-DatasetNinja'
+
+# data_root = './dataset/WoodScape/splitData/'
+result = subprocess.run(['git', 'rev-parse', '--show-toplevel'], capture_output=True, text=True, check=True)
+repo_root_dir = result.stdout.strip()
+data_root = os.path.join(repo_root_dir, 'dataset/WoodScape/splitData/')
+
 crop_size = (512, 512)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -47,9 +54,9 @@ train_dataloader = dict(
     sampler=dict(type='InfiniteSampler', shuffle=True),
     dataset=dict(
         type=dataset_type,
-        # data_root=data_root,
+        data_root=data_root,
         data_prefix=dict(
-            img_path='images/train', seg_map_path='gtLabels/train'),
+            img_path='images/train/', seg_map_path='gtLabels/train/'),
         pipeline=train_pipeline))
 val_dataloader = dict(
     batch_size=1,
@@ -58,9 +65,9 @@ val_dataloader = dict(
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
         type=dataset_type,
-        # data_root=data_root,
+        data_root=data_root,
         data_prefix=dict(
-            img_path='images/val', seg_map_path='gtLabels/val'),
+            img_path='images/val/', seg_map_path='gtLabels/val/'),
         pipeline=test_pipeline))
 test_dataloader = val_dataloader
 

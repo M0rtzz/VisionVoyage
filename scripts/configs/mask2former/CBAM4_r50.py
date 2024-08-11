@@ -1,4 +1,12 @@
-_base_ = ['../_base_/default_runtime.py', '../_base_/datasets/Woodscape.py']
+import subprocess
+import os
+
+result = subprocess.run(['git', 'rev-parse', '--show-toplevel'], capture_output=True, text=True, check=True)
+repo_root_dir = result.stdout.strip()
+_base_dir = os.path.join(repo_root_dir, 'scripts/configs/_base_')
+
+# _base_ = ['../_base_/default_runtime.py', '../_base_/datasets/Woodscape.py']
+_base_ = [os.path.join(_base_dir, 'default_runtime.py'), os.path.join(_base_dir, 'datasets/Woodscape.py')]
 
 custom_imports = dict(imports='mmdet.models', allow_failed_imports=False)
 
