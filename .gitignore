@@ -3,6 +3,8 @@
 images/my_images/other_sensors/*/*.ply
 images/my_images/other_sensors/*/*.png
 server/VisionVoyage_Server/
+!datasets/README.md
+datasets/*
 **/__pycache__/
 scripts/*.out
 private/*.enc
