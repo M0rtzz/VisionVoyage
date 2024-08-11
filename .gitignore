@@ -2,6 +2,7 @@
 !images/my_images/other_sensors/*/000000_*.png
 images/my_images/other_sensors/*/*.ply
 images/my_images/other_sensors/*/*.png
+server/VisionVoyage_Server/
 **/__pycache__/
 scripts/*.out
 private/*.enc

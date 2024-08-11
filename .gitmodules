@@ -1,0 +1,3 @@
+[submodule "3rdparty/mmsegmentation-v1.2.2"]
+	path = 3rdparty/mmsegmentation-v1.2.2
+	url = https://github.com/M0rtzz/mmsegmentation.git
