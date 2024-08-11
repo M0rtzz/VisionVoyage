@@ -64,12 +64,19 @@ function modifyInterpreterPath() {
     done
 }
 
-trap 'onCtrlC' INT
+function confirmAndModify() {
+    _echoInfo "执行此脚本前请先使用 \`conda activate your-env\` 切换到您的虚拟环境."
+    echo "脚本将完成："
+    echo "    修改Python文件的SheBang中的解释器路径。"
+    echo "请确认是否继续（按回车键继续，按 \`Ctrl+C\` 取消）："
+    read -r
 
-_echoInfo "执行此脚本前请先使用 \`conda activate your-env\` 切换到您的虚拟环境"
-echo "脚本将完成以下两件事："
-echo "    1. 修改\`scripts/VisionVoyage.sh中的路径\`"
-echo "    2. 修改Python文件的SheBang中的解释器路径"
+    # modifyUE4Path
+    modifyInterpreterPath "${file_paths[@]}"
+}
+
+
+trap 'onCtrlC' INT
 
 file_paths=(
     "./main.py"
@@ -94,5 +101,4 @@ file_paths=(
     "./scripts/agents/tools/misc.py"
 )
 
-modifyUE4Path
-modifyInterpreterPath "${file_paths[@]}"
+confirmAndModify
