@@ -7,6 +7,7 @@
 * 🐛 fix(alipay.py): fix the ssl bug ([240d181](https://github.com/M0rtzz/VisionVoyage/commit/240d181))
 * 💄 ui: update version display ([fe4e2fe](https://github.com/M0rtzz/VisionVoyage/commit/fe4e2fe))
 * 📝 docs: add docs for downloading datasets ([557ed6e](https://github.com/M0rtzz/VisionVoyage/commit/557ed6e))
+* 📝 docs(CHANGELOG.md): automatic update ([771e6ba](https://github.com/M0rtzz/VisionVoyage/commit/771e6ba))
 * 📝 docs(CHANGELOG.md): automatic update ([8b91f49](https://github.com/M0rtzz/VisionVoyage/commit/8b91f49))
 * 📝 docs(CHANGELOG.md): automatic update ([c7bdab0](https://github.com/M0rtzz/VisionVoyage/commit/c7bdab0))
 * 📝 docs(GET_STARTED.md): add content for downloading datasets ([eb15525](https://github.com/M0rtzz/VisionVoyage/commit/eb15525))
