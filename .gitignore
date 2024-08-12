@@ -10,7 +10,7 @@ scripts/*.out
 private/*.enc
 .cz-config.js
 certs/*.pem
-./main_ui.py
+main_ui.py
 logs/*.pdf
 .vscode/
 .husky/
