@@ -4,9 +4,9 @@
 
 此软件为ZZU计院的双创|生产实习项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
 
-环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
+推荐环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
 
-![image-20240430150629416](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
+![image-20240812230954056](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/23:09:59_image-20240812230954056.png)
 
 安装`git-lfs`：
 
@@ -36,7 +36,7 @@ cd VisionVoyage/ && git-lfs pull
 
 ```shell
 sudo apt update
-sudo apt install -y wmctrl sl pdftk libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev libpthread-stubs0-dev
+sudo apt install -y sl pigz pdftk wmctrl libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev libpthread-stubs0-dev
 sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 ```
 
@@ -55,16 +55,16 @@ conda activate VisionVoyage
 ```
 
 ```shell
-conda install conda-forge::gcc=12.1.0
+conda install conda-forge::gcc=12.1.0 conda-forge::gxx=12.1.0
 ```
 
 ```shell
 sudo ln -s /usr/lib/x86_64-linux-gnu/libpthread.so.0 /usr/lib64/libpthread.so.0
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install cmake lit filelock Pillow jmespath packaging pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'lxml==4.4.1' 'service-identity==18.1.0' 'Twisted==22.10.0' 'pandas==1.2.0' 'onnx==1.13.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
+python3 -m pip install cmake fsspec lit filelock Pillow jmespath packaging pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'tomlkit==0.10.1' 'lxml==4.4.1' 'service-identity==18.1.0' 'Twisted==22.10.0' 'pandas==1.2.0' 'onnx==1.13.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
 ```
 
-然后安装CUDA版的Pytorch（1.7.0≤torch≤2.0.1，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1，因为鄙人的版本是2.0.1，低版本和高版本鄙人没有测试过【但是最新版的torch\==2.4.0和torch\==2.3.1经测试会有一些奇奇怪怪的运行时错误，所以才有1.7.0≤torch≤2.0.1这个结论（bushi】），根据官网命令安装：
+然后安装CUDA版的Pytorch（1.7.0≤torch≤2.1.2，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1≤torch≤2.1.2，更低版本鄙人没有测试过，但是更高版本经测试安装mmcv时会有一些奇奇怪怪的编译错误，所以才有1.7.0≤torch≤2.1.2这个结论【bushi），根据官网命令安装：
 
 [PyTorch官网](https://pytorch.org/get-started/previous-versions/)
 
@@ -104,8 +104,8 @@ python3 -m pip install thop
 之后安装mmsegmentation：
 
 ```shell
-python3 -m pip install -U pip setuptools
 python3 -m pip install -U openmim
+python3 -m pip install -U pip setuptools
 mim install 'mmengine==0.10.3'
 mim install 'mmcv==2.1.0'
 mim install 'mmdet==3.2.0'
@@ -119,7 +119,7 @@ python3 -m pip install 'opencv-python==4.5.2.52' 'numpy==1.18.4'
 
 ```shell
 git submodule update --recursive # 如果 `3rdparty/mmsegmentation-v1.2.2/` 为空，执行此命令
-cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install -U setuptools && python3 -m pip install -v -e .
+cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install --use-pep517 -v -e .
 ```
 
 最后下载`VisionVoyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
@@ -127,13 +127,13 @@ cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install -U setuptools && py
 下载`VisionVoyage-Server-UE4.26-Shipping.tar.gz`到`server/`，解压：
 
 ```shell
-cd server/ && tar -xvf VisionVoyage-Server-UE4.26-Shipping.tar.gz # 解压之后是一个名为 `VisionVoyage_Server` 的文件夹
+cd server/ && pv VisionVoyage-Server-UE4.26-Shipping.tar.gz | pigz -d | tar xf -  # 解压之后是一个名为 `VisionVoyage_Server` 的文件夹
 ```
 
-然后在`server/VisionVoyage_Server/PythonAPI/carla/dist/`中：
+然后安装CARLA的Python绑定库：
 
 ```shell
-cd VisionVoyage_Server/PythonAPI/carla/dist/ && conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
+cd server/VisionVoyage_Server/PythonAPI/carla/dist/ && conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
 ```
 
 ### （2）申请支付宝当面付
