@@ -1,5 +1,6 @@
 ##  (2024-08-12)
 
+* 📝 docs(CHANGELOG.md): automatic update ([e3ee119](https://github.com/M0rtzz/VisionVoyage/commit/e3ee119))
 * 📝 docs(GET_STARTED.md): update cmd ([a0eef4e](https://github.com/M0rtzz/VisionVoyage/commit/a0eef4e))
 
 
