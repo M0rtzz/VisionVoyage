@@ -10,8 +10,11 @@ scripts/*.out
 private/*.enc
 .cz-config.js
 certs/*.pem
-main_ui.py
+./main_ui.py
 logs/*.pdf
 .vscode/
 .husky/
 setup.py
+!3rdparty/mmsegmentation-v1.2.2/setup.py
+.temp/
+*.tar
