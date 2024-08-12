@@ -1,5 +1,6 @@
 ##  (2024-08-12)
 
+* 📝 docs(CHANGELOG.md): automatic update ([3211104](https://github.com/M0rtzz/VisionVoyage/commit/3211104))
 * 📝 docs(GET_STARTED.md): update image and comment ([6303695](https://github.com/M0rtzz/VisionVoyage/commit/6303695))
 * 🔨 script(init_desktop.sh): update base_path ([1c3101d](https://github.com/M0rtzz/VisionVoyage/commit/1c3101d))
 
