@@ -96,7 +96,7 @@ def detect(save_img=False):
         increment_path(Path(opt.project) / opt.name,
                        exist_ok=opt.exist_ok))  # increment run
     # (save_dir / 'labels' if save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
-    save_dir = Path('./images/my_images/sem_seg/output/videos')
+    save_dir = Path('./assets/my_images/sem_seg/output/videos')
     if opt.submit:
         sub_dir = str(save_dir) + "/results/"
         if not os.path.exists(sub_dir):
@@ -296,7 +296,7 @@ if __name__ == '__main__':
     parser.add_argument('--agnostic-nms', action='store_true', help='class-agnostic NMS')
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--update', action='store_true', help='update all models')
-    parser.add_argument('--project', default='./images/my_images/sem_seg/output/videos',
+    parser.add_argument('--project', default='./assets/my_images/sem_seg/output/videos',
                         help='save results to project/name')
     parser.add_argument('--name', default='', help='save results to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')

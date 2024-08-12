@@ -1,4 +1,4 @@
-DATA_SAVE_PATH: ./images/my_images/fisheye_dataset
+DATA_SAVE_PATH: ./assets/my_images/fisheye_dataset
 
 # MAP: Town03_Opt
 MAP: Town10HD_Opt

@@ -166,7 +166,7 @@ int main(int argc, char **argv)
         image_paths.push_back(argv[i]);
     }
 
-    string target_dir = "./images/my_images/fisheye_transformation/normal2fisheye/";
+    string target_dir = "./assets/my_images/fisheye_transformation/normal2fisheye/";
     processImages(image_paths, target_dir);
 
     cout << endl;

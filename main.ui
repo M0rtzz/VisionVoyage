@@ -77,7 +77,7 @@ Left Menu */
 }
 #topLogo {
 	background-color: rgb(33, 37, 43);
-	background-image: url(:/images/images/images/VisionVoyage.png);
+	background-image: url(:/images/assets/images/VisionVoyage.png);
 	background-position: centered;
 	background-repeat: no-repeat;
 }
@@ -405,7 +405,7 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: 3px solid rgb(52, 59, 72);
 	border: 3px solid rgb(52, 59, 72);	
-	background-image: url(:/icons/images/icons/cil-check-alt.png);
+	background-image: url(:/icons/assets/icons/cil-check-alt.png);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -446,7 +446,7 @@ QComboBox::drop-down {
 	border-left-style: solid;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;	
-	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-image: url(:/icons/assets/icons/cil-arrow-bottom.png);
 	background-position: center;
 	background-repeat: no-reperat;
  }
@@ -808,7 +808,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/icon_menu.png);</string>
                   </property>
                   <property name="text">
                    <string>Hide</string>
@@ -871,7 +871,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-home.png);</string>
                   </property>
                   <property name="text">
                    <string>主界面</string>
@@ -907,7 +907,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-cloud-upload.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-cloud-upload.png);</string>
                   </property>
                   <property name="text">
                    <string>上传</string>
@@ -943,7 +943,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-image-plus.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-image-plus.png);</string>
                   </property>
                   <property name="text">
                    <string>拍摄数据集</string>
@@ -979,7 +979,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-gamepad.png);</string>
                   </property>
                   <property name="text">
                    <string>驾驶仿真</string>
@@ -1042,7 +1042,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-user.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-user.png);</string>
                   </property>
                   <property name="text">
                    <string>我的</string>
@@ -1207,7 +1207,7 @@ Button */
                  </property>
                  <property name="icon">
                   <iconset resource="resources.qrc">
-                   <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
+                   <normaloff>:/icons/assets/icons/icon_close.png</normaloff>:/icons/assets/icons/icon_close.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1299,7 +1299,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-link.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-link.png);</string>
                   </property>
                   <property name="text">
                    <string>启动 VisionVoyage 服务器</string>
@@ -1335,7 +1335,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-equalizer.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-equalizer.png);</string>
                   </property>
                   <property name="text">
                    <string>切换主题</string>
@@ -1371,7 +1371,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-image1.png);</string>
+                   <string notr="true">background-image: url(:/icons/assets/icons/cil-image1.png);</string>
                   </property>
                   <property name="text">
                    <string>我的图像</string>
@@ -1423,7 +1423,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;您可以通过下方“联系我们”来向我司商讨个性化定制方案，我司会定制您所需的仿真地图和车辆模型以及提供专业的技术支持，使您获得独特的自动驾驶仿真体验。&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;联系我们&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;M0rtzz E-mail : m0rtzz@outlook.com&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/images/images/images/IngenuityDrive.png&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/images/assets/images/IngenuityDrive.png&quot; /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
@@ -1625,7 +1625,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_settings.png</normaloff>:/icons/images/icons/icon_settings.png</iconset>
+                    <normaloff>:/icons/assets/icons/icon_settings.png</normaloff>:/icons/assets/icons/icon_settings.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1660,7 +1660,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_minimize.png</normaloff>:/icons/images/icons/icon_minimize.png</iconset>
+                    <normaloff>:/icons/assets/icons/icon_minimize.png</normaloff>:/icons/assets/icons/icon_minimize.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1704,7 +1704,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_maximize.png</normaloff>:/icons/images/icons/icon_maximize.png</iconset>
+                    <normaloff>:/icons/assets/icons/icon_maximize.png</normaloff>:/icons/assets/icons/icon_maximize.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1739,7 +1739,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   </property>
                   <property name="icon">
                    <iconset resource="resources.qrc">
-                    <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
+                    <normaloff>:/icons/assets/icons/icon_close.png</normaloff>:/icons/assets/icons/icon_close.png</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -2587,7 +2587,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       </widget>
                       <widget class="QWidget" name="home">
                        <property name="styleSheet">
-                        <string notr="true">background-image: url(:/images/images/images/VisionVoyage_vertical.png);
+                        <string notr="true">background-image: url(:/images/assets/images/VisionVoyage_vertical.png);
 background-position: center;
 background-repeat: no-repeat;
 </string>
@@ -2774,7 +2774,7 @@ background-repeat: no-repeat;
                                         </property>
                                         <property name="icon">
                                          <iconset resource="resources.qrc">
-                                          <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
+                                          <normaloff>:/icons/assets/icons/cil-folder-open.png</normaloff>:/icons/assets/icons/cil-folder-open.png</iconset>
                                         </property>
                                        </widget>
                                       </item>
@@ -3374,7 +3374,7 @@ background-repeat: no-repeat;
                              <string/>
                             </property>
                             <property name="pixmap">
-                             <pixmap resource="resources.qrc">:/images/images/images/sensors.png</pixmap>
+                             <pixmap resource="resources.qrc">:/images/assets/images/sensors.png</pixmap>
                             </property>
                             <property name="scaledContents">
                              <bool>true</bool>
@@ -3393,7 +3393,7 @@ background-repeat: no-repeat;
                              <string/>
                             </property>
                             <property name="pixmap">
-                             <pixmap resource="resources.qrc">:/images/images/images/fisheye_collage.png</pixmap>
+                             <pixmap resource="resources.qrc">:/images/assets/images/fisheye_collage.png</pixmap>
                             </property>
                             <property name="scaledContents">
                              <bool>true</bool>
@@ -4037,7 +4037,7 @@ background-repeat: no-repeat;
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-open.png);</string>
+                            <string notr="true">background-image: url(:/icons/assets/icons/cil-envelope-open.png);</string>
                            </property>
                            <property name="text">
                             <string>Contact Us</string>
@@ -4073,7 +4073,7 @@ background-repeat: no-repeat;
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-print.png);</string>
+                            <string notr="true">background-image: url(:/icons/assets/icons/cil-print.png);</string>
                            </property>
                            <property name="text">
                             <string>Print</string>
@@ -4109,7 +4109,7 @@ background-repeat: no-repeat;
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-lock-unlocked.png);</string>
+                            <string notr="true">background-image: url(:/icons/assets/icons/cil-lock-unlocked.png);</string>
                            </property>
                            <property name="text">
                             <string>Unlock</string>

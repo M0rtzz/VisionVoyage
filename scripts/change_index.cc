@@ -155,8 +155,8 @@ int main()
 {
     string keyword = ".png";
 
-    string source_dir_1 = "./images/my_images/fisheye_dataset/semantic_segmentation_raw";
-    string target_dir_1 = "./images/my_images/fisheye_dataset/semantic_segmentation_raw_changed_index";
+    string source_dir_1 = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw";
+    string target_dir_1 = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw_changed_index";
     processImages(source_dir_1, target_dir_1, keyword, false);
     cout << endl;
     cout << "第一轮转换标签已结束" << endl;

@@ -77,6 +77,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some images.')
     parser.add_argument('image_paths', metavar='N', type=str, nargs='+',
                         help='an image path for processing')
-    target_dir = "./images/my_images/fisheye_transformation/normal2fisheye"
+    target_dir = "./assets/my_images/fisheye_transformation/normal2fisheye"
     args = parser.parse_args()
     processImages(args.image_paths, target_dir)

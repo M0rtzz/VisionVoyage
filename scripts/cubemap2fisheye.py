@@ -202,7 +202,7 @@ def main(input_images):
     PicSize = 1024  # 立方体贴图每个面的尺寸
     FishSize = 1344  # 鱼眼图像尺寸
     FOV = 196  # 鱼眼视角
-    output_path = './images/my_images/fisheye_transformation/cubemap2fisheye/'
+    output_path = './assets/my_images/fisheye_transformation/cubemap2fisheye/'
     output_file_name = datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S') + ".png"
     # 加载输入图像
     input_images = sorted(input_images, key=lambda x: (

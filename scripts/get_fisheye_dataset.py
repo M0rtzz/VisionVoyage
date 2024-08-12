@@ -46,7 +46,7 @@ class DataCollector:
         self.hero_vehicle_name = collector_config.get('HERO_VEHICLE', 'vehicle.tesla.model3')
         self.num_of_env_vehicles = collector_config.get('NUM_OF_ENV_VEHICLES', 0)
         self.num_of_env_pedestrians = collector_config.get('NUM_OF_ENV_PEDESTRIANS', 0)
-        self.data_save_path = collector_config.get('DATA_SAVE_PATH', './images/my_images/fisheye_dataset')
+        self.data_save_path = collector_config.get('DATA_SAVE_PATH', './assets/my_images/fisheye_dataset')
         self.env_vehicles_points = []
         if not os.path.exists(self.data_save_path):
             os.mkdir(self.data_save_path)
@@ -931,7 +931,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
+                        save_path = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         front_files = [f for f in file_names if "FRONT" in f]
@@ -957,7 +957,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_utils.cube2fisheye(picture_group_1_, PicSize, FishSize, FOV)
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
-                        save_path = "./images/my_images/fisheye_dataset/rgb/"
+                        save_path = "./assets/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
 
                         front_files = [f for f in file_names if "FRONT" in f]
@@ -984,7 +984,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
+                        save_path = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         left_files = [f for f in file_names if "LEFT" in f]
@@ -1011,7 +1011,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_utils.cube2fisheye(picture_group_2_, PicSize, FishSize, FOV)
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
-                        save_path = "./images/my_images/fisheye_dataset/rgb/"
+                        save_path = "./assets/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
 
                         left_files = [f for f in file_names if "LEFT" in f]
@@ -1038,7 +1038,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
+                        save_path = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         right_files = [f for f in file_names if "RIGHT" in f]
@@ -1066,7 +1066,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
 
-                        save_path = "./images/my_images/fisheye_dataset/rgb/"
+                        save_path = "./assets/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
 
                         right_files = [f for f in file_names if "RIGHT" in f]
@@ -1093,7 +1093,7 @@ class DataCollector:
                         red_channel = fisheye_picture[:, :, 0]
                         gray_image = fisheye_picture
 
-                        save_path = "./images/my_images/fisheye_dataset/semantic_segmentation_raw/"
+                        save_path = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw/"
                         file_names = os.listdir(save_path)
 
                         rear_files = [f for f in file_names if "REAR" in f]
@@ -1121,7 +1121,7 @@ class DataCollector:
                         fisheye_picture_ = fisheye_picture_.astype(np.uint8)
                         fisheye_picture_ = cv2.cvtColor(fisheye_picture_, cv2.COLOR_BGR2RGB)
 
-                        save_path = "./images/my_images/fisheye_dataset/rgb/"
+                        save_path = "./assets/my_images/fisheye_dataset/rgb/"
                         file_names = os.listdir(save_path)
                         rear_files = [f for f in file_names if "REAR" in f]
                         latest_rear_rgb_file_name = sorted(rear_files)[-1] if rear_files else None

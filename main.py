@@ -38,11 +38,11 @@ class MainWindow(QMainWindow):
         self.dark_theme_enabled = True
         self.file_names = set()
         self.file_paths = set()
-        self.fisheye_directory = './images/my_images/fisheye_dataset'
-        self.common_directory = './images/my_images/other_sensors'
-        self.normal_directory = './images/my_images/fisheye_transformation/normal2fisheye'
-        self.cubemap_directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
-        self.sem_seg_directory = './images/my_images/sem_seg/output'
+        self.fisheye_directory = './assets/my_images/fisheye_dataset'
+        self.common_directory = './assets/my_images/other_sensors'
+        self.normal_directory = './assets/my_images/fisheye_transformation/normal2fisheye'
+        self.cubemap_directory = './assets/my_images/fisheye_transformation/cubemap2fisheye'
+        self.sem_seg_directory = './assets/my_images/sem_seg/output'
         self.is_plus = False
 
         # SET AS GLOBAL WIDGETS
@@ -393,7 +393,7 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         def handle_btn_my_image(btn):
-            self.openVisualDirectory("./images/my_images")
+            self.openVisualDirectory("./assets/my_images")
 
         def handle_btn_open_dir(btn):
             self.ui.line_edit_filenames.clear()
@@ -404,7 +404,7 @@ class MainWindow(QMainWindow):
             options |= QFileDialog.DontUseNativeDialog
             filter = "图像文件 (*.png *.jpg *.bmp *.jpeg);;视频文件 (*.mp4 *.avi *.mov *.mkv)"
             files, _ = file_dialog.getOpenFileNames(
-                None, "选择图片或视频", "./images/my_images", filter, options=options)
+                None, "选择图片或视频", "./assets/my_images", filter, options=options)
             if files:
                 self.file_names.update([os.path.basename(file) for file in files])
                 self.ui.line_edit_filenames.setText(", ".join(self.file_names))
@@ -413,7 +413,7 @@ class MainWindow(QMainWindow):
         def handle_btn_fisheye_one2one(btn):
             terminal_command = "./scripts/PT2fisheye.out " + " ".join(self.file_paths)
             os.system(terminal_command)
-            directory = './images/my_images/fisheye_transformation/normal2fisheye'
+            directory = './assets/my_images/fisheye_transformation/normal2fisheye'
             table_widget = widgets.table_widget_transform_upload_result
             table_widget.itemClicked.connect(self.onItemClickedPT)
             png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
@@ -421,12 +421,12 @@ class MainWindow(QMainWindow):
             for index, file in enumerate(png_files):
                 item = QTableWidgetItem(file)
                 table_widget.setItem(index, 0, item)
-            self.openImage('./images/my_images/fisheye_transformation/normal2fisheye', flag=True)
+            self.openImage('./assets/my_images/fisheye_transformation/normal2fisheye', flag=True)
 
         def handle_btn_fisheye_five2one(btn):
             terminal_command = "./scripts/cubemap2fisheye.out " + " ".join(self.file_paths)
             os.system(terminal_command)
-            directory = './images/my_images/fisheye_transformation/cubemap2fisheye'
+            directory = './assets/my_images/fisheye_transformation/cubemap2fisheye'
             table_widget = widgets.table_widget_transform_upload_result
             table_widget.itemClicked.connect(self.onItemClickedCubemap)
             png_files = [file for file in os.listdir(directory) if file.endswith(".png")]
@@ -434,12 +434,12 @@ class MainWindow(QMainWindow):
             for index, file in enumerate(png_files):
                 item = QTableWidgetItem(file)
                 table_widget.setItem(index, 1, item)
-            self.openImage('./images/my_images/fisheye_transformation/cubemap2fisheye', flag=True)
+            self.openImage('./assets/my_images/fisheye_transformation/cubemap2fisheye', flag=True)
 
         def handle_btn_segmentation_image(btn):
             terminal_command = "./scripts/sem_seg_image.py --image_paths " + " ".join(self.file_paths)
             os.system(terminal_command)
-            base_directory = './images/my_images/sem_seg/output'
+            base_directory = './assets/my_images/sem_seg/output'
             table_widget = widgets.table_widget_transform_upload_result
             table_widget.itemClicked.connect(self.onItemClickedSemSeg)
             sub_dirs = ['images', 'videos']
@@ -459,7 +459,7 @@ class MainWindow(QMainWindow):
             terminal_command = "./scripts/sem_seg_video.py --weights ./scripts/weights/video.pt --source " + \
                 " ".join(self.file_paths)
             os.system(terminal_command)
-            base_directory = './images/my_images/sem_seg/output'
+            base_directory = './assets/my_images/sem_seg/output'
             table_widget = widgets.table_widget_transform_upload_result
             table_widget.itemClicked.connect(self.onItemClickedSemSeg)
             sub_dirs = ['images', 'videos']
@@ -478,7 +478,7 @@ class MainWindow(QMainWindow):
         def handle_btn_raw_to_platte(btn):
             os.system("./scripts/change_index.out")
             os.system("./scripts/gray2color.out")
-            self.openImage('./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
+            self.openImage('./assets/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
         def handle_btn_start_server(btn):
             subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server状态终端',
@@ -498,7 +498,7 @@ class MainWindow(QMainWindow):
 
         def handle_btn_get_fisheye(btn):
             os.system("./scripts/dataset_main.py")
-            base_directory = './images/my_images/fisheye_dataset'
+            base_directory = './assets/my_images/fisheye_dataset'
             table_widget = widgets.table_widget_get_image
             table_widget.itemClicked.connect(self.onItemClickedFisheye)
             sub_dirs = ['rgb', 'semantic_segmentation_raw', 'semantic_segmentation_CityScapesPalette']
@@ -516,7 +516,7 @@ class MainWindow(QMainWindow):
 
         def handle_btn_get_common(btn):
             os.system("./scripts/manual_control_gbuffer.py")
-            directory = './images/my_images/other_sensors'
+            directory = './assets/my_images/other_sensors'
             table_widget = widgets.table_widget_get_image
             table_widget.itemClicked.connect(self.onItemClickedCommon)
             png_files = [os.path.basename(os.path.join(dp, f)) for dp, dn, filenames in os.walk(directory)
@@ -632,7 +632,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("./images/icons/icon.ico"))
+    app.setWindowIcon(QIcon("./assets/icons/icon.ico"))
     os.system("sl -e")
     window = MainWindow()
     print('''

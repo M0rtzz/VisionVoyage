@@ -70,7 +70,7 @@ void grayToColor(const string &img_path, const Mat &color_map)
     Mat gray_img = imread(img_path, IMREAD_GRAYSCALE);
     // 判断彩色图片是否已经存在
     fs::path path(img_path);
-    string save_dir = "./images/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette";
+    string save_dir = "./assets/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette";
     if (!fs::exists(save_dir))
     {
         fs::create_directory(save_dir);
@@ -140,7 +140,7 @@ int main()
                                     // Vec3b(81, 0, 81)      // ground  25
     );
     // 文件路径
-    string img_dir = "./images/my_images/fisheye_dataset/semantic_segmentation_raw_changed_index";
+    string img_dir = "./assets/my_images/fisheye_dataset/semantic_segmentation_raw_changed_index";
     if (!fs::exists(img_dir))
     {
         fs::create_directory(img_dir);

@@ -302,7 +302,7 @@ int main(int argc, char **argv)
 
     Mat fisheye_picture = cube2Fisheye(input_images, pic_size, fish_size, FOV);
 
-    string output_file_name = "./images/my_images/fisheye_transformation/cubemap2fisheye/" + currentTimeFormatted() + ".png";
+    string output_file_name = "./assets/my_images/fisheye_transformation/cubemap2fisheye/" + currentTimeFormatted() + ".png";
     imwrite(output_file_name, fisheye_picture);
 
     // cout << "\n转换成功，文件保存为: " << output_file_name << endl;
