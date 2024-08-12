@@ -14,15 +14,15 @@ parser = argparse.ArgumentParser(description='Image Segmentation')
 parser.add_argument('--image_paths', nargs='+', help='input image paths')
 args = parser.parse_args()
 
-normal_config_path = 'scripts/configs/mask2former/mask2former_swin-t_8xb2-90k_normal.py'
-normal_checkpoint_path = 'scripts/weights/normal.pth'
+normal_config_path = './scripts/configs/mask2former/mask2former_swin-t_8xb2-90k_normal.py'
+normal_checkpoint_path = './scripts/weights/normal.pth'
 
-fisheye_config_path = 'scripts/configs/mask2former/CBAM4_swin-t_fisheye-mean.py'
-fisheye_checkpoint_path = 'scripts/weights/fisheye.pth'
+fisheye_config_path = './scripts/configs/mask2former/CBAM4_swin-t_fisheye-mean.py'
+fisheye_checkpoint_path = './scripts/weights/fisheye.pth'
 
 config_path = ''
 checkpoint_path = ''
-output_dir = 'images/my_images/sem_seg/output/images'
+output_dir = './assets/my_images/sem_seg/output/images'
 
 
 def assignConfigByResolution(img_path):
