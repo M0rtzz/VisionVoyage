@@ -23,7 +23,7 @@ GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoya
 拉取预训练权重：
 
 ```shell
-git-lfs pull
+cd VisionVoyage/ && git-lfs pull
 ```
 
 ![image-20240812192405100](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/19:24:10_image-20240812192405100.png)
