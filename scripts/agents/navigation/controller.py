@@ -20,7 +20,6 @@ class VehiclePIDController():
     low level control a vehicle from client side
     """
 
-
     def __init__(self, vehicle, args_lateral, args_longitudinal, offset=0, max_throttle=0.75, max_brake=0.3,
                  max_steering=0.8):
         """
@@ -91,7 +90,6 @@ class VehiclePIDController():
         self.past_steering = steering
 
         return control
-
 
     def change_longitudinal_PID(self, args_longitudinal):
         """Changes the parameters of the PIDLongitudinalController"""
@@ -224,7 +222,7 @@ class PIDLateralController():
             w_tran = waypoint.transform
             r_vec = w_tran.get_right_vector()
             w_loc = w_tran.location + carla.Location(x=self._offset*r_vec.x,
-                                                         y=self._offset*r_vec.y)
+                                                     y=self._offset*r_vec.y)
         else:
             w_loc = waypoint.transform.location
 
