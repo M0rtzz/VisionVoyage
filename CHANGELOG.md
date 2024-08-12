@@ -1,7 +1,18 @@
 ##  (2024-08-12)
 
-* 📝 docs(CHANGELOG.md): automatic update ([e3ee119](https://github.com/M0rtzz/VisionVoyage/commit/e3ee119))
-* 📝 docs(GET_STARTED.md): update cmd ([a0eef4e](https://github.com/M0rtzz/VisionVoyage/commit/a0eef4e))
+
+
+
+## 8.7.0-stable (2024-08-12)
+
+* ✏️ typo(sem_seg_video.py): fix typos ([551aa48](https://github.com/M0rtzz/VisionVoyage/commit/551aa48))
+* 🎨 style(controller.py): format code ([e0c6de0](https://github.com/M0rtzz/VisionVoyage/commit/e0c6de0))
+* 💄 ui: update version display ([0ead582](https://github.com/M0rtzz/VisionVoyage/commit/0ead582))
+* 📝 docs(DOWNLOAD_DATASETS.md): update install cmd ([9648641](https://github.com/M0rtzz/VisionVoyage/commit/9648641))
+* 📝 docs(GET_STARTED.md): update version and install cmd ([850a2c6](https://github.com/M0rtzz/VisionVoyage/commit/850a2c6))
+* 🙈 ignore(.gitignore): update .gitignore ([ff054ff](https://github.com/M0rtzz/VisionVoyage/commit/ff054ff))
+* 🚑️ hotfix: fix the _base_ path ([f445833](https://github.com/M0rtzz/VisionVoyage/commit/f445833))
+* 🚚 move(sem_seg_image.py): update path ([f216030](https://github.com/M0rtzz/VisionVoyage/commit/f216030))
 
 
 
@@ -14,6 +25,8 @@
 * 🐛 fix(alipay.py): fix the ssl bug ([240d181](https://github.com/M0rtzz/VisionVoyage/commit/240d181))
 * 💄 ui: update version display ([fe4e2fe](https://github.com/M0rtzz/VisionVoyage/commit/fe4e2fe))
 * 📝 docs: add docs for downloading datasets ([557ed6e](https://github.com/M0rtzz/VisionVoyage/commit/557ed6e))
+* 📝 docs(CHANGELOG.md): automatic update ([b3bb4f6](https://github.com/M0rtzz/VisionVoyage/commit/b3bb4f6))
+* 📝 docs(CHANGELOG.md): automatic update ([e3ee119](https://github.com/M0rtzz/VisionVoyage/commit/e3ee119))
 * 📝 docs(CHANGELOG.md): automatic update ([c38ca8b](https://github.com/M0rtzz/VisionVoyage/commit/c38ca8b))
 * 📝 docs(CHANGELOG.md): automatic update ([3211104](https://github.com/M0rtzz/VisionVoyage/commit/3211104))
 * 📝 docs(CHANGELOG.md): automatic update ([eae2448](https://github.com/M0rtzz/VisionVoyage/commit/eae2448))
@@ -21,6 +34,7 @@
 * 📝 docs(CHANGELOG.md): automatic update ([8b91f49](https://github.com/M0rtzz/VisionVoyage/commit/8b91f49))
 * 📝 docs(CHANGELOG.md): automatic update ([c7bdab0](https://github.com/M0rtzz/VisionVoyage/commit/c7bdab0))
 * 📝 docs(GET_STARTED.md): add content for downloading datasets ([eb15525](https://github.com/M0rtzz/VisionVoyage/commit/eb15525))
+* 📝 docs(GET_STARTED.md): update cmd ([a0eef4e](https://github.com/M0rtzz/VisionVoyage/commit/a0eef4e))
 * 📝 docs(GET_STARTED.md): update image and comment ([6303695](https://github.com/M0rtzz/VisionVoyage/commit/6303695))
 * 📝 docs(README.md): add README.md ([8110fdd](https://github.com/M0rtzz/VisionVoyage/commit/8110fdd))
 * 📝 docs(README.md): add README.md ([f9b8c3b](https://github.com/M0rtzz/VisionVoyage/commit/f9b8c3b))
