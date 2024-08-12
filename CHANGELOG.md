@@ -1,8 +1,6 @@
 ##  (2024-08-12)
 
-* 📝 docs(CHANGELOG.md): automatic update ([3211104](https://github.com/M0rtzz/VisionVoyage/commit/3211104))
-* 📝 docs(GET_STARTED.md): update image and comment ([6303695](https://github.com/M0rtzz/VisionVoyage/commit/6303695))
-* 🔨 script(init_desktop.sh): update base_path ([1c3101d](https://github.com/M0rtzz/VisionVoyage/commit/1c3101d))
+* 📝 docs(GET_STARTED.md): update cmd ([a0eef4e](https://github.com/M0rtzz/VisionVoyage/commit/a0eef4e))
 
 
 
@@ -15,13 +13,17 @@
 * 🐛 fix(alipay.py): fix the ssl bug ([240d181](https://github.com/M0rtzz/VisionVoyage/commit/240d181))
 * 💄 ui: update version display ([fe4e2fe](https://github.com/M0rtzz/VisionVoyage/commit/fe4e2fe))
 * 📝 docs: add docs for downloading datasets ([557ed6e](https://github.com/M0rtzz/VisionVoyage/commit/557ed6e))
+* 📝 docs(CHANGELOG.md): automatic update ([c38ca8b](https://github.com/M0rtzz/VisionVoyage/commit/c38ca8b))
+* 📝 docs(CHANGELOG.md): automatic update ([3211104](https://github.com/M0rtzz/VisionVoyage/commit/3211104))
 * 📝 docs(CHANGELOG.md): automatic update ([eae2448](https://github.com/M0rtzz/VisionVoyage/commit/eae2448))
 * 📝 docs(CHANGELOG.md): automatic update ([771e6ba](https://github.com/M0rtzz/VisionVoyage/commit/771e6ba))
 * 📝 docs(CHANGELOG.md): automatic update ([8b91f49](https://github.com/M0rtzz/VisionVoyage/commit/8b91f49))
 * 📝 docs(CHANGELOG.md): automatic update ([c7bdab0](https://github.com/M0rtzz/VisionVoyage/commit/c7bdab0))
 * 📝 docs(GET_STARTED.md): add content for downloading datasets ([eb15525](https://github.com/M0rtzz/VisionVoyage/commit/eb15525))
+* 📝 docs(GET_STARTED.md): update image and comment ([6303695](https://github.com/M0rtzz/VisionVoyage/commit/6303695))
 * 📝 docs(README.md): add README.md ([8110fdd](https://github.com/M0rtzz/VisionVoyage/commit/8110fdd))
 * 📝 docs(README.md): add README.md ([f9b8c3b](https://github.com/M0rtzz/VisionVoyage/commit/f9b8c3b))
+* 🔨 script(init_desktop.sh): update base_path ([1c3101d](https://github.com/M0rtzz/VisionVoyage/commit/1c3101d))
 * 🔨 script(setup.sh): update echo info and rm unused func ([f3e1cab](https://github.com/M0rtzz/VisionVoyage/commit/f3e1cab))
 * 🙈 ignore(.gitignore): add datasets ([96256ac](https://github.com/M0rtzz/VisionVoyage/commit/96256ac))
 * 🙈 ignore(.gitignore): add some file ([722b077](https://github.com/M0rtzz/VisionVoyage/commit/722b077))
