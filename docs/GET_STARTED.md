@@ -8,14 +8,25 @@
 
 ![image-20240430150629416](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:06:29_image-20240430150629416.png)
 
+安装`git-lfs`：
+
+```shell
+sudo apt update -y && sudo apt install -y git-lfs && git-lfs install
+```
+
+克隆本项目：
+
+```shell
+GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoyage.git VisionVoyage
+```
+
 拉取预训练权重：
 
 ```shell
-sudo apt update -y && sudo apt install -y git-lfs
 git-lfs pull
 ```
 
-![image-20240627153649877](https://static.m0rtzz.com/images/Year:2024/Month:06/Day:27/15:36:49_image-20240627153649877.png)
+![image-20240812192405100](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/19:24:10_image-20240812192405100.png)
 
 ---
 
@@ -107,10 +118,11 @@ python3 -m pip install 'opencv-python==4.5.2.52' 'numpy==1.18.4'
 之后将mmsegmentaion作为editable mode安装：
 
 ```shell
+git submodule update --recursive # 如果 `3rdparty/mmsegmentation-v1.2.2/` 为空，执行此命令
 cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install -U setuptools && python3 -m pip install -v -e .
 ```
 
-最后下载`VisionVOyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+最后下载`VisionVoyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
 
 下载`VisionVoyage-Server-UE4.26-Shipping.tar.gz`到`server/`，解压：
 
@@ -243,7 +255,7 @@ class AlipayPayment:
 conda activate VisionVoyage && sudo chmod +x ./setup.sh && ./setup.sh
 ```
 
-![image-20240811174253243](https://static.m0rtzz.com/images/Year%3A2024/Month%3A08/Day%3A11/17%3A42%3A58_image-20240811174253243.png)
+![image-20240811174253243](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:11/17:42:58_image-20240811174253243.png)
 
 全部修改完成之后，编译C++源程序：
 
