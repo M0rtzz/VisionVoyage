@@ -2,7 +2,7 @@
 
 #添加桌面文件
 # base_path=$(dirname "$0")
-base_path=$(pwd)
+base_path=$(git rev-parse --show-toplevel)
 exec_name="main"
 rm -f "${HOME}/Desktop/VisionVoyage.desktop" 2>/dev/null
 echo "[Desktop Entry]
