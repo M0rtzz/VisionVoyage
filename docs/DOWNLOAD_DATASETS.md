@@ -9,7 +9,7 @@
 可以使用[国内镜像站](https://hf-mirror.com/)：
 
 ```shell
-sudo apt update -y && sudo apt install -y pv pigz curl aria2
+sudo apt update -y && sudo apt install -y pv curl aria2
 ```
 
 下载`hfd.sh`到系统目录，这样全局都可以直接使用`hfd`命令：
