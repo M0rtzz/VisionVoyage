@@ -1,14 +1,15 @@
 ##  (2024-08-13)
 
-* 📝 docs(DOWNLOAD_DATASETS.md): update cmd ([aea8b01](https://github.com/M0rtzz/VisionVoyage/commit/aea8b01))
 
 
 
 ## 9.0.0-stable (2024-08-13)
 
 * 💄 ui: update version display ([08cb6ed](https://github.com/M0rtzz/VisionVoyage/commit/08cb6ed))
+* 📝 docs(CHANGELOG.md): automatic update ([403f04f](https://github.com/M0rtzz/VisionVoyage/commit/403f04f))
 * 📝 docs(CHANGELOG.md): automatic update ([3831c76](https://github.com/M0rtzz/VisionVoyage/commit/3831c76))
 * 📝 docs(CHANGELOG.md): automatic update ([c341c1d](https://github.com/M0rtzz/VisionVoyage/commit/c341c1d))
+* 📝 docs(DOWNLOAD_DATASETS.md): update cmd ([aea8b01](https://github.com/M0rtzz/VisionVoyage/commit/aea8b01))
 * 📝 docs(GET_STARTED.md): rm unused package and update recommended torch version ([5374775](https://github.com/M0rtzz/VisionVoyage/commit/5374775))
 
 
