@@ -17,13 +17,13 @@ sudo apt update -y && sudo apt install -y git-lfs && git-lfs install
 克隆本项目：
 
 ```shell
-GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoyage.git VisionVoyage
+GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoyage.git VisionVoyage && cd VisionVoyage/
 ```
 
 拉取预训练权重：
 
 ```shell
-cd VisionVoyage/ && git-lfs pull
+git-lfs pull
 ```
 
 ![image-20240812192405100](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/19:24:10_image-20240812192405100.png)
@@ -36,7 +36,7 @@ cd VisionVoyage/ && git-lfs pull
 
 ```shell
 sudo apt update
-sudo apt install -y sl pigz pdftk wmctrl libhpdf-dev libcrypto++-dev libeigen3-dev libgl1-mesa-glx libegl1-mesa-dev libpthread-stubs0-dev
+sudo apt install -y sl pigz pdftk wmctrl libhpdf-dev libeigen3-dev libcrypto++-dev
 sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 ```
 
@@ -46,9 +46,13 @@ sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /u
 
 ### （1）conda创建虚拟环境
 
-```shell
-conda create -n VisionVoyage python=3.8
-```
+>   [!CAUTION]
+>
+>   因CARLA的Python绑定库whl文件我是用CPython3.8环境编译出来的，所以创建的虚拟环境必须是Python3.8：
+>
+>   ```shell
+>   conda create -n VisionVoyage python=3.8
+>   ```
 
 ```shell
 conda activate VisionVoyage
@@ -59,12 +63,11 @@ conda install conda-forge::gcc=12.1.0 conda-forge::gxx=12.1.0
 ```
 
 ```shell
-sudo ln -s /usr/lib/x86_64-linux-gnu/libpthread.so.0 /usr/lib64/libpthread.so.0
 # 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
-python3 -m pip install cmake fsspec lit filelock Pillow jmespath packaging pyside6 python-alipay-sdk regex ftfy tqdm qrcode pygame 'tomlkit==0.10.1' 'lxml==4.4.1' 'service-identity==18.1.0' 'Twisted==22.10.0' 'pandas==1.2.0' 'onnx==1.13.0' 'seaborn==0.10.0' 'matplotlib==3.3.0' 'scipy==1.4.1' 'matplotlib>=3.2.2' 'PyYAML>=5.3.1' 'tqdm>=4.41.0' 'tensorboard>=2.4.1' 'pycocotools>=2.0'
+python3 -m pip install lit cmake ftfy regex qrcode pygame fsspec Pillow pyside6 jmespath filelock packaging python-alipay-sdk 'lxml==4.4.1' 'onnx==1.13.0' 'scipy==1.4.1' 'pandas==1.2.0' 'seaborn==0.10.0' 'tomlkit==0.10.1' 'Twisted==22.10.0' 'matplotlib==3.2.0' 'service-identity==18.1.0' 'tqdm>=4.41.0' 'PyYAML>=5.3.1' 'pycocotools>=2.0' 'tensorboard>=2.4.1'
 ```
 
-然后安装CUDA版的Pytorch（1.7.0≤torch≤2.1.2，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装2.0.1≤torch≤2.1.2，更低版本鄙人没有测试过，但是更高版本经测试安装mmcv时会有一些奇奇怪怪的编译错误，所以才有1.7.0≤torch≤2.1.2这个结论【bushi），根据官网命令安装：
+然后安装CUDA版的Pytorch（`1.7.0≤torch≤2.1.2`，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
 
 [PyTorch官网](https://pytorch.org/get-started/previous-versions/)
 
@@ -110,7 +113,7 @@ mim install 'mmengine==0.10.3'
 mim install 'mmcv==2.1.0'
 mim install 'mmdet==3.2.0'
 
-# 必须安装opencv-python==4.5.2.52（其实>=4.5.2.52也行，＜4.5.2.52将会产生一些Runtime Error）和numpy==1.18.4（CARLA的鱼眼相机需要此版本）
+# 必须安装opencv-python==4.5.2.52（其实≥4.5.2.52也行，＜4.5.2.52将会产生一些Runtime Error）和numpy==1.18.4（CARLA的鱼眼相机需要此版本）
 yes | python3 -m pip uninstall opencv-python numpy
 python3 -m pip install 'opencv-python==4.5.2.52' 'numpy==1.18.4'
 ```
@@ -310,7 +313,7 @@ conda activate VisionVoyage && pyside6-uic main.ui > modules/ui_main.py
 
 ---
 
-**添加图片资源（需要在`resources.qrc`中添加）：**
+**添加或修改图片资源（需要在`resources.qrc`中添加）：**
 
 ```xml
 <qresource prefix="images">
