@@ -1,6 +1,12 @@
-##  (2024-08-12)
+##  (2024-08-13)
 
-* 📝 docs(CHANGELOG.md): automatic update ([2620245](https://github.com/M0rtzz/VisionVoyage/commit/2620245))
+
+
+
+## 9.0.0-stable (2024-08-13)
+
+* 💄 ui: update version display ([08cb6ed](https://github.com/M0rtzz/VisionVoyage/commit/08cb6ed))
+* 📝 docs(GET_STARTED.md): rm unused package and update recommended torch version ([5374775](https://github.com/M0rtzz/VisionVoyage/commit/5374775))
 
 
 
@@ -9,6 +15,8 @@
 * ✏️ typo(sem_seg_video.py): fix typos ([551aa48](https://github.com/M0rtzz/VisionVoyage/commit/551aa48))
 * 🎨 style(controller.py): format code ([e0c6de0](https://github.com/M0rtzz/VisionVoyage/commit/e0c6de0))
 * 💄 ui: update version display ([0ead582](https://github.com/M0rtzz/VisionVoyage/commit/0ead582))
+* 📝 docs(CHANGELOG.md): automatic update ([3eb08b6](https://github.com/M0rtzz/VisionVoyage/commit/3eb08b6))
+* 📝 docs(CHANGELOG.md): automatic update ([2620245](https://github.com/M0rtzz/VisionVoyage/commit/2620245))
 * 📝 docs(DOWNLOAD_DATASETS.md): update install cmd ([9648641](https://github.com/M0rtzz/VisionVoyage/commit/9648641))
 * 📝 docs(GET_STARTED.md): update version and install cmd ([850a2c6](https://github.com/M0rtzz/VisionVoyage/commit/850a2c6))
 * 🙈 ignore(.gitignore): update .gitignore ([ff054ff](https://github.com/M0rtzz/VisionVoyage/commit/ff054ff))
