@@ -1,12 +1,13 @@
 ##  (2024-08-13)
 
-* 📝 docs(CHANGELOG.md): automatic update ([fe710da](https://github.com/M0rtzz/VisionVoyage/commit/fe710da))
 
 
 
 ## 9.0.0-stable (2024-08-13)
 
 * 💄 ui: update version display ([08cb6ed](https://github.com/M0rtzz/VisionVoyage/commit/08cb6ed))
+* 📝 docs(CHANGELOG.md): automatic update ([fb5d8f9](https://github.com/M0rtzz/VisionVoyage/commit/fb5d8f9))
+* 📝 docs(CHANGELOG.md): automatic update ([fe710da](https://github.com/M0rtzz/VisionVoyage/commit/fe710da))
 * 📝 docs(CHANGELOG.md): automatic update ([e0a8087](https://github.com/M0rtzz/VisionVoyage/commit/e0a8087))
 * 📝 docs(CHANGELOG.md): automatic update ([403f04f](https://github.com/M0rtzz/VisionVoyage/commit/403f04f))
 * 📝 docs(CHANGELOG.md): automatic update ([3831c76](https://github.com/M0rtzz/VisionVoyage/commit/3831c76))
