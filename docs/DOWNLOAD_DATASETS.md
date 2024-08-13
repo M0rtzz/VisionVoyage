@@ -26,7 +26,7 @@ echo 'export HF_ENDPOINT=https://hf-mirror.com' >> ~/.bashrc && source ~/.bashrc
 
 # 或者
 
-sudo sh -c "echo 'export HF_ENDPOINT=https://hf-mirror.com' >> /etc/profile" && source /etc/profile # 所有用户适用
+echo 'export HF_ENDPOINT=https://hf-mirror.com' | sudo tee -a /etc/profile && source /etc/profile # 所有用户适用
 
 # 需要取消镜像设置时，只需 `unset HF_ENDPOINT` 即可
 
