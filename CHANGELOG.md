@@ -1,5 +1,6 @@
 ##  (2024-08-13)
 
+* 📝 docs(CHANGELOG.md): automatic update ([fe710da](https://github.com/M0rtzz/VisionVoyage/commit/fe710da))
 
 
 
