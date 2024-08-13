@@ -1,5 +1,6 @@
 ##  (2024-08-13)
 
+* 📝 docs(CHANGELOG.md): automatic update ([c341c1d](https://github.com/M0rtzz/VisionVoyage/commit/c341c1d))
 
 
 
