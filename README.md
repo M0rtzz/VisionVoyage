@@ -1,81 +1,91 @@
-# VisionVoyage repo
+# VisionVoyage Repo
 
-## created by IngenuityDrive
+>   Created by IngenuityDrive
 
-### 公司职务
+## Company Positions
 
-| 姓名   | 专业 | 职位           | 主要职责                                                     |
-| ------ | ---- | -------------- | ------------------------------------------------------------ |
-| 徐梓航 | 计科 | 经理兼技术开发 | 全权负责产品的研发工作和文档编写工作，领导项目团队，确保项目顺利完成 |
-| 郭宇航 | 计科 | \              | \                                                            |
-| 杨浩晨 | 计科 | \              | \                                                            |
-| 冯帅迪 | 计科 | \              | \                                                            |
-| 关晗   | 软工 | \              | \                                                            |
+| Name   | Major | Position                        | Main Responsibilities                                        |
+| ------ | ----- | ------------------------------- | ------------------------------------------------------------ |
+| M0rtzz | CS    | Manager and Technical Developer | Fully responsible for the research and development of products and document writing, leading the project team, and ensuring the smooth completion of the project |
+| \      | CS    | \                               | \                                                            |
+| \      | CS    | \                               | \                                                            |
+| \      | CS    | \                               | \                                                            |
+| \      | SE    | \                               | \                                                            |
 
-资源整合命令
-
-```bash
-# Convert UI
-pyside6-uic main.ui > modules/ui_main.py
-
-# Convert QRC
-pyside6-rcc resources.qrc -o resources_rc.py
-```
-
-### 下载VisionVoyage Server
-
-[DOWNLOAD_VISIONVOYAGE_SERVER.md](./docs/DOWNLOAD_VISIONVOYAGE_SERVER.md)
-
-### 演示视频
-
-[DEMONSTRATION.md](./docs/DEMONSTRATION.md)
-
-### GET_STARTED
+## Get Started
 
 [GET_STARTED.md](./docs/GET_STARTED.md)
 
+## Download VisionVoyage Server
+
+[DOWNLOAD_VISIONVOYAGE_SERVER.md](./docs/DOWNLOAD_VISIONVOYAGE_SERVER.md)
+
+## Demonstration Video
+
+[DEMONSTRATION.md](./docs/DEMONSTRATION.md)
+
 ---
 
-## 3rdparty
+## Runtime Dependency
 
-CARLA：
+### ①CARLA
 
 [https://github.com/carla-simulator/carla](https://github.com/carla-simulator/carla)
 
-UE：
+### ②UE
 
 [https://github.com/CarlaUnreal/UnrealEngine](https://github.com/CarlaUnreal/UnrealEngine)
 
-图像分割：
+### ③Image Semantic Segmentation
 
 [https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 
-视频分割：
+### ④Video Semantic Segmentation
 
 [https://github.com/TomMao23/multiyolov5](https://github.com/TomMao23/multiyolov5)
 
-支付宝收款：
+### ⑤Payment
 
 [https://github.com/fzlee/alipay](https://github.com/fzlee/alipay)
 
-GUI：
+### ⑥GUI
 
 [https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6)
 
-矩阵运算：
+### ⑦Matrix Operation
 
 [https://gitlab.com/libeigen/eigen](https://gitlab.com/libeigen/eigen)
 
-AES加密算法：
+### ⑧AES(Advanced Encryption Standard)
 
 [https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
 
-图像处理：
+### ⑨Image Processing
 
 [https://github.com/opencv/opencv](https://github.com/opencv/opencv)
 
 [https://github.com/opencv/opencv_contrib](https://github.com/opencv/opencv_contrib)
 
-PDF生成：
+### ⑩Generate PDF
 
 [https://github.com/libharu/libharu](https://github.com/libharu/libharu)
+
+### ⑪Merge PDF(CLI)
+
+[https://github.com/MeteorPackaging/pdftk](https://github.com/MeteorPackaging/pdftk)
+
+### ⑫X Window Manager Tool(CLI)
+
+[https://github.com/Conservatory/wmctrl](https://github.com/Conservatory/wmctrl)
+
+### ⑬Parallel Implementation of Gzip(CLI)
+
+[https://git.savannah.gnu.org/cgit/gzip.git/](https://git.savannah.gnu.org/cgit/gzip.git/)
+
+### ⑭Pipe Viewer(CLI)
+
+[https://codeberg.org/a-j-wood/pv](https://codeberg.org/a-j-wood/pv)
+
+### ⑮Steam Locomotive(CLI)
+
+[https://github.com/mtoyoda/sl](https://github.com/mtoyoda/sl)
