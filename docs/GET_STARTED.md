@@ -35,8 +35,8 @@ git-lfs pull
 一些运行依赖：
 
 ```shell
-sudo apt update
-sudo apt install -y sl pigz pdftk wmctrl libhpdf-dev libeigen3-dev libcrypto++-dev
+sudo apt update -y
+sudo apt install -y sl pv pigz pdftk wmctrl libhpdf-dev libeigen3-dev libcrypto++-dev
 sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 ```
 
