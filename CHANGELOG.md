@@ -8,6 +8,7 @@
 * ♻️ refactor(README.md): update Runtime Dependency ([c64ea7f](https://github.com/M0rtzz/VisionVoyage/commit/c64ea7f))
 * 💄 ui: update version display ([74da808](https://github.com/M0rtzz/VisionVoyage/commit/74da808))
 * 📝 docs: update install cmd ([66d9e82](https://github.com/M0rtzz/VisionVoyage/commit/66d9e82))
+* 📝 docs(CHANGELOG.md): automatic update ([07a8ca6](https://github.com/M0rtzz/VisionVoyage/commit/07a8ca6))
 
 
 
