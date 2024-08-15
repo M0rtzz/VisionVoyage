@@ -1,30 +1,50 @@
-# VisionVoyage Repo
+# VisionVoyage
 
->   Created by IngenuityDrive
+![IngenuityDrive](https://static.m0rtzz.com/images/Year%3A2024/Month%3A08/Day%3A15/14%3A23%3A37_IngenuityDrive.png)
 
-## Company Positions
+![VisionVoyage](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:15/13:54:06_VisionVoyage.png)
 
-| Name   | Major | Position                        | Main Responsibilities                                        |
-| ------ | ----- | ------------------------------- | ------------------------------------------------------------ |
-| M0rtzz | CS    | Manager and Technical Developer | Fully responsible for the research and development of products and document writing, leading the project team, and ensuring the smooth completion of the project |
-| \      | CS    | \                               | \                                                            |
-| \      | CS    | \                               | \                                                            |
-| \      | CS    | \                               | \                                                            |
-| \      | SE    | \                               | \                                                            |
+> This project is associated with the "Innovation and Entrepreneurship  Foundations and Engineering Design Practice" and "Production Practice"  courses of the CS major at ZZU.
+>
+> I led a simulation of a software company called Ingenuity Drive（创智行） and developed a software called VisionVoyage. Students need to play different roles:
+>
+> **Company Positions**
+>
+> | Name   | Major | Position                        | Main Responsibilities                                        |
+> | ------ | ----- | ------------------------------- | ------------------------------------------------------------ |
+> | M0rtzz | CS    | Manager and Technical Developer | Fully responsible for the research and development of products and document writing, leading the project team, and ensuring the smooth completion of the project. |
+> | \      | CS    | \                               | \                                                            |
+> | \      | CS    | \                               | \                                                            |
+> | \      | CS    | \                               | \                                                            |
+> | \      | SE    | \                               | \                                                            |
+>
+> VisionVoyage is an autonomous driving simulation system that leverages  fisheye cameras and other sensing technologies, providing the following  capabilities:
+>
+> - Fisheye transformation of a single standard image
+> - Mosaic of fisheye images from multiple standard images
+> - Semantic segmentation of fisheye and standard images in street scenes
+> - Semantic segmentation of video in street scenes (such as videos stitched from continuous datasets published by Cityscapes)
+> - Simulated driving
+> - Autonomous driving simulation
+> - Shooting of simulated fisheye semantic segmentation dataset
+> - Experience with a variety of simulated sensors, including:
+>   - Camera Fisheye
+>   - Camera RGB
+>   - Camera Depth (Raw)
+>   - Camera Semantic Segmentation (Raw)
+>   - Camera Semantic Segmentation (CityScapes Palette)
+>   - Camera Instance Segmentation (Raw)
+>   - Dynamic Vision
+>   - Optical Flow
+>   - Camera Normals
+>   - Lidar (Ray-Cast)
+>   - etc
+>
+> For more detailed explanation and demonstration, please refer to [the demonstration video I have recorded](./docs/DEMONSTRATION.md).
 
 ## Get Started
 
 [GET_STARTED.md](./docs/GET_STARTED.md)
-
-## Download VisionVoyage Server
-
-[DOWNLOAD_VISIONVOYAGE_SERVER.md](./docs/DOWNLOAD_VISIONVOYAGE_SERVER.md)
-
-## Demonstration Video
-
-[DEMONSTRATION.md](./docs/DEMONSTRATION.md)
-
----
 
 ## Runtime Dependency
 
