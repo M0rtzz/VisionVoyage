@@ -219,7 +219,7 @@ class ComputeLoss:
         return tcls, tbox, indices, anch
 
 
-# 语义分割损失函数  带不带aux，带几个aux内外部接口本应该保持一致，但我没时间改了
+# 语义分割损失函数  带不带aux，带几个aux内外部接口本应该保持一致，但鄙人没时间改了
 class SegmentationLosses(nn.CrossEntropyLoss):
     """2D Cross Entropy Loss with Auxilary Loss"""
 
@@ -304,7 +304,7 @@ class SegFocalLoss(nn.CrossEntropyLoss):
 
 
 # 以下有两种OHEM实现略有不同，分别是根据两个bisenet实现修改的，aux使用接口一致, 第一种实现更快(batchsize＝12时候一轮比第二种快22s)
-# bisenet的aux和main loss是同权重的[1.0, 1.0]但我的实验同权重非常不好，我认为辅助权重应该低于主权重，很多其他网络实现也是辅助权重低的
+# bisenet的aux和main loss是同权重的[1.0, 1.0]但鄙人的实验同权重非常不好，鄙人认为辅助权重应该低于主权重，很多其他网络实现也是辅助权重低的
 # 第一种
 class OhemCELoss(nn.Module):  # 带ohem和aux的CE，0.7是根据bisenet原作者和复现者参数确定的
     # 辅助损失可以设小，但bisenet里辅助损失系数为1(同权)，pytorch encoding项目默认0.2

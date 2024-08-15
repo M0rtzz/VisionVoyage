@@ -25,8 +25,8 @@ except ImportError:
 
 # 尽可能按照原版bisenet的头试过了，同单独一个ARM不够深(本身只是一个3*3加注意力)，和检测冲突精度降低;在ARM前面增加模块精度很好,但是本身三层融合三层都加模块速度不可接受，因此魔改用非线性较强的RFB2替代ARM
 # 模仿bisenet魔改头upsample的refine改成up前降低计算量(bise upsample后有3*3卷积)
-# bisenetv1是一层3*3降到64(辅助128)这里辅助同，辅助损失系数bisenet两个1，这里是一个0.15一个0.05(检测分割多任务以及YOLO本身的backbone目前aux loss实验没有明显改进,不排除与我用了COCO预训练有关，除此头外放弃aux loss)
-# 删除ARM(实验结论此处ARM没用，FFM有用但1*1后3*3减小通道到64分类不如直接3*3FFM后分类,可能与我最终使用16层而不是双流或者更浅层有关，融合浅层需要更深一点见SegMaskLab)
+# bisenetv1是一层3*3降到64(辅助128)这里辅助同，辅助损失系数bisenet两个1，这里是一个0.15一个0.05(检测分割多任务以及YOLO本身的backbone目前aux loss实验没有明显改进,不排除与鄙人用了COCO预训练有关，除此头外放弃aux loss)
+# 删除ARM(实验结论此处ARM没用，FFM有用但1*1后3*3减小通道到64分类不如直接3*3FFM后分类,可能与鄙人最终使用16层而不是双流或者更浅层有关，融合浅层需要更深一点见SegMaskLab)
 class SegMaskBiSe(nn.Module):  # 配置文件输入[16, 19, 22]通道无效
     def __init__(self, n_segcls=19, n=1, c_hid=256, shortcut=False, ch=()):  # n是C3的, c_hid是C3的输出通道数(接口保留了,没有使用,可用子模块控制s,m,l加深加宽)
         super(SegMaskBiSe, self).__init__()
@@ -63,7 +63,7 @@ class SegMaskBiSe(nn.Module):  # 配置文件输入[16, 19, 22]通道无效
         )
         self.out = nn.Sequential(
             FFM(256, 256, k=3),
-            nn.Dropout(0.1),  # 最后一层改用3*3，我认为用dropout不合适（dropout对3*3响应空间维度形成遮挡），改为dropout2d（随机整个通道置０增强特征图独立性，空间上不遮挡）
+            nn.Dropout(0.1),  # 最后一层改用3*3，鄙人认为用dropout不合适（dropout对3*3响应空间维度形成遮挡），改为dropout2d（随机整个通道置０增强特征图独立性，空间上不遮挡）
             nn.Conv2d(256, self.c_out, kernel_size=1, padding=0),
             nn.Upsample(scale_factor=8, mode='bilinear', align_corners=True),
         )
@@ -98,7 +98,7 @@ class SegMaskLab(nn.Module):  # 配置文件[3, 16, 19, 22], 通道配置无效
         self.c_detail = ch[0]
         self.c_in16 = ch[1]  # 19
         self.c_out = n_segcls
-        # 实验效果细节层４>16, 使用1/8，没像deeplabv3+原文一样直接用1/4（l等大模型追求精度可以考虑用1/4相应的我认为融合层也该增加为两个3*3同原文）
+        # 实验效果细节层４>16, 使用1/8，没像deeplabv3+原文一样直接用1/4（l等大模型追求精度可以考虑用1/4相应的鄙人认为融合层也该增加为两个3*3同原文）
         self.detail = nn.Sequential(Conv(self.c_detail, 48, k=1),
                                     Conv(48, 48, k=3),
                                     )
@@ -128,7 +128,7 @@ class SegMaskLab(nn.Module):  # 配置文件[3, 16, 19, 22], 通道配置无效
 
 
 # 一个性能不错的分割头140+FPS，验证集72.7~73.0,把1.5改成1.0则是72.4到72.7
-# SPP增大了感受野，也提高了多尺度但还不够(我认为比起ASPP等的差距是本backbone和指标体现不出的,在数据集外的图上可视化能体现)，1/8比较大，SPP比较小，没有更大感受野
+# SPP增大了感受野，也提高了多尺度但还不够(鄙人认为比起ASPP等的差距是本backbone和指标体现不出的,在数据集外的图上可视化能体现)，1/8比较大，SPP比较小，没有更大感受野
 class SegMaskBase(nn.Module):
     def __init__(self, n_segcls=19, n=1, c_hid=256, shortcut=False, ch=()):  # n是C3的, c_hid是C3的输出通道数
         super(SegMaskBase, self).__init__()

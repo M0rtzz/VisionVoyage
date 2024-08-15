@@ -88,13 +88,13 @@ bool fromTextDocumentToPDF(const string &input_file_path, const string &output_p
     HPDF_Page_SetSize(page, HPDF_PAGE_SIZE_A4, HPDF_PAGE_PORTRAIT);
 
     // 设置 UNIX 时间戳和北京时间的属性
-    // NOTE: 经测试，我认为这几个参数效果最好
+    // NOTE: 经测试，鄙人认为这几个参数效果最好
     HPDF_Font timestamp_font = get_fira_code; // 使用 FiraCode 字体
     float timestamp_font_size = 10;
     float timestamp_x = HPDF_Page_GetWidth(page) - 250; // 将时间戳往左移动
     float timestamp_y = HPDF_Page_GetHeight(page) - 20; // 调整时间戳在垂直方向上的位置
 
-    // NOTE: 经测试，我认为这几个参数效果最好
+    // NOTE: 经测试，鄙人认为这几个参数效果最好
     HPDF_Font info_font = get_fira_code; // 使用 FiraCode 字体
     float info_font_size = 10;
     float info_x = HPDF_Page_GetWidth(page) - 580; // 将时间戳往左移动
@@ -119,7 +119,7 @@ bool fromTextDocumentToPDF(const string &input_file_path, const string &output_p
     string page_number_text = "Page " + to_string(page_number);
     float page_number_x = HPDF_Page_GetWidth(page) / 2;
     float page_number_y = 20;
-    // NOTE: 经测试，页码为单位数时，我认为这个参数 23.0 效果最好，双位数就不行了，但是考虑到也不会到双位页数，眼也看花了，就暂时搁置了
+    // NOTE: 经测试，页码为单位数时，鄙人认为这个参数 23.0 效果最好，双位数效果一般，但眼看花了，就暂时搁置了
     HPDF_Page_TextOut(page, page_number_x - 23.0, page_number_y, page_number_text.c_str());
     HPDF_Page_EndText(page);
 
@@ -184,7 +184,7 @@ bool fromTextDocumentToPDF(const string &input_file_path, const string &output_p
             page_number_text = "Page " + to_string(page_number);
             page_number_x = HPDF_Page_GetWidth(page) / 2;
             page_number_y = 20;
-            // NOTE: 经测试，页码为单位数时，我认为这个参数 23.0 效果最好，双位数就不行了，但是考虑到也不会到双位页数，眼也看花了，就暂时搁置了
+            // NOTE: 经测试，页码为单位数时，鄙人认为这个参数 23.0 效果最好，双位数效果一般，但眼看花了，就暂时搁置了
             HPDF_Page_TextOut(page, page_number_x - 23.0, page_number_y, page_number_text.c_str());
 
             HPDF_Page_EndText(page);
