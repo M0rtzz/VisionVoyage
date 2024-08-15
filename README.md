@@ -6,7 +6,7 @@
 
 > This project is associated with the courses `Innovation and Entrepreneurship Foundations and Engineering Design Practice` and `Production Practice` of the CS major at ZZU.
 >
-> I led a simulation of a software company called `Ingenuity Drive(创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
+> I led a simulation of a software company called `Ingenuity Drive (创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
 >
 > **Company Positions**
 >
@@ -48,64 +48,64 @@
 
 ## Runtime Dependency
 
-### (1) CARLA
+### CARLA
 
 [https://github.com/carla-simulator/carla](https://github.com/carla-simulator/carla)
 
-### (2) UE
+### UE
 
 [https://github.com/CarlaUnreal/UnrealEngine](https://github.com/CarlaUnreal/UnrealEngine)
 
-### (3) Image Semantic Segmentation
+### Image Semantic Segmentation
 
 [https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 
-### (4) Video Semantic Segmentation
+### Video Semantic Segmentation
 
 [https://github.com/TomMao23/multiyolov5](https://github.com/TomMao23/multiyolov5)
 
-### (5) Payment
+### Payment
 
 [https://github.com/fzlee/alipay](https://github.com/fzlee/alipay)
 
-### (6) GUI
+### GUI
 
 [https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6)
 
-### (7) Matrix Operation
+### Matrix Operation
 
 [https://gitlab.com/libeigen/eigen](https://gitlab.com/libeigen/eigen)
 
-### (8) AES(Advanced Encryption Standard)
-
-[https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
-
-### (9) Image Processing
+### Image Processing
 
 [https://github.com/opencv/opencv](https://github.com/opencv/opencv)
 
 [https://github.com/opencv/opencv_contrib](https://github.com/opencv/opencv_contrib)
 
-### (10) Generate PDF
+### AES(Advanced Encryption Standard)
+
+[https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
+
+### Generate PDF
 
 [https://github.com/libharu/libharu](https://github.com/libharu/libharu)
 
-### (11) Merge PDF(CLI)
+### Merge PDF(CLI)
 
 [https://github.com/MeteorPackaging/pdftk](https://github.com/MeteorPackaging/pdftk)
 
-### (12) X Window Manager Tool(CLI)
+### X Window Manager Tool(CLI)
 
 [https://github.com/Conservatory/wmctrl](https://github.com/Conservatory/wmctrl)
 
-### (13) Parallel Implementation of Gzip(CLI)
+### Parallel Implementation of Gzip(CLI)
 
 [https://git.savannah.gnu.org/cgit/gzip.git/](https://git.savannah.gnu.org/cgit/gzip.git/)
 
-### (14) Pipe Viewer(CLI)
+### Pipe Viewer(CLI)
 
 [https://codeberg.org/a-j-wood/pv](https://codeberg.org/a-j-wood/pv)
 
-### (15) Steam Locomotive(CLI)
+### Steam Locomotive(CLI)
 
 [https://github.com/mtoyoda/sl](https://github.com/mtoyoda/sl)

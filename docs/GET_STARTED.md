@@ -40,7 +40,7 @@ sudo apt install -y sl pv pigz pdftk wmctrl libhpdf-dev libeigen3-dev libcrypto+
 sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 ```
 
-如果需要编译安装CUDA和CUDNN支持的OpenCV，可参考我的博客:
+如果需要编译安装CUDA和CUDNN支持的OpenCV，可参考鄙人的博客:
 
 [博客](https://www.m0rtzz.com/posts/3#opencv420%E7%9A%84cmake%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9ubuntu2004%E8%A3%85%E8%BF%99%E4%B8%AA)
 
@@ -48,7 +48,7 @@ sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /u
 
 >   [!CAUTION]
 >
->   因CARLA的Python绑定库whl文件我是用CPython3.8环境编译出来的，所以创建的虚拟环境必须是Python3.8：
+>   因CARLA的Python绑定库whl文件是鄙人用CPython3.8环境编译出来的，所以创建的虚拟环境必须是Python3.8：
 >
 >   ```shell
 >   conda create -n VisionVoyage python=3.8

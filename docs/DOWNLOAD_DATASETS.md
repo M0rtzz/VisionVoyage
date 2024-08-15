@@ -22,11 +22,13 @@ sudo chmod a+x /usr/bin/hfd
 **设置环境变量：**
 
 ```shell
-echo 'export HF_ENDPOINT=https://hf-mirror.com' >> ~/.bashrc && source ~/.bashrc # 当前用户适用
+echo 'export HF_ENDPOINT=https://hf-mirror.com' >> ~/.bashrc && source ~/.bashrc # 当前用户和Bash适用
+
+echo 'export HF_ENDPOINT=https://hf-mirror.com' >> ~/.zshrc && source ~/.zshrc # 当前用户和z-shell适用
 
 # 或者
 
-echo 'export HF_ENDPOINT=https://hf-mirror.com' | sudo tee -a /etc/profile && source /etc/profile # 所有用户适用
+echo 'export HF_ENDPOINT=https://hf-mirror.com' | sudo tee -a /etc/profile && source /etc/profile # 所有用户和Shell解释器都适用
 
 # 需要取消镜像设置时，只需 `unset HF_ENDPOINT` 即可
 
