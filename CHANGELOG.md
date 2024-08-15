@@ -8,6 +8,7 @@
 * 💡 comment: update comment ([bf2f9c2](https://github.com/M0rtzz/VisionVoyage/commit/bf2f9c2))
 * 📝 docs: update cmd and introduction ([5192dbe](https://github.com/M0rtzz/VisionVoyage/commit/5192dbe))
 * 📝 docs: update introduction ([b2c7aa7](https://github.com/M0rtzz/VisionVoyage/commit/b2c7aa7))
+* 📝 docs(CHANGELOG.md): automatic update ([ef6cd88](https://github.com/M0rtzz/VisionVoyage/commit/ef6cd88))
 * 📝 docs(CHANGELOG.md): automatic update ([d758714](https://github.com/M0rtzz/VisionVoyage/commit/d758714))
 * 📝 docs(CHANGELOG.md): automatic update ([3bf391c](https://github.com/M0rtzz/VisionVoyage/commit/3bf391c))
 * 📝 docs(CHANGELOG.md): automatic update ([87abd32](https://github.com/M0rtzz/VisionVoyage/commit/87abd32))
