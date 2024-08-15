@@ -4,9 +4,9 @@
 
 ![VisionVoyage](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:15/13:54:06_VisionVoyage.png)
 
-> This project is associated with the "Innovation and Entrepreneurship  Foundations and Engineering Design Practice" and "Production Practice"  courses of the CS major at ZZU.
+> This project is associated with the courses `Innovation and Entrepreneurship Foundations and Engineering Design Practice` and `Production Practice` of the CS major at ZZU.
 >
-> I led a simulation of a software company called Ingenuity Drive（创智行） and developed a software called VisionVoyage. Students need to play different roles:
+> I led a simulation of a software company called `Ingenuity Drive(创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
 >
 > **Company Positions**
 >
@@ -48,64 +48,64 @@
 
 ## Runtime Dependency
 
-### ①CARLA
+### (1) CARLA
 
 [https://github.com/carla-simulator/carla](https://github.com/carla-simulator/carla)
 
-### ②UE
+### (2) UE
 
 [https://github.com/CarlaUnreal/UnrealEngine](https://github.com/CarlaUnreal/UnrealEngine)
 
-### ③Image Semantic Segmentation
+### (3) Image Semantic Segmentation
 
 [https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 
-### ④Video Semantic Segmentation
+### (4) Video Semantic Segmentation
 
 [https://github.com/TomMao23/multiyolov5](https://github.com/TomMao23/multiyolov5)
 
-### ⑤Payment
+### (5) Payment
 
 [https://github.com/fzlee/alipay](https://github.com/fzlee/alipay)
 
-### ⑥GUI
+### (6) GUI
 
 [https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6)
 
-### ⑦Matrix Operation
+### (7) Matrix Operation
 
 [https://gitlab.com/libeigen/eigen](https://gitlab.com/libeigen/eigen)
 
-### ⑧AES(Advanced Encryption Standard)
+### (8) AES(Advanced Encryption Standard)
 
 [https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
 
-### ⑨Image Processing
+### (9) Image Processing
 
 [https://github.com/opencv/opencv](https://github.com/opencv/opencv)
 
 [https://github.com/opencv/opencv_contrib](https://github.com/opencv/opencv_contrib)
 
-### ⑩Generate PDF
+### (10) Generate PDF
 
 [https://github.com/libharu/libharu](https://github.com/libharu/libharu)
 
-### ⑪Merge PDF(CLI)
+### (11) Merge PDF(CLI)
 
 [https://github.com/MeteorPackaging/pdftk](https://github.com/MeteorPackaging/pdftk)
 
-### ⑫X Window Manager Tool(CLI)
+### (12) X Window Manager Tool(CLI)
 
 [https://github.com/Conservatory/wmctrl](https://github.com/Conservatory/wmctrl)
 
-### ⑬Parallel Implementation of Gzip(CLI)
+### (13) Parallel Implementation of Gzip(CLI)
 
 [https://git.savannah.gnu.org/cgit/gzip.git/](https://git.savannah.gnu.org/cgit/gzip.git/)
 
-### ⑭Pipe Viewer(CLI)
+### (14) Pipe Viewer(CLI)
 
 [https://codeberg.org/a-j-wood/pv](https://codeberg.org/a-j-wood/pv)
 
-### ⑮Steam Locomotive(CLI)
+### (15) Steam Locomotive(CLI)
 
 [https://github.com/mtoyoda/sl](https://github.com/mtoyoda/sl)
