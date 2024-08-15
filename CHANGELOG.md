@@ -3,11 +3,19 @@
 
 
 
+## 9.2.0-stable (2024-08-15)
+
+* 📝 docs: update cmd and introduction ([5192dbe](https://github.com/M0rtzz/VisionVoyage/commit/5192dbe))
+* 🚨 lint: fix the pixmap issue and update version display ([97b9588](https://github.com/M0rtzz/VisionVoyage/commit/97b9588))
+
+
+
 ## 9.1.0-stable (2024-08-15)
 
 * ♻️ refactor(README.md): update Runtime Dependency ([c64ea7f](https://github.com/M0rtzz/VisionVoyage/commit/c64ea7f))
 * 💄 ui: update version display ([74da808](https://github.com/M0rtzz/VisionVoyage/commit/74da808))
 * 📝 docs: update install cmd ([66d9e82](https://github.com/M0rtzz/VisionVoyage/commit/66d9e82))
+* 📝 docs(CHANGELOG.md): automatic update ([6af0920](https://github.com/M0rtzz/VisionVoyage/commit/6af0920))
 * 📝 docs(CHANGELOG.md): automatic update ([9af7725](https://github.com/M0rtzz/VisionVoyage/commit/9af7725))
 * 📝 docs(CHANGELOG.md): automatic update ([344e16f](https://github.com/M0rtzz/VisionVoyage/commit/344e16f))
 * 📝 docs(CHANGELOG.md): automatic update ([07a8ca6](https://github.com/M0rtzz/VisionVoyage/commit/07a8ca6))
