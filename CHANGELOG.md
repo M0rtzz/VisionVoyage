@@ -8,6 +8,8 @@
 * 💡 comment: update comment ([bf2f9c2](https://github.com/M0rtzz/VisionVoyage/commit/bf2f9c2))
 * 📝 docs: update cmd and introduction ([5192dbe](https://github.com/M0rtzz/VisionVoyage/commit/5192dbe))
 * 📝 docs: update introduction ([b2c7aa7](https://github.com/M0rtzz/VisionVoyage/commit/b2c7aa7))
+* 📝 docs(CHANGELOG.md): automatic update ([ac96022](https://github.com/M0rtzz/VisionVoyage/commit/ac96022))
+* 📝 docs(CHANGELOG.md): automatic update ([8970119](https://github.com/M0rtzz/VisionVoyage/commit/8970119))
 * 📝 docs(CHANGELOG.md): automatic update ([56896d3](https://github.com/M0rtzz/VisionVoyage/commit/56896d3))
 * 📝 docs(CHANGELOG.md): automatic update ([a34f9fe](https://github.com/M0rtzz/VisionVoyage/commit/a34f9fe))
 * 📝 docs(CHANGELOG.md): automatic update ([ef6cd88](https://github.com/M0rtzz/VisionVoyage/commit/ef6cd88))
@@ -15,6 +17,7 @@
 * 📝 docs(CHANGELOG.md): automatic update ([3bf391c](https://github.com/M0rtzz/VisionVoyage/commit/3bf391c))
 * 📝 docs(CHANGELOG.md): automatic update ([87abd32](https://github.com/M0rtzz/VisionVoyage/commit/87abd32))
 * 📝 docs(README.md): add image ([f376097](https://github.com/M0rtzz/VisionVoyage/commit/f376097))
+* 📝 docs(README.md): update company positions table ([1cb0cc5](https://github.com/M0rtzz/VisionVoyage/commit/1cb0cc5))
 * 🚨 lint: fix the pixmap issue and update version display ([97b9588](https://github.com/M0rtzz/VisionVoyage/commit/97b9588))
 
 
