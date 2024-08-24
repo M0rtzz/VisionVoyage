@@ -481,8 +481,12 @@ class MainWindow(QMainWindow):
             self.openImage('./assets/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette')
 
         def handle_btn_start_server(btn):
+            """
+            更多选项：https://carla.readthedocs.io/en/0.9.14/start_quickstart/#command-line-options
+            -quality-level={Low,Epic}：更改图形质量级别（https://carla.readthedocs.io/en/0.9.14/adv_rendering_options/#quality-levels）
+            """
             subprocess.Popen(['gnome-terminal', '--title', 'VisionVoyage Server状态终端',
-                              '--', 'sh', './scripts/VisionVoyageServer.sh', "-quality-level=low"])
+                              '--', 'sh', './scripts/VisionVoyageServer.sh', "-quality-level=Epic"])
 
         def handle_btn_generate_traffic(btn):
             subprocess.Popen(['gnome-terminal', '--title', '交通初始化',
