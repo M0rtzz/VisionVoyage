@@ -113,7 +113,7 @@ mim install 'mmengine==0.10.3'
 mim install 'mmcv==2.1.0'
 mim install 'mmdet==3.2.0'
 
-# 必须安装opencv-python==4.5.2.52（其实≥4.5.2.52也行，＜4.5.2.52将会产生一些Runtime Error）和numpy==1.18.4（CARLA的鱼眼相机需要此版本）
+# 必须安装opencv-python==4.5.2.52（其实≥4.5.2.52也行，＜4.5.2.52将会产生一些Runtime Error）和numpy==1.18.4（VisionVoyageServer需要此版本）
 yes | python3 -m pip uninstall opencv-python numpy
 python3 -m pip install 'opencv-python==4.5.2.52' 'numpy==1.18.4'
 ```
@@ -127,10 +127,10 @@ cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install --use-pep517 -v -e 
 
 最后下载`VisionVoyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
 
-下载`VisionVoyage-Server-UE4.26-Shipping.tar.gz`到`server/`，解压：
+下载`VisionVoyageServer-UE4.26-Shipping.tar.gz`到`server/`，解压：
 
 ```shell
-cd server/ && pv VisionVoyage-Server-UE4.26-Shipping.tar.gz | pigz -d | tar xf -  # 解压之后是一个名为 `VisionVoyage_Server` 的文件夹
+cd server/ && pv VisionVoyageServer-UE4.26-Shipping.tar.gz | pigz -d | tar xf -  # 解压之后是一个名为 `VisionVoyageServer` 的文件夹
 ```
 
 然后安装CARLA的Python绑定库：
