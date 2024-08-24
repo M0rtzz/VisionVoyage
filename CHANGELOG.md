@@ -1,5 +1,22 @@
-##  (2024-08-19)
+##  (2024-08-24)
 
+
+
+
+## 9.3.0-stable (2024-08-24)
+
+* 👔 logic(ui_functions.py): kill after finding the process ([015b57b](https://github.com/M0rtzz/VisionVoyage/commit/015b57b))
+* 💄 ui: update version display ([5f6fbe1](https://github.com/M0rtzz/VisionVoyage/commit/5f6fbe1))
+* 💬 text(README.md): from `like` to `e.g.` ([ffc44c0](https://github.com/M0rtzz/VisionVoyage/commit/ffc44c0))
+* 📝 docs(DEMONSTRATION.md): change image name ([ca5afd9](https://github.com/M0rtzz/VisionVoyage/commit/ca5afd9))
+* 📝 docs(DOWNLOAD_VISIONVOYAGE_SERVER.md): update download url ([88230e4](https://github.com/M0rtzz/VisionVoyage/commit/88230e4))
+* 📝 docs(GET_STARTED.md): add cmd to install clang/clang++ ([ccd92f3](https://github.com/M0rtzz/VisionVoyage/commit/ccd92f3))
+* 📝 docs(GET_STARTED.md): update file name ([f64c493](https://github.com/M0rtzz/VisionVoyage/commit/f64c493))
+* 🧱 chore(Makefile): use clang/clang++ when they exist, otherwise use gcc/g++ ([a11b997](https://github.com/M0rtzz/VisionVoyage/commit/a11b997))
+* 🚚 move: change fonts file path ([11a64ce](https://github.com/M0rtzz/VisionVoyage/commit/11a64ce))
+* 🚚 move: change theme file path ([ae65295](https://github.com/M0rtzz/VisionVoyage/commit/ae65295))
+* 🚚 move: change VisionVoyageServer dir path ([bbe00e6](https://github.com/M0rtzz/VisionVoyage/commit/bbe00e6))
+* 🚸 usability(main.py): improve graphic quality ([811152c](https://github.com/M0rtzz/VisionVoyage/commit/811152c))
 
 
 
@@ -8,6 +25,7 @@
 * 💡 comment: update comment ([bf2f9c2](https://github.com/M0rtzz/VisionVoyage/commit/bf2f9c2))
 * 📝 docs: update cmd and introduction ([5192dbe](https://github.com/M0rtzz/VisionVoyage/commit/5192dbe))
 * 📝 docs: update introduction ([b2c7aa7](https://github.com/M0rtzz/VisionVoyage/commit/b2c7aa7))
+* 📝 docs(CHANGELOG.md): automatic update ([7871627](https://github.com/M0rtzz/VisionVoyage/commit/7871627))
 * 📝 docs(CHANGELOG.md): automatic update ([414b611](https://github.com/M0rtzz/VisionVoyage/commit/414b611))
 * 📝 docs(CHANGELOG.md): automatic update ([ac96022](https://github.com/M0rtzz/VisionVoyage/commit/ac96022))
 * 📝 docs(CHANGELOG.md): automatic update ([8970119](https://github.com/M0rtzz/VisionVoyage/commit/8970119))
