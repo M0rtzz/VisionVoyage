@@ -2,8 +2,8 @@ assets/my_images/other_sensors/*/*.ply
 assets/my_images/other_sensors/*/*.png
 !assets/my_images/other_sensors/*/000000_*.ply
 !assets/my_images/other_sensors/*/000000_*.png
-server/VisionVoyage-Server-UE4.26-Shipping.tar.gz
-server/VisionVoyage_Server/
+server/
+!server/README.md
 datasets/*
 !datasets/README.md
 **/__pycache__/
