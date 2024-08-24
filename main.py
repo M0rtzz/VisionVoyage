@@ -110,8 +110,8 @@ class MainWindow(QMainWindow):
 
         # SET CUSTOM THEME
         use_custom_theme = True
-        # theme_file = "./themes/light.qss"
-        theme_file = "./themes/dark.qss"
+        # theme_file = "./assets/themes/light.qss"
+        theme_file = "./assets/themes/dark.qss"
 
         # SET THEME AND HACKS
         if use_custom_theme:
@@ -529,7 +529,7 @@ class MainWindow(QMainWindow):
         def handle_btn_adjustments(btn):
             self.dark_theme_enabled = not self.dark_theme_enabled
             if self.dark_theme_enabled:
-                theme_file = "./themes/dark.qss"
+                theme_file = "./assets/themes/dark.qss"
                 # 设置字体为颜色为白色
                 widgets.btn_fisheye_one2one.setStyleSheet("color: #FFFFFF;")
                 widgets.btn_fisheye_five2one.setStyleSheet("color: #FFFFFF;")
@@ -546,7 +546,7 @@ class MainWindow(QMainWindow):
                 self.setTableFontColor(widgets.table_widget_get_image)
                 self.setTableFontColor(widgets.table_widget_operation_help)
             else:
-                theme_file = "./themes/light.qss"
+                theme_file = "./assets/themes/light.qss"
                 widgets.btn_fisheye_one2one.setStyleSheet("color: #000000;")
                 widgets.btn_fisheye_five2one.setStyleSheet("color: #000000;")
                 widgets.btn_segmentation_image.setStyleSheet("color: #000000;")
