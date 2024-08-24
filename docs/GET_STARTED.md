@@ -38,6 +38,18 @@ git-lfs pull
 sudo apt update -y
 sudo apt install -y sl pv pigz pdftk wmctrl libhpdf-dev libeigen3-dev libcrypto++-dev
 sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
+
+# 以下安装clang/clang++为可选内容
+sudo tee -a /etc/apt/sources.list.d/llvm-apt.list > /dev/null << EOF 
+deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/llvm-apt/focal/ llvm-toolchain-focal main
+# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/llvm-apt/focal/ llvm-toolchain-focal main
+EOF
+
+# 备份
+sudo cp /etc/apt/sources.list.d/llvm-apt.list /etc/apt/sources.list.d/llvm-apt.list.save
+
+# 只安装了clang/clang++，其他LLVM工具集自行选择安装
+sudo apt update -y && sudo apt upgrade -y && sudo apt install -y clang
 ```
 
 如果需要编译安装CUDA和CUDNN支持的OpenCV，可参考鄙人的博客:
