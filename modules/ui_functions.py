@@ -283,7 +283,7 @@ class UIFunctions(MainWindow):
         # CLOSE APPLICATION
         # self.ui.closeAppBtn.clicked.connect(lambda: self.close())
         self.ui.closeAppBtn.clicked.connect(
-            lambda: (os.system("killall VisionVoyage-UE4-Shipping >/dev/null 2>&1"), self.close()))
+            lambda: (os.system("pgrep -a 'VisionVoyage' | grep 'UE' > /dev/null && killall VisionVoyageServer > /dev/null 2>&1"), self.close()))
 
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
