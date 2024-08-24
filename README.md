@@ -22,7 +22,7 @@
 >
 > - Fisheye transformation of a single standard image
 > - Mosaic of fisheye images from multiple standard images
-> - Semantic segmentation of fisheye (like [WoodScape](https://woodscape.valeo.com/woodscape)) and standard (like [Cityscapes](https://www.cityscapes-dataset.com)) images in street scenes
+> - Semantic segmentation of fisheye (e.g., [WoodScape](https://woodscape.valeo.com/woodscape)) and standard (e.g., [Cityscapes](https://www.cityscapes-dataset.com)) images in street scenes
 > - Semantic segmentation of video in street scenes (such as videos stitched from [continuous datasets published by Cityscapes](https://www.cityscapes-dataset.com/downloads))
 >   -  ![Cityscapes](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:15/17:24:53_Cityscapes.png)
 >
@@ -92,22 +92,26 @@
 
 [https://github.com/libharu/libharu](https://github.com/libharu/libharu)
 
-### Merge PDF(CLI)
+### Merge PDF (CLI)
 
 [https://github.com/MeteorPackaging/pdftk](https://github.com/MeteorPackaging/pdftk)
 
-### X Window Manager Tool(CLI)
+### X Window Manager Tool (CLI)
 
 [https://github.com/Conservatory/wmctrl](https://github.com/Conservatory/wmctrl)
 
-### Parallel Implementation of Gzip(CLI)
+### Parallel Implementation of Gzip (CLI)
 
-[https://git.savannah.gnu.org/cgit/gzip.git/](https://git.savannah.gnu.org/cgit/gzip.git/)
+[https://git.savannah.gnu.org/cgit/gzip.git](https://git.savannah.gnu.org/cgit/gzip.git)
 
-### Pipe Viewer(CLI)
+### Pipe Viewer (CLI)
 
 [https://codeberg.org/a-j-wood/pv](https://codeberg.org/a-j-wood/pv)
 
-### Steam Locomotive(CLI)
+### Steam Locomotive (CLI)
 
 [https://github.com/mtoyoda/sl](https://github.com/mtoyoda/sl)
+
+### clang/clang++ (CLI, OPTIONAL)
+
+[https://github.com/llvm/llvm-project](https://github.com/llvm/llvm-project)
