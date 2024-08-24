@@ -73,8 +73,8 @@ bool fromTextDocumentToPDF(const string &input_file_path, const string &output_p
     HPDF_SetCurrentEncoder(pdf, "UTF-8");
 
     // 设置字体并创建新页面
-    const char *load_simhei = HPDF_LoadTTFontFromFile(pdf, "./fonts/simhei.ttf", HPDF_TRUE);
-    const char *load_fira_code = HPDF_LoadTTFontFromFile(pdf, "./fonts/FiraCode-Medium.ttf", HPDF_TRUE);
+    const char *load_simhei = HPDF_LoadTTFontFromFile(pdf, "./assets/fonts/simhei.ttf", HPDF_TRUE);
+    const char *load_fira_code = HPDF_LoadTTFontFromFile(pdf, "./assets/fonts/FiraCode-Medium.ttf", HPDF_TRUE);
 
     HPDF_Font get_simhei = HPDF_GetFont(pdf, load_simhei, "UTF-8");
     HPDF_Font get_fira_code = HPDF_GetFont(pdf, load_fira_code, "UTF-8");

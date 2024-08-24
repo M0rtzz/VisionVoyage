@@ -772,7 +772,7 @@ class HUD(object):
     def __init__(self, width, height):
         self.dim = (width, height)
         # 使用本地黑体字体文件创建字体对象
-        font_path = './fonts/simhei.ttf'
+        font_path = './assets/fonts/simhei.ttf'
         font_size = 20
         font = pygame.font.Font(font_path, font_size)
         # 创建一个FadingText对象，用于显示渐隐文本
