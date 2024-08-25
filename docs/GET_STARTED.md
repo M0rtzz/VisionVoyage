@@ -137,7 +137,7 @@ git submodule update --recursive # 如果 `3rdparty/mmsegmentation-v1.2.2/` 为�
 cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install --use-pep517 -v -e .
 ```
 
-最后下载`VisionVoyage_Server`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+最后下载`VisionVoyageServer`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
 
 下载`VisionVoyageServer-UE4.26-Shipping.tar.gz`到`server/`，解压：
 
@@ -148,7 +148,7 @@ cd server/ && pv VisionVoyageServer-UE4.26-Shipping.tar.gz | pigz -d | tar xf - 
 然后安装CARLA的Python绑定库：
 
 ```shell
-cd server/VisionVoyage_Server/PythonAPI/carla/dist/ && conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
+cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
 ```
 
 ### （2）申请支付宝当面付
