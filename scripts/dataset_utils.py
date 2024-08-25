@@ -14,7 +14,7 @@ def config_from_yaml(config_file):
 
 
 def create_logger(log_dir='./logs'):
-    log_file = 'log_generator_%s.txt' % datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
+    log_file = '%s.log' % datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
     log_file = os.path.join(log_dir, log_file)
 
     logger = logging.getLogger(__name__)
