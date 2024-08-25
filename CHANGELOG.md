@@ -8,6 +8,7 @@
 * 👔 logic(ui_functions.py): kill after finding the process ([015b57b](https://github.com/M0rtzz/VisionVoyage/commit/015b57b))
 * 💄 ui: update version display ([5f6fbe1](https://github.com/M0rtzz/VisionVoyage/commit/5f6fbe1))
 * 💬 text(README.md): from `like` to `e.g.` ([ffc44c0](https://github.com/M0rtzz/VisionVoyage/commit/ffc44c0))
+* 📝 docs(CHANGELOG.md): automatic update ([12705a0](https://github.com/M0rtzz/VisionVoyage/commit/12705a0))
 * 📝 docs(CHANGELOG.md): automatic update ([d6af18f](https://github.com/M0rtzz/VisionVoyage/commit/d6af18f))
 * 📝 docs(CHANGELOG.md): automatic update ([b53da5e](https://github.com/M0rtzz/VisionVoyage/commit/b53da5e))
 * 📝 docs(CHANGELOG.md): automatic update ([f039652](https://github.com/M0rtzz/VisionVoyage/commit/f039652))
