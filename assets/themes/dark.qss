@@ -3,7 +3,6 @@ QWidget {
   font: 10pt "Segoe UI";
 }
 
-
 QToolTip {
   color: #ffffff;
   background-color: rgba(33, 37, 43, 180);
@@ -17,7 +16,6 @@ QToolTip {
   padding-left: 8px;
   margin: 0px;
 }
-
 
 #bgApp {
   background-color: rgb(40, 44, 52);
@@ -43,7 +41,6 @@ QToolTip {
   font: 8pt "Segoe UI";
   color: rgb(189, 147, 249);
 }
-
 
 #topMenu .QPushButton {
   background-position: left center;
@@ -106,11 +103,9 @@ QToolTip {
   background-color: rgb(189, 147, 249);
 }
 
-
 #titleRightInfo {
   padding-left: 10px;
 }
-
 
 #extraLeftBox {
   background-color: rgb(44, 49, 58);
@@ -119,7 +114,6 @@ QToolTip {
 #extraTopBg {
   background-color: rgb(189, 147, 249);
 }
-
 
 #extraIcon {
   background-position: center;
@@ -130,7 +124,6 @@ QToolTip {
 #extraLabel {
   color: rgb(255, 255, 255);
 }
-
 
 #extraCloseColumnBtn {
   background-color: rgba(255, 255, 255, 0);
@@ -150,11 +143,9 @@ QToolTip {
   border-radius: 4px;
 }
 
-
 #extraContent {
   border-top: 3px solid rgb(40, 44, 52);
 }
-
 
 #extraTopMenu .QPushButton {
   background-position: left center;
@@ -175,7 +166,6 @@ QToolTip {
   color: rgb(255, 255, 255);
 }
 
-
 #contentTopBg {
   background-color: rgb(33, 37, 43);
 }
@@ -183,7 +173,6 @@ QToolTip {
 #contentBottom {
   border-top: 3px solid rgb(44, 49, 58);
 }
-
 
 #rightButtons .QPushButton {
   background-color: rgba(255, 255, 255, 0);
@@ -202,7 +191,6 @@ QToolTip {
   border-style: solid;
   border-radius: 4px;
 }
-
 
 #extraRightBox {
   background-color: rgb(44, 49, 58);
@@ -224,7 +212,6 @@ QToolTip {
   padding-bottom: 2px;
 }
 
-
 #contentSettings .QPushButton {
   background-position: left center;
   background-repeat: no-repeat;
@@ -243,7 +230,6 @@ QToolTip {
   background-color: rgb(189, 147, 249);
   color: rgb(255, 255, 255);
 }
-
 
 QTableWidget {
   background-color: transparent;
@@ -289,7 +275,6 @@ QHeaderView::section:vertical {
   border: 1px solid rgb(44, 49, 60);
 }
 
-
 QLineEdit {
   background-color: rgb(33, 37, 43);
   border-radius: 5px;
@@ -306,7 +291,6 @@ QLineEdit:hover {
 QLineEdit:focus {
   border: 2px solid rgb(91, 101, 124);
 }
-
 
 QPlainTextEdit {
   background-color: rgb(27, 29, 35);
@@ -331,7 +315,6 @@ QPlainTextEdit:hover {
 QPlainTextEdit:focus {
   border: 2px solid rgb(91, 101, 124);
 }
-
 
 QScrollBar:horizontal {
   border: none;
@@ -421,7 +404,6 @@ QScrollBar::sub-page:vertical {
   background: none;
 }
 
-
 QCheckBox::indicator {
   border: 3px solid rgb(52, 59, 72);
   width: 15px;
@@ -440,7 +422,6 @@ QCheckBox::indicator:checked {
   background-image: url(:/icons/assets/icons/cil-check-alt.png);
 }
 
-
 QRadioButton::indicator {
   border: 3px solid rgb(52, 59, 72);
   width: 15px;
@@ -457,7 +438,6 @@ QRadioButton::indicator:checked {
   background: 3px solid rgb(94, 106, 130);
   border: 3px solid rgb(52, 59, 72);
 }
-
 
 QComboBox {
   background-color: rgb(27, 29, 35);
@@ -491,7 +471,6 @@ QComboBox QAbstractItemView {
   padding: 10px;
   selection-background-color: rgb(39, 44, 54);
 }
-
 
 QSlider::groove:horizontal {
   border-radius: 5px;
@@ -549,7 +528,6 @@ QSlider::handle:vertical:pressed {
   background-color: rgb(255, 121, 198);
 }
 
-
 QCommandLinkButton {
   color: rgb(255, 121, 198);
   border-radius: 5px;
@@ -565,7 +543,6 @@ QCommandLinkButton:pressed {
   color: rgb(189, 147, 249);
   background-color: rgb(52, 58, 71);
 }
-
 
 #pagesContainer QPushButton {
   border: 2px solid rgb(52, 59, 72);

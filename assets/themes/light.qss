@@ -3,7 +3,6 @@ QWidget {
   font: 10pt "Segoe UI";
 }
 
-
 QToolTip {
   color: #333;
   background-color: #f8f8f2;
@@ -18,13 +17,11 @@ QToolTip {
   margin: 0px;
 }
 
-
 #bgApp {
   background-color: #f8f8f2;
   border: 1px solid #ccc;
   color: #44475a;
 }
-
 
 #leftMenuBg {
   background-color: #6272a4;
@@ -46,7 +43,6 @@ QToolTip {
   font: 8pt "Segoe UI";
   color: #bd93f9;
 }
-
 
 #topMenu .QPushButton {
   background-position: left center;
@@ -92,7 +88,6 @@ QToolTip {
   border-top: 3px solid #6a7cb1;
 }
 
-
 #toggleButton {
   background-position: left center;
   background-repeat: no-repeat;
@@ -113,12 +108,11 @@ QToolTip {
   color: rgb(255, 255, 255);
 }
 
-
 #titleRightInfo {
   padding-left: 10px;
 }
 
-Extra Tab */ #extraLeftBox {
+#extraLeftBox {
   background-color: #495474;
   color: #f8f8f2;
 }
@@ -127,18 +121,15 @@ Extra Tab */ #extraLeftBox {
   background-color: rgb(189, 147, 249);
 }
 
-
 #extraIcon {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(:/icons/assets/icons/cil-user.png);
 }
 
-
 #extraLabel {
   color: rgb(255, 255, 255);
 }
-
 
 #extraCloseColumnBtn {
   background-color: rgba(255, 255, 255, 0);
@@ -158,11 +149,9 @@ Extra Tab */ #extraLeftBox {
   border-radius: 4px;
 }
 
-
 #extraContent {
   border-top: 3px solid #6272a4;
 }
-
 
 #extraTopMenu .QPushButton {
   background-position: left center;
@@ -184,7 +173,6 @@ Extra Tab */ #extraLeftBox {
   color: rgb(255, 255, 255);
 }
 
-
 #contentTopBg {
   background-color: #6272a4;
 }
@@ -196,7 +184,6 @@ Extra Tab */ #extraLeftBox {
 #titleRightInfo {
   color: #f8f8f2;
 }
-
 
 #rightButtons .QPushButton {
   background-color: rgba(255, 255, 255, 0);
@@ -223,7 +210,6 @@ Extra Tab */ #extraLeftBox {
 #themeSettingsTopDetail {
   background-color: #6272a4;
 }
-
 
 #bottomBar {
   background-color: #495474;
@@ -301,7 +287,6 @@ QHeaderView::section:vertical {
   border: 1px solid #6272a4;
 }
 
-
 QLineEdit {
   background-color: #6272a4;
   border-radius: 5px;
@@ -319,7 +304,6 @@ QLineEdit:hover {
 QLineEdit:focus {
   border: 2px solid #ff79c6;
 }
-
 
 QPlainTextEdit {
   background-color: #6272a4;
@@ -346,7 +330,7 @@ QPlainTextEdit:focus {
   border: 2px solid #ff79c6;
 }
 
-al {
+QScrollBar:horizontal {
   border: none;
   background: #6272a4;
   height: 8px;
@@ -434,7 +418,6 @@ QScrollBar::sub-page:vertical {
   background: none;
 }
 
-
 QCheckBox::indicator {
   border: 3px solid #6272a4;
   width: 15px;
@@ -453,7 +436,6 @@ QCheckBox::indicator:checked {
   background-image: url(:/icons/assets/icons/cil-check-alt.png);
 }
 
-
 QRadioButton::indicator {
   border: 3px solid #6272a4;
   width: 15px;
@@ -470,7 +452,6 @@ QRadioButton::indicator:checked {
   background: 3px solid #bd93f9;
   border: 3px solid #bd93f9;
 }
-
 
 QComboBox {
   background-color: #6272a4;
@@ -505,7 +486,6 @@ QComboBox QAbstractItemView {
   padding: 10px;
   selection-background-color: #6272a4;
 }
-
 
 QSlider::groove:horizontal {
   border-radius: 5px;
@@ -563,7 +543,6 @@ QSlider::handle:vertical:pressed {
   background-color: rgb(255, 121, 198);
 }
 
-
 #pagesContainer QCommandLinkButton {
   color: rgb(255, 121, 198);
   border-radius: 5px;
@@ -581,7 +560,6 @@ QSlider::handle:vertical:pressed {
   color: rgb(189, 147, 249);
   background-color: #586796;
 }
-
 
 #pagesContainer QPushButton {
   border: 2px solid #6272a4;
