@@ -6,7 +6,7 @@
 
 > This project is associated with the courses `Basis of Innovation and Entrepreneurship ＆ Engineering Design Practice (创新创业基础与工程设计实践)`  and `Productive Practice (生产实习)` of the CS major at ZZU.
 >
-> I led a simulation of a software company called `Ingenuity Drive (创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
+> I led a simulation of a software company called `IngenuityDrive (创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
 >
 > **Company Positions**
 >
