@@ -1,15 +1,5 @@
 #!/home/m0rtzz/Programs/anaconda3/envs/VisionVoyage/bin/python3
 
-# ///////////////////////////////////////////////////////////////
-#
-# @file main.py
-# @brief 程序入口文件
-# @author M0rtzz E-mail: m0rtzz@outlook.com
-# @version 4.0
-# @PROJECT MADE WITH: Qt Designer and PySide6
-#
-# ///////////////////////////////////////////////////////////////
-
 from scripts.alipay import AlipayPayment
 from widgets import *
 from modules import *
@@ -26,7 +16,8 @@ sys.stderr = open('/dev/null', 'w')
 # NOTE: 禁止指定警告输出
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
+# BUG: FIX Problem for High DPI and Scale above 100%
+os.environ["QT_FONT_DPI"] = "96"
 
 # SET AS GLOBAL WIDGETS
 widgets = None
@@ -59,7 +50,6 @@ class MainWindow(QMainWindow):
         title = "VisionVoyage - Modern GUI"
         # description = "VisionVoyage - 一款基于鱼眼相机与其他感知技术的自动驾驶仿真系统。"
 
-        # # APPLY TEXTS
         self.setWindowTitle(title)
         # widgets.titleRightInfo.setText(description)
         self.ui.line_edit_filenames.textChanged.connect(self.handleLineEditChange)
@@ -125,8 +115,6 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
-    # BUTTONS CLICK
-    # Post here your functions for clicked buttons
     def setTableFontColor(self, table_widget):
         row_count = table_widget.rowCount()
         column_count = table_widget.columnCount()
