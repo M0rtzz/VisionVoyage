@@ -2,7 +2,7 @@ assets/my_images/other_sensors/*/*.ply
 assets/my_images/other_sensors/*/*.png
 !assets/my_images/other_sensors/*/000000_*.ply
 !assets/my_images/other_sensors/*/000000_*.png
-server/
+server/*
 !server/README.md
 datasets/*
 !datasets/README.md
@@ -15,7 +15,5 @@ main_ui.py
 logs/*.pdf
 .vscode/
 .husky/
-setup.py
-!3rdparty/mmsegmentation-v1.2.2/setup.py
 .temp/
 *.tar
