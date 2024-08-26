@@ -9,6 +9,8 @@
 * 💄 ui: update version display ([5f6fbe1](https://github.com/M0rtzz/VisionVoyage/commit/5f6fbe1))
 * 💬 text(README.md): delete a space ([8c59f88](https://github.com/M0rtzz/VisionVoyage/commit/8c59f88))
 * 💬 text(README.md): from `like` to `e.g.` ([ffc44c0](https://github.com/M0rtzz/VisionVoyage/commit/ffc44c0))
+* 📄 license(LICENSE): update WTFPL ([1bd8532](https://github.com/M0rtzz/VisionVoyage/commit/1bd8532))
+* 📝 docs(CHANGELOG.md): automatic update ([a67ce96](https://github.com/M0rtzz/VisionVoyage/commit/a67ce96))
 * 📝 docs(CHANGELOG.md): automatic update ([6dbdcc5](https://github.com/M0rtzz/VisionVoyage/commit/6dbdcc5))
 * 📝 docs(CHANGELOG.md): automatic update ([cd07f79](https://github.com/M0rtzz/VisionVoyage/commit/cd07f79))
 * 📝 docs(CHANGELOG.md): automatic update ([12705a0](https://github.com/M0rtzz/VisionVoyage/commit/12705a0))
