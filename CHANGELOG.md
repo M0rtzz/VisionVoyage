@@ -1,9 +1,9 @@
-##  (2024-08-26)
+##  (2024-08-27)
 
 
 
 
-## 9.4.0-stable (2024-08-26)
+## 9.4.0-stable (2024-08-27)
 
 * ⚰️ bury: bury unused comments ([fa69f89](https://github.com/M0rtzz/VisionVoyage/commit/fa69f89))
 * ⚰️ bury: bury unused comments ([2b97c53](https://github.com/M0rtzz/VisionVoyage/commit/2b97c53))
@@ -12,9 +12,12 @@
 * 🎨 style(.gitattributes): format code ([eb57a72](https://github.com/M0rtzz/VisionVoyage/commit/eb57a72))
 * 💄 ui: update version display ([0f106b5](https://github.com/M0rtzz/VisionVoyage/commit/0f106b5))
 * 💡 comment(main.py): update and bury comments ([4f0a393](https://github.com/M0rtzz/VisionVoyage/commit/4f0a393))
+* 📝 docs(CHANGELOG.md): automatic update ([2a13a87](https://github.com/M0rtzz/VisionVoyage/commit/2a13a87))
 * 📝 docs(CHANGELOG.md): automatic update ([fe92701](https://github.com/M0rtzz/VisionVoyage/commit/fe92701))
 * 📝 docs(CHANGELOG.md): automatic update ([92d61cd](https://github.com/M0rtzz/VisionVoyage/commit/92d61cd))
 * 📝 docs(CHANGELOG.md): automatic update ([88a28d4](https://github.com/M0rtzz/VisionVoyage/commit/88a28d4))
+* 📝 docs(DOWNLOAD_DATASETS.md): add cmd to get the root dir of the git repo ([7a58518](https://github.com/M0rtzz/VisionVoyage/commit/7a58518))
+* 📝 docs(README.md): add runtime dependency ([b080800](https://github.com/M0rtzz/VisionVoyage/commit/b080800))
 * 🙈 ignore(.gitignore): rm non-existent file ([91d2b93](https://github.com/M0rtzz/VisionVoyage/commit/91d2b93))
 
 
