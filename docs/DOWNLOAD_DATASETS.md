@@ -15,7 +15,7 @@ sudo apt update -y && sudo apt install -y curl aria2
 下载`hfd.sh`到系统目录，这样全局都可以直接使用`hfd`命令：
 
 ```shell
-sudo wget https://hf-mirror.com/hfd/hfd.sh -O /usr/bin/hfd
+sudo wget -q --show-progress https://hf-mirror.com/hfd/hfd.sh -O /usr/bin/hfd
 sudo chmod a+x /usr/bin/hfd
 ```
 
@@ -42,14 +42,15 @@ echo 'export HF_ENDPOINT=https://hf-mirror.com' | sudo tee -a /etc/profile && so
 下载数据集命令：
 
 ```shell
+repo_root_dir=$(git rev-parse --show-toplevel) && \
 export HF_ENDPOINT=https://hf-mirror.com && \
 hfd \
 M0rtzz/VisionVoyage \
 --dataset True \
---local-dir ./.temp/ \
+--local-dir ${repo_root_dir}/.temp/ \
 --tool aria2c -x 8 && \
-mv ./.temp/*.tar ./datasets/ && \
-rm -rf ./.temp/
+mv ${repo_root_dir}/.temp/*.tar ${repo_root_dir}/datasets/ && \
+rm -rf ${repo_root_dir}/.temp/
 
 # 从上到下参数依次为：
 # repo_id：仓库id
@@ -57,8 +58,6 @@ rm -rf ./.temp/
 # 本地路径
 # 设置下载工具为aria2c的线程数，默认是4
 ```
-
-![image-20240812154522628](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/15:45:22_image-20240812154522628.png)
 
 ![image-20240812153102687](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/15:31:02_image-20240812153102687.png)
 
