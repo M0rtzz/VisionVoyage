@@ -50,29 +50,25 @@
 
 ## Runtime Dependency
 
-### CARLA
-
-[https://github.com/carla-simulator/carla](https://github.com/carla-simulator/carla)
-
 ### UE
 
 [https://github.com/CarlaUnreal/UnrealEngine](https://github.com/CarlaUnreal/UnrealEngine)
 
-### Image Semantic Segmentation
+### GUI
 
-[https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
+[https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6)
 
-### Video Semantic Segmentation
+### CARLA
 
-[https://github.com/TomMao23/multiyolov5](https://github.com/TomMao23/multiyolov5)
+[https://github.com/carla-simulator/carla](https://github.com/carla-simulator/carla)
 
 ### Payment
 
 [https://github.com/fzlee/alipay](https://github.com/fzlee/alipay)
 
-### GUI
+### Generate PDF
 
-[https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6)
+[https://github.com/libharu/libharu](https://github.com/libharu/libharu)
 
 ### Matrix Operation
 
@@ -84,33 +80,51 @@
 
 [https://github.com/opencv/opencv_contrib](https://github.com/opencv/opencv_contrib)
 
-### AES(Advanced Encryption Standard)
+### HuggingFace Mirror Site
+
+[https://github.com/padeoe/hf-mirror-site](https://github.com/padeoe/hf-mirror-site)
+
+### Image Semantic Segmentation
+
+[https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
+
+### Video Semantic Segmentation
+
+[https://github.com/TomMao23/multiyolov5](https://github.com/TomMao23/multiyolov5)
+
+### AES (Advanced Encryption Standard)
 
 [https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
-
-### Generate PDF
-
-[https://github.com/libharu/libharu](https://github.com/libharu/libharu)
 
 ### Merge PDF (CLI)
 
 [https://github.com/MeteorPackaging/pdftk](https://github.com/MeteorPackaging/pdftk)
 
-### X Window Manager Tool (CLI)
-
-[https://github.com/Conservatory/wmctrl](https://github.com/Conservatory/wmctrl)
-
-### Parallel Implementation of Gzip (CLI)
-
-[https://git.savannah.gnu.org/cgit/gzip.git](https://git.savannah.gnu.org/cgit/gzip.git)
-
 ### Pipe Viewer (CLI)
 
 [https://codeberg.org/a-j-wood/pv](https://codeberg.org/a-j-wood/pv)
 
+### Download Utility (CLI)
+
+[https://github.com/aria2/aria2](https://github.com/aria2/aria2)
+
+[https://gitlab.com/gnuwget/wget](https://gitlab.com/gnuwget/wget)
+
 ### Steam Locomotive (CLI)
 
 [https://github.com/mtoyoda/sl](https://github.com/mtoyoda/sl)
+
+### X Window Manager Tool (CLI)
+
+[https://github.com/Conservatory/wmctrl](https://github.com/Conservatory/wmctrl)
+
+### HTTP Request Verification (CLI)
+
+[https://github.com/curl/curl](https://github.com/curl/curl)
+
+### Parallel Implementation of Gzip (CLI)
+
+[https://git.savannah.gnu.org/cgit/gzip.git](https://git.savannah.gnu.org/cgit/gzip.git)
 
 ### clang/clang++ (CLI, OPTIONAL)
 
