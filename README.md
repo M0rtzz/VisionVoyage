@@ -48,7 +48,7 @@
 
 [GET_STARTED.md](./docs/GET_STARTED.md)
 
-## Runtime Dependency
+## Dependency
 
 ### UE
 
@@ -114,9 +114,17 @@
 
 [https://gitlab.com/gnuwget/wget](https://gitlab.com/gnuwget/wget)
 
+### Package Manager (CLI)
+
+[https://github.com/conda/conda](https://github.com/conda/conda)
+
 ### Steam Locomotive (CLI)
 
 [https://github.com/mtoyoda/sl](https://github.com/mtoyoda/sl)
+
+### Large Files Manager (CLI)
+
+[https://github.com/git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
 
 ### X Window Manager Tool (CLI)
 
