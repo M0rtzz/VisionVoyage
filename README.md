@@ -84,13 +84,13 @@
 
 [https://github.com/padeoe/hf-mirror-site](https://github.com/padeoe/hf-mirror-site)
 
-### Image Semantic Segmentation
-
-[https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
-
 ### Video Semantic Segmentation
 
 [https://github.com/TomMao23/multiyolov5](https://github.com/TomMao23/multiyolov5)
+
+### Image Semantic Segmentation
+
+[https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 
 ### AES (Advanced Encryption Standard)
 
@@ -103,6 +103,10 @@
 ### Pipe Viewer (CLI)
 
 [https://codeberg.org/a-j-wood/pv](https://codeberg.org/a-j-wood/pv)
+
+### Archive Utility (CLI)
+
+[https://git.savannah.gnu.org/cgit/tar.git](https://git.savannah.gnu.org/cgit/tar.git)
 
 ### Download Utility (CLI)
 
@@ -124,7 +128,7 @@
 
 ### Parallel Implementation of Gzip (CLI)
 
-[https://git.savannah.gnu.org/cgit/gzip.git](https://git.savannah.gnu.org/cgit/gzip.git)
+[https://github.com/madler/pigz](https://github.com/madler/pigz)
 
 ### clang/clang++ (CLI, OPTIONAL)
 
