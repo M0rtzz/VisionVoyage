@@ -2,9 +2,9 @@
 
 ## ① 前提
 
-此软件为ZZU计院的双创|生产实习项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
+此软件为`ZZU`计院的双创|生产实习项目，主要实现基于鱼眼相机与感知技术的自动驾驶仿真系统。
 
-推荐环境为Ubuntu20.04.6 LTS，需要NVIDIA的GPU。
+推荐环境为`Ubuntu20.04.6 LTS`，需要`NVIDIA`的`GPU`。
 
 ![image-20240812230954056](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/23:09:59_image-20240812230954056.png)
 
@@ -52,15 +52,15 @@ sudo cp /etc/apt/sources.list.d/llvm.list /etc/apt/sources.list.d/llvm-apt.list.
 sudo apt update -y && sudo apt upgrade -y && sudo apt install -y clang
 ```
 
-如果需要编译安装CUDA和CUDNN支持的OpenCV，可参考鄙人的博客:
+如果需要编译安装`CUDA`和`CUDNN`支持的`OpenCV`，可参考鄙人的博客:
 
-[博客](https://www.m0rtzz.com/posts/3#opencv420%E7%9A%84cmake%E5%91%BD%E4%BB%A4%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9ubuntu2004%E8%A3%85%E8%BF%99%E4%B8%AA)
+[博客](https://www.m0rtzz.com/posts/3#opencv-420%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97)
 
 ### （1）conda创建虚拟环境
 
 >   [!CAUTION]
 >
->   因CARLA的Python绑定库whl文件是鄙人用CPython3.8环境编译出来的，所以创建的虚拟环境必须是Python3.8：
+>   因`CARLA`的`Python`绑定库`whl`文件是鄙人用`CPython3.8`环境编译出来的，所以创建的虚拟环境必须是`Python3.8`：
 >
 >   ```shell
 >   conda create -n VisionVoyage python=3.8
@@ -75,34 +75,34 @@ conda install conda-forge::gcc=12.1.0 conda-forge::gxx=12.1.0
 ```
 
 ```shell
-# 主要的包，其余的包如果报错，自行 `python3 -m pip install 包名` 安装
+# 主要的包，其余的包如果报错缺失，自行 `python3 -m pip install 包名` 安装
 python3 -m pip install lit cmake ftfy regex qrcode pygame fsspec Pillow pyside6 jmespath filelock packaging python-alipay-sdk 'lxml==4.4.1' 'onnx==1.13.0' 'scipy==1.4.1' 'pandas==1.2.0' 'seaborn==0.10.0' 'tomlkit==0.10.1' 'Twisted==22.10.0' 'matplotlib==3.2.0' 'service-identity==18.1.0' 'tqdm>=4.41.0' 'PyYAML>=5.3.1' 'pycocotools>=2.0' 'tensorboard>=2.4.1'
 ```
 
-然后安装CUDA版的Pytorch（`1.7.0≤torch≤2.1.2`，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
+然后安装`CUDA`版的`Pytorch`（`1.7.0≤torch≤2.1.2`，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
 
 [PyTorch官网](https://pytorch.org/get-started/previous-versions/)
 
-推荐使用南方科技大学提供的NVIDIA镜像channel（修改`~/.condarc`，同样推荐设置`env_dirs`，否则有可能虚拟环境默认在`~/.conda/envs/`中）：
+推荐使用南方科技大学提供的`NVIDIA`镜像`channel`（修改`~/.condarc`，同样推荐设置`env_dirs`，否则有可能虚拟环境默认在`~/.conda/envs/`中）：
 
 ```yaml
 channels:
   - defaults
 show_channel_urls: true
 default_channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
 custom_channels:
-  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud
 
@@ -110,13 +110,13 @@ envs_dirs:
   - /home/m0rtzz/Programs/anaconda3/envs
 ```
 
-Pytorch安装完成后：
+`Pytorch`安装完成后：
 
 ```shell
 python3 -m pip install thop
 ```
 
-之后安装mmsegmentation：
+之后安装`mmsegmentation`：
 
 ```shell
 python3 -m pip install -U openmim
@@ -130,14 +130,14 @@ yes | python3 -m pip uninstall opencv-python numpy
 python3 -m pip install 'opencv-python==4.5.2.52' 'numpy==1.18.4'
 ```
 
-之后将mmsegmentaion作为editable mode安装：
+之后将`mmsegmentaion`作为`editable mode`安装：
 
 ```shell
 git submodule update --recursive # 如果 `3rdparty/mmsegmentation-v1.2.2/` 为空，执行此命令
 cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install --use-pep517 -v -e .
 ```
 
-最后下载`VisionVoyageServer`并安装CARLA的Python绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
+最后下载`VisionVoyageServer`并安装`CARLA`的`Python`绑定库：[DOWNLOAD_VISIONVOYAGE_SERVER.md](./DOWNLOAD_VISIONVOYAGE_SERVER.md)
 
 下载`VisionVoyageServer-UE4.26-Shipping.tar.gz`到`server/`，解压：
 
@@ -145,7 +145,7 @@ cd 3rdparty/mmsegmentation-v1.2.2/ && python3 -m pip install --use-pep517 -v -e 
 cd server/ && pv VisionVoyageServer-UE4.26-Shipping.tar.gz | pigz -d | tar xf -  # 解压之后是一个名为 `VisionVoyageServer` 的文件夹
 ```
 
-然后安装CARLA的Python绑定库：
+然后安装`CARLA`的`Python`绑定库：
 
 ```shell
 cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyage && python3 -m pip install ./carla-0.9.14-cp38-cp38-linux_x86_64.whl
@@ -153,11 +153,11 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 
 ### （2）申请支付宝当面付
 
-因为软件集成了付费功能，所以需要开通支付宝的当面付功能
+因为软件集成了付费功能，所以需要开通支付宝的当面付功能：
 
 [https://b.alipay.com/page/product-workspace/product-detail/I1080300001000041016](https://b.alipay.com/page/product-workspace/product-detail/I1080300001000041016)
 
-点击之后使用支付宝APP搜码或者使用账号密码登录，然后开通此产品：
+点击之后使用支付宝`APP`扫码或者使用账号密码登录，然后开通此产品：
 
 ![image-20240804152418499](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:24:23_image-20240804152418499.png)
 
@@ -187,7 +187,7 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 
 ![image-20240521142246943](https://static.m0rtzz.com/images%2FYear:2024%2FMonth:05%2FDay:21%2F14:22:47_image-20240521142246943.png)
 
-创建应用并关联，创建后应该显示的是`开发中`，不是`上线`，获取到的AppID请妥善保存：
+创建应用并关联，创建后应该显示的是`开发中`，不是`上线`，获取到的`AppID`请妥善保存：
 
 ![image-20240804164036661](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:40:36_image-20240804164036661.png)
 
@@ -197,7 +197,7 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 
 ![image-20240804164003553](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:40:03_image-20240804164003553.png)
 
-此步骤的支付宝开放平台密钥工具官方只提供了Windows和Mac OS的版本：
+此步骤的支付宝开放平台密钥工具官方只提供了`Windows`和`Mac OS`的版本：
 
 ![image-20240804155735037](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:57:35_image-20240804155735037.png)
 
@@ -272,7 +272,7 @@ conda activate VisionVoyage && sudo chmod +x ./setup.sh && ./setup.sh
 
 ![image-20240811174253243](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:11/17:42:58_image-20240811174253243.png)
 
-全部修改完成之后，编译C++源程序：
+全部修改完成之后，编译`C++`源程序：
 
 ```shell
 cd scripts/ && make
@@ -312,7 +312,7 @@ conda activate VisionVoyage && QT_LOGGING_RULES='*.debug=false;qt.pysideplugin=f
 
 ![image-20240806173718025](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:37:18_image-20240806173718025.png)
 
-将Python代码复制下来（绿色框）或者保存（红色框）覆盖`modules/ui_main.py`：
+将`Python`代码复制下来（绿色框）或者保存（红色框）覆盖`modules/ui_main.py`：
 
 ![image-20240806173852946](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:38:53_image-20240806173852946.png)
 
@@ -346,7 +346,7 @@ conda activate VisionVoyage && pyside6-uic main.ui > modules/ui_main.py
 conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py && cp resources_rc.py modules/resources_rc.py
 ```
 
-这样就完成了GUI的设计。
+这样就完成了`GUI`的设计。
 
 ## ⑤ Runtime Error
 
