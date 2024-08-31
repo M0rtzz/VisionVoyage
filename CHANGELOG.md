@@ -14,6 +14,7 @@
 * 🎨 style(.gitattributes): format code ([eb57a72](https://github.com/M0rtzz/VisionVoyage/commit/eb57a72))
 * 💄 ui: update version display ([0f106b5](https://github.com/M0rtzz/VisionVoyage/commit/0f106b5))
 * 💡 comment(main.py): update and bury comments ([4f0a393](https://github.com/M0rtzz/VisionVoyage/commit/4f0a393))
+* 📝 docs(CHANGELOG.md): automatic update ([860e89a](https://github.com/M0rtzz/VisionVoyage/commit/860e89a))
 * 📝 docs(CHANGELOG.md): automatic update ([c85d662](https://github.com/M0rtzz/VisionVoyage/commit/c85d662))
 * 📝 docs(CHANGELOG.md): automatic update ([d9bcefd](https://github.com/M0rtzz/VisionVoyage/commit/d9bcefd))
 * 📝 docs(CHANGELOG.md): automatic update ([67ea8aa](https://github.com/M0rtzz/VisionVoyage/commit/67ea8aa))
