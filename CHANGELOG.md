@@ -1,5 +1,11 @@
-##  (2024-08-31)
+##  (2024-09-13)
 
+
+
+
+## <small>9.4.1-stable (2024-09-13)</small>
+
+* 📝 docs(README.md): update responsibility in the table ([2722562](https://github.com/M0rtzz/VisionVoyage/commit/2722562))
 
 
 
@@ -14,6 +20,7 @@
 * 🎨 style(.gitattributes): format code ([eb57a72](https://github.com/M0rtzz/VisionVoyage/commit/eb57a72))
 * 💄 ui: update version display ([0f106b5](https://github.com/M0rtzz/VisionVoyage/commit/0f106b5))
 * 💡 comment(main.py): update and bury comments ([4f0a393](https://github.com/M0rtzz/VisionVoyage/commit/4f0a393))
+* 📝 docs(CHANGELOG.md): automatic update ([0174361](https://github.com/M0rtzz/VisionVoyage/commit/0174361))
 * 📝 docs(CHANGELOG.md): automatic update ([860e89a](https://github.com/M0rtzz/VisionVoyage/commit/860e89a))
 * 📝 docs(CHANGELOG.md): automatic update ([c85d662](https://github.com/M0rtzz/VisionVoyage/commit/c85d662))
 * 📝 docs(CHANGELOG.md): automatic update ([d9bcefd](https://github.com/M0rtzz/VisionVoyage/commit/d9bcefd))
@@ -195,28 +202,17 @@
 
 ## 8.3.0-stable (2024-08-06)
 
+* ✨ feat: update SheBang ([f4eb003](https://github.com/M0rtzz/VisionVoyage/commit/f4eb003))
+* 🍱 asset(main.py): update image url ([bb99ace](https://github.com/M0rtzz/VisionVoyage/commit/bb99ace))
+* 🎨 style(GET_STARTED.md): rm blank line ([7049ff0](https://github.com/M0rtzz/VisionVoyage/commit/7049ff0))
+* 🐛 fix: fix the bug of invalid absolute path ([2ee8aad](https://github.com/M0rtzz/VisionVoyage/commit/2ee8aad))
+* 🐛 fix(alipay.py): fix ssl certificate bug ([722edbb](https://github.com/M0rtzz/VisionVoyage/commit/722edbb))
 * 💄 ui: update version display ([ef782d2](https://github.com/M0rtzz/VisionVoyage/commit/ef782d2))
 * 📝 docs(CHANGELOG.md): automatic update ([95aba1e](https://github.com/M0rtzz/VisionVoyage/commit/95aba1e))
 * 📝 docs(CHANGELOG.md): automatic update ([f9d1964](https://github.com/M0rtzz/VisionVoyage/commit/f9d1964))
 * 📝 docs(CHANGELOG.md): automatic update ([edecf6a](https://github.com/M0rtzz/VisionVoyage/commit/edecf6a))
 * 📝 docs(CHANGELOG.md): automatic update ([8d5510d](https://github.com/M0rtzz/VisionVoyage/commit/8d5510d))
 * 📝 docs(CHANGELOG.md): automatic update ([4202ac1](https://github.com/M0rtzz/VisionVoyage/commit/4202ac1))
-* 📝 docs(GET_STARTED.md): add tutorial for adding image asset ([ca331f6](https://github.com/M0rtzz/VisionVoyage/commit/ca331f6))
-* 📝 docs(GET_STARTED.md): add tutorial for designing GUI ([293ccaa](https://github.com/M0rtzz/VisionVoyage/commit/293ccaa))
-* 🔥 remove(GET_STARTED.md): rm a space ([7446995](https://github.com/M0rtzz/VisionVoyage/commit/7446995))
-* 🔥 remove(resources.qrc): rm blank line ([f246e2c](https://github.com/M0rtzz/VisionVoyage/commit/f246e2c))
-
-
-
-## 8.2.0-stable (2024-08-06)
-
-* ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
-* ✨ feat: update SheBang ([f4eb003](https://github.com/M0rtzz/VisionVoyage/commit/f4eb003))
-* ✨ feat: update version display ([dcf198e](https://github.com/M0rtzz/VisionVoyage/commit/dcf198e))
-* 🍱 asset(main.py): update image url ([bb99ace](https://github.com/M0rtzz/VisionVoyage/commit/bb99ace))
-* 🎨 style(GET_STARTED.md): rm blank line ([7049ff0](https://github.com/M0rtzz/VisionVoyage/commit/7049ff0))
-* 🐛 fix: fix the bug of invalid absolute path ([2ee8aad](https://github.com/M0rtzz/VisionVoyage/commit/2ee8aad))
-* 🐛 fix(alipay.py): fix ssl certificate bug ([722edbb](https://github.com/M0rtzz/VisionVoyage/commit/722edbb))
 * 📝 docs(CHANGELOG.md): automatic update ([e24a658](https://github.com/M0rtzz/VisionVoyage/commit/e24a658))
 * 📝 docs(CHANGELOG.md): automatic update ([55437c3](https://github.com/M0rtzz/VisionVoyage/commit/55437c3))
 * 📝 docs(CHANGELOG.md): automatic update ([ae3b3f6](https://github.com/M0rtzz/VisionVoyage/commit/ae3b3f6))
@@ -227,6 +223,22 @@
 * 📝 docs(CHANGELOG.md): automatic update ([247f6b2](https://github.com/M0rtzz/VisionVoyage/commit/247f6b2))
 * 📝 docs(CHANGELOG.md): automatic update ([609087e](https://github.com/M0rtzz/VisionVoyage/commit/609087e))
 * 📝 docs(CHANGELOG.md): automatic update ([77fabd0](https://github.com/M0rtzz/VisionVoyage/commit/77fabd0))
+* 📝 docs(GET_STARTED.md): add runtime error solution ([95c3ffa](https://github.com/M0rtzz/VisionVoyage/commit/95c3ffa))
+* 📝 docs(GET_STARTED.md): add tutorial for adding image asset ([ca331f6](https://github.com/M0rtzz/VisionVoyage/commit/ca331f6))
+* 📝 docs(GET_STARTED.md): add tutorial for designing GUI ([293ccaa](https://github.com/M0rtzz/VisionVoyage/commit/293ccaa))
+* 📝 docs(GET_STARTED.md): update cmd ([56d85f7](https://github.com/M0rtzz/VisionVoyage/commit/56d85f7))
+* 📝 docs(GET_STARTED.md): update cmd ([b21e59b](https://github.com/M0rtzz/VisionVoyage/commit/b21e59b))
+* 📝 docs(GET_STARTED.md): update tutorial ([bb633cb](https://github.com/M0rtzz/VisionVoyage/commit/bb633cb))
+* 🔥 remove(GET_STARTED.md): rm a space ([7446995](https://github.com/M0rtzz/VisionVoyage/commit/7446995))
+* 🔥 remove(resources.qrc): rm blank line ([f246e2c](https://github.com/M0rtzz/VisionVoyage/commit/f246e2c))
+* 🔧 config(alipay.py): change appid to tutorial ([701313d](https://github.com/M0rtzz/VisionVoyage/commit/701313d))
+
+
+
+## 8.2.0-stable (2024-08-04)
+
+* ✨ feat: update gui ([7f096ce](https://github.com/M0rtzz/VisionVoyage/commit/7f096ce))
+* ✨ feat: update version display ([dcf198e](https://github.com/M0rtzz/VisionVoyage/commit/dcf198e))
 * 📝 docs(CHANGELOG.md): automatic update ([8aa144a](https://github.com/M0rtzz/VisionVoyage/commit/8aa144a))
 * 📝 docs(CHANGELOG.md): automatic update ([735661f](https://github.com/M0rtzz/VisionVoyage/commit/735661f))
 * 📝 docs(CHANGELOG.md): automatic update ([dcfed06](https://github.com/M0rtzz/VisionVoyage/commit/dcfed06))
@@ -235,12 +247,7 @@
 * 📝 docs(CHANGELOG.md): automatic update ([b0fcf28](https://github.com/M0rtzz/VisionVoyage/commit/b0fcf28))
 * 📝 docs(CHANGELOG.md): automatic update ([773fe89](https://github.com/M0rtzz/VisionVoyage/commit/773fe89))
 * 📝 docs(GET_STARTED.md): add install cmd ([f150ca9](https://github.com/M0rtzz/VisionVoyage/commit/f150ca9))
-* 📝 docs(GET_STARTED.md): add runtime error solution ([95c3ffa](https://github.com/M0rtzz/VisionVoyage/commit/95c3ffa))
-* 📝 docs(GET_STARTED.md): update cmd ([56d85f7](https://github.com/M0rtzz/VisionVoyage/commit/56d85f7))
-* 📝 docs(GET_STARTED.md): update cmd ([b21e59b](https://github.com/M0rtzz/VisionVoyage/commit/b21e59b))
 * 📝 docs(GET_STARTED.md): update install cmd ([93f8f5d](https://github.com/M0rtzz/VisionVoyage/commit/93f8f5d))
-* 📝 docs(GET_STARTED.md): update tutorial ([bb633cb](https://github.com/M0rtzz/VisionVoyage/commit/bb633cb))
-* 🔧 config(alipay.py): change appid to tutorial ([701313d](https://github.com/M0rtzz/VisionVoyage/commit/701313d))
 * 🔨 script: update shebang ([8df9639](https://github.com/M0rtzz/VisionVoyage/commit/8df9639))
 
 
