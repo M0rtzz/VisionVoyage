@@ -12,7 +12,7 @@
 >
 > | Name   | Major | Position                        | Main Responsibility                                          |
 > | ------ | ----- | ------------------------------- | ------------------------------------------------------------ |
-> | M0rtzz | CS    | Manager and Technical Developer | Fully responsible for the research and development of products and document writing, leading the project team, and ensuring the smooth completion of the project. |
+> | M0rtzz | CS    | Manager and Technical Developer | Fully responsible for product development and documentation, leading the team to ensure the smooth completion of the project. |
 > | \      | CS    | \                               | \                                                            |
 > | \      | CS    | \                               | \                                                            |
 > | \      | CS    | \                               | \                                                            |
