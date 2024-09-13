@@ -5,6 +5,7 @@
 
 ## <small>9.4.1-stable (2024-09-13)</small>
 
+* 📝 docs(CHANGELOG.md): automatic update ([6a7a67d](https://github.com/M0rtzz/VisionVoyage/commit/6a7a67d))
 * 📝 docs(README.md): update responsibility in the table ([2722562](https://github.com/M0rtzz/VisionVoyage/commit/2722562))
 
 
