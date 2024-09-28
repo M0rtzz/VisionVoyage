@@ -6,6 +6,7 @@
 ## 9.5.0-stable (2024-09-28)
 
 * 📝 docs: add some process docs and slides ([5344fd7](https://github.com/M0rtzz/VisionVoyage/commit/5344fd7))
+* 📝 docs(CHANGELOG.md): automatic update ([3d3f6c8](https://github.com/M0rtzz/VisionVoyage/commit/3d3f6c8))
 * 📝 docs(Productive Practice): add docs ([8ceee1c](https://github.com/M0rtzz/VisionVoyage/commit/8ceee1c))
 * 🚚 move: change path ([ed1b1ea](https://github.com/M0rtzz/VisionVoyage/commit/ed1b1ea))
 * 🚚 move: change path ([68a13e8](https://github.com/M0rtzz/VisionVoyage/commit/68a13e8))
