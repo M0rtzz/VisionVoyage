@@ -1,5 +1,6 @@
 ##  (2024-10-05)
 
+* 📝 docs(CHANGELOG.md): automatic update ([a2f56cb](https://github.com/M0rtzz/VisionVoyage/commit/a2f56cb))
 
 
 
