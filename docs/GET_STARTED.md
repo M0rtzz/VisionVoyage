@@ -40,7 +40,7 @@ sudo apt install -y sl pv pigz pdftk wmctrl libhpdf-dev libeigen3-dev libcrypto+
 sudo apt install -y libopencv-dev && sudo ln -s /usr/include/opencv4/opencv2/ /usr/include/ # 不支持CUDA和CUDNN
 
 # 以下安装clang/clang++为可选内容
-sudo tee /etc/apt/sources.list.d/llvm.list > /dev/null << EOF 
+sudo tee /etc/apt/sources.list.d/llvm.list > /dev/null << EOF
 deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/llvm-apt/focal/ llvm-toolchain-focal main
 # deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/llvm-apt/focal/ llvm-toolchain-focal main
 EOF
@@ -56,15 +56,15 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt install -y clang
 
 [博客](https://www.m0rtzz.com/posts/3#opencv-420%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97)
 
-### （1）conda创建虚拟环境
+### （1）conda 创建虚拟环境
 
->   [!CAUTION]
+> [!CAUTION]
 >
->   因`CARLA`的`Python`绑定库`whl`文件是鄙人用`CPython3.8`环境编译出来的，所以创建的虚拟环境必须是`Python3.8`：
+> 因`CARLA`的`Python`绑定库`whl`文件是鄙人用`CPython3.8`环境编译出来的，所以创建的虚拟环境必须是`Python3.8`：
 >
->   ```shell
->   conda create -n VisionVoyage python=3.8
->   ```
+> ```shell
+> conda create -n VisionVoyage python=3.8
+> ```
 
 ```shell
 conda activate VisionVoyage
@@ -79,9 +79,9 @@ conda install conda-forge::gcc=12.1.0 conda-forge::gxx=12.1.0
 python3 -m pip install lit cmake ftfy regex qrcode pygame fsspec Pillow pyside6 jmespath filelock packaging python-alipay-sdk 'lxml==4.4.1' 'onnx==1.13.0' 'scipy==1.4.1' 'pandas==1.2.0' 'seaborn==0.10.0' 'tomlkit==0.10.1' 'Twisted==22.10.0' 'matplotlib==3.2.0' 'service-identity==18.1.0' 'tqdm>=4.41.0' 'PyYAML>=5.3.1' 'pycocotools>=2.0' 'tensorboard>=2.4.1'
 ```
 
-然后安装`CUDA`版的`Pytorch`（`1.7.0≤torch≤2.1.2`，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
+然后安装`CUDA`版的`Pytorch`（`1.7.0≤torch≤2.1.2`，≥1.7.0 是[multiyolov5 库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
 
-[PyTorch官网](https://pytorch.org/get-started/previous-versions/)
+[PyTorch 官网](https://pytorch.org/get-started/previous-versions/)
 
 推荐使用南方科技大学提供的`NVIDIA`镜像`channel`（修改`~/.condarc`，同样推荐设置`env_dirs`，否则有可能虚拟环境默认在`~/.conda/envs/`中）：
 
@@ -185,7 +185,7 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 
 显示已开通后，点击开发设置：
 
-![image-20240521142246943](https://static.m0rtzz.com/images%2FYear:2024%2FMonth:05%2FDay:21%2F14:22:47_image-20240521142246943.png)
+![image-20240521142246943](https://static.m0rtzz.com/images/Year:2024/Month:05/Day:21/14:22:47_image-20240521142246943.png)
 
 创建应用并关联，创建后应该显示的是`开发中`，不是`上线`，获取到的`AppID`请妥善保存：
 
@@ -239,7 +239,7 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 > -----END RSA PRIVATE KEY-----
 > ```
 
-修改`scripts/alipy.py`中的appid为自己的：
+修改`scripts/alipy.py`中的 appid 为自己的：
 
 ```python
 class AlipayPayment:
@@ -300,7 +300,7 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 
 ## ④ Customize
 
-**设计GUI：**
+**设计 GUI：**
 
 ```shell
 conda activate VisionVoyage && QT_LOGGING_RULES='*.debug=false;qt.pysideplugin=false' pyside6-designer main.ui
@@ -366,4 +366,4 @@ conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py && c
 
 > [!NOTE]
 >
-> ***Updateing!!!***
+> **_Updateing!!!_**
