@@ -1,10 +1,17 @@
-##  (2024-10-05)
+##  (2024-10-07)
 
+
+
+
+## <small>9.5.2-stable (2024-10-07)</small>
+
+* 📸 image(GET_STARTED.md): change the url of images ([a6ac837](https://github.com/M0rtzz/VisionVoyage/commit/a6ac837))
 
 
 
 ## <small>9.5.1-stable (2024-10-05)</small>
 
+* 📝 docs(CHANGELOG.md): automatic update ([38bdb29](https://github.com/M0rtzz/VisionVoyage/commit/38bdb29))
 * 📝 docs(CHANGELOG.md): automatic update ([6889c79](https://github.com/M0rtzz/VisionVoyage/commit/6889c79))
 * 📝 docs(CHANGELOG.md): automatic update ([a2f56cb](https://github.com/M0rtzz/VisionVoyage/commit/a2f56cb))
 * 🚚 move: rename dirs and files ([33c145d](https://github.com/M0rtzz/VisionVoyage/commit/33c145d))
