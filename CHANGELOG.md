@@ -5,6 +5,7 @@
 
 ## <small>9.5.2-stable (2024-10-07)</small>
 
+* 📝 docs(CHANGELOG.md): automatic update ([adf963e](https://github.com/M0rtzz/VisionVoyage/commit/adf963e))
 * 📸 image(GET_STARTED.md): change the url of images ([a6ac837](https://github.com/M0rtzz/VisionVoyage/commit/a6ac837))
 
 
