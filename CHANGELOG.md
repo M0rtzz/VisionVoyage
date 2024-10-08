@@ -6,6 +6,7 @@
 ## <small>9.5.3-stable (2024-10-08)</small>
 
 * 🎨 style(GET_STARTED.md): modify some spaces ([054e2aa](https://github.com/M0rtzz/VisionVoyage/commit/054e2aa))
+* 📝 docs(CHANGELOG.md): automatic update ([88d4e1a](https://github.com/M0rtzz/VisionVoyage/commit/88d4e1a))
 
 
 
