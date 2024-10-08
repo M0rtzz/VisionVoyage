@@ -1,4 +1,4 @@
-# 开始：安装和运行 VisionVoyage
+# 开始：安装和运行VisionVoyage
 
 ## ① 前提
 
@@ -56,7 +56,7 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt install -y clang
 
 [博客](https://www.m0rtzz.com/posts/3#opencv-420%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97)
 
-### （1）conda 创建虚拟环境
+### （1）conda创建虚拟环境
 
 > [!CAUTION]
 >
@@ -79,9 +79,9 @@ conda install conda-forge::gcc=12.1.0 conda-forge::gxx=12.1.0
 python3 -m pip install lit cmake ftfy regex qrcode pygame fsspec Pillow pyside6 jmespath filelock packaging python-alipay-sdk 'lxml==4.4.1' 'onnx==1.13.0' 'scipy==1.4.1' 'pandas==1.2.0' 'seaborn==0.10.0' 'tomlkit==0.10.1' 'Twisted==22.10.0' 'matplotlib==3.2.0' 'service-identity==18.1.0' 'tqdm>=4.41.0' 'PyYAML>=5.3.1' 'pycocotools>=2.0' 'tensorboard>=2.4.1'
 ```
 
-然后安装`CUDA`版的`Pytorch`（`1.7.0≤torch≤2.1.2`，≥1.7.0 是[multiyolov5 库要求的](https://github.com/TomMao23/multiyolov5/blob/403db6287ab7f195931d076a2d64b1aaef9013b9/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
+然后安装`CUDA`版的`Pytorch`（`1.7.0≤torch≤2.1.2`，≥1.7.0是[multiyolov5库要求的](https://github.com/TomMao23/multiyolov5/blob/master/requirements.txt#L10)，最好装`2.0.0≤torch≤2.1.2`，更低版本鄙人没有测试过，但是更高版本经测试安装`mmcv`时会有一些奇奇怪怪的编译错误，所以才有`1.7.0≤torch≤2.1.2`这个结论【bushi），根据官网命令安装：
 
-[PyTorch 官网](https://pytorch.org/get-started/previous-versions/)
+[PyTorch官网](https://pytorch.org/get-started/previous-versions/)
 
 推荐使用南方科技大学提供的`NVIDIA`镜像`channel`（修改`~/.condarc`，同样推荐设置`env_dirs`，否则有可能虚拟环境默认在`~/.conda/envs/`中）：
 
@@ -239,7 +239,7 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 > -----END RSA PRIVATE KEY-----
 > ```
 
-修改`scripts/alipy.py`中的 appid 为自己的：
+修改`scripts/alipy.py`中的`appid`为自己的：
 
 ```python
 class AlipayPayment:
@@ -300,7 +300,7 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 
 ## ④ Customize
 
-**设计 GUI：**
+**设计GUI：**
 
 ```shell
 conda activate VisionVoyage && QT_LOGGING_RULES='*.debug=false;qt.pysideplugin=false' pyside6-designer main.ui
@@ -364,6 +364,3 @@ conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py && c
 
 [https://opendocs.alipay.com/support/07cfbk](https://opendocs.alipay.com/support/07cfbk)
 
-> [!NOTE]
->
-> **_Updateing!!!_**
