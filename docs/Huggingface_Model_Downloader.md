@@ -7,7 +7,7 @@ Considering the lack of multi-threaded download support in the official [`huggin
 - 🚀 **Multi-threaded Download**: Utilize multiple threads to speed up the download process.
 - 🚫 **File Exclusion**: Use `--exclude` or `--include` to skip or specify files, save time for models with **duplicate formats** (e.g., `*.bin` or `*.safetensors`).
 - 🔐 **Auth Support**: For gated models that require Huggingface login, use `--hf_username` and `--hf_token` to authenticate.
-- 🪞 **Mirror Site Support**: Set up with `HF_ENDPOINT` environment variable.
+- 🌐 **Mirror Site Support**: Set up with `HF_ENDPOINT` environment variable.
 - 🌍 **Proxy Support**: Set up with `HTTPS_PROXY` environment variable.
 - 📦 **Simple**: Only depend on `git`, `aria2c/wget`.
 
