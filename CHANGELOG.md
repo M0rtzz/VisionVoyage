@@ -6,6 +6,7 @@
 ## 9.6.0-stable (2024-11-21)
 
 * 📝 docs: change the image links from remote to local ([05297e6](https://github.com/M0rtzz/VisionVoyage/commit/05297e6))
+* 📝 docs(CHANGELOG.md): automatic update ([44da6e3](https://github.com/M0rtzz/VisionVoyage/commit/44da6e3))
 * 📝 docs(Huggingface_Model_Downloader.md): update emoji ([cc38bd8](https://github.com/M0rtzz/VisionVoyage/commit/cc38bd8))
 * 📸 image(.figures): add images from docs ([294db08](https://github.com/M0rtzz/VisionVoyage/commit/294db08))
 
