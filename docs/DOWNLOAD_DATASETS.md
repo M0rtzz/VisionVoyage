@@ -4,7 +4,7 @@
 
 [HuggingFace_URL](https://huggingface.co/datasets/M0rtzz/VisionVoyage/tree/main)
 
-![HuggingFace](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/14:08:33_image-20240812140828114.png)
+![HuggingFace](./.figures/DOWNLOAD_DATASETS/HuggingFace.png)
 
 可以使用[国内镜像站](https://hf-mirror.com/)：
 
@@ -59,7 +59,7 @@ rm -rf ${repo_root_dir}/.temp/
 # 设置下载工具为aria2c的线程数，默认是4
 ```
 
-![image-20240812153102687](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/15:31:02_image-20240812153102687.png)
+![download_completed](./.figures/DOWNLOAD_DATASETS/download_completed.png)
 
 因为`Cityscapes_part_1.tar`和`Cityscapes_part_2.tar`是用`split`命令拆分的，所以下载完成后需要合并一下：
 
@@ -68,7 +68,7 @@ cd datasets/ && ls -a ./
 pv Cityscapes_part_*.tar > Cityscapes.tar && rm Cityscapes_part_*.tar
 ```
 
-![image-20240812154708590](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/15:47:08_image-20240812154708590.png)
+![ls](./.figures/DOWNLOAD_DATASETS/ls.png)
 
 之后解压：
 
@@ -76,7 +76,7 @@ pv Cityscapes_part_*.tar > Cityscapes.tar && rm Cityscapes_part_*.tar
 pv Cityscapes.tar | pigz -d | tar xf - && pv WoodScape.tar | pigz -d | tar xf - && rm -f *.tar
 ```
 
-![image-20240812155708816](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/15:57:08_image-20240812155708816.png)
+![pigz](./.figures/DOWNLOAD_DATASETS/pigz.png)
 
 ## 2.BaiDuNetDisk (Inside the GFW)
 

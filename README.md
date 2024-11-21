@@ -1,8 +1,8 @@
 # VisionVoyage
 
-![IngenuityDrive](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:15/14:23:37_IngenuityDrive.png)
+![IngenuityDrive](./docs/.figures/README/IngenuityDrive.png)
 
-![VisionVoyage](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:15/13:54:06_VisionVoyage.png)
+![VisionVoyage](./docs/.figures/README/VisionVoyage.png)
 
 > This project is associated with the courses `Basis of Innovation and Entrepreneurship ＆ Engineering Design Practice (创新创业基础与工程设计实践)`  and `Productive Practice (生产实习)` of the CS major at ZZU.
 >
@@ -24,7 +24,7 @@
 > - Mosaic of fisheye images from multiple standard images
 > - Semantic segmentation of fisheye (e.g., [WoodScape](https://woodscape.valeo.com/woodscape)) and standard (e.g., [Cityscapes](https://www.cityscapes-dataset.com)) images in street scenes
 > - Semantic segmentation of video in street scenes (such as videos stitched from [continuous datasets published by Cityscapes](https://www.cityscapes-dataset.com/downloads))
->   -  ![Cityscapes](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:15/17:24:53_Cityscapes.png)
+>   -  ![Cityscapes](./docs/.figures/README/Cityscapes.png)
 >
 > - Simulated driving
 > - Autonomous driving simulation

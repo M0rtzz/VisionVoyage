@@ -6,7 +6,7 @@
 
 推荐环境为`Ubuntu20.04.6 LTS`，需要`NVIDIA`的`GPU`。
 
-![image-20240812230954056](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/23:09:59_image-20240812230954056.png)
+![fastfetch](./.figures/GET_STARTED/fastfetch.png)
 
 安装`git-lfs`：
 
@@ -26,7 +26,7 @@ GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoya
 git-lfs pull
 ```
 
-![image-20240812192405100](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:12/19:24:10_image-20240812192405100.png)
+![git-lfs_pull](./.figures/GET_STARTED/git-lfs_pull.png)
 
 ---
 
@@ -54,7 +54,7 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt install -y clang
 
 如果需要编译安装`CUDA`和`CUDNN`支持的`OpenCV`，可参考鄙人的博客:
 
-[博客](https://www.m0rtzz.com/posts/3#opencv-420%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97)
+[博客](https://www.m0rtzz.com/posts/3#cmake命令)
 
 ### （1）conda创建虚拟环境
 
@@ -90,21 +90,31 @@ channels:
   - defaults
 show_channel_urls: true
 default_channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2/
 custom_channels:
-  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  numba: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  pyviz: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  omnia: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  ohmeta: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  plotly: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  fastai: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  caffe2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  Paddle: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  dglteam: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  rapidsai: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  MindSpore: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  pytorch3d: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  pytorch-test: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  nvidia: https://mirrors.sustech.edu.cn/anaconda-extra/cloud/
 
 envs_dirs:
   - /home/m0rtzz/Programs/anaconda3/envs
@@ -159,65 +169,65 @@ cd server/VisionVoyageServer/PythonAPI/carla/dist/ && conda activate VisionVoyag
 
 点击之后使用支付宝`APP`扫码或者使用账号密码登录，然后开通此产品：
 
-![image-20240804152418499](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:24:23_image-20240804152418499.png)
+![alipay_1](./.figures/GET_STARTED/alipay_1.png)
 
 经营类目选择`零售批发、杂货店`：
 
-![image-20240804152715438](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:27:15_image-20240804152715438.png)
+![alipay_2](./.figures/GET_STARTED/alipay_2.png)
 
 营业执照不上传：
 
-![image-20240804152806391](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:28:06_image-20240804152806391.png)
+![alipay_3](./.figures/GET_STARTED/alipay_3.png)
 
 > [!WARNING]
 >
-> ![image-20240804153843474](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:38:43_image-20240804153843474.png)
+> ![alipay_4](./.figures/GET_STARTED/alipay_4.png)
 
 店铺名字和图片可以去网上找一张旧照片，地址随意填一个：
 
-![image-20240804153951004](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:39:51_image-20240804153951004.png)
+![alipay_5](./.figures/GET_STARTED/alipay_5.png)
 
 填写姓名和手机接收到的验证码：
 
-![image-20240804154137883](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:41:37_image-20240804154137883.png)
+![alipay_6](./.figures/GET_STARTED/alipay_6.png)
 
-![image-20240804154235792](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:42:35_image-20240804154235792.png)
+![alipay_7](./.figures/GET_STARTED/alipay_7.png)
 
 显示已开通后，点击开发设置：
 
-![image-20240521142246943](https://static.m0rtzz.com/images/Year:2024/Month:05/Day:21/14:22:47_image-20240521142246943.png)
+![alipay_8](./.figures/GET_STARTED/alipay_8.png)
 
 创建应用并关联，创建后应该显示的是`开发中`，不是`上线`，获取到的`AppID`请妥善保存：
 
-![image-20240804164036661](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:40:36_image-20240804164036661.png)
+![alipay_9](./.figures/GET_STARTED/alipay_9.png)
 
 进入下面的网站开通：
 
 [https://openhome.alipay.com/platform/appManage.htm#/apps](https://openhome.alipay.com/platform/appManage.htm#/apps)
 
-![image-20240804164003553](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:40:03_image-20240804164003553.png)
+![alipay_10](./.figures/GET_STARTED/alipay_10.png)
 
 此步骤的支付宝开放平台密钥工具官方只提供了`Windows`和`Mac OS`的版本：
 
-![image-20240804155735037](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/15:57:35_image-20240804155735037.png)
+![alipay_11](./.figures/GET_STARTED/alipay_11.png)
 
-![image-20240804160041005](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:00:41_image-20240804160041005.png)
+![alipay_12](./.figures/GET_STARTED/alipay_12.png)
 
-![image-20240804160724762](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:07:31_image-20240804160724762.png)
+![alipay_13](./.figures/GET_STARTED/alipay_13.png)
 
 获取到的应用私钥请妥善保存：
 
-![image-20240804160947394](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:09:47_image-20240804160947394.png)
+![alipay_14](./.figures/GET_STARTED/alipay_14.png)
 
-![image-20240804161036395](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:10:36_image-20240804161036395.png)
+![alipay_15](./.figures/GET_STARTED/alipay_15.png)
 
 上传后获取到的支付宝公钥请妥善保存：
 
-![image-20240804161218381](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:12:18_image-20240804161218381.png)
+![alipay_16](./.figures/GET_STARTED/alipay_16.png)
 
 之后提交审核，审核完成后，应用状态将变为`上线`，此时将可以正常使用付费功能：
 
-![image-20240804164108248](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/16:41:08_image-20240804164108248.png)
+![alipay_17](./.figures/GET_STARTED/alipay_17.png)
 
 获取秘钥之后在`certs/`下创建`alipay_public_key.pem`和`app_private_key.pem`，分别对应支付宝公钥和应用私钥。
 
@@ -270,7 +280,7 @@ class AlipayPayment:
 conda activate VisionVoyage && sudo chmod +x ./setup.sh && ./setup.sh
 ```
 
-![image-20240811174253243](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:11/17:42:58_image-20240811174253243.png)
+![setup](./.figures/GET_STARTED/setup.png)
 
 全部修改完成之后，编译`C++`源程序：
 
@@ -284,7 +294,7 @@ cd scripts/ && make
 sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.sh
 ```
 
-![image-20240430150536547](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:05:36_image-20240430150536547.png)
+![desktop](./.figures/GET_STARTED/desktop.png)
 
 ## ③ 运行
 
@@ -296,7 +306,7 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 
 双击桌面图标（右键设置为允许启动）
 
-![image-20240430151406177](https://static.m0rtzz.com/images/Year:2024/Month:04/Day:30/15:14:11_image-20240430151406177.png)
+![GUI](./.figures/GET_STARTED/GUI.png)
 
 ## ④ Customize
 
@@ -306,15 +316,15 @@ sudo chmod +x scripts/*.py scripts/*.sh scripts/*.out && ./scripts/init_desktop.
 conda activate VisionVoyage && QT_LOGGING_RULES='*.debug=false;qt.pysideplugin=false' pyside6-designer main.ui
 ```
 
-![image-20240804185843168](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:04/18:58:43_image-20240804185843168.png)
+![customize_1](./.figures/GET_STARTED/customize_1.png)
 
 修改之后首先`Ctrl + S`保存`main.ui`文件，之后点击：
 
-![image-20240806173718025](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:37:18_image-20240806173718025.png)
+![customize_2](./.figures/GET_STARTED/customize_2.png)
 
 将`Python`代码复制下来（绿色框）或者保存（红色框）覆盖`modules/ui_main.py`：
 
-![image-20240806173852946](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/17:38:53_image-20240806173852946.png)
+![customize_3](./.figures/GET_STARTED/customize_3.png)
 
 或（保存`main.ui`文件之后）：
 
@@ -352,15 +362,14 @@ conda activate VisionVoyage && pyside6-rcc resources.qrc -o resources_rc.py && c
 
 ### 支付接口
 
-![image-20240806144820760](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/14:48:20_image-20240806144820760.png)
+![error_1](./.figures/GET_STARTED/error_1.png)
 
 **解决办法：**
 
 电脑端登入[商家平台](http://b.alipay.com/)，点击右上角【铃铛】后，在【系统通知】中查看对应通知内容，并点击进入操作补全。
 
-![image-20240806150115646](https://static.m0rtzz.com/images/Year:2024/Month:08/Day:06/15:01:15_image-20240806150115646.png)
+![error_2](./.figures/GET_STARTED/error_2.png)
 
-**Reference：**
-
-[https://opendocs.alipay.com/support/07cfbk](https://opendocs.alipay.com/support/07cfbk)
-
+> **Reference：**
+>
+> [https://opendocs.alipay.com/support/07cfbk](https://opendocs.alipay.com/support/07cfbk)
