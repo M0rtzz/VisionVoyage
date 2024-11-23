@@ -20,7 +20,7 @@ sudo apt update -y && sudo apt install -y git-lfs
 GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoyage.git VisionVoyage && cd VisionVoyage/ && git-lfs install
 ```
 
-拉取预训练权重：
+拉取视频和预训练权重：
 
 ```shell
 git-lfs pull
