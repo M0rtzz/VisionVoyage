@@ -5,6 +5,7 @@
 
 ## <small>9.6.1-stable (2024-11-23)</small>
 
+* 📝 docs(CHANGELOG.md): automatic update ([66ce28e](https://github.com/M0rtzz/VisionVoyage/commit/66ce28e))
 * 📝 docs(CHANGELOG.md): automatic update ([5f15dcd](https://github.com/M0rtzz/VisionVoyage/commit/5f15dcd))
 * 📝 docs(GET_STARTED.md): update cmd ([e28afa1](https://github.com/M0rtzz/VisionVoyage/commit/e28afa1))
 * 🔥 remove: rm unused image file ([2ec1b6a](https://github.com/M0rtzz/VisionVoyage/commit/2ec1b6a))
