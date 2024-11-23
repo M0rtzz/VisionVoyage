@@ -11,13 +11,13 @@
 安装`git-lfs`：
 
 ```shell
-sudo apt update -y && sudo apt install -y git-lfs && git-lfs install
+sudo apt update -y && sudo apt install -y git-lfs
 ```
 
-克隆本项目：
+克隆本项目并配置`git-lfs`：
 
 ```shell
-GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoyage.git VisionVoyage && cd VisionVoyage/
+GIT_LFS_SKIP_SMUDGE=1 git clone --recursive https://github.com/M0rtzz/VisionVoyage.git VisionVoyage && cd VisionVoyage/ && git-lfs install
 ```
 
 拉取预训练权重：
