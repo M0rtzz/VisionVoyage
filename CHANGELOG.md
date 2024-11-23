@@ -5,6 +5,8 @@
 
 ## <small>9.6.1-stable (2024-11-23)</small>
 
+* 💬 text(GET_STARTED.md): add description ([8aebba0](https://github.com/M0rtzz/VisionVoyage/commit/8aebba0))
+* 📝 docs(CHANGELOG.md): automatic update ([2891ee3](https://github.com/M0rtzz/VisionVoyage/commit/2891ee3))
 * 📝 docs(CHANGELOG.md): automatic update ([66ce28e](https://github.com/M0rtzz/VisionVoyage/commit/66ce28e))
 * 📝 docs(CHANGELOG.md): automatic update ([5f15dcd](https://github.com/M0rtzz/VisionVoyage/commit/5f15dcd))
 * 📝 docs(GET_STARTED.md): update cmd ([e28afa1](https://github.com/M0rtzz/VisionVoyage/commit/e28afa1))
