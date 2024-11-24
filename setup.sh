@@ -17,25 +17,6 @@ function onCtrlC() {
     exit
 }
 
-function modifyUE4Path() {
-    local file="./scripts/VisionVoyageServer.sh"
-    local new_path
-
-    # 提示用户输入新的路径
-    echo "请输入您的 \`VisionVoyageServer/文件夹的\` 路径（例如：/home/m0rtzz/Programs/VisionVoyageServer）："
-    read new_path
-
-    new_path=$(realpath "${new_path}")
-
-    # 使用 sed 进行替换，注意使用双引号以正确处理包含空格的路径
-    sed -i "s|^UE4_PROJECT_ROOT=.*|UE4_PROJECT_ROOT=\"${new_path}\"|" "${file}" || {
-        _echoError "替换失败，请手动修改文件 ${file} 中的路径"
-        exit 1
-    }
-
-    _echoSuccess "已替换文件 '${file}' 的 \`UE4_PROJECT_ROOT\`为 '${new_path}'"
-}
-
 function modifyInterpreterPath() {
     local file_paths=("$@") # 将参数作为文件路径数组
 
