@@ -23,19 +23,13 @@ function modifyInterpreterPath() {
     # env_path=$(python3 -c 'import os, sys; print(os.path.join(sys.prefix, "bin/python3"))')
     env_path=$(python3 -c 'import sys; print(sys.executable)')
 
-    local replacement="#!${env_path}" # 替换为的新内容
+    local replacement="#!${env_path}"
 
     for file in "${file_paths[@]}"; do
-        if [ -f "${file}" ]; then     # 检查文件是否存在
-            if [ -s "${file}" ]; then # 检查文件是否非空
-                # 临时保存第一行以外的内容
-                old_first_line=$(head -n 1 "${file}")
-                rest_of_file=$(tail -n +2 "${file}")
-
-                # 将新的第一行内容和剩余内容重定向回原文件
-                echo "${replacement}" >"${file}"
-                echo "${rest_of_file}" >>"${file}"
-                _echoSuccess "已替换文件 '${file}' 的SheBang为 '${replacement}'"
+        if [ -f "${file}" ]; then
+            if [ -s "${file}" ]; then
+                sed -i "1s|^#!.*|${replacement}|" "${file}"
+                _echoSuccess "已替换文件 '${file}' 的 SheBang 为 '${replacement}'"
             else
                 _echoError "文件 '${file}' 为空，跳过替换操作"
             fi
@@ -52,10 +46,8 @@ function confirmAndModify() {
     echo "请确认是否继续（按回车键继续，按 \`Ctrl+C\` 取消）："
     read -r
 
-    # modifyUE4Path
     modifyInterpreterPath "${file_paths[@]}"
 }
-
 
 trap 'onCtrlC' INT
 
