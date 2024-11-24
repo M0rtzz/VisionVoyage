@@ -7,6 +7,7 @@
 
 * ♻️ refactor(setup.sh): use `sed` instead of `head` & `tail` ([c683437](https://github.com/M0rtzz/VisionVoyage/commit/c683437))
 * ⚰️ bury(setup.sh): bury unused function ([6375a72](https://github.com/M0rtzz/VisionVoyage/commit/6375a72))
+* 📝 docs(CHANGELOG.md): automatic update ([9d1da0c](https://github.com/M0rtzz/VisionVoyage/commit/9d1da0c))
 * 📝 docs(CHANGELOG.md): automatic update ([4c74abb](https://github.com/M0rtzz/VisionVoyage/commit/4c74abb))
 * 📝 docs(CHANGELOG.md): automatic update ([50d2cc5](https://github.com/M0rtzz/VisionVoyage/commit/50d2cc5))
 * 📝 docs(CHANGELOG.md): automatic update ([fa6b018](https://github.com/M0rtzz/VisionVoyage/commit/fa6b018))
