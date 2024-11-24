@@ -1,11 +1,19 @@
-##  (2024-11-23)
+##  (2024-11-24)
 
+
+
+
+## <small>9.6.2-stable (2024-11-24)</small>
+
+* ♻️ refactor(use `sed` instead of `head` \& `tail`): ([9288c4e](https://github.com/M0rtzz/VisionVoyage/commit/9288c4e))
+* ⚰️ bury(setup.sh): bury unused function ([6375a72](https://github.com/M0rtzz/VisionVoyage/commit/6375a72))
 
 
 
 ## <small>9.6.1-stable (2024-11-23)</small>
 
 * 💬 text(GET_STARTED.md): add description ([8aebba0](https://github.com/M0rtzz/VisionVoyage/commit/8aebba0))
+* 📝 docs(CHANGELOG.md): automatic update ([88a941b](https://github.com/M0rtzz/VisionVoyage/commit/88a941b))
 * 📝 docs(CHANGELOG.md): automatic update ([9ba126c](https://github.com/M0rtzz/VisionVoyage/commit/9ba126c))
 * 📝 docs(CHANGELOG.md): automatic update ([69ad61f](https://github.com/M0rtzz/VisionVoyage/commit/69ad61f))
 * 📝 docs(CHANGELOG.md): automatic update ([2b51544](https://github.com/M0rtzz/VisionVoyage/commit/2b51544))
