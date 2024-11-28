@@ -5,9 +5,14 @@
 
 ## <small>9.6.3-stable (2024-11-28)</small>
 
+* 📝 docs(CHANGELOG.md): automatic update ([42bc4cc](https://github.com/M0rtzz/VisionVoyage/commit/42bc4cc))
+* 📝 docs(CHANGELOG.md): automatic update ([0019782](https://github.com/M0rtzz/VisionVoyage/commit/0019782))
+* 📝 docs(CHANGELOG.md): automatic update ([ac9578a](https://github.com/M0rtzz/VisionVoyage/commit/ac9578a))
 * 📝 docs(CHANGELOG.md): automatic update ([8840642](https://github.com/M0rtzz/VisionVoyage/commit/8840642))
 * 📝 docs(CHANGELOG.md): automatic update ([620a6e2](https://github.com/M0rtzz/VisionVoyage/commit/620a6e2))
+* 🔥 remove: rm unused file ([409cbce](https://github.com/M0rtzz/VisionVoyage/commit/409cbce))
 * 🚑️ hotfix: fix the bug of file extension ([005226f](https://github.com/M0rtzz/VisionVoyage/commit/005226f))
+* 🚚 move: rename file ([4254de4](https://github.com/M0rtzz/VisionVoyage/commit/4254de4))
 
 
 
