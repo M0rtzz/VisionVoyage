@@ -1,11 +1,12 @@
 ##  (2024-11-28)
 
-* 📝 docs(CHANGELOG.md): automatic update ([620a6e2](https://github.com/M0rtzz/VisionVoyage/commit/620a6e2))
 
 
 
 ## <small>9.6.3-stable (2024-11-28)</small>
 
+* 📝 docs(CHANGELOG.md): automatic update ([8840642](https://github.com/M0rtzz/VisionVoyage/commit/8840642))
+* 📝 docs(CHANGELOG.md): automatic update ([620a6e2](https://github.com/M0rtzz/VisionVoyage/commit/620a6e2))
 * 🚑️ hotfix: fix the bug of file extension ([005226f](https://github.com/M0rtzz/VisionVoyage/commit/005226f))
 
 
