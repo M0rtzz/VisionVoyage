@@ -568,13 +568,13 @@ class MainWindow(QMainWindow):
             file_dialog.setFileMode(QFileDialog.ExistingFiles)
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog
-            filter = "文件 (*.txt *.pdf)"
+            filter = "文件 (*.log *.pdf)"
             files, _ = file_dialog.getOpenFileNames(
                 None, "选择文本或PDF文件", "./logs", filter, options=options)
-            terminal_command_1 = "./scripts/txt2pdf.out " + " ".join(files)
+            terminal_command_1 = "./scripts/log2pdf.out " + " ".join(files)
             os.system(terminal_command_1)
-            print_files = set(file.replace(".txt", ".pdf") if file.endswith(
-                ".txt") else file.replace(".pdf", ".pdf") for file in files)
+            print_files = set(file.replace(".log", ".pdf") if file.endswith(
+                ".log") else file.replace(".pdf", ".pdf") for file in files)
             terminal_command_2 = "pdftk " + " ".join(print_files) + " cat output - | lpr"
             os.system(terminal_command_2)
 

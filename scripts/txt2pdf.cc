@@ -227,8 +227,8 @@ int main(int argc, char *argv[])
     {
         fs::path input_path(argv[i]);
 
-        // 判断文件扩展名是否为 .txt
-        if (input_path.extension() != ".txt")
+        // 判断文件扩展名是否为 .log
+        if (input_path.extension() != ".log")
         {
             continue;
         }
