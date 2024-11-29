@@ -45,7 +45,7 @@ string getFormattedTimestamp()
 }
 
 /**
- * @brief 将文本文档转换为 PDF, 里面参数测试了很长时间, 懒得再测了
+ * @brief 将日志文件转换为 PDF, 里面参数测试了很长时间, 懒得再测了
  * @param  input_file_path
  * @param  output_pdf_path
  * @return true
