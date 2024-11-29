@@ -6,6 +6,7 @@
 ## <small>9.6.4-stable (2024-11-29)</small>
 
 * 💬 text: update text ([eafff5b](https://github.com/M0rtzz/VisionVoyage/commit/eafff5b))
+* 📝 docs(CHANGELOG.md): automatic update ([0ce937a](https://github.com/M0rtzz/VisionVoyage/commit/0ce937a))
 * 📝 docs(CHANGELOG.md): automatic update ([911bc4f](https://github.com/M0rtzz/VisionVoyage/commit/911bc4f))
 
 
