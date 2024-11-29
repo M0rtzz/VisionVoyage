@@ -1,5 +1,12 @@
-##  (2024-11-28)
+##  (2024-11-29)
 
+
+
+
+## <small>9.6.4-stable (2024-11-29)</small>
+
+* 💬 text: update text ([eafff5b](https://github.com/M0rtzz/VisionVoyage/commit/eafff5b))
+* 📝 docs(CHANGELOG.md): automatic update ([911bc4f](https://github.com/M0rtzz/VisionVoyage/commit/911bc4f))
 
 
 
@@ -99,11 +106,14 @@
 
 * 📝 docs(CHANGELOG.md): automatic update ([1c2190a](https://github.com/M0rtzz/VisionVoyage/commit/1c2190a))
 * 📝 docs(CHANGELOG.md): automatic update ([6a7a67d](https://github.com/M0rtzz/VisionVoyage/commit/6a7a67d))
+* 📝 docs(CHANGELOG.md): automatic update ([0174361](https://github.com/M0rtzz/VisionVoyage/commit/0174361))
+* 📝 docs(CHANGELOG.md): automatic update ([860e89a](https://github.com/M0rtzz/VisionVoyage/commit/860e89a))
+* 📝 docs(GET_STARTED.md): update blog url ([cbfa54e](https://github.com/M0rtzz/VisionVoyage/commit/cbfa54e))
 * 📝 docs(README.md): update responsibility in the table ([2722562](https://github.com/M0rtzz/VisionVoyage/commit/2722562))
 
 
 
-## 9.4.0-stable (2024-08-31)
+## 9.4.0-stable (2024-08-29)
 
 * ⚰️ bury: bury unused comments ([fa69f89](https://github.com/M0rtzz/VisionVoyage/commit/fa69f89))
 * ⚰️ bury: bury unused comments ([2b97c53](https://github.com/M0rtzz/VisionVoyage/commit/2b97c53))
@@ -114,8 +124,6 @@
 * 🎨 style(.gitattributes): format code ([eb57a72](https://github.com/M0rtzz/VisionVoyage/commit/eb57a72))
 * 💄 ui: update version display ([0f106b5](https://github.com/M0rtzz/VisionVoyage/commit/0f106b5))
 * 💡 comment(main.py): update and bury comments ([4f0a393](https://github.com/M0rtzz/VisionVoyage/commit/4f0a393))
-* 📝 docs(CHANGELOG.md): automatic update ([0174361](https://github.com/M0rtzz/VisionVoyage/commit/0174361))
-* 📝 docs(CHANGELOG.md): automatic update ([860e89a](https://github.com/M0rtzz/VisionVoyage/commit/860e89a))
 * 📝 docs(CHANGELOG.md): automatic update ([c85d662](https://github.com/M0rtzz/VisionVoyage/commit/c85d662))
 * 📝 docs(CHANGELOG.md): automatic update ([d9bcefd](https://github.com/M0rtzz/VisionVoyage/commit/d9bcefd))
 * 📝 docs(CHANGELOG.md): automatic update ([67ea8aa](https://github.com/M0rtzz/VisionVoyage/commit/67ea8aa))
@@ -125,7 +133,6 @@
 * 📝 docs(CHANGELOG.md): automatic update ([92d61cd](https://github.com/M0rtzz/VisionVoyage/commit/92d61cd))
 * 📝 docs(CHANGELOG.md): automatic update ([88a28d4](https://github.com/M0rtzz/VisionVoyage/commit/88a28d4))
 * 📝 docs(DOWNLOAD_DATASETS.md): add cmd to get the root dir of the git repo ([7a58518](https://github.com/M0rtzz/VisionVoyage/commit/7a58518))
-* 📝 docs(GET_STARTED.md): update blog url ([cbfa54e](https://github.com/M0rtzz/VisionVoyage/commit/cbfa54e))
 * 📝 docs(README.md): add runtime dependency ([b080800](https://github.com/M0rtzz/VisionVoyage/commit/b080800))
 * 🙈 ignore(.gitignore): rm non-existent file ([91d2b93](https://github.com/M0rtzz/VisionVoyage/commit/91d2b93))
 
@@ -148,12 +155,17 @@
 * 📝 docs(CHANGELOG.md): automatic update ([b53da5e](https://github.com/M0rtzz/VisionVoyage/commit/b53da5e))
 * 📝 docs(CHANGELOG.md): automatic update ([f039652](https://github.com/M0rtzz/VisionVoyage/commit/f039652))
 * 📝 docs(CHANGELOG.md): automatic update ([66c90fb](https://github.com/M0rtzz/VisionVoyage/commit/66c90fb))
+* 📝 docs(CHANGELOG.md): automatic update ([7871627](https://github.com/M0rtzz/VisionVoyage/commit/7871627))
+* 📝 docs(CHANGELOG.md): automatic update ([414b611](https://github.com/M0rtzz/VisionVoyage/commit/414b611))
+* 📝 docs(CHANGELOG.md): automatic update ([ac96022](https://github.com/M0rtzz/VisionVoyage/commit/ac96022))
+* 📝 docs(CHANGELOG.md): automatic update ([8970119](https://github.com/M0rtzz/VisionVoyage/commit/8970119))
 * 📝 docs(DEMONSTRATION.md): change image name ([ca5afd9](https://github.com/M0rtzz/VisionVoyage/commit/ca5afd9))
 * 📝 docs(DOWNLOAD_VISIONVOYAGE_SERVER.md): update download url ([88230e4](https://github.com/M0rtzz/VisionVoyage/commit/88230e4))
 * 📝 docs(GET_STARTED.md): add cmd to install clang/clang++ ([ccd92f3](https://github.com/M0rtzz/VisionVoyage/commit/ccd92f3))
 * 📝 docs(GET_STARTED.md): update cmd ([194bc5f](https://github.com/M0rtzz/VisionVoyage/commit/194bc5f))
 * 📝 docs(GET_STARTED.md): update file name ([f64c493](https://github.com/M0rtzz/VisionVoyage/commit/f64c493))
 * 📝 docs(README.md): add description of public and private key ([7836778](https://github.com/M0rtzz/VisionVoyage/commit/7836778))
+* 📝 docs(README.md): update company positions table ([1cb0cc5](https://github.com/M0rtzz/VisionVoyage/commit/1cb0cc5))
 * 🧱 chore(Makefile): use clang/clang++ when they exist, otherwise use gcc/g++ ([a11b997](https://github.com/M0rtzz/VisionVoyage/commit/a11b997))
 * 🚚 move: change fonts file path ([11a64ce](https://github.com/M0rtzz/VisionVoyage/commit/11a64ce))
 * 🚚 move: change theme file path ([ae65295](https://github.com/M0rtzz/VisionVoyage/commit/ae65295))
@@ -164,15 +176,11 @@
 
 
 
-## 9.2.0-stable (2024-08-19)
+## 9.2.0-stable (2024-08-15)
 
 * 💡 comment: update comment ([bf2f9c2](https://github.com/M0rtzz/VisionVoyage/commit/bf2f9c2))
 * 📝 docs: update cmd and introduction ([5192dbe](https://github.com/M0rtzz/VisionVoyage/commit/5192dbe))
 * 📝 docs: update introduction ([b2c7aa7](https://github.com/M0rtzz/VisionVoyage/commit/b2c7aa7))
-* 📝 docs(CHANGELOG.md): automatic update ([7871627](https://github.com/M0rtzz/VisionVoyage/commit/7871627))
-* 📝 docs(CHANGELOG.md): automatic update ([414b611](https://github.com/M0rtzz/VisionVoyage/commit/414b611))
-* 📝 docs(CHANGELOG.md): automatic update ([ac96022](https://github.com/M0rtzz/VisionVoyage/commit/ac96022))
-* 📝 docs(CHANGELOG.md): automatic update ([8970119](https://github.com/M0rtzz/VisionVoyage/commit/8970119))
 * 📝 docs(CHANGELOG.md): automatic update ([56896d3](https://github.com/M0rtzz/VisionVoyage/commit/56896d3))
 * 📝 docs(CHANGELOG.md): automatic update ([a34f9fe](https://github.com/M0rtzz/VisionVoyage/commit/a34f9fe))
 * 📝 docs(CHANGELOG.md): automatic update ([ef6cd88](https://github.com/M0rtzz/VisionVoyage/commit/ef6cd88))
@@ -180,7 +188,6 @@
 * 📝 docs(CHANGELOG.md): automatic update ([3bf391c](https://github.com/M0rtzz/VisionVoyage/commit/3bf391c))
 * 📝 docs(CHANGELOG.md): automatic update ([87abd32](https://github.com/M0rtzz/VisionVoyage/commit/87abd32))
 * 📝 docs(README.md): add image ([f376097](https://github.com/M0rtzz/VisionVoyage/commit/f376097))
-* 📝 docs(README.md): update company positions table ([1cb0cc5](https://github.com/M0rtzz/VisionVoyage/commit/1cb0cc5))
 * 🚨 lint: fix the pixmap issue and update version display ([97b9588](https://github.com/M0rtzz/VisionVoyage/commit/97b9588))
 
 
