@@ -1,5 +1,13 @@
-##  (2024-11-29)
+##  (2024-12-14)
 
+
+
+
+## <small>9.6.5-stable (2024-12-14)</small>
+
+* 🎨 style(init_desktop.sh): format code ([00e6bc0](https://github.com/M0rtzz/VisionVoyage/commit/00e6bc0))
+* 💡 comment: update comments ([20669f4](https://github.com/M0rtzz/VisionVoyage/commit/20669f4))
+* 📝 docs(CHANGELOG.md): automatic update ([516c796](https://github.com/M0rtzz/VisionVoyage/commit/516c796))
 
 
 
