@@ -8,7 +8,7 @@ import cv2
 import argparse
 
 
-def get_spherical_coordinates(FishSize):
+def getSphericalCoordinates(FishSize):
     """
     基于输出图像的尺寸，确定输出图像上每个点的极坐标(r, phi)
     Finds spherical coordinates on the output image
@@ -20,21 +20,21 @@ def get_spherical_coordinates(FishSize):
     center = int(FishSize/2)
     cc = (center, center)
 
-    y = np.arange(0, FishSize, 1)  # 返回一个有终点和起点的固定步长的排列（等差数组）
+    y = np.arange(0, FishSize, 1)
     x = np.arange(0, FishSize, 1)
 
-    xx, yy = np.meshgrid(y, x)  # 将y、x中每个数据排列组合生成多个点，将各个点的x坐标放入xx中，y坐标放入yy中
+    xx, yy = np.meshgrid(y, x)  # 将 y、x 中每个数据排列组合生成多个点，将各个点的x坐标放入xx中，y 坐标放入 yy 中
 
-    bias = np.ones((FishSize, FishSize))*cc[0]  # 生成元素全为cc[0]的矩阵
+    bias = np.ones((FishSize, FishSize))*cc[0]  # 全为 cc[0] 的矩阵
 
-    xx = np.subtract(xx, bias)  # 将横坐标范围从0~output_height变为+-output_height/2
+    xx = np.subtract(xx, bias)  # 将横坐标范围从 0~output_height 变为 +-output_height/2
     yy = np.subtract(yy, bias)
     xx = np.divide(xx, bias)     # 横纵坐标标准化
     xx[:, -1] = 1
     yy = np.divide(yy, -bias)
     yy[-1, :] = -1
 
-    r = np.sqrt(xx**2 + yy**2)  # 每个点的极坐标距离，并消除距离大于1的点
+    r = np.sqrt(xx**2 + yy**2)  # 每个点的极坐标距离，并消除距离大于 1 的点
     r[r > 1] = np.nan
     r[r < 0] = 0
 
@@ -47,7 +47,7 @@ def get_spherical_coordinates(FishSize):
     return r, phi
 
 
-def spherical_to_cartesian(r, phi, fov):
+def spherical2cartesian(r, phi, fov):
     """
     Transforms spherical coordinates to cartesian
     :param r: matrix with computed pixel heights
@@ -63,7 +63,7 @@ def spherical_to_cartesian(r, phi, fov):
     return x, y, z
 
 
-def get_face(x, y, z):
+def getFace(x, y, z):
     """
     根据三维笛卡尔坐标，确定该点位于立方体哪个表面上
     Finds which face of a cube map a 3D vector with origin
@@ -74,7 +74,7 @@ def get_face(x, y, z):
 
     max_axis = max(abs(x), abs(y), abs(z))
 
-    if math.isclose(max_axis, abs(x)):  # math.isclose 两个数是否绝对/相对接近
+    if math.isclose(max_axis, abs(x)):  # 两个数是否绝对/相对接近
         return 'right' if x < 0 else 'left'
     elif math.isclose(max_axis, abs(y)):
         return 'bottom' if y < 0 else 'top'
@@ -82,7 +82,7 @@ def get_face(x, y, z):
         return 'back' if z < 0 else 'front'
 
 
-def raw_face_coordinates(face, x, y, z):
+def rawFaceCoordinates(face, x, y, z):
     """
     Finds u,v coordinates (image coordinates) for a given
     3D vector
@@ -120,7 +120,7 @@ def raw_face_coordinates(face, x, y, z):
     return (u/ma + 1)/2, (v/ma + 1)/2
 
 
-def normalized_coordinates(face, x, y, PicSize):
+def normalizedCoordinates(face, x, y, PicSize):
     """
     Finds coordinates on the 2D cube map image of a 3D
     vector
@@ -129,7 +129,7 @@ def normalized_coordinates(face, x, y, PicSize):
     :param n: tiles size
     :return: coordinates on the 2D cube map image
     """
-    # 首先获取该表面的原点坐标
+    # 该表面的原点坐标
     face_origin = {
         'left': (0, PicSize),
         'front': (PicSize, PicSize),
@@ -140,7 +140,7 @@ def normalized_coordinates(face, x, y, PicSize):
     }
     tile_origin_coords = face_origin.get(face)
 
-    tile_x = math.floor(x*PicSize)    # math.floor 向下取整函数
+    tile_x = math.floor(x*PicSize)    # 向下取整
     tile_y = math.floor(y*PicSize)
 
     if tile_x < 0:
@@ -169,26 +169,26 @@ def cube2fisheye(picture_group, PicSize, FishSize, FOV):
 
     fisheye_picture = np.zeros((FishSize, FishSize, 3))
     fov = FOV*np.pi/180
-    r, phi = get_spherical_coordinates(FishSize)
-    x, y, z = spherical_to_cartesian(r, phi, fov)
+    r, phi = getSphericalCoordinates(FishSize)
+    x, y, z = spherical2cartesian(r, phi, fov)
 
     for row in range(0, FishSize):
         for column in range(0, FishSize):
-            if np.isnan(r[row, column]):    # 将输出图像平面上极坐标距离超过1的点设置为黑色
+            if np.isnan(r[row, column]):    # 将输出图像平面上极坐标距离超过 1 的点设置为黑色
                 fisheye_picture[row, column, :] = 0
-            # 对于极坐标距离在1以内的点
+            # 对于极坐标距离在 1 以内的点
             else:
                 # 首先确定该点对应的三维坐标指向哪个立方体表面
-                face = get_face(x[row, column],
+                face = getFace(x[row, column],
                                 y[row, column],
                                 z[row, column])
-                # 然后确定该点在该立方体表面上的uv坐标
-                u, v = raw_face_coordinates(face,
+                # 然后确定该点在该立方体表面上的 uv 坐标
+                u, v = rawFaceCoordinates(face,
                                             x[row, column],
                                             y[row, column],
                                             z[row, column])
-                # 最后获取标准化的uv坐标，锁定输出图像上坐标为(row,column)的点对应着立方体哪个表面上的哪个点
-                x_cubemap, y_cubemap = normalized_coordinates(face,
+                # 最后获取标准化的 uv 坐标，锁定输出图像上坐标为 (row,column) 的点对应着立方体哪个表面上的哪个点
+                x_cubemap, y_cubemap = normalizedCoordinates(face,
                                                               u,
                                                               v,
                                                               PicSize)
@@ -198,13 +198,13 @@ def cube2fisheye(picture_group, PicSize, FishSize, FOV):
     return fisheye_picture
 
 
+
 def main(input_images):
     PicSize = 1024  # 立方体贴图每个面的尺寸
     FishSize = 1344  # 鱼眼图像尺寸
     FOV = 196  # 鱼眼视角
     output_path = './assets/my_images/fisheye_transformation/cubemap2fisheye/'
     output_file_name = datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S') + ".png"
-    # 加载输入图像
     input_images = sorted(input_images, key=lambda x: (
         'LEFT' in x, 'RIGHT' in x, 'TOP' in x, 'BOTTOM' in x, 'FRONT' in x), reverse=True)
     lPic = cv2.imread(input_images[0])
@@ -215,7 +215,6 @@ def main(input_images):
     # 生成鱼眼图像
     fisheye_picture = cube2fisheye([lPic, rPic, tPic, bPic, fPic], PicSize, FishSize, FOV)
 
-    # 保存鱼眼图像
     cv2.imwrite(output_path + output_file_name, fisheye_picture)
     if os.path.exists(output_path + output_file_name):
         print("转换成功")

@@ -66,9 +66,8 @@ private:
  */
 void grayToColor(const string &img_path, const Mat &color_map)
 {
-    // 读取图片
     Mat gray_img = imread(img_path, IMREAD_GRAYSCALE);
-    // 判断彩色图片是否已经存在
+
     fs::path path(img_path);
     string save_dir = "./assets/my_images/fisheye_dataset/semantic_segmentation_CityScapesPalette";
     if (!fs::exists(save_dir))
@@ -102,14 +101,13 @@ void grayToColor(const string &img_path, const Mat &color_map)
             color_img.at<Vec3b>(pt) = color_map.at<Vec3b>(i);
         }
     }
-    // 保存图片
+
     cvtColor(color_img, color_img, COLOR_BGR2RGB);
     imwrite(save_path, color_img);
 }
 
 int main()
 {
-    // 你的colormap
     Mat cmap = (Mat_<Vec3b>(24, 1) << Vec3b(0, 0, 0), // unlabeled  0
                 Vec3b(128, 64, 128),                  // road  1
                 Vec3b(244, 35, 232),                  // sidewalk  2

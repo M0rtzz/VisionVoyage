@@ -94,7 +94,7 @@ pair<Eigen::MatrixXd, Eigen::MatrixXd> getSphericalCoordinates(int fish_size)
         for (int j = 0; j < fish_size; ++j)
         {
             xx(i, j) = j - center;
-            yy(i, j) = center - i; // 注意Y轴在图像中向下是正方向
+            yy(i, j) = center - i; // Y轴在图像中向下是正方向
         }
     }
 

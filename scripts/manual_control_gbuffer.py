@@ -725,14 +725,14 @@ class HUD(object):
 
     def __init__(self, width, height):
         self.dim = (width, height)
-        # 使用本地黑体字体文件创建字体对象
+        # 使用本地黑体字体文件
         font_path = './assets/fonts/simhei.ttf'
         font_size = 20
         font = pygame.font.Font(font_path, font_size)
-        # 创建一个FadingText对象，用于显示渐隐文本
+        # 渐隐文本
         self._font_mono = pygame.font.Font(font_path, 12 if os.name == 'nt' else 14)
         self._notifications = FadingText(font, (width, 40), (0, height - 40))
-        # 创建一个HelpText对象，用于显示帮助文本
+        # 显示帮助文本
         help_font_size = 24
         self.help = HelpText(pygame.font.Font(font_path, help_font_size), width, height)
         self.server_fps = 0

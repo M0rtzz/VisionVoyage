@@ -1,3 +1,12 @@
+/**
+ * @file log2pdf.cc
+ * @brief  日志文件转为 pdf 文件
+ * @author M0rtzz E-mail : m0rtzz@outlook.com
+ * @version 1.0
+ * @date 2023-11-06
+ *
+ */
+
 #include <cstdlib>
 #include <filesystem>
 #include <fstream>
@@ -60,7 +69,6 @@ bool fromTextDocumentToPDF(const string &input_file_path, const string &output_p
         return EXIT_FAILURE;
     }
 
-    // 创建 PDF 对象
     HPDF_Doc pdf = HPDF_New(handleError, NULL);
     if (!pdf)
     {
@@ -227,7 +235,7 @@ int main(int argc, char *argv[])
     {
         fs::path input_path(argv[i]);
 
-        // 判断文件扩展名是否为 .log
+        // 跳过非日志文件
         if (input_path.extension() != ".log")
         {
             continue;

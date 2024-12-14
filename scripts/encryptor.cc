@@ -1,3 +1,12 @@
+/**
+ * @file encryptor.cc
+ * @brief  AES 加密
+ * @author M0rtzz E-mail : m0rtzz@outlook.com
+ * @version 1.0
+ * @date 2023-11-06
+ *
+ */
+
 #include <algorithm>
 #include <cryptopp/aes.h>
 #include <cryptopp/base64.h>
@@ -16,17 +25,15 @@ class EncryptionHelper
 public:
     void encryptData(const std::string &data, const std::string &key, const std::string &iv, const std::string &output_file)
     {
-        // 生成AES加密所需的密钥和初始化向量
+        // AES加密所需的密钥和初始化向量
         byte aesKey[CryptoPP::AES::DEFAULT_KEYLENGTH];
         byte aesIV[CryptoPP::AES::BLOCKSIZE];
 
         CryptoPP::StringSource(key, true, new CryptoPP::ArraySink(aesKey, CryptoPP::AES::DEFAULT_KEYLENGTH));
         CryptoPP::StringSource(iv, true, new CryptoPP::ArraySink(aesIV, CryptoPP::AES::BLOCKSIZE));
-
-        // 创建AES加密对象
         CryptoPP::CBC_Mode<CryptoPP::AES>::Encryption encryption(aesKey, CryptoPP::AES::DEFAULT_KEYLENGTH, aesIV);
 
-        // 将数据进行加密
+        // 加密
         std::string encrypted;
         CryptoPP::StringSource(data, true, new CryptoPP::StreamTransformationFilter(encryption, new CryptoPP::StringSink(encrypted)));
 
@@ -37,21 +44,19 @@ public:
 
     std::string decryptData(const std::string &inputFile, const std::string &key, const std::string &iv)
     {
-        // 生成AES解密所需的密钥和初始化向量
+        // AES解密所需的密钥和初始化向量
         byte aesKey[CryptoPP::AES::DEFAULT_KEYLENGTH];
         byte aesIV[CryptoPP::AES::BLOCKSIZE];
 
         CryptoPP::StringSource(key, true, new CryptoPP::ArraySink(aesKey, CryptoPP::AES::DEFAULT_KEYLENGTH));
         CryptoPP::StringSource(iv, true, new CryptoPP::ArraySink(aesIV, CryptoPP::AES::BLOCKSIZE));
-
-        // 创建AES解密对象
         CryptoPP::CBC_Mode<CryptoPP::AES>::Decryption decryption(aesKey, CryptoPP::AES::DEFAULT_KEYLENGTH, aesIV);
 
         // 从文件中读取加密数据
         std::ifstream file(inputFile.c_str(), std::ios::binary);
         std::string encrypted((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 
-        // 对数据进行解密
+        // 解密
         std::string decrypted;
         CryptoPP::StringSource(encrypted, true, new CryptoPP::StreamTransformationFilter(decryption, new CryptoPP::StringSink(decrypted)));
 

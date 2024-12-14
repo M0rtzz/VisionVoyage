@@ -119,7 +119,6 @@ class MainWindow(QMainWindow):
         row_count = table_widget.rowCount()
         column_count = table_widget.columnCount()
 
-        # 遍历所有单元格
         for row in range(row_count):
             for col in range(column_count):
                 item = table_widget.item(row, col)
@@ -132,7 +131,6 @@ class MainWindow(QMainWindow):
                         item.setForeground(color)
 
     def clearColumn(self, widget, column_index):
-        # 获取表格的行数
         row_count = widget.rowCount()
 
         # 清空指定列的每个单元格
@@ -146,7 +144,7 @@ class MainWindow(QMainWindow):
         row = item.row()
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
-        # 遍历 output 目录下的所有子目录
+        # 遍历目录下的所有子目录
         for root, dirs, files in os.walk(self.sem_seg_directory):
             for name in files:
                 if name == file_name:
@@ -168,18 +166,18 @@ class MainWindow(QMainWindow):
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
 
-        # 遍历 fisheye_dataset 目录下的所有子目录
+        # 遍历目录下的所有子目录
         for root, dirs, files in os.walk(self.fisheye_directory):
             for name in files:
-                if name == file_name:  # 如果找到了匹配的文件名
+                if name == file_name:
                     file_path = os.path.join(root, name)
-                    if os.path.exists(file_path):  # 检查文件是否存在
+                    if os.path.exists(file_path):
                         cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
                         cv2.resizeWindow(file_name, 800, 600)  # 设置窗口大小为 800x600
                         mat = cv2.imread(file_path)
                         cv2.imshow(file_name, mat)
-                        return  # 找到文件后就返回，不再继续搜索
-        print("File not found:", file_name)  # 如果没有找到文件，打印信息
+                        return
+        print("File not found:", file_name)
 
     def onItemClickedCommon(self, item):
         column = item.column()
@@ -201,7 +199,7 @@ class MainWindow(QMainWindow):
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
         file_path = os.path.join(self.normal_directory, file_name)
-        if os.path.exists(file_path):  # 检查文件是否存在
+        if os.path.exists(file_path):
             # file_dir = os.path.dirname(file_path)
             # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
             cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
@@ -215,7 +213,7 @@ class MainWindow(QMainWindow):
         table_widget = item.tableWidget()
         file_name = table_widget.item(row, column).text()
         file_path = os.path.join(self.cubemap_directory, file_name)
-        if os.path.exists(file_path):  # 检查文件是否存在
+        if os.path.exists(file_path):
             # file_dir = os.path.dirname(file_path)
             # self.openVisualDirectory(file_dir)  # 打开文件所在文件夹
             cv2.namedWindow(file_name, cv2.WINDOW_NORMAL | cv2.WINDOW_GUI_NORMAL)
@@ -224,9 +222,9 @@ class MainWindow(QMainWindow):
             cv2.imshow(file_name, mat)
 
     def handleLineEditChange(self, text):
-        if not text:  # 如果LineEdit内容为空
-            self.file_names.clear()  # 清空file_names集合
-            self.file_paths.clear()  # 清空file_paths集合
+        if not text:  # 如果为空
+            self.file_names.clear()
+            self.file_paths.clear()
 
     def openVideoWithDefaultPlayer(self, video_path):
         if sys.platform.startswith('linux'):  # Linux
@@ -249,7 +247,6 @@ class MainWindow(QMainWindow):
             print("Unsupported platform")
 
     def openImage(self, folder_path, flag=False):
-        # 检查文件夹路径是否存在
         if not os.path.isdir(folder_path):
             print("指定的文件夹不存在")
             return
@@ -265,12 +262,10 @@ class MainWindow(QMainWindow):
                     first_image = file
                     break
 
-            # 如果没有找到图片
             if not first_image:
                 print("在指定的文件夹中没有找到图片")
                 return
 
-            # 获取完整的文件路径
             image_path = os.path.join(folder_path, first_image)
         else:  # 如果需要查找最新更改的文件
             # 查找文件夹中最新更改的图片
@@ -284,12 +279,10 @@ class MainWindow(QMainWindow):
                         latest_time = file_time
                         latest_image = file
 
-            # 如果没有找到图片
             if not latest_image:
                 print("在指定的文件夹中没有找到图片")
                 return
 
-            # 获取完整的文件路径
             image_path = os.path.join(folder_path, latest_image)
 
         # 根据不同的操作系统打开图片

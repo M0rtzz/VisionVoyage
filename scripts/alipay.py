@@ -62,7 +62,7 @@ class AlipayPayment:
             root.title(title)
             photo = ImageTk.PhotoImage(background)
             label = tk.Label(image=photo)
-            label.image = photo  # keep a reference
+            label.image = photo
             label.pack()
             root.mainloop()
 
