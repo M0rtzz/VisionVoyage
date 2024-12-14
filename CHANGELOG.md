@@ -7,6 +7,7 @@
 
 * 🎨 style(init_desktop.sh): format code ([00e6bc0](https://github.com/M0rtzz/VisionVoyage/commit/00e6bc0))
 * 💡 comment: update comments ([20669f4](https://github.com/M0rtzz/VisionVoyage/commit/20669f4))
+* 📝 docs(CHANGELOG.md): automatic update ([ecff9e4](https://github.com/M0rtzz/VisionVoyage/commit/ecff9e4))
 * 📝 docs(CHANGELOG.md): automatic update ([516c796](https://github.com/M0rtzz/VisionVoyage/commit/516c796))
 
 
