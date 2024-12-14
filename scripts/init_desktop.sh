@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#添加桌面文件
+# 添加桌面文件
 # base_path=$(dirname "$0")
 base_path=$(git rev-parse --show-toplevel)
 exec_name="main"
