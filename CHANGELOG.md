@@ -1,5 +1,11 @@
-##  (2024-12-14)
+##  (2024-12-24)
 
+
+
+
+## <small>9.6.6-stable (2024-12-24)</small>
+
+* 📝 docs(README.md): update content ([5a9b316](https://github.com/M0rtzz/VisionVoyage/commit/5a9b316))
 
 
 
@@ -7,6 +13,7 @@
 
 * 🎨 style(init_desktop.sh): format code ([00e6bc0](https://github.com/M0rtzz/VisionVoyage/commit/00e6bc0))
 * 💡 comment: update comments ([20669f4](https://github.com/M0rtzz/VisionVoyage/commit/20669f4))
+* 📝 docs(CHANGELOG.md): automatic update ([8af502a](https://github.com/M0rtzz/VisionVoyage/commit/8af502a))
 * 📝 docs(CHANGELOG.md): automatic update ([ecff9e4](https://github.com/M0rtzz/VisionVoyage/commit/ecff9e4))
 * 📝 docs(CHANGELOG.md): automatic update ([516c796](https://github.com/M0rtzz/VisionVoyage/commit/516c796))
 
