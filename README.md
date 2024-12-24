@@ -4,45 +4,47 @@
 
 ![VisionVoyage](./docs/.figures/README/VisionVoyage.png)
 
-> This project is associated with the courses `Basis of Innovation and Entrepreneurship ＆ Engineering Design Practice (创新创业基础与工程设计实践)`  and `Productive Practice (生产实习)` of the CS major at ZZU.
->
-> I led a simulation of a software company called `IngenuityDrive (创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
->
-> **Company Positions**
->
-> | Name   | Major | Position                        | Main Responsibility                                          |
-> | ------ | ----- | ------------------------------- | ------------------------------------------------------------ |
-> | M0rtzz | CS    | Manager and Technical Developer | Fully responsible for product development and documentation, leading the team to ensure the smooth completion of the project. |
-> | \      | CS    | \                               | \                                                            |
-> | \      | CS    | \                               | \                                                            |
-> | \      | CS    | \                               | \                                                            |
-> | \      | SE    | \                               | \                                                            |
->
-> VisionVoyage is an autonomous driving simulation system that leverages  fisheye cameras and other sensing technologies, providing the following  capabilities:
->
-> - Fisheye transformation of a single standard image
-> - Mosaic of fisheye images from multiple standard images
-> - Semantic segmentation of fisheye (e.g., [WoodScape](https://woodscape.valeo.com/woodscape)) and standard (e.g., [Cityscapes](https://www.cityscapes-dataset.com)) images in street scenes
-> - Semantic segmentation of video in street scenes (such as videos stitched from [continuous datasets published by Cityscapes](https://www.cityscapes-dataset.com/downloads))
->   -  ![Cityscapes](./docs/.figures/README/Cityscapes.png)
->
-> - Simulated driving
-> - Autonomous driving simulation
-> - Shooting of simulated fisheye semantic segmentation dataset
-> - Experience with a variety of simulated sensors, including:
->   - Camera Fisheye
->   - Camera RGB
->   - Camera Depth (Raw)
->   - Camera Semantic Segmentation (Raw)
->   - Camera Semantic Segmentation (Cityscapes Palette)
->   - Camera Instance Segmentation (Raw)
->   - Dynamic Vision
->   - Optical Flow
->   - Camera Normals
->   - Lidar (Ray-Cast)
->   - etc
->
-> For more detailed explanation and demonstration, please refer to [the demonstration video I have recorded](./docs/DEMONSTRATION.md).
+---
+
+This project is associated with the courses `Basis of Innovation and Entrepreneurship ＆ Engineering Design Practice (创新创业基础与工程设计实践)`  and `Productive Practice (生产实习)` of the CS major at ZZU.
+
+I led a simulation of a software company called `IngenuityDrive (创智行)` and developed a software called `VisionVoyage`. We need to play different roles:
+
+ **Company Positions**
+
+|  Name  | Major |            Position             |                     Main Responsibility                      |
+| :----: | :---: | :-----------------------------: | :----------------------------------------------------------: |
+| M0rtzz |  CS   | Manager and Technical Developer | Fully responsible for product development and documentation, leading the team to ensure the smooth completion of the project. |
+|   \    |  CS   |                \                |                              \                               |
+|   \    |  CS   |                \                |                              \                               |
+|   \    |  CS   |                \                |                              \                               |
+|   \    |  SE   |                \                |                              \                               |
+
+VisionVoyage is an autonomous driving simulation system that leverages  fisheye cameras and other sensing technologies, providing the following  capabilities:
+
+- Fisheye transformation of a single standard image
+- Mosaic of fisheye images from multiple standard images
+- Semantic segmentation of fisheye (e.g., [WoodScape](https://woodscape.valeo.com/woodscape)) and standard (e.g., [Cityscapes](https://www.cityscapes-dataset.com)) images in street scenes
+- Semantic segmentation of video in street scenes (such as videos stitched from [continuous datasets published by Cityscapes](https://www.cityscapes-dataset.com/downloads))
+  -  ![Cityscapes](./docs/.figures/README/Cityscapes.png)
+
+- Simulated driving
+- Autonomous driving simulation
+- Shooting of simulated fisheye semantic segmentation dataset
+- Experience with a variety of simulated sensors, including:
+  - Camera Fisheye
+  - Camera RGB
+  - Camera Depth (Raw)
+  - Camera Semantic Segmentation (Raw)
+  - Camera Semantic Segmentation (Cityscapes Palette)
+  - Camera Instance Segmentation (Raw)
+  - Dynamic Vision
+  - Optical Flow
+  - Camera Normals
+  - Lidar (Ray-Cast)
+  - etc.
+
+For more detailed explanation and demonstration, please refer to [the demonstration video I have recorded](./docs/DEMONSTRATION.md).
 
 ## Get Started
 
