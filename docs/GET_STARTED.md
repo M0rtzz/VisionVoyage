@@ -271,7 +271,7 @@ class AlipayPayment:
 
 > [!NOTE]
 >
-> 如果需要数据集测试、训练的，可以参考以下文档下载。
+> 如果需要数据集测试、训练，可以参考以下文档下载。
 
 [DOWNLOAD_DATASETS.md](./DOWNLOAD_DATASETS.md)
 
